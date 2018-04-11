@@ -117,7 +117,7 @@ Begin VB.Form Form1
    Begin VB.Label Label_cy 
       Caption         =   "先选主题"
       BeginProperty Font 
-         Name            =   "隶书"
+         Name            =   "宋体"
          Size            =   42
          Charset         =   134
          Weight          =   700
@@ -144,10 +144,10 @@ Dim sum_cy, num_cy As Integer '成语
 Dim str_cy(1000) As String
 Dim use_cy, use_theme As Integer
 Dim vis_cy(1000), vis_theme(1000) As Boolean  '判断重复
-Dim is_rest As Boolean '防止用完
+Dim is_ok As Boolean '防止用完
 Dim gnum As Integer
 Dim cur, time_now, i As Integer
-Dim win(3) As Integer
+Dim win(3) As Boolean
 
 Private Sub Form_Load()
     beautify
@@ -171,7 +171,8 @@ Private Sub Form_Load()
     ' 默认为A组
     Optiong(0).Value = True
     Optiong(1).Value = False
-    If form0.gnum < 3 Then
+    If form0.gnum < 2 Then
+        Optiong(2).Caption = ""
         Optiong(2).Enabled = False '禁用
     Else
         Optiong(2).Value = False
@@ -195,9 +196,9 @@ Private Sub judge() ' 判断胜负
 
     Dim maxv, maxn, maxi As Integer '记录最高分的分数和个数序号
 
-    '先累计初始分
-    For i = 0 To 2
-        win(i) = 10
+    '初始
+    For i = 0 To gnum
+        win(i) = True
     Next i
     
     '答对
@@ -205,46 +206,145 @@ Private Sub judge() ' 判断胜负
     maxi = -1
     maxn = 0
     For i = 0 To gnum
-        If right(i) > maxv Then
-            maxv = win(i)
+        If win(i) = False Then '跳过
+        ElseIf right(i) > maxv Then
+            maxv = right(i)
             maxn = 1
             maxi = i
-        ElseIf maxv = win(i) Then
+        ElseIf maxv = right(i) Then
             maxn = maxn + 1
         End If
     Next i
     
-    
-End Sub
-
-Private Function winner() As Integer
-
-    Dim maxv, maxn, maxi As Integer  '记录最高分的分数和个数
-    maxv = 0
-    maxn = 0
-    For i = 0 To gnum
-        If win(i) > maxv Then
-            maxv = win(i)
-            maxn = 1
-            maxi = i
-        ElseIf maxv = win(i) Then
-            maxn = maxn + 1
-        End If
-    Next i
-    '如果只有一个，则决出胜负
-    '否则没有
-    If maxn > 1 Then
-        winner = -1
-    Else
-        winner = maxi
+    If maxn = 1 Then ' find the wineer
+        tmp = MsgBox(form0.qname(maxi) + "组赢了", 0, "结果")
+        form0.add_score (maxi)
+        Exit Sub
+    Else ' maxn > 1
+        For i = 0 To gnum
+            If right(i) < maxn Then
+                win(i) = False 'no chance to win
+            End If
+        Next i
     End If
     
-End Function
+    'debug
+    Print maxv
+    Print maxi
+    Print maxn
+    Print
+    'debug
+    
+    '用时 用时少的赢
+    maxv = 10000
+    maxi = -1
+    maxn = 0
+    For i = 0 To gnum
+        If win(i) = False Then 'jump
+        ElseIf time(i) < maxv Then
+            maxv = time(i)
+            maxn = 1
+            maxi = i
+        ElseIf maxv = time(i) Then
+            maxn = maxn + 1
+        End If
+    Next i
+    
+    If maxn = 1 Then ' find the wineer
+        tmp = MsgBox(form0.qname(maxi) + "组赢了", 0, "结果")
+        form0.add_score (maxi)
+        Exit Sub
+    Else ' maxn > 1
+        For i = 0 To gnum
+            If time(i) > maxn Then
+                win(i) = False 'no chance to win
+            End If
+        Next i
+    End If
+    
+    'debug
+    Print maxv
+    Print maxi
+    Print maxn
+    Print
+    'debug
+    
+    '犯规犯规少的
+    maxv = 10000
+    maxi = -1
+    maxn = 0
+    For i = 0 To gnum
+        If win(i) = False Then 'jump
+        ElseIf wrong(i) < maxv Then
+            maxv = wrong(i)
+            maxn = 1
+            maxi = i
+        ElseIf maxv = wrong(i) Then
+            maxn = maxn + 1
+        End If
+    Next i
+    
+    If maxn = 1 Then ' find the wineer
+        tmp = MsgBox(form0.qname(maxi) + "组赢了", 0, "结果")
+        form0.add_score (maxi)
+        Exit Sub
+    Else ' maxn > 1
+        For i = 0 To gnum
+            If wrong(i) > maxn Then
+                win(i) = False 'no chance to win
+            End If
+        Next i
+    End If
+    
+    'debug
+    Print maxv
+    Print maxi
+    Print maxn
+    Print
+    'debug
+    
+    '跳过少的
+    maxv = 10000
+    maxi = -1
+    maxn = 0
+    For i = 0 To gnum
+        If win(i) = False Then '
+        ElseIf pass(i) < maxv Then
+            maxv = pass(i)
+            maxn = 1
+            maxi = i
+        ElseIf maxv = pass(i) Then
+            maxn = maxn + 1
+        End If
+    Next i
+    
+    If maxn = 1 Then ' find the wineer
+        tmp = MsgBox(form0.qname(maxi) + "组赢了", 0, "结果")
+        form0.add_score (maxi)
+        Exit Sub
+    Else ' maxn > 1
+        For i = 0 To gnum
+            If pass(i) > maxn Then
+                win(i) = False 'no chance to win
+            End If
+        Next i
+    End If
+    
+    'debug
+    Print maxv
+    Print maxi
+    Print maxn
+    Print
+    'debug
+    
+    tmp = MsgBox("平", 0, "这我还能怎么办")
+    
+End Sub
 
 
 Private Sub Label_right_Click() ' 正确
 
-    If is_rest = False Then Exit Sub
+    If is_ok = False Then Exit Sub
     '获得当前组
     get_now
     
@@ -253,6 +353,7 @@ Private Sub Label_right_Click() ' 正确
     state_show
     
     If right(cur) >= form0.rule1_right Then
+        is_ok = False
         Timer.Enabled = False ' stop
         tmp = MsgBox("Finish", 0, "可恶")
     Else
@@ -263,7 +364,7 @@ End Sub
 
 Private Sub Label_pass_Click() '跳过
 
-    If is_rest = False Then Exit Sub
+    If is_ok = False Then Exit Sub
     '获得当前组
     get_now
     
@@ -280,13 +381,13 @@ End Sub
 
 Private Sub Label_wrong_Click() '错误
     
-    If is_rest = False Then Exit Sub
+    If is_ok = False Then Exit Sub
     '获得当前组
     get_now
     
     If wrong(cur) > form0.rule1_wrong Then
         Timer.Enabled = False
-        is_rest = False '暂停
+        is_ok = False '暂停
         tmp = MsgBox("你错好多啊", 64, "FBIWarning") ' stop
         Exit Sub
     End If
@@ -303,7 +404,7 @@ Private Sub Label_theme_Click() '切换主题
     Timer.Enabled = False
     
     If use_theme > sum_theme Then
-        is_rest = False
+        is_ok = False
         tmp = MsgBox("主题用完了", 64, "FBIWarning")
         Exit Sub
     End If
@@ -333,11 +434,11 @@ Private Sub Label_theme_Click() '切换主题
 End Sub
 
 Private Sub change_cy() ' 换成语
-    If is_rest = False Then Exit Sub
+    If is_ok = False Then Exit Sub
 
     If use_cy > sum_cy Then
         Timer.Enabled = False
-        is_rest = False
+        is_ok = False
         tmp = MsgBox("成语用完了", 64, "FBIWarning")
         Exit Sub
     End If
@@ -384,7 +485,7 @@ Private Sub Command_exit_Click()
 End Sub
 
 Private Sub Command_start_Click() ' 开始计时，出现成语
-    time_npw = 0
+    time_now = 0
     Timer.Enabled = True
     change_cy
 End Sub

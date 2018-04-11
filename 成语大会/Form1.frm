@@ -95,7 +95,7 @@ Begin VB.Form form0
    Begin VB.Label Label_title 
       Caption         =   "北师大台州附中第一届中国成语大会"
       BeginProperty Font 
-         Name            =   "隶书"
+         Name            =   "宋体"
          Size            =   27.75
          Charset         =   134
          Weight          =   700
@@ -120,7 +120,7 @@ Private gname(3) As String
 Private score(3) As Integer
 Public rule0_win As Integer
 Public rule1_right, rule1_wrong, rule1_pass As Integer
-Public rule2_wrong As Integer
+Public rule2_wrong, rule2_right As Integer
 Public rule3_time, rule3_wrong, rule3_pass As Integer
 Public rule4_v, rule4_wrong, rule4_right As Integer
 Public rule5_time As Integer
@@ -168,6 +168,7 @@ Private Sub Form_Load()
     rule1_wrong = 2
     rule1_pass = 2
     rule2_wrong = 2
+    rule2_right = 2
     rule3_time = 60
     rule3_wrong = 2
     rule3_pass = 2

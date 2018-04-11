@@ -8,25 +8,35 @@ Begin VB.Form Form4
    LinkTopic       =   "Form4"
    ScaleHeight     =   6375
    ScaleWidth      =   8850
+   Begin VB.OptionButton Optiong 
+      Height          =   255
+      Index           =   2
+      Left            =   3360
+      TabIndex        =   10
+      Top             =   4800
+      Width           =   975
+   End
+   Begin VB.OptionButton Optiong 
+      Caption         =   "2"
+      Height          =   255
+      Index           =   1
+      Left            =   1920
+      TabIndex        =   9
+      Top             =   4920
+      Width           =   975
+   End
    Begin VB.CommandButton Command_answer 
       Caption         =   "公布答案"
       Height          =   615
       Left            =   6600
-      TabIndex        =   9
+      TabIndex        =   8
       Top             =   3960
       Width           =   1215
    End
-   Begin VB.OptionButton Option_b 
-      Caption         =   "B组"
-      Height          =   255
-      Left            =   1920
-      TabIndex        =   5
-      Top             =   4800
-      Width           =   855
-   End
-   Begin VB.OptionButton Option_a 
+   Begin VB.OptionButton Optiong 
       Caption         =   "A组"
       Height          =   255
+      Index           =   0
       Left            =   360
       TabIndex        =   4
       Top             =   4800
@@ -65,7 +75,7 @@ Begin VB.Form Form4
       Caption         =   "答案:"
       Height          =   735
       Left            =   4320
-      TabIndex        =   8
+      TabIndex        =   7
       Top             =   3720
       Width           =   1695
    End
@@ -73,7 +83,7 @@ Begin VB.Form Form4
       Caption         =   "犯规"
       Height          =   375
       Left            =   2640
-      TabIndex        =   7
+      TabIndex        =   6
       Top             =   5520
       Width           =   1215
    End
@@ -81,7 +91,7 @@ Begin VB.Form Form4
       Caption         =   "答对"
       Height          =   615
       Left            =   240
-      TabIndex        =   6
+      TabIndex        =   5
       Top             =   5520
       Width           =   1695
    End
@@ -108,25 +118,33 @@ Dim use_answer As Integer
 Dim vis_answer(1000) As Boolean
 Dim is_start As Boolean
 Dim is_ok As Boolean
-Dim right_a, wrong_a, right_b, wrong_b As Integer '记录答对和犯规
-
+Dim right(3), wrong(3) As Integer '记录答对和犯规
+Dim cur, gnum, i As Integer
 
 Private Sub Form_Load()
     beautify
 
     is_ok = True
-    right_a = 0
-    right_b = 0
-    wrong_a = 0
-    wrong_b = 0
-    Option_a.Caption = Form0.name_a + "组"
-    Option_b.Caption = Form0.name_b + "组"
+    gnum = form0.gnum
+    
+    For i = 0 To gnum
+        right(i) = 0
+        wrong(i) = 0
+        Optiong(i).Caption = form0.qname(i) + "组"
+    Next i
+    
     ' 默认为A组
-    Option_a.Value = True
-    Option_b.Value = False
+    Optiong(0).Value = True
+    Optiong(1).Value = False
+    If form0.gnum < 2 Then
+        Optiong(2).Caption = ""
+        Optiong(2).Enabled = False '禁用
+    Else
+        Optiong(2).Value = False
+    End If
     
     Timer.Enabled = False
-    Timer.Interval = Form0.rule4_v
+    Timer.Interval = form0.rule4_v
     num_answer = 0
     reset_answer
     num_line = 0
@@ -138,7 +156,6 @@ Private Sub Form_Load()
     
     'answer Initialization
     Open "resources\part4\answer.txt" For Input As #1
-        Dim i As Integer
         i = 0
         Do Until EOF(1)
             Line Input #1, str_answer(i)
@@ -152,16 +169,17 @@ End Sub
 Private Sub Label_right_Click() ' 正确
 
     If is_ok = False Then Exit Sub
-
-    If Option_a.Value = True Then
+    '获得当前组
+    get_now
     
-        right_a = right_a + 1
-        Label_right.Caption = "答对:" + Str(right_a)
-        
-    Else
-        right_b = right_b + 1
-        Label_right.Caption = "答对:" + Str(right_b)
-
+    right(cur) = right(cur) + 1
+    
+    state_show
+    
+    If right(cur) >= form0.rule1_right Then
+        is_ok = False
+        Timer.Enabled = False ' stop
+        tmp = MsgBox("Finish", 0, "可恶")
     End If
     
     judge
@@ -172,25 +190,34 @@ End Sub
 Private Sub Label_wrong_Click() '错误
     
     If is_ok = False Then Exit Sub
+    '获得当前组
+    get_now
+    wrong(cur) = wrong(cur) + 1
+    For i = 0 To gnum
+        If i = cur Then 'none
+        Else: right(i) = right(i) + 1
+        End If
+    Next i
+    state_show
 
-    If Option_a.Value = True Then
-    
-        wrong_a = wrong_a + 1
-        Label_wrong.Caption = "犯规:" + Str(wrong_a)
-        
-        If wrong_a > Form0.rule4_wrong Then
-            right_b = right_b + 1
-            tmp = MsgBox("答错，对方加分", 0, "FBIWarning")
-        End If
-    Else
-        wrong_b = wrong_b + 1
-        Label_wrong.Caption = "犯规:" + Str(wrong_b)
-        
-        If wrong_b > Form0.rule4_wrong Then
-            right_a = right_a + 1
-            tmp = MsgBox("答错，对方加分", 0, "FBIWarning")
-        End If
-    End If
+'    If Option_a.Value = True Then
+'
+'        wrong_a = wrong_a + 1
+'        Label_wrong.Caption = "犯规:" + Str(wrong_a)
+'
+'        If wrong_a > form0.rule4_wrong Then
+'            right_b = right_b + 1
+'            tmp = MsgBox("答错，对方加分", 0, "FBIWarning")
+'        End If
+'    Else
+'        wrong_b = wrong_b + 1
+'        Label_wrong.Caption = "犯规:" + Str(wrong_b)
+'
+'        If wrong_b > form0.rule4_wrong Then
+'            right_a = right_a + 1
+'            tmp = MsgBox("答错，对方加分", 0, "FBIWarning")
+'        End If
+'    End If
     
     judge
 End Sub
@@ -244,6 +271,10 @@ Private Sub Command_change_Click()
     
 End Sub
 
+Private Sub Optiong_Click(Index As Integer)
+    state_show
+End Sub
+
 Private Sub Timer_Timer()
     '读完了
     If num_line > sum_line Then
@@ -269,7 +300,7 @@ Private Sub Command_answer_Click()
 End Sub
 
 Private Sub Command_exit_Click()
-    Form0.score_show
+    form0.score_show
     Unload Me
 End Sub
 
@@ -281,36 +312,41 @@ Private Sub reset_answer() '重置vis
     use_answer = 0
 End Sub
 
-Private Sub state_show()
-    If Option_b.Value = True Then
-        Label_right.Caption = "答对:" + Str(right_b)
-        Label_wrong.Caption = "犯规:" + Str(wrong_b)
-    Else
-        Label_right.Caption = "答对:" + Str(right_a)
-        Label_wrong.Caption = "犯规:" + Str(wrong_a)
-    End If
-End Sub
-
-Private Sub Option_a_Click() '更改小组
-    state_show
-End Sub
-
-Private Sub Option_b_Click()
-    state_show
-End Sub
 
 Private Sub judge()
-        
-    If right_a >= Form0.rule4_right Then
-        is_ok = False
-        Form0.score_a = Form0.score_a + 1
-        tmp = MsgBox(Form0.name_a + "组赢了", 0, "该局结束")
-    ElseIf right_b >= Form0.rule4_right Then
-        Form0.score_b = Form0.score_b + 1
-        tmp = MsgBox(Form0.name_b + "组赢了", 0, "该局结束")
-        is_ok = False
-    End If
-    Form0.score_show
+    Dim winner As Integer
+    winner = -1
+    For i = 0 To gnum
+        If right(i) >= form0.rule4_right Then
+            winner = i
+            Exit For
+        End If
+    Next i
+    
+    If winner = -1 Then Exit Sub
+    
+    tmp = MsgBox(form0.qname(winner) + "组赢了", 0, "结果")
+    form0.add_score (winner)
+    form0.score_show
+    is_ok = False
+    
+End Sub
+
+Private Sub state_show()
+
+    '获得当前组
+    get_now
+    
+    Label_right.Caption = "答对:" + Str(right(cur))
+    Label_wrong.Caption = "犯规:" + Str(wrong(cur))
+    
+End Sub
+
+Private Sub get_now()
+    '获得当前组
+    For i = 0 To gnum
+        If Optiong(i) = True Then cur = i
+    Next i
 End Sub
 
 Private Sub beautify()
