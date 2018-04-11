@@ -1,14 +1,14 @@
 Type=Exe
 Form=Form1.frm
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Form=Form-1.frm
 Form=Form_setting.frm
 Form=Form-2.frm
 Form=Form-3.frm
 Form=Form-4.frm
 Form=Form-5.frm
-IconForm="Form0"
-Startup="Form0"
+IconForm="form0"
+Startup="form0"
 HelpFile=""
 Title="≥…”Ô¥Ûª·"
 ExeName32="v1.2.exe"

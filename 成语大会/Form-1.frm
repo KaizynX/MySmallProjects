@@ -8,20 +8,30 @@ Begin VB.Form Form1
    LinkTopic       =   "Form2"
    ScaleHeight     =   5040
    ScaleWidth      =   7725
-   Begin VB.OptionButton Option_b 
-      Caption         =   "B组"
+   Begin VB.OptionButton Optiong 
       Height          =   255
-      Left            =   1680
-      TabIndex        =   8
-      Top             =   1320
-      Width           =   855
+      Index           =   2
+      Left            =   3240
+      TabIndex        =   10
+      Top             =   2280
+      Width           =   975
    End
-   Begin VB.OptionButton Option_a 
+   Begin VB.OptionButton Optiong 
       Caption         =   "A组"
       Height          =   255
-      Left            =   360
+      Index           =   1
+      Left            =   1800
+      TabIndex        =   9
+      Top             =   2280
+      Width           =   975
+   End
+   Begin VB.OptionButton Optiong 
+      Caption         =   "A组"
+      Height          =   255
+      Index           =   0
+      Left            =   240
       TabIndex        =   7
-      Top             =   1320
+      Top             =   2160
       Width           =   975
    End
    Begin VB.CommandButton Command_start 
@@ -35,8 +45,8 @@ Begin VB.Form Form1
    Begin VB.Timer Timer 
       Enabled         =   0   'False
       Interval        =   1000
-      Left            =   1920
-      Top             =   2160
+      Left            =   1560
+      Top             =   3600
    End
    Begin VB.CommandButton Command_exit 
       Caption         =   "退出"
@@ -49,9 +59,9 @@ Begin VB.Form Form1
    Begin VB.Label Label_pass 
       Caption         =   "跳过"
       Height          =   495
-      Left            =   6360
-      TabIndex        =   9
-      Top             =   1920
+      Left            =   6600
+      TabIndex        =   8
+      Top             =   3240
       Width           =   855
    End
    Begin VB.Label Label_wrong 
@@ -59,7 +69,7 @@ Begin VB.Form Form1
       Height          =   375
       Left            =   4800
       TabIndex        =   6
-      Top             =   1920
+      Top             =   3000
       Width           =   1215
    End
    Begin VB.Label Label_right 
@@ -67,7 +77,7 @@ Begin VB.Form Form1
       Height          =   615
       Left            =   2760
       TabIndex        =   5
-      Top             =   1920
+      Top             =   3120
       Width           =   1695
    End
    Begin VB.Label Label_time 
@@ -82,9 +92,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   735
-      Left            =   840
+      Left            =   600
       TabIndex        =   3
-      Top             =   1800
+      Top             =   3120
       Width           =   1695
    End
    Begin VB.Label Label_theme 
@@ -127,44 +137,50 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim time, time_a, time_b As Integer '计时
-Dim right_a, wrong_a, right_b, wrong_b, pass_a, pass_b As Integer '记录答对和犯规
+Dim right(3), wrong(3), time(3), pass(3) As Integer '记录答对和犯规
 Dim sum_theme, num_theme As Integer ' 记录主题
 Dim str_theme(1000) As String ' 主题
 Dim sum_cy, num_cy As Integer '成语
 Dim str_cy(1000) As String
 Dim use_cy, use_theme As Integer
 Dim vis_cy(1000), vis_theme(1000) As Boolean  '判断重复
-Dim is_ok As Boolean '防止用完
-
+Dim is_rest As Boolean '防止用完
+Dim gnum As Integer
+Dim cur, time_now, i As Integer
+Dim win(3) As Integer
 
 Private Sub Form_Load()
     beautify
 
     is_ok = True
-    
-    time = 0
-    time_a = 0
-    time_b = 0
-    right_a = 0
-    right_b = 0
-    wrong_a = 0
-    wrong_b = 0
-    pass_a = 0
-    pass_b = 0
+
+    time_now = 0
     use_cy = 0
     use_theme = 0
-    Option_a.Caption = Form0.name_a + "组"
-    Option_b.Caption = Form0.name_b + "组"
-    ' 默认为A组
-    Option_a.Value = True
-    Option_b.Value = False
     
-    Label_time.Caption = "用时:" + Str(time)
+    gnum = form0.gnum
+    
+    For i = 0 To gnum
+        time(i) = 0
+        right(i) = 0
+        wrong(i) = 0
+        pass(i) = 0
+        Optiong(i).Caption = form0.qname(i) + "组"
+    Next i
+    
+    ' 默认为A组
+    Optiong(0).Value = True
+    Optiong(1).Value = False
+    If form0.gnum < 3 Then
+        Optiong(2).Enabled = False '禁用
+    Else
+        Optiong(2).Value = False
+    End If
+    
+    Label_time.Caption = "用时:" + Str(time_now)
     
     '主题init
     Open "resources\part1\theme.txt" For Input As #1
-        Dim i As Integer
         i = 0
         Do Until EOF(1)
             Line Input #1, str_theme(i)
@@ -176,94 +192,119 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub judge() ' 判断胜负
-    If time_a < time_b Then ' A win
-        Form0.score_a = Form0.score_a + 1
-    ElseIf time_a > time_b Then ' B win
-        Form0.score_b = Form0.score_b + 1
-    Else 'use the same time
-        Form0.score_a = Form0.score_a + 1
-        Form0.score_b = Form0.score_b + 1
-    End If
+
+    Dim maxv, maxn, maxi As Integer '记录最高分的分数和个数序号
+
+    '先累计初始分
+    For i = 0 To 2
+        win(i) = 10
+    Next i
+    
+    '答对
+    maxv = 0
+    maxi = -1
+    maxn = 0
+    For i = 0 To gnum
+        If right(i) > maxv Then
+            maxv = win(i)
+            maxn = 1
+            maxi = i
+        ElseIf maxv = win(i) Then
+            maxn = maxn + 1
+        End If
+    Next i
+    
+    
 End Sub
+
+Private Function winner() As Integer
+
+    Dim maxv, maxn, maxi As Integer  '记录最高分的分数和个数
+    maxv = 0
+    maxn = 0
+    For i = 0 To gnum
+        If win(i) > maxv Then
+            maxv = win(i)
+            maxn = 1
+            maxi = i
+        ElseIf maxv = win(i) Then
+            maxn = maxn + 1
+        End If
+    Next i
+    '如果只有一个，则决出胜负
+    '否则没有
+    If maxn > 1 Then
+        winner = -1
+    Else
+        winner = maxi
+    End If
+    
+End Function
 
 
 Private Sub Label_right_Click() ' 正确
 
-    If Option_a.Value = True Then
-        If is_ok Then right_a = right_a + 1
-        Label_right.Caption = "答对:" + Str(right_a)
-        
-        If right_a >= Form0.rule1_right Then
-            Timer.Enabled = False ' stop
-            tmp = MsgBox("Finish", 0, "可恶")
-        End If
+    If is_rest = False Then Exit Sub
+    '获得当前组
+    get_now
+    
+    right(cur) = right(cur) + 1
+    
+    state_show
+    
+    If right(cur) >= form0.rule1_right Then
+        Timer.Enabled = False ' stop
+        tmp = MsgBox("Finish", 0, "可恶")
     Else
-        If is_ok Then right_b = right_b + 1
-        Label_right.Caption = "答对:" + Str(right_b)
-        
-        If right_b >= Form0.rule1_right Then
-            Timer.Enabled = False ' stop
-            tmp = MsgBox("Finish", 0, "可恶")
-        End If
+        change_cy
     End If
-    change_cy
-    
-    
-    
+
 End Sub
 
 Private Sub Label_pass_Click() '跳过
 
-    If Option_a.Value = True Then
-        If is_ok Then pass_a = pass_a + 1
-        Label_pass.Caption = "跳过:" + Str(pass_a)
-        
-        If pass_a > Form0.rule1_pass Then
-            tmp = MsgBox("没机会了", 0, "FBIWarning") ' stop
-        Else: change_cy
-        End If
-    Else
-        If is_ok Then pass_b = pass_b + 1
-        Label_pass.Caption = "跳过:" + Str(pass_b)
-        
-        If pass_b > Form0.rule1_pass Then
-            tmp = MsgBox("没机会了", 0, "FBIWarning") ' stop
-        Else: change_cy
-        End If
+    If is_rest = False Then Exit Sub
+    '获得当前组
+    get_now
+    
+    If pass(cur) > form0.rule1_pass Then
+        tmp = MsgBox("没机会了", 64, "FBIWarning") ' stop
+        Exit Sub
     End If
+    
+    pass(cur) = pass(cur) + 1
+    state_show
+    change_cy
     
 End Sub
 
 Private Sub Label_wrong_Click() '错误
-    If Option_a.Value = True Then
-        If is_ok Then wrong_a = wrong_a + 1
-        Label_wrong.Caption = "犯规:" + Str(wrong_a)
-        
-        If wrong_a > Form0.rule1_wrong Then
-            is_ok = False
-            Timer.Enabled = False ' stop
-            tmp = MsgBox("犯规", 0, "FBIWarning")
-        End If
-    Else
-        If is_ok Then wrong_b = wrong_b + 1
-        Label_wrong.Caption = "犯规:" + Str(wrong_b)
-        
-        If wrong_b > Form0.rule1_wrong Then
-            is_ok = False
-            Timer.Enabled = False ' stop
-            tmp = MsgBox("犯规", 0, "FBIWarning")
-        End If
+    
+    If is_rest = False Then Exit Sub
+    '获得当前组
+    get_now
+    
+    If wrong(cur) > form0.rule1_wrong Then
+        Timer.Enabled = False
+        is_rest = False '暂停
+        tmp = MsgBox("你错好多啊", 64, "FBIWarning") ' stop
+        Exit Sub
     End If
     
+    wrong(cur) = wrong(cur) + 1
+    state_show
     change_cy
     
 End Sub
 
 Private Sub Label_theme_Click() '切换主题
 
+    '？？？
+    Timer.Enabled = False
+    
     If use_theme > sum_theme Then
-        is_ok = False
-        tmp = MsgBox("主题用完了", 0, "FBIWarning")
+        is_rest = False
+        tmp = MsgBox("主题用完了", 64, "FBIWarning")
         Exit Sub
     End If
     
@@ -292,11 +333,12 @@ Private Sub Label_theme_Click() '切换主题
 End Sub
 
 Private Sub change_cy() ' 换成语
-    If is_ok = False Then Exit Sub
+    If is_rest = False Then Exit Sub
 
     If use_cy > sum_cy Then
-        is_ok = False
-        tmp = MsgBox("成语用完了", 0, "FBIWarning")
+        Timer.Enabled = False
+        is_rest = False
+        tmp = MsgBox("成语用完了", 64, "FBIWarning")
         Exit Sub
     End If
     
@@ -318,51 +360,52 @@ Private Sub reset_cy() '重置成语vis
         vis_cy(i) = False
     Next i
     use_cy = 0
-    is_ok = True
+    is_rest = True
 End Sub
 
-Private Sub Option_a_Click() '更改小组
-    state_show
-End Sub
-
-Private Sub Option_b_Click()
+Private Sub Optiong_Click(Index As Integer)
     state_show
 End Sub
 
 Private Sub Timer_Timer() '计时
-    time = time + 1
-     If Option_a.Value = True Then
-        time_a = time
-    Else
-        time_b = time
-    End If
-    Label_time.Caption = "用时:" + Str(time)
+    time_now = time_now + 1
+    
+    get_now
+    
+    time(cur) = time_now
+    
+    Label_time.Caption = "用时:" + Str(time_now)
 End Sub
 
 Private Sub Command_exit_Click()
     judge '判断胜负
-    Form0.score_show
+    form0.score_show
     Unload Me '关闭
 End Sub
 
 Private Sub Command_start_Click() ' 开始计时，出现成语
-    time = 0
+    time_npw = 0
     Timer.Enabled = True
     change_cy
 End Sub
 
 Private Sub state_show()
-    If Option_b.Value = True Then
-        Label_right.Caption = "答对:" + Str(right_b)
-        Label_wrong.Caption = "犯规:" + Str(wrong_b)
-        Label_time.Caption = "用时:" + Str(time_b)
-        Label_pass.Caption = "跳过:" + Str(pass_b)
-    Else
-        Label_right.Caption = "答对:" + Str(right_a)
-        Label_wrong.Caption = "犯规:" + Str(wrong_a)
-        Label_time.Caption = "用时:" + Str(time_a)
-        Label_pass.Caption = "跳过:" + Str(pass_a)
-    End If
+
+    '获得当前组
+    get_now
+    
+    Label_right.Caption = "答对:" + Str(right(cur))
+    Label_wrong.Caption = "犯规:" + Str(wrong(cur))
+    Label_time.Caption = "用时:" + Str(time(cur))
+    Label_pass.Caption = "跳过:" + Str(pass(cur))
+    
+End Sub
+
+Private Sub get_now()
+    '获得当前组
+    For i = 0 To gnum
+        If Optiong(i) = True Then cur = i
+    Next i
 End Sub
 
 Private Sub beautify()
