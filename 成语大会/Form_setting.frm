@@ -1,219 +1,113 @@
 VERSION 5.00
 Begin VB.Form Form_setting 
    Caption         =   "设置"
-   ClientHeight    =   9885
+   ClientHeight    =   5865
    ClientLeft      =   14580
    ClientTop       =   2400
-   ClientWidth     =   6450
+   ClientWidth     =   6375
+   Icon            =   "Form_setting.frx":0000
    LinkTopic       =   "Form2"
-   ScaleHeight     =   9885
-   ScaleWidth      =   6450
-   Begin VB.TextBox Text5_time 
+   ScaleHeight     =   5865
+   ScaleWidth      =   6375
+   Begin VB.TextBox Text_name 
       Height          =   495
-      Left            =   1800
-      TabIndex        =   25
-      Text            =   "倒计时"
-      Top             =   6960
+      Left            =   2760
+      TabIndex        =   6
+      Text            =   "Text1"
+      Top             =   4080
       Width           =   1455
+   End
+   Begin VB.OptionButton Optiong 
+      Height          =   255
+      Index           =   2
+      Left            =   480
+      Style           =   1  'Graphical
+      TabIndex        =   5
+      Top             =   2040
+      Width           =   975
+   End
+   Begin VB.OptionButton Optiong 
+      BackColor       =   &H00E0E0E0&
+      Caption         =   "A组"
+      Height          =   255
+      Index           =   1
+      Left            =   600
+      Style           =   1  'Graphical
+      TabIndex        =   4
+      Top             =   1200
+      Width           =   975
+   End
+   Begin VB.TextBox Text_score 
+      Height          =   495
+      Left            =   3240
+      TabIndex        =   3
+      Text            =   "0"
+      Top             =   3120
+      Width           =   1455
+   End
+   Begin VB.OptionButton Optiong 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "A组"
+      Height          =   255
+      Index           =   0
+      Left            =   720
+      Style           =   1  'Graphical
+      TabIndex        =   2
+      Top             =   480
+      Width           =   975
    End
    Begin VB.CommandButton Command_change 
       Caption         =   "确定"
       Height          =   495
-      Left            =   4200
-      TabIndex        =   23
-      Top             =   9120
+      Left            =   480
+      Style           =   1  'Graphical
+      TabIndex        =   0
+      Top             =   5160
       Width           =   975
-   End
-   Begin VB.TextBox Text4_wrong 
-      Height          =   615
-      Left            =   1800
-      TabIndex        =   22
-      Text            =   "错误"
-      Top             =   5760
-      Width           =   1095
-   End
-   Begin VB.TextBox Text4_v 
-      Height          =   615
-      Left            =   120
-      TabIndex        =   21
-      Text            =   "速度"
-      Top             =   5760
-      Width           =   1335
-   End
-   Begin VB.TextBox Text3_pass 
-      Height          =   615
-      Left            =   3240
-      TabIndex        =   18
-      Text            =   "3跳过"
-      Top             =   4320
-      Width           =   1335
-   End
-   Begin VB.TextBox Text3_wrong 
-      Height          =   495
-      Left            =   1680
-      TabIndex        =   17
-      Text            =   "3犯规"
-      Top             =   4200
-      Width           =   975
-   End
-   Begin VB.TextBox Text3_time 
-      Height          =   615
-      Left            =   0
-      TabIndex        =   16
-      Text            =   "3倒计时"
-      Top             =   4200
-      Width           =   1215
-   End
-   Begin VB.TextBox Text2_wrong 
-      Height          =   495
-      Left            =   1800
-      TabIndex        =   12
-      Text            =   "犯规"
-      Top             =   2760
-      Width           =   1215
    End
    Begin VB.CommandButton Command_exit 
       Caption         =   "退出"
       Height          =   495
-      Left            =   5520
-      TabIndex        =   10
-      Top             =   9120
+      Left            =   4440
+      Style           =   1  'Graphical
+      TabIndex        =   1
+      Top             =   5160
       Width           =   615
    End
-   Begin VB.TextBox Text1_pass 
+   Begin VB.Label Label_name 
+      Caption         =   "Label2"
+      ForeColor       =   &H00FFFF80&
       Height          =   495
-      Left            =   3000
-      TabIndex        =   4
-      Text            =   "跳过"
-      Top             =   1680
-      Width           =   975
-   End
-   Begin VB.TextBox Text1_wrong 
-      Height          =   615
-      Left            =   1800
-      TabIndex        =   3
-      Text            =   "犯规"
-      Top             =   1680
-      Width           =   855
-   End
-   Begin VB.TextBox Text1_right 
-      Height          =   615
-      Left            =   360
-      TabIndex        =   2
-      Text            =   "题目"
-      Top             =   1800
-      Width           =   1215
-   End
-   Begin VB.TextBox Text_b 
-      Height          =   735
-      Left            =   4560
-      TabIndex        =   1
-      Text            =   "B"
-      Top             =   240
-      Width           =   1215
-   End
-   Begin VB.TextBox Text_a 
-      Height          =   615
-      Left            =   1800
-      TabIndex        =   0
-      Text            =   "A"
-      Top             =   120
-      Width           =   975
-   End
-   Begin VB.Label Label5_time 
-      Caption         =   "5倒计时"
-      Height          =   375
-      Left            =   360
-      TabIndex        =   24
-      Top             =   7080
-      Width           =   1215
-   End
-   Begin VB.Label Label4_wrong 
-      Caption         =   "环节4错误"
-      Height          =   375
-      Left            =   1800
-      TabIndex        =   20
-      Top             =   5160
-      Width           =   975
-   End
-   Begin VB.Label Label4_v 
-      Caption         =   "环节4速度"
-      Height          =   375
-      Left            =   240
-      TabIndex        =   19
-      Top             =   5280
-      Width           =   1095
-   End
-   Begin VB.Label Label3_pass 
-      Caption         =   "3跳过"
-      Height          =   375
-      Left            =   3360
-      TabIndex        =   15
-      Top             =   3600
-      Width           =   855
-   End
-   Begin VB.Label Label3_wrong 
-      Caption         =   "3犯规"
-      Height          =   375
-      Left            =   1800
-      TabIndex        =   14
-      Top             =   3600
-      Width           =   1095
-   End
-   Begin VB.Label Label3_time 
-      Caption         =   "环节三倒计时"
-      Height          =   375
-      Left            =   120
-      TabIndex        =   13
-      Top             =   3600
-      Width           =   1095
-   End
-   Begin VB.Label Label2_wrong 
-      Caption         =   "环节2犯规"
-      Height          =   375
-      Left            =   240
-      TabIndex        =   11
-      Top             =   2760
-      Width           =   1095
-   End
-   Begin VB.Label Label1_pass 
-      Caption         =   "跳过"
-      Height          =   255
-      Left            =   3360
-      TabIndex        =   9
-      Top             =   1200
-      Width           =   975
-   End
-   Begin VB.Label Label1_wrong 
-      Caption         =   "犯规"
-      Height          =   495
-      Left            =   1800
+      Left            =   480
       TabIndex        =   8
-      Top             =   1080
-      Width           =   975
+      Top             =   3960
+      Width           =   1695
    End
-   Begin VB.Label Label1_right 
-      Caption         =   "题目"
-      Height          =   495
-      Left            =   360
+   Begin VB.Label Label_score 
+      BackStyle       =   0  'Transparent
+      BorderStyle     =   1  'Fixed Single
+      Caption         =   "Label1"
+      ForeColor       =   &H00000000&
+      Height          =   375
+      Left            =   600
       TabIndex        =   7
-      Top             =   1080
-      Width           =   1095
+      Top             =   3240
+      Width           =   1575
    End
-   Begin VB.Label Label_b 
-      Caption         =   "B"
-      Height          =   375
-      Left            =   3000
-      TabIndex        =   6
-      Top             =   240
-      Width           =   1095
+   Begin VB.Image Image1 
+      Height          =   5535
+      Left            =   120
+      Picture         =   "Form_setting.frx":1084A
+      Stretch         =   -1  'True
+      Top             =   120
+      Width           =   5895
    End
-   Begin VB.Label Label_a 
-      Caption         =   "A"
-      Height          =   375
-      Left            =   240
-      TabIndex        =   5
-      Top             =   240
+   Begin VB.Image Image2 
+      Height          =   735
+      Left            =   4320
+      Picture         =   "Form_setting.frx":8709A
+      Stretch         =   -1  'True
+      Top             =   480
       Width           =   1095
    End
 End
@@ -222,72 +116,152 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-
+Dim gnum As Integer
+Dim i As Integer
+Dim cur As Integer
 
 Private Sub Form_Load()
     
+    gnum = form0.gnum
+    For i = 0 To gnum
+        Optiong(i).Caption = form0.qname(i)
+    Next i
+    ' 默认为A组
+    Optiong(0).Value = True
+    Optiong(1).Value = False
+    If form0.gnum < 2 Then
+        Optiong(2).Caption = ""
+        Optiong(2).Enabled = False '禁用
+        Optiong(2).Visible = False
+    Else
+        Optiong(2).Value = False
+    End If
+    
+    state_show
+    
+    Label_score.Caption = "强制修改分数"
+    Label_name.Caption = "强制修改队名"
+    
     beautify
-
-    Label_a.Caption = Form0.name_a + "组分数:"
-    Label_b.Caption = Form0.name_b + "组分数:"
-    Text_a.Text = Str(Form0.score_a)
-    Text_b.Text = Str(Form0.score_b)
     
-    Label1_right.Caption = "环节一题目数量"
-    Label1_wrong.Caption = "环节一犯规次数"
-    Label1_pass.Caption = "环节一跳过机会"
-    Text1_right.Text = Str(Form0.rule1_right)
-    Text1_wrong.Text = Str(Form0.rule1_wrong)
-    Text1_pass.Text = Str(Form0.rule1_pass)
-    
-    Label2_wrong.Caption = "环节二犯规次数"
-    Text2_wrong.Text = Str(Form0.rule2_wrong)
-    
-    Label3_time.Caption = "环节三倒计时"
-    Label3_wrong.Caption = "环节三犯规次数"
-    Label3_pass.Caption = "环节三跳过机会"
-    Text3_time.Text = Str(Form0.rule3_time)
-    Text3_wrong.Text = Str(Form0.rule3_wrong)
-    Text3_pass.Text = Str(Form0.rule3_pass)
-    
-    Label4_v.Caption = "环节四朗读速度"
-    Label4_wrong.Caption = "环节四犯规次数"
-    Text4_v.Text = Str(Form0.rule4_v)
-    Text4_wrong.Text = Str(Form0.rule4_wrong)
-    
-    Label5_time.Caption = "环节五答题倒计时"
-    Text5_time.Text = Str(Form0.rule5_time)
 End Sub
 
+Private Sub state_show()
+
+    '获得当前组
+    get_now
+    
+    Text_score.Text = str(form0.qscore(cur))
+    Text_name.Text = form0.qname(cur)
+    
+End Sub
 
 Private Sub Command_exit_Click()
     Unload Me
 End Sub
 
 Private Sub Command_change_Click()
-    Form0.score_a = Val(Text_a.Text)
-    Form0.score_b = Val(Text_b.Text)
-    Form0.score_show
-
-    Form0.rule1_right = Val(Text1_right.Text)
-    Form0.rule1_wrong = Val(Text1_wrong.Text)
-    Form0.rule1_pass = Val(Text1_pass.Text)
-
-    Form0.rule2_wrong = Val(Text2_wrong.Text)
-
-    Form0.rule3_time = Val(Text3_time.Text)
-    Form0.rule3_wrong = Val(Text3_wrong.Text)
-    Form0.rule3_pass = Val(Text3_pass.Text)
-
-    Form0.rule4_v = Val(Text4_v.Text)
-    Form0.rule4_wrong = Val(Text4_wrong.Text)
-    
-    Form0.rule5_time = Val(Text5_time.Text)
-    
+    get_now
     tmp = MsgBox("修改成功", 0, "恭喜你")
+    tmp = form0.cscore(cur, Val(Text_score.Text))
+    tmp = form0.cname(cur, Text_name.Text)
+    form0.score_show
+End Sub
+
+Private Sub get_now()
+    '获得当前组
+    For i = 0 To gnum
+        If Optiong(i) = True Then cur = i
+    Next i
+End Sub
+
+Private Sub Optiong_Click(Index As Integer)
+    state_show
+End Sub
+
+Private Sub Form_Resize()
+    Me.Top = 0
+    Me.Height = Screen.Height
 End Sub
 
 Private Sub beautify()
-'none
+    
+    Me.BackColor = vbWhite
+    Me.Height = Screen.Height
+    Me.Width = Screen.Width / 3
+    Me.Left = Screen.Width * 2 / 3
+    Me.Top = 0
+    Image1.Left = 0
+    Image1.Top = 0
+    Image1.Width = Me.Width
+    Image1.Height = Me.Height
+    Image2.Left = Screen.Width / 3
+    Image2.Top = 0
+    Image2.Width = Screen.Width * 2 / 3
+    Image2.Height = Screen.Height
+    
+    Command_change.BackColor = vbWhite
+    Command_change.Font.Name = "华文行楷"
+    Command_change.Font.Size = Me.Width / 200
+    Command_change.Width = Me.Width * 35 / 100
+    Command_change.Height = Me.Height / 10
+    Command_change.Left = Me.Width * 10 / 100
+    Command_change.Top = Me.Height * 8 / 10
+    
+    Command_exit.BackColor = vbWhite
+    Command_exit.Font.Name = "华文行楷"
+    Command_exit.Font.Size = Me.Width / 200
+    Command_exit.Width = Me.Width * 35 / 100
+    Command_exit.Height = Me.Height / 10
+    Command_exit.Left = Me.Width * 55 / 100
+    Command_exit.Top = Me.Height * 8 / 10
+    
+    For i = 0 To gnum
+        Optiong(i).BackColor = vbWhite
+        Optiong(i).Font.Name = "华文行楷"
+        Optiong(i).Font.Size = Me.Width / 200
+        Optiong(i).Width = Me.Width * 60 / 100
+        Optiong(i).Height = Me.Height / 10
+        Optiong(i).Left = Me.Width * 20 / 100
+        Optiong(i).Top = Me.Height * (5 + i * 15) / 100
+    Next i
+    
+    Label_score.BackColor = vbWhite
+    Label_score.Font.Name = "华文行楷"
+    Label_score.Font.Size = Me.Width / 350
+    Label_score.Width = Me.Width * 37 / 100
+    Label_score.Height = Me.Height / 20
+    Label_score.Left = Me.Width * 6 / 100
+    Label_score.Top = Me.Height * 60 / 100
+    Label_score.ForeColor = 0
+    Label_score.BackStyle = 0
+    Label_score.BorderStyle = 1
+    
+    Label_name.BackColor = vbWhite
+    Label_name.Font.Name = "华文行楷"
+    Label_name.Font.Size = Me.Width / 350
+    Label_name.Width = Me.Width * 37 / 100
+    Label_name.Height = Me.Height / 20
+    Label_name.Left = Me.Width * 6 / 100
+    Label_name.Top = Me.Height * 70 / 100
+    Label_name.ForeColor = 0
+    Label_name.BackStyle = 0
+    Label_name.BorderStyle = 1
+    
+    Text_score.BackColor = vbWhite
+    Text_score.Font.Name = "华文行楷"
+    Text_score.Font.Size = Me.Width / 350
+    Text_score.Width = Me.Width * 35 / 100
+    Text_score.Height = Me.Height / 20
+    Text_score.Left = Me.Width * 55 / 100
+    Text_score.Top = Me.Height * 60 / 100
+    
+    Text_name.BackColor = vbWhite
+    Text_name.Font.Name = "华文行楷"
+    Text_name.Font.Size = Me.Width / 350
+    Text_name.Width = Me.Width * 35 / 100
+    Text_name.Height = Me.Height / 20
+    Text_name.Left = Me.Width * 55 / 100
+    Text_name.Top = Me.Height * 70 / 100
+    
 End Sub
-
