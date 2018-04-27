@@ -255,7 +255,7 @@ Private Sub Label_right_Click() ' 正确
     If right(cur) >= rule_right Then
         is_ok = False
         Timer.Enabled = False ' stop
-        tmp = MsgBox("Finish", 0, "可恶")
+        'tmp = MsgBox("完成", 0, "提示")
     End If
     
     judge
@@ -309,7 +309,8 @@ Private Sub Command_cg_Click()
     Command_run.Caption = "开始"
     '清空答案
     Text_answer.Text = "输入你的伟大猜想"
-    
+    '显示序号
+    Command_cg.Caption = "当前:" + str(num_answer)
 End Sub
 
 Private Sub Optiong_Click(Index As Integer)

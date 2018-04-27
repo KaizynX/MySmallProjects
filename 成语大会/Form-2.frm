@@ -216,7 +216,7 @@ Private Sub Command_right_Click() '加分
     
     If right(cur) >= rule_right Then
         is_ok = False
-        tmp = MsgBox(form0.qname(cur) + "赢了", 0, "可恶")
+        tmp = MsgBox(form0.qname(cur) + "赢了", 0, "结果")
         form0.add_score (cur)
         form0.score_show
     End If

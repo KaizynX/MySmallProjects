@@ -400,7 +400,7 @@ Private Sub Label_wrong_Click() '错误
     If wrong(cur) >= rule_wrong Then
         Timer.Enabled = False
         is_ok = False '暂停
-        tmp = MsgBox("你错好多啊", 64, "FBIWarning") ' stop
+        tmp = MsgBox("红牌出局", 64, "FBIWarning") ' stop
         Exit Sub
     End If
     
@@ -449,7 +449,8 @@ Private Sub Timer_Timer() '计时
     time = time - 1
     If time = 0 Then
         Timer.Enabled = False
-        tmp = MsgBox("时间到", 0, "哈哈蠢鸡")
+        tmp = MsgBox("时间到", 64, "提示")
+        Beep
         is_ok = False
     End If
     Label_time.Caption = "倒计时:" + str(time)

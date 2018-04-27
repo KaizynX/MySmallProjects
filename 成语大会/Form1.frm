@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{6BF52A50-394A-11D3-B153-00C04F79FAA6}#1.0#0"; "wmp.dll"
 Begin VB.Form form0 
    Caption         =   "北师大台州附中第一届中国成语大会"
    ClientHeight    =   8415
@@ -81,6 +82,38 @@ Begin VB.Form form0
       TabIndex        =   1
       Top             =   7200
       Width           =   2220
+   End
+   Begin WMPLibCtl.WindowsMediaPlayer WindowsMediaPlayer1 
+      Height          =   975
+      Left            =   11160
+      TabIndex        =   10
+      Top             =   7320
+      Width           =   3735
+      URL             =   ""
+      rate            =   1
+      balance         =   0
+      currentPosition =   0
+      defaultFrame    =   ""
+      playCount       =   1
+      autoStart       =   -1  'True
+      currentMarker   =   0
+      invokeURLs      =   -1  'True
+      baseURL         =   ""
+      volume          =   50
+      mute            =   0   'False
+      uiMode          =   "full"
+      stretchToFit    =   0   'False
+      windowlessVideo =   0   'False
+      enabled         =   -1  'True
+      enableContextMenu=   -1  'True
+      fullScreen      =   0   'False
+      SAMIStyle       =   ""
+      SAMILang        =   ""
+      SAMIFilename    =   ""
+      captioningID    =   ""
+      enableErrorDialogs=   0   'False
+      _cx             =   6588
+      _cy             =   1720
    End
    Begin VB.Label Labelg 
       BorderStyle     =   1  'Fixed Single
@@ -176,6 +209,11 @@ Private Sub Form_Load()
     Next i
     
     score_show '显示比分
+
+    WindowsMediaPlayer1.URL = App.Path & "\resources\music\bgm.mp3"
+    'If WindowsMediaPlayer1.playState = wmppsStopped Then
+        'WindowsMediaPlayer1.URL = App.Path & "\2.mp3"
+    'End If
 
     beautify
     
@@ -354,17 +392,17 @@ Private Sub beautify()
     Command_setting.Font.Name = "华文行楷"
     Command_setting.Font.Size = Me.Width / 750
     Command_setting.Width = Me.Width * 7 / 100
-    Command_setting.Height = Me.Height / 10
-    Command_setting.Left = Me.Width * 81 / 100
-    Command_setting.Top = Me.Height * 4 / 6
+    Command_setting.Height = Me.Height * 8 / 100
+    Command_setting.Left = Me.Width * 80 / 100
+    Command_setting.Top = Me.Height * 70 / 100
     
     Command_exit.BackColor = vbWhite
     Command_exit.Font.Name = "华文行楷"
     Command_exit.Font.Size = Me.Width / 750
     Command_exit.Width = Me.Width * 7 / 100
-    Command_exit.Height = Me.Height / 10
+    Command_exit.Height = Me.Height * 8 / 100
     Command_exit.Left = Me.Width * 90 / 100
-    Command_exit.Top = Me.Height * 4 / 6
+    Command_exit.Top = Me.Height * 70 / 100
     
     For i = 0 To gnum
         Labelg(i).Alignment = 2
@@ -378,4 +416,9 @@ Private Sub beautify()
         Labelg(i).Top = Me.Height * 5 / 100
     Next i
 
+    WindowsMediaPlayer1.Height = Screen.Height * 6 / 100
+    WindowsMediaPlayer1.Width = Screen.Width * 10 / 100
+    WindowsMediaPlayer1.Left = Screen.Width * 88 / 100
+    WindowsMediaPlayer1.Top = Screen.Height * 60 / 100
+    
 End Sub

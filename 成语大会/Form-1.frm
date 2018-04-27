@@ -425,7 +425,7 @@ Private Sub Label_right_Click() ' 正确
     If right(cur) >= rule_right Then
         is_ok = False
         Timer.Enabled = False ' stop
-        tmp = MsgBox("Finish", 0, "可恶")
+        tmp = MsgBox("完成答题", 0, "提示")
     Else
         change_cy
     End If
@@ -458,7 +458,7 @@ Private Sub Label_wrong_Click() '错误
     If wrong(cur) >= rule_wrong Then
         Timer.Enabled = False
         is_ok = False '暂停
-        tmp = MsgBox("你错好多啊", 64, "FBIWarning") ' stop
+        tmp = MsgBox("犯规太多了", 64, "FBIWarning") ' stop
         Exit Sub
     End If
     
