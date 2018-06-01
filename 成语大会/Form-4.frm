@@ -308,7 +308,7 @@ Private Sub Command_cg_Click()
     is_start = False
     Command_run.Caption = "开始"
     '清空答案
-    Text_answer.Text = "输入你的伟大猜想"
+    Text_answer.Text = "点击公布答案"
     '显示序号
     Command_cg.Caption = "当前:" + str(num_answer)
 End Sub
@@ -339,14 +339,20 @@ Private Sub Timer_Timer()
 End Sub
 
 Private Sub Command_answer_Click()
-    Dim your_answer As String
-    your_answer = Replace(Text_answer.Text, " ", "")
-    If Replace(str_answer(num_answer), " ", "") = your_answer Then
-        tmp = MsgBox("答对了", 0, "恭喜李")
-        Label_right_Click '加分
-    Else
-        tmp = MsgBox("答错了", 0, "恭喜李")
+    If use_answer > 0 Then Text_answer.Text = str_answer(num_answer)
+    If is_start Then '原本开始,现在暂停
+        Timer.Enabled = False
+        is_start = False
+        Command_run.Caption = "开始"
     End If
+    'Dim your_answer As String
+    'your_answer = Replace(Text_answer.Text, " ", "")
+    'If Replace(str_answer(num_answer), " ", "") = your_answer Then
+    '    tmp = MsgBox("答对了", 0, "恭喜李")
+    '    Label_right_Click '加分
+    'Else
+    '    tmp = MsgBox("答错了", 0, "恭喜李")
+    'End If
 End Sub
 
 Private Sub Command_exit_Click()
@@ -426,23 +432,25 @@ Private Sub beautify()
     Dim obj As Object
     For Each obj In Me.Controls
         If TypeName(obj) = "TextBox" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "CommandButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "Label" Then
             obj.Alignment = 2
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
+            obj.BorderStyle = 1
         ElseIf TypeName(obj) = "OptionButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
-            obj.Width = Me.Width * 18 / 100
+            'obj.Width = Me.Width * 18 / 100
+            obj.Width = Me.Width * 30 / 100
             obj.Height = Me.Height * 8 / 100
             obj.Top = Me.Height * 74 / 100
         End If
@@ -462,8 +470,9 @@ Private Sub beautify()
     'List.Left = Me.Width * 5 / 100
     '组
     Optiong(0).Left = Me.Width * 3 / 100
-    Optiong(1).Left = Me.Width * 26 / 100
-    Optiong(2).Left = Me.Width * 44 / 100
+    Optiong(1).Left = Me.Width * 37 / 100
+    'Optiong(1).Left = Me.Width * 26 / 100
+    'Optiong(2).Left = Me.Width * 44 / 100
     '成绩
     Label_right.Width = Me.Width * 18 / 100
     Label_right.Height = Me.Height * 8 / 100

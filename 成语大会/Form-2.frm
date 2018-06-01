@@ -110,6 +110,7 @@ Begin VB.Form Form2
       Width           =   855
    End
    Begin VB.Label Label_right 
+      BorderStyle     =   1  'Fixed Single
       Caption         =   "分数"
       Height          =   495
       Left            =   600
@@ -226,6 +227,10 @@ Private Sub Form_Load()
     Command_hide.Caption = "隐藏"
     
     beautify
+    Me.Height = Screen.Height * 2 / 3
+    Me.Width = Screen.Width * 2 / 3
+    Me.Top = Screen.Height / 6
+    Me.Left = Screen.Width / 6
     
 End Sub
 
@@ -327,10 +332,10 @@ End Sub
 
 Private Sub beautify()
     
-    Me.Height = Screen.Height * 2 / 3
-    Me.Width = Screen.Width * 2 / 3
-    Me.Top = Screen.Height / 6
-    Me.Left = Screen.Width / 6
+'    Me.Height = Screen.Height * 2 / 3
+'    Me.Width = Screen.Width * 2 / 3
+'    Me.Top = Screen.Height / 6
+'    Me.Left = Screen.Width / 6
     Image1.Left = 0
     Image1.Top = 0
     Image1.Height = Me.Height
@@ -342,23 +347,24 @@ Private Sub beautify()
     Dim obj As Object
     For Each obj In Me.Controls
         If TypeName(obj) = "TextBox" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "CommandButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "Label" Then
             obj.Alignment = 2 '居中对齐
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
+            obj.BorderStyle = 1
         ElseIf TypeName(obj) = "OptionButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
-            obj.Width = Me.Width * 15 / 100
+            obj.Width = Me.Width * 25 / 100
             obj.Height = Me.Height * 10 / 100
             obj.Top = Me.Height * 65 / 100
         End If
@@ -393,8 +399,8 @@ Private Sub beautify()
     Command_hide.Left = Me.Width * 45 / 100
     '组
     Optiong(0).Left = Me.Width * 5 / 100
-    Optiong(1).Left = Me.Width * 25 / 100
-    Optiong(2).Left = Me.Width * 45 / 100
+    Optiong(1).Left = Me.Width * 35 / 100
+    'Optiong(2).Left = Me.Width * 45 / 100
     '成绩
     Label_right.Width = Me.Width * 15 / 100
     Label_right.Height = Me.Height * 10 / 100

@@ -276,9 +276,9 @@ Private Sub Form_Load()
     rule_right = 6
     rule_wrong = 2
     rule_pass = 2
-    Labelr_right.Caption = "题目数"
-    Labelr_wrong.Caption = "犯规数"
-    Labelr_pass.Caption = "跳过数"
+    Labelr_right.Caption = "题数"
+    Labelr_wrong.Caption = "犯规"
+    Labelr_pass.Caption = "跳过"
     Textr_right.Text = str(rule_right)
     Textr_wrong.Text = str(rule_wrong)
     Textr_pass.Text = str(rule_pass)
@@ -609,23 +609,24 @@ Private Sub beautify()
     Dim obj As Object
     For Each obj In Me.Controls
         If TypeName(obj) = "TextBox" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "CommandButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "Label" Then
             obj.Alignment = 2
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
+            obj.BorderStyle = 1
         ElseIf TypeName(obj) = "OptionButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
-            obj.Width = Me.Width * 15 / 100
+            obj.Width = Me.Width * 25 / 100
             obj.Height = Me.Height * 10 / 100
             obj.Top = Me.Height * 65 / 100
         End If
@@ -645,8 +646,8 @@ Private Sub beautify()
     Label_cy.Left = Me.Width * 10 / 100
     '组
     Optiong(0).Left = Me.Width * 5 / 100
-    Optiong(1).Left = Me.Width * 25 / 100
-    Optiong(2).Left = Me.Width * 45 / 100
+    Optiong(1).Left = Me.Width * 35 / 100
+    'Optiong(2).Left = Me.Width * 45 / 100
     '成绩
     Label_right.Width = Me.Width * 15 / 100
     Label_right.Height = Me.Height * 10 / 100

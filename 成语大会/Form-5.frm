@@ -428,20 +428,21 @@ Private Sub beautify()
     Dim obj As Object
     For Each obj In Me.Controls
         If TypeName(obj) = "TextBox" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "CommandButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
         ElseIf TypeName(obj) = "Label" Then
             obj.Alignment = 2
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
+            obj.BorderStyle = 1
         ElseIf TypeName(obj) = "OptionButton" Then
-            obj.Font.Name = "华文行楷"
+            obj.Font.Name = "华文中宋"
             obj.BackColor = vbWhite
             obj.Font.Size = Me.Width / 750
             obj.Width = Me.Width * 15 / 100
