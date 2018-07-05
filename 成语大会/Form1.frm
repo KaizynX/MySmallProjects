@@ -110,10 +110,28 @@ Begin VB.Form form0
       Visible         =   0   'False
       Width           =   3735
    End
+   Begin VB.Image Image_score 
+      Height          =   1980
+      Index           =   1
+      Left            =   9120
+      Picture         =   "Form1.frx":000C
+      Stretch         =   -1  'True
+      Top             =   960
+      Width           =   1800
+   End
+   Begin VB.Image Image_score 
+      Height          =   1980
+      Index           =   0
+      Left            =   3720
+      Picture         =   "Form1.frx":76E8
+      Stretch         =   -1  'True
+      Top             =   1320
+      Width           =   1800
+   End
    Begin VB.Image Image_g2 
       Height          =   975
       Left            =   12720
-      Picture         =   "Form1.frx":000C
+      Picture         =   "Form1.frx":CAE1
       Stretch         =   -1  'True
       Top             =   3480
       Width           =   1215
@@ -121,7 +139,7 @@ Begin VB.Form form0
    Begin VB.Image Image_g1 
       Height          =   855
       Left            =   1080
-      Picture         =   "Form1.frx":284F
+      Picture         =   "Form1.frx":F324
       Stretch         =   -1  'True
       Top             =   3480
       Width           =   1575
@@ -165,7 +183,7 @@ Begin VB.Form form0
    Begin VB.Image Image1 
       Height          =   8415
       Left            =   -120
-      Picture         =   "Form1.frx":5092
+      Picture         =   "Form1.frx":11B67
       Stretch         =   -1  'True
       Top             =   0
       Width           =   15780
@@ -249,13 +267,19 @@ End Sub
 
 Public Sub score_show()
 
+    Dim imagename As String
     For i = 0 To gnum
         'Labelg(i).Caption = gname(i) + str(score(i))
         Labelg(i).Caption = str(score(i))
+        
+        '7.5 add
+        imagename = App.Path & "\resources\num" & Replace(str(score(i)), " ", "") & ".gif"
+        Image_score(i).Picture = LoadPicture(imagename)
     Next i
     
     '6.1 delete
     'judge
+    
 End Sub
 '6.1É¾³ý
 'Private Function swap(a As Integer, b As Integer) As Boolean
@@ -375,6 +399,7 @@ Private Sub Combo_g1_Click()
     gname(0) = Combo_g1.Text
     picture_url = App.Path + "\resources\group\" + Replace(Combo_g1.Text, " ", "") + ".jpg"
     Image_g1.Picture = LoadPicture(picture_url)
+    score_show
 End Sub
 
 Private Sub Combo_g2_Click()
@@ -382,6 +407,7 @@ Private Sub Combo_g2_Click()
     gname(1) = Combo_g2.Text
     picture_url = App.Path + "\resources\group\" + Replace(Combo_g2.Text, " ", "") + ".jpg"
     Image_g2.Picture = LoadPicture(picture_url)
+    score_show
 End Sub
 
 Private Sub beautify()
@@ -498,5 +524,16 @@ Private Sub beautify()
     Combo_g2.Left = Me.Width * 77 / 100
     Image_g1.Left = Me.Width * 3 / 100
     Image_g2.Left = Me.Width * 77 / 100
+    '7.5¸Ä
+    Labelg(0).Visible = False
+    Labelg(1).Visible = False
     
+    Image_score(0).Width = Me.Width * 10 / 100
+    Image_score(0).Height = Me.Height * 20 / 100
+    Image_score(0).Top = Me.Height * 5 / 100
+    Image_score(0).Left = Me.Width * 25 / 100
+    Image_score(1).Width = Me.Width * 10 / 100
+    Image_score(1).Height = Me.Height * 20 / 100
+    Image_score(1).Top = Me.Height * 5 / 100
+    Image_score(1).Left = Me.Width * 65 / 100
 End Sub

@@ -217,6 +217,11 @@ Private Sub Form_Load()
     
     beautify
     
+    Me.Height = Screen.Height * 2 / 3
+    Me.Width = Screen.Width * 2 / 3
+    Me.Top = Screen.Height / 6
+    Me.Left = Screen.Width / 6
+    
 End Sub
 
 Private Sub Command_right_Click() ' 正确
@@ -415,10 +420,10 @@ Private Sub beautify()
     
     Label_rule.Caption = "前一轮胜方优先答题（成语知识相关），采用类似点球大战的方式，当同一道次题（A 方答的第n道题和B方答的第n道题都称为第n道）一方答对，另一方答错时，答对的那一方获得本局胜利，若同一道次的题双方都答错，则答题继续。"
     
-    Me.Height = Screen.Height * 2 / 3
-    Me.Width = Screen.Width * 2 / 3
-    Me.Top = Screen.Height / 6
-    Me.Left = Screen.Width / 6
+'    Me.Height = Screen.Height * 2 / 3
+'    Me.Width = Screen.Width * 2 / 3
+'    Me.Top = Screen.Height / 6
+'    Me.Left = Screen.Width / 6
     Image1.Left = 0
     Image1.Top = 0
     Image1.Height = Me.Height

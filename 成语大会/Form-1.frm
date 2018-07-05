@@ -285,6 +285,11 @@ Private Sub Form_Load()
     
     beautify
     
+    Me.Height = Screen.Height * 2 / 3
+    Me.Width = Screen.Width * 2 / 3
+    Me.Top = Screen.Height / 6
+    Me.Left = Screen.Width / 6
+    
 End Sub
 
 Private Sub judge() ' 判断胜负
@@ -451,6 +456,8 @@ End Sub
 
 Private Sub Label_wrong_Click() '错误
     
+    Beep
+    
     If is_ok = False Then Exit Sub
     '获得当前组
     get_now
@@ -596,10 +603,10 @@ Private Sub beautify()
     Label_rule.Caption = "一人描述，另一人猜，猜出六个成语所用时间最短的一方获胜，每队最多有一次犯规和说'过'的机会。（可根据难度适当增加允许犯规或跳过次数）"
     Label_rule.Caption = Label_rule.Caption + vbCrLf + "判断胜负时，先比较答对个数，再比较用时，然后是犯规次数，最后是跳过次数。"
     
-    Me.Height = Screen.Height * 2 / 3
-    Me.Width = Screen.Width * 2 / 3
-    Me.Top = Screen.Height / 6
-    Me.Left = Screen.Width / 6
+'    Me.Height = Screen.Height * 2 / 3
+'    Me.Width = Screen.Width * 2 / 3
+'    Me.Top = Screen.Height / 6
+'    Me.Left = Screen.Width / 6
     Image1.Left = 0
     Image1.Top = 0
     Image1.Height = Me.Height

@@ -262,6 +262,11 @@ Private Sub Form_Load()
     
     beautify
     
+    Me.Height = Screen.Height * 2 / 3
+    Me.Width = Screen.Width * 2 / 3
+    Me.Top = Screen.Height / 6
+    Me.Left = Screen.Width / 6
+    
 End Sub
 
 Private Sub judge()
@@ -393,6 +398,8 @@ End Sub
 
 Private Sub Label_wrong_Click() '错误
     
+    Beep
+    
     If is_ok = False Then Exit Sub
     '获得当前组
     get_now
@@ -505,10 +512,10 @@ End Sub
 
 Private Sub beautify()
     
-    Me.Height = Screen.Height * 2 / 3
-    Me.Width = Screen.Width * 2 / 3
-    Me.Top = Screen.Height / 6
-    Me.Left = Screen.Width / 6
+'    Me.Height = Screen.Height * 2 / 3
+'    Me.Width = Screen.Width * 2 / 3
+'    Me.Top = Screen.Height / 6
+'    Me.Left = Screen.Width / 6
     Image1.Left = 0
     Image1.Top = 0
     Image1.Height = Me.Height

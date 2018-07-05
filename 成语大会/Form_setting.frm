@@ -159,12 +159,12 @@ Private Sub Form_Load()
     Label_name.Caption = "强制修改队名"
     'combo
     Combo_name.Text = "请选择队名"
-    'Open App.Path & "\resources\group\name.txt" For Input As #1
-    '    Do Until EOF(1)
-    '        Line Input #1, now_name
-    '        Combo_name.AddItem (now_name)
-    '    Loop
-    'Close #1
+    Open App.Path & "\resources\group\name.txt" For Input As #1
+        Do Until EOF(1)
+            Line Input #1, now_name
+            Combo_name.AddItem (now_name)
+        Loop
+    Close #1
     
     beautify
     
