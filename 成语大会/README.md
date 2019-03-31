@@ -1,6 +1,11 @@
 ## 下载:
 
-进入release文件夹，选择相应版本下载
+### 简单操作:
+[下载这个](https://github.com/KaizynX/VB/raw/master/%E6%88%90%E8%AF%AD%E5%A4%A7%E4%BC%9A/release/%E6%88%90%E8%AF%AD%E5%A4%A7%E4%BC%9A.zip)
+
+### 专业操作:
+
+进入[release文件夹](https://github.com/KaizynX/VB/tree/master/%E6%88%90%E8%AF%AD%E5%A4%A7%E4%BC%9A/release)，选择相应版本下载后建立文件夹(题库)
 
 ## 使用:
 
@@ -8,7 +13,7 @@
 
 将下载的程序(exe)放入文件夹
 
-在这个文件夹中新建文件夹
+在这个文件夹中新建文件夹 'resources'
 
 每个环节的文件夹分别为'part1','part2','part3','part4','part5'
 
