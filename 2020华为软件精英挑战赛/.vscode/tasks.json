@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "command": "g++",
+    "args": [
+        "-g",
+        "-O3",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe",
+        "-lpthread",
+        // "--std=c++11",
+        "-Wall",
+        "-Wextra",
+        "-fexec-charset=UTF-8",   // 处理mingw中文编码问题
+        "-finput-charset=UTF-8",// 处理mingw中文编码问题
+    ],    // 编译命令参数
+    "problemMatcher": {
+        "owner": "cpp",
+        "fileLocation": ["relative", "${fileDirname}"],
+        "pattern": {
+            "regexp": "^(.*)\\\\(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            "file": 2,
+            "line": 3,
+            "column": 4,
+            "severity": 5,
+            "message": 6
+        }
+    },
+    "group": {
+        "kind": "build",
+        "isDefault": true
+    }
+}
