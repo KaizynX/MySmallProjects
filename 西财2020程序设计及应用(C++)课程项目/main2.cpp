@@ -20,6 +20,7 @@ const int day[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
 
 struct Time {
   int y, m, d;
+  Time(const int &_y = 0, const int &_m = 0, const int &_d = 0) : y(_y), m(_m), d(_d) {}
   // 检测日期的合法性
   bool check() {
     bool flag = true;
@@ -34,34 +35,60 @@ struct Time {
     if (!flag) cerr << "傻逼，日期输错了" << endl;
     return flag;
   }
+  void chinese_print() {
+    if (y != 0) cout << y << "年";
+    if (m != 0) cout << m << "月";
+    if (d != 0) cout << d << "日";
+  }
+  friend bool operator ==(const Time &t1, const Time &t2) {
+    return (t1.y == t2.y || t1.y == 0 || t2.y == 0) &&
+        (t1.m == t2.m || t1.m == 0 || t2.m == 0) &&
+        (t1.d == t2.d || t1.d == 0 || t2.d == 0);
+  }
+  friend bool operator !=(const Time &t1, const Time &t2) {
+    return !(t1 == t2);
+  }
   // 重载时间的格式化输入输出
   friend istream& operator >>(stringstream &ss, Time &time) {
     static char ch;
     return ss >> time.y >> ch >> time.m >> ch >> time.d;
+  }
+  friend istream& operator >>(istream &is, Time &time) {
+    static stringstream ss;
+    static string str;
+    is >> str;
+    ss.clear();
+    ss << str;
+    ss >> time;
+    return is;
   }
   friend ostream& operator <<(ostream &os, Time &time) {
     return os << time.y << "-" << time.m << "-" << time.d;
   }
 };
 
+/*
+ostream& operator <<(ostream &os, Time &time) {
+  return os << time.y << "-" << time.m << "-" << time.d;
+}
+*/
+
 struct Record {
+  char in_or_out;
   int kind;
   Time time;
   double money;
   string comment;
+  friend ostream& operator <<(ostream &os, Record &rec) {
+    return os << kind_name[rec.in_or_out-'a'][rec.kind]
+        << " " << (rec.in_or_out == 'a' ? "收入" : "支出")
+        << " " << rec.time
+        << " " << fixed << setprecision(2) << rec.money // 保留2位小数
+        << " " << rec.comment;
+  }
 };
 
-/**********************************
- * record
- * [0][][]      收入类
- * [1][][]      支出类
- * [][i][j]     在i年j月份的记录
- * sum
- * [][][]       前三项同上
- * [][][][k]    种类k的总金额
- **********************************/
-vector<Record> record[2][10000][13];
-double sum[2][10000][13][4];
+vector<Record> records;
 
 /**********************************
  * add_data     添加一条记录,返回记录是否合法
@@ -86,11 +113,10 @@ int main() {
 
 bool add_data(const string &str) {
   static stringstream ss;
-  static char ch;
   static Record rec;
   ss.clear();
   ss << str;
-  if (!(ss >> ch)) return false;
+  if (!(ss >> rec.in_or_out)) return false;
   if (!(ss >> rec.kind)) return false;
   if (!(ss >> rec.time) || !rec.time.check()) return false;
   if (!(ss >> rec.money)) return false;
@@ -98,8 +124,7 @@ bool add_data(const string &str) {
   getline(ss, rec.comment);
   // 如果不允许备注为空启动下面这条语句
   // if (!(getline(ss, rec.comment))) return false;
-  record[ch-'a'][rec.time.y][rec.time.m].push_back(rec);
-  sum[ch-'a'][rec.time.y][rec.time.m][rec.kind] += rec.money;
+  records.push_back(rec);
   return true;
 }
 
@@ -140,42 +165,47 @@ void input() {
 
 void output() {
   static string str;
-  static char ch;
-  static int y, m;
-  static double sum_money[2];
+  static Time time;
+  static double sum_money[2][4], sum_sum_money[2];
   while (true) {
-    sum_money[0] = sum_money[1] = 0.0;
+    time = Time();
     cout << "请输入对收支类别数据进行汇总的月份：" << flush;
-    if (!(cin >> y >> ch >> m)) break;
-    if (cin.fail() || m < 1 || m > 12) {
-      cerr << "这都能输错吗傻了吧唧的" << endl;
-      continue;
+    cin >> time;
+    cout << time << endl;
+    // 遍历全部数据统计金额
+    memset(sum_money, 0, sizeof sum_money);
+    memset(sum_sum_money, 0, sizeof sum_sum_money);
+    for (int i = 0; i < (int)records.size(); ++i) {
+      Record rec = records[i];
+      if (rec.time == time) {
+        sum_money[rec.in_or_out-'a'][rec.kind] += rec.money;
+        sum_sum_money[rec.in_or_out-'a'] += rec.money;
+      }
     }
-    cout << y << "年" << m << "月收支类别数据的汇总" << endl
+    // 输出
+    time.chinese_print();
+    cout << "收支类别数据的汇总" << endl
         << "收入/支出 明细类别 金额" << endl;
     for (int i = 0; i < 2; ++i) {
       for (int j = 1; j <= 3; ++j) {
         cout << (i == 0 ? "收入 " : "支出 ");
-        cout << kind_name[i][j] << " " << sum[i][y][m][j] << endl;
-        sum_money[i] += sum[i][y][m][j];
+        cout << kind_name[i][j] << " " << sum_money[i][j] << endl;
       }
     }
-    cout << y << "年" << m << "月的总收入为：" << sum_money[0]
-        << ", 总支出为：" << sum_money[1] << endl;
-    cout << "是否输出该月的各笔明细（y 为输出，其他为不输出）：" << flush;
+    time.chinese_print();
+    cout << "的总收入为：" << sum_sum_money[0]
+        << ", 总支出为：" << sum_sum_money[1] << endl;
+    
+    cout << "是否输出该时间段的各笔明细（y 为输出，其他为不输出）：" << flush;
     // 使用 string 防止输入多个字符
     cin >> str;
     if (str[0] != 'y') continue;
-    cout << y << "年" << m << "月收支类别数据的明细" << endl
+    time.chinese_print();
+    cout << "收支类别数据的明细" << endl
         << "类别 收入/支出 发生日期 金额 备注" << endl;
-    for (int i = 0; i < 2; ++i) {
-      for (Record &rec : record[i][y][m]) {
-        cout << kind_name[i][rec.kind]
-            << " " << (i == 0 ? "收入" : "支出")
-            << " " << rec.time
-            << " " << fixed << setprecision(2) << rec.money // 保留2位小数
-            << " " << rec.comment << endl;
-      }
+    for (int i = 0; i < (int)records.size(); ++i) {
+      Record rec = records[i];
+      if (rec.time == time) cout << rec << endl;
     }
   }
 }
