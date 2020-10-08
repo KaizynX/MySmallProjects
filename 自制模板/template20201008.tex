@@ -654,13 +654,6 @@ struct Splay {
 
 在第一维线段树的每个结点建立第二维线段树
 
-\section{K-D Tree | KDT}
-
-高效处理 k 维空间信息
-
-\section{Link Cut Tree | LCT}
-
-
 \section{树状数组}
 \subsection{一维}
 单点修改区间查询
@@ -970,20 +963,6 @@ struct ST {
     return mv(rmq[l][k], rmq[r-(1<<k)+1][k]);
   }
 };
-  /* rmq[i][j] ==> [i-2^j+1, i]
-  void build(T a[], const int &n) {
-    for (int i = 1; i <= n; ++i) {
-      rmq[i][0] = a[i];
-      for (int j = 1; j <= lg2[i]; ++j)
-        rmq[i][j] =  mv(rmq[i][j-1], rmq[i-(1<<(j-1))][j-1]);
-    }
-  }
-  T query(const int &l, const int &r) {
-    if (l > r) return query(r, l);
-    int k = lg2[r-l+1];
-    return mv(rmq[r][k], rmq[l+(1<<k)-1][k]);
-  }
-  */
 \end{lstlisting}
 
 \subsection{二维}
@@ -1258,39 +1237,6 @@ inline void SA(const T *s, const int &n) {
     while (s[i+k] == s[sa[rk[i]-1]+k]) ++k;
     height[rk[i]] = k;
   }
-}
-\end{lstlisting}
-
-\subsection{$O(nlogn)$}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-int sa[N], rk[N<<1], height[N];
-template <typename T> // s start from 1
-inline void SA(const T *s, const int &n) {
-#define cmp(x, y, w) oldrk[x] == oldrk[y] && oldrk[x + w] == oldrk[y + w]
-  static int oldrk[N<<1], id[N], px[N], cnt[N], m;
-  memset(cnt, 0, sizeof(int) * (m = 128));
-  for (int i = 1; i <= n; ++i) ++cnt[rk[i] = s[i]];
-  for (int i = 1; i <= m; ++i) cnt[i] += cnt[i - 1];
-  for (int i = n; i; --i) sa[cnt[rk[i]]--] = i;
-  for (int w = 1, p, i; w <= n; w <<= 1, m = p) {
-    for (p = 0, i = n; i > n - w; --i) id[++p] = i;
-    for (int i = 1; i <= n; ++i)
-      if (sa[i] > w)
-        id[++p] = sa[i] - w;
-    memset(cnt + 1, 0, sizeof(int) * m);
-    for (int i = 1; i <= n; ++i) ++cnt[px[i] = rk[id[i]]];
-    for (int i = 1; i <= m; ++i) cnt[i] += cnt[i - 1];
-    for (int i = n; i; --i) sa[cnt[px[i]]--] = id[i];
-    memcpy(oldrk + 1, rk + 1, sizeof(int) * 2 * n);
-    for (p = 0, i = 1; i <= n; ++i) rk[sa[i]] = cmp(sa[i], sa[i - 1], w) ? p : ++p;
-  }
-  for (int i = 1, k = 0; i <= n; ++i) {
-    if (k) --k;
-    while (s[i+k] == s[sa[rk[i]-1]+k]) ++k;
-    height[rk[i]] = k;
-  }
-#undef cmp
 }
 \end{lstlisting}
 
@@ -2047,11 +1993,6 @@ struct Dinic {
   }
 };
 \end{lstlisting}
-\subsubsection{ISAP}
-
-渐进时间复杂度和dinic相同，但是非二分图的情况下isap更具优势
-在某些情况(题目)中远慢于dinic
-
 \subsection{最小割}
 最小割等价最大流
 \subsection{费用流}
@@ -2742,7 +2683,6 @@ struct PreSumLB {
 
 
 \section{矩阵}
-\subsection{矩阵快速幂}
 \subsection{矩阵求逆}
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -3030,22 +2970,6 @@ namespace FFT {
     fft(f, -1);
     for (int i = 0; i < n+m; ++i) f[i].real /= len;
   }
-  /*
-  template <class T>
-  void work(T a[], const int &n) {
-    static comp f[SIZE];
-    len = 1; bit = 0;
-    while (len < n+n) len <<= 1, ++bit;
-    // multi-testcase
-    for (int i = 0; i < n; ++i) f[i] = a[i];
-    for (int i = n; i < len; ++i) f[i] = 0;
-    for (int i = 0; i < len; ++i) rev[i] = (rev[i>>1]>>1)|((i&1)<<(bit-1));
-    fft(f, 1);
-    for (int i = 0; i <= len; ++i) f[i] *= f[i];
-    fft(f, -1);
-    for (int i = 0; i < n+n; ++i) a[i] = static_cast<T>(f[i].real/len+.5);
-  }
-  */
 }
 \end{lstlisting}
 
@@ -3183,7 +3107,7 @@ $FWT(A\pm B)=FWT(A)\pm FWT(B)$
 
 $FWT(cA)=cFWT(A)$
 
-定义⊕为任意集合运算
+定义 $\bigoplus$ 为任意集合运算
 
 $FWT(A\bigoplus B)=FWT(A)\times FWT(B)$
 
@@ -3931,7 +3855,7 @@ inline long long solve() {
 }
 \end{lstlisting}
 
-\section{多个闭合回路}
+\subsection{多个闭合回路}
 {\setmainfont{Consolas}
 \begin{lstlisting}
         else if (b1 == 1 && b2 == 2) {
@@ -3940,7 +3864,7 @@ inline long long solve() {
         }
 \end{lstlisting}
 
-\section{联通块}
+\subsection{联通块}
 
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -3997,7 +3921,7 @@ inline void solve() {
 }
 \end{lstlisting}
 
-\section{L型}
+\subsection{L型}
 
 L 型地板：拐弯且仅拐弯一次。
 
