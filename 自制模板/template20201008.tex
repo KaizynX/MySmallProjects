@@ -64,7 +64,6 @@ template <typename T> inline void read(T &x) {
   while(isdigit((c=getchar()))) x = (x<<1)+(x<<3) + c-'0';
   x *= tag;
 }
-
 template <typename T> void write(T x) {
   if(x < 0) x = -x, putchar('-');
   if(x > 9) write(x/10);
@@ -89,7 +88,6 @@ ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 \section{正则表达式}
 {\setmainfont{Consolas}
 \begin{lstlisting}
-char str[];
 scanf("%3s", str); // 读取长度为n的字符串
 scanf("%[abc]", str); // 读取a,b,c,读到之外的立即停止
 scanf("%[a-z0-9]", str); // 同上,读取小写字母和数字
@@ -99,8 +97,7 @@ scanf("%[^a-z]", str); // 读取小写字符外字符,^表示非
 \section{随机数}
 {\setmainfont{Consolas}
 \begin{lstlisting}
-#include <random>
-// 范围 unsigned int
+#include <random> // 范围 unsigned int
 mt19937 rnd(time(NULL));
 mt19937 rnd(chrono::high_resolution_clock::now().time_since_epoch().count());
 cout << rnd() << endl;
@@ -145,6 +142,7 @@ double sqrt(const double &a) {
 \end{lstlisting}
 
 \section{i/k == j 的 k 的个数}
+r-l+1
 {\setmainfont{Consolas}
 \begin{lstlisting}
 for (int i = 1; i <= n; ++i) {
@@ -155,9 +153,7 @@ for (int i = 1; i <= n; ++i) {
     r = i/j;
     while (r+1 <= i && i/(r+1) == j) ++r;
     while (i/r < j) --r;
-    if (r-l+1 != i/j-i/(j+1)) {
-        cout << i << " " << j << endl;
-    }
+    if (r-l+1 != i/j-i/(j+1)) cout << i << " " << j << endl;
   }
 }
 \end{lstlisting}
@@ -171,7 +167,6 @@ while (l < r) {
   if (f(mid) < f(mid+1)) r = mid;
   else l = mid+1;
 }
-
 while (r-l > eps) {
   double ml = l+(r-l)/3, mr = r-(r-l)/3;
   if (f(ml) < f(mr)) r = mr;
@@ -462,7 +457,6 @@ struct Heap {
 };
 \end{lstlisting}
 
-\section{二叉查找树}
 \section{平衡树}
 \subsection{Splay}
 {\setmainfont{Consolas}
@@ -838,33 +832,22 @@ struct PersistantUnionSet {
 
 \section{可持久化线段树(主席树)}
 
-自带离散
-
 {\setmainfont{Consolas}
 \begin{lstlisting}
 template <typename T>
 struct PersistantSegmentTree {
   static const int NN = N*(log2(N)+5);
-  int rt[N], sum[NN], ls[NN], rs[NN], tot, sz;
-  vector<T> des;
-  void build(const T a[], const int &n) {
-    vector<T>(a+1, a+n+1).swap(des);
-    sort(des.begin(), des.end());
-    des.erase(unique(des.begin(), des.end()), des.end());
-    sz = des.size();
+  int rt[N], sum[NN], ls[NN], rs[NN], tot, n;
+  void build(const int &n) {
+    this->n = n;
     tot = 0;
-    rt[0] = _build(1, sz);
-    for (int i = 1; i <= n; ++i) {
-      int t = lower_bound(des.begin(), des.end(), a[i])-des.begin()+1;
-      rt[i] = _update(rt[i-1], 1, sz, t);
-    }
+    rt[0] = _build(1, n);
   }
-  void update(const int &id, const T &k) {
-    int t = lower_bound(des.begin(), des.end(), k)-des.begin()+1;
-    rt[id] = _update(rt[id-1], 1, sz, t);
+  void update(const int &cur, const int &pre, const T &k) {
+    rt[cur] = _update(rt[pre], 1, n, k);
   }
   T query(const int &l, const int &r, const int &k) {
-    return des[_query(rt[l-1], rt[r], 1, sz, k)-1];
+    return _query(rt[l-1], rt[r], 1, n, k);
   }
 private:
   int _build(const int &l, const int &r) {
@@ -931,6 +914,130 @@ struct FenKuai {
   }
 } B;
 \end{lstlisting}
+\section{莫队}
+$O(1)修改$ 一般取 $block = \frac{n}{\sqrt{m}}, O(n\sqrt{m})$
+
+移动前两步先扩大区间 $l--,r++$ 后两步缩小区间 $l++,r--$
+
+\subsection{奇偶性排序}
+{\setmainfont{Consolas}
+\begin{lstlisting}
+template <typename T> bool cmp(const T &q1, const T &q2) {
+  return q1.l/block != q2.l/block ? q1.l < q2.l :
+      (q1.l/block)&1 ? q1.r < q2.r : q1.r > q2.r;
+}
+\end{lstlisting}
+
+\subsection{带修改莫队}
+
+以 $n^{\frac{2}{3}}$ 为一块，分成了 $n^{\frac{1}{3}}$ 块，第一关键字是左端点所在块，第二关键字是右端点所在块，第三关键字是时间. 复杂度 $O(n^{\frac{5}{3}})$
+
+{\setmainfont{Consolas}
+\begin{lstlisting}
+template <typename T> bool cmp(const T &q1, const T &q2) {
+  return q1.l/block != q2.l/block ? q1.l < q2.l :
+      q1.r/block != q2.r/block ? q1.r < q2.r : q1.t < q2.t;
+}
+\end{lstlisting}
+
+\subsection{值域分块}
+
+维护块的前缀和以及块内部前缀和, $O(\sqrt{n})$ 修改, $O(1)$ 求区间和
+
+{\setmainfont{Consolas}
+\begin{lstlisting}
+template <typename T> struct PreSum {
+  int n, block;
+  T s[N], t[(int)sqrt(N)+3];
+  void init(int n) { this->n = n; block = sqrt(n); }
+  void add(int x, T k) {
+    for (int i = x; i/block == x/block && i <= n; ++i) s[i] += k;
+    for (int i = x/block+1; i <= n/block; ++i) t[i] += k;
+  }
+  T query(int x) { return t[x/block]+s[x]; }
+};
+\end{lstlisting}
+
+\subsection{二次离线莫队}
+大概是一种需要维护信息具有可减性的莫队。只要具可减性，就可以容斥，就可以二次离线。所谓『二次离线』，大概是指由于普通莫队无法快速计算贡献，所以第一次离线把询问离线下来，第二次离线把莫队的转移过程离线下来。
+
+由于信息具有可减性(比如常见的「点对数」)，记 $(a,b)(c,d)$ 表示区间 $[a,b]$ 内的点和区间 $[c,d]$ 内的点对彼此产生的贡献(区间内部不算)。
+
+$[l,r]\to[l+t,r],\sum\limits_{i=l}^{l+t−1}(i,i)(i+1,r)=\sum\limits_{i=l}^{l+t−1}(i,i)(1,r)−(i,i)(1,i)$
+
+$[l,r]\to[l-t,r],\sum\limits_{i=l-t}^{l-1}(i,i)(i+1,r)=\sum\limits_{i=l-t}^{l-1}(i,i)(1,r)−(i,i)(1,i)$
+
+$[l,r]\to[l,r+t],\sum\limits_{i=r+1}^{r+t}(i,i)(l,i-1)=\sum\limits_{i=r+1}^{r+t}(1,i-1)(i,i)-(1,l-1)(i,i)$
+
+$[l,r]\to[l,r-t],\sum\limits_{i=r-t+1}^{r}(i,i)(l,i-1)=\sum\limits_{i=r-t+1}^{r}(1,i-1)(i,i)-(1,l-1)(i,i)$
+
+
+对于 $(1,i-1)(i,i)$ 没什么好说,暴力处理前缀和
+
+对于 $(1,l-1)(i,i)$ 由于莫队的复杂度,至多有 $n\sqrt{m}$ 个不同询问,把每个询问 打标记到左端点(比如 $[l,r]\to [l,r-t]$ 就打到 $l-1$ 上), 最后扫一遍全部 $i \in [1,n]$ ,处理出询问值, 因为此时 $i$ 枚举 $O(n)$ 次,可以用『值域分块』技巧。这样最终复杂度 $O(n\sqrt n+n\sqrt{n})$
+
+{\setmainfont{Consolas}
+\begin{lstlisting}
+Query q[N];
+SufSum<int> suml;
+PreSum<int> sumr;
+vector<Query> ql[N], qr[N];
+
+inline void calc_sumi() {
+  static BinaryIndexedTree<int> tree;
+  tree.init(n);
+  for (int i = 1; i <= n; ++i) {
+    sumil[i] = sumil[i-1]+i-1-tree.query(a[i]);
+    tree.add(a[i], 1);
+  }
+  tree.clear();
+  for (int i = n; i; --i) {
+    sumir[i] = sumir[i+1]+tree.query(a[i]-1);
+    tree.add(a[i], 1);
+  }
+}
+
+signed main() {
+  sort(q+1, q+m+1, cmp);
+  calc_sumi();
+  q[0] = Query(0, 1, 0);
+  for (int i = 1, ul, vl, ur, vr; i <= m; ++i) {
+    ul = q[i-1].l; ur = q[i-1].r;
+    vl = q[i].l; vr = q[i].r;
+    res[i] = sumil[vr]-sumil[ur]+sumir[vl]-sumir[ul];
+    if (vl < ul) qr[vr+1].emplace_back(-i, vl, ul-1);
+    if (vl > ul) qr[vr+1].emplace_back(+i, ul, vl-1);
+    if (vr < ur) ql[ul-1].emplace_back(+i, vr+1, ur);
+    if (vr > ur) ql[ul-1].emplace_back(-i, ur+1, vr);
+  }
+  suml.init(n+1);
+  for (int i = 1; i <= n; ++i) {
+    suml.add(a[i], 1);
+    for (auto &qq : ql[i]) {
+      for (int j = qq.l; j <= qq.r; ++j) {
+        if (qq.id > 0) res[qq.id] += suml.query(a[j]+1);
+        else res[-qq.id] -= suml.query(a[j]+1);
+      }
+    }
+  }
+  sumr.init(n);
+  for (int i = n; i; --i) {
+    sumr.add(a[i], 1);
+    for (auto &qq : qr[i]) {
+      for (int j = qq.l; j <= qq.r; ++j) {
+        if (qq.id > 0) res[qq.id] += sumr.query(a[j]-1);
+        else res[-qq.id] -= sumr.query(a[j]-1);
+      }
+    }
+  }
+  for (int i = 1; i <= m; ++i) {
+    res[i] += res[i-1];
+    ans[q[i].id] = res[i];
+  }
+  for (int i = 1; i <= m; ++i) write(ans[i]), putchar('\n');
+}
+\end{lstlisting}
+
 \section{ST表}
 \subsection{一维}
 {\setmainfont{Consolas}
@@ -1074,28 +1181,6 @@ struct DSU {
     return true;
   }
 } dsu;
-\end{lstlisting}
-
-
-\section{单调队列}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-template <typename T>
-struct MonotonousQueue {
-  unsigned head;
-  vector<T> q;
-  MonotonousQueue() { clear(); }
-  T& operator  { return q[head+i];}
-  void clear() { head = 0; q.clear(); }
-  size_t size() { return q.size()-head; }
-  bool empty() { return head == q.size(); }
-  T front() { return q[head]; }
-  T back() { return q.back(); }
-  void push_front(const T &x) {/*unsupported*/}
-  void push_back(const T &x) { q.push_back(x); }
-  void pop_front() { ++head; }
-  void pop_back() { q.pop_back(); }
-};
 \end{lstlisting}
 
 \part{字符串}
@@ -1493,7 +1578,6 @@ struct Aho_Corasick_Automaton {
 
 
 \part{图论|树论}
-\section{DFS树}
 \section{树的重心}
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -1677,48 +1761,6 @@ struct LCA {
       if(f[x][i] != f[y][i])
         x = f[x][i], y = f[y][i];
     return f[x][0];
-  }
-};
-\end{lstlisting}
-
-\subsection{树剖}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-struct HLD {
-  int dfn;
-  int fa[N], d[N], num[N], son[N], id[N], tp[N];
-  vector<int> *e;
-  template <typename E>
-  void build(E *_e, const int &rt = 1) {
-    e = _e;
-    fa[rt] = dfn = 0;
-    dfs1(rt);
-    dfs2(rt);
-  }
-  void dfs1(const int &u = 1) {
-    d[u] = d[fa[u]]+1;
-    num[u] = 1;
-    son[u] = 0;
-    for (const int &v : e[u]) if (v != fa[u]) {
-      fa[v] = u;
-      dfs1(v);
-      num[u] += num[v];
-      if (num[v] > num[son[u]]) son[u] = v;
-    }
-  }
-  void dfs2(const int &u = 1) {
-    tp[u] = son[fa[u]] == u ? tp[fa[u]] : u;
-    id[u] = ++dfn;
-    if (son[u]) dfs2(son[u]);
-    for (const int &v : e[u]) if (v != son[u] && v != fa[u])
-      dfs2(v);
-  }
-  int lca(int x, int y) {
-    while (tp[x] != tp[y]) {
-      if (d[tp[x]] < d[tp[y]]) swap(x, y);
-      x = fa[tp[x]];
-    }
-    return d[x] < d[y] ? x : y;
   }
 };
 \end{lstlisting}
@@ -2146,28 +2188,6 @@ struct ZKW_SPFA {
 \section{最短路}
 \subsection{Floyd}
 \subsection{Dijkstra}
-邻接表+堆优化
-{\setmainfont{Consolas}
-\begin{lstlisting}
-inline void Dijkstra() {
-  priority_queue<pair<int,int>,vector<pair<int,int> >,greater<pair<int,int> > >q;
-  memset(dis, 0x7f, sizeof dis);
-  dis[S] = 0;
-  q.push(make_pair(0, S));
-  pair<int, int> cur;
-  while(q.size()) {
-    cur = q.top(); q.pop();
-    if(dis[cur.second] < cur.first) continue;
-    for(int i = fir[cur.second], to, now; i; i = nex[i]) {
-      to = ver[i];
-      now = cur.first+w[i];
-      if(now >= dis[to]) continue;
-      dis[to] = now;
-      q.push(make_pair(now, to));
-    }
-  }
-}
-\end{lstlisting}
 \subsection{SPFA}
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -2517,33 +2537,6 @@ void quick_sort(int l, int r) {
 }
 \end{lstlisting}
 
-
-\section{求第K大数}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-int kth_element(int l, int r, int k) {
-  if(l == r) return a[l];
-  swap(a[l], a[l+rand()%(r-l)]);
-  int mid = a[l], i = l, j = r;
-  while(i < j) {
-    while(i < j && a[j] >= mid) --j;
-    swap(a[i], a[j]);
-    while(i < j && a[i] < mid) ++i;
-    swap(a[i], a[j]);
-  }
-  a[i] = mid;
-  if(i == k) return mid;
-  else if(i > k) return kth_element(l, i-1, k);
-  else return kth_element(i+1, r, k);
-}
-\end{lstlisting}
-STL (排序,无返回值)
-{\setmainfont{Consolas}
-\begin{lstlisting}
-nth_element(a+1, a+k+1, a+n+1);
-\end{lstlisting}
-
-
 \section{求逆序对(归并排序)}
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -2683,7 +2676,6 @@ struct PreSumLB {
 
 
 \section{矩阵}
-\subsection{矩阵求逆}
 {\setmainfont{Consolas}
 \begin{lstlisting}
 template <typename T>
@@ -2860,23 +2852,10 @@ long long Largrange(const T &k, const int &n, const P y[]) {
   for (int i = 1; i <= n; ++i) pre[i] = pre[i-1]*(k-i)%MOD;
   for (int i = n; i >= 1; --i) suf[i] = suf[i+1]*(k-i)%MOD;
   for (int i = 1; i <= n; ++i) {
-    res = (res+y[i]*(pre[i-1]*suf[i+1]%MOD)%MOD
-      *mul_inverse(((n-i)&1 ? -1 : 1)*fac[i-1]*fac[n-i]%MOD)%MOD)%MOD;
+    res = (res+y[i]*(pre[i-1]*suf[i+1]%MOD)%MOD*
+      mul_inverse(((n-i)&1 ? -1 : 1)*fac[i-1]*fac[n-i]%MOD)%MOD)%MOD;
   }
   return (res+MOD)%MOD;
-}
-\end{lstlisting}
-
-
-\section{快速幂}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-template <typename T, typename H>
-inline T qpow(const T &a, const H &p, const int &mo = MOD) {
-  long long res = 1, x = a;
-  for (H i = p; i; i >>= 1, x = x*x%mo)
-    if (i&1) res = res*x%mo;
-  return static_cast<T>(res);
 }
 \end{lstlisting}
 
@@ -3048,12 +3027,16 @@ namespace MTT {
     static comp dfta[SIZE], dftb[SIZE];
 
     for (L = 1, bit = 0; L < n+m-1; ++bit, L <<= 1);
-    for (int i = 0; i < L; ++i) bitrev[i] = bitrev[i >> 1] >> 1 | ((i & 1) << (bit - 1));
-    for (int i = 0; i < L; ++i) w[i] = comp(cos(2 * PI * i / L), sin(2 * PI * i / L));
+    for (int i = 0; i < L; ++i)
+      bitrev[i] = bitrev[i >> 1] >> 1 | ((i & 1) << (bit - 1));
+    for (int i = 0; i < L; ++i)
+      w[i] = comp(cos(2 * PI * i / L), sin(2 * PI * i / L));
 
-    for (int i = 0; i < n; ++i) (x[i] += Mod) %= Mod, a[i] = comp(x[i] & 32767, x[i] >> 15);
+    for (int i = 0; i < n; ++i) 
+      (x[i] += Mod) %= Mod, a[i] = comp(x[i] & 32767, x[i] >> 15);
     for (int i = n; i < L; ++i) a[i] = 0;
-    for (int i = 0; i < m; ++i) (y[i] += Mod) %= Mod, b[i] = comp(y[i] & 32767, y[i] >> 15);
+    for (int i = 0; i < m; ++i)
+      (y[i] += Mod) %= Mod, b[i] = comp(y[i] & 32767, y[i] >> 15);
     for (int i = m; i < L; ++i) b[i] = 0;
     fft(a, L), fft(b, L);
     for (int i = 0; i < L; ++i) {
@@ -3074,7 +3057,8 @@ namespace MTT {
       int db = (long long)(a[i].imag / L + 0.5) % Mod;
       int dc = (long long)(b[i].real / L + 0.5) % Mod;
       int dd = (long long)(b[i].imag / L + 0.5) % Mod;
-      f[i] = (da + ((long long)(db + dc) << 15) + ((long long)dd << 30)) % Mod;
+      f[i] = (da + ((long long)(db + dc) << 15)
+          + ((long long)dd << 30)) % Mod;
     }
     for (int i = 0; i < n+m-1; ++i) (f[i] += Mod) %= Mod;
   }
@@ -3189,10 +3173,6 @@ namespace FWT {
 } // namespace FWT
 \end{lstlisting}
 
-\section{快速莫比乌斯变换|FMT}
-
-据说 FWT 做的事情完全包含 FMT 且常数是一半(咕之
-
 \section{快速子集变换(子集卷积)|FST}
 
 $C_k = \sum\limits_{i\&j=0,i|j=k}{A_i B_j}$
@@ -3263,7 +3243,6 @@ template <typename T> void vip_fst(T a[], const int &n) { // return a
 \begin{lstlisting}
 inline void stirling(const int &n) {
   S[0][0] = 1;
-  // 注意取模
   for (int i = 1; i <= n; ++i)
     for (int j = 1; j <= i; ++j)
       S[i][j] = S[i-1][j-1]+S[i-1][j]*j;
@@ -3295,7 +3274,7 @@ void stirling(const int &n) {
 
 
 \section{约瑟夫环}
-\subsection{O(n)}
+$O(n)$
 {\setmainfont{Consolas}
 \begin{lstlisting}
 int solve(int n, int v) { return n == 1 ? 0 : (solve(n-1, v)+v)%n; }
@@ -3303,21 +3282,10 @@ int solve(int n, int v) { return n == 1 ? 0 : (solve(n-1, v)+v)%n; }
 \end{lstlisting}
 
 
-\section{最大公因数 gcd}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-__gcd(a, b); // <algorithm>
-int gcd(int a, int b) { return b ? gcd(b, a%b) : a; }
-inline int gcd(int a, int b) { while (b) a %= b, swap(a, b); return a; }
-\end{lstlisting}
 \section{最小公倍数 lcm}
 $LCM(\frac{a}{b},\frac{c}{d})=\frac{LCM(a, c)}{GCD(b,d)}$
 
 $LCM(\frac{a_1}{b_1},\frac{a_2}{b_2},...)=\frac{LCM(a1, a2,...)}{GCD(b1, b2,...)}$
-{\setmainfont{Consolas}
-\begin{lstlisting}
-inline int lcm(int a, int b) { return a/gcd(a, b)*b; }
-\end{lstlisting}
 \section{扩展欧几里得(同余方程}
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -3343,13 +3311,7 @@ inline T mul_inverse(const T &a, const T &mo = MOD) {
 }
 \end{lstlisting}
 \subsection{费马小定理}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-template <typename T>
-inline T mul_inverse(const T &a, const int &mo = MOD) {
-  return qpow(a, mo-2);
-}
-\end{lstlisting}
+$a^{p-1} \equiv 1 (mod p) \Rightarrow inv(a)=a^{p-2}$
 \subsection{线性递推}
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -3397,31 +3359,7 @@ inline long long EXCRT(long long a[], long long m[]) {
 \end{lstlisting}
 
 
-\section{排列组合}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-struct Combination {
-  int fac[N], inv[N];
-  void init(const int &n) {
-    fac[0] = inv[0] = fac[1] = inv[1] = 1;
-    for (int i = 2; i <= n; ++i) {
-      fac[i] = 1ll*fac[i-1]*i%MOD;
-      inv[i] = 1ll*(MOD-MOD/i)*inv[MOD%i]%MOD;
-    }
-    for (int i = 2; i <= n; ++i) {
-      inv[i] = 1ll*inv[i]*inv[i-1]%MOD;
-    }
-  }
-  int A(const int &p, const int &q) {
-    return p >= q ? 1ll*fac[p]*inv[p-q]%MOD : 0;
-  }
-  int C(const int &p, const int &q) {
-    return p >= q ? 1ll*fac[p]*inv[q]%MOD*inv[p-q]%MOD : 0;
-  }
-};
-\end{lstlisting}
-
-\subsection{奇偶性}
+\section{排列组合奇偶性}
 C(n,k) 当 n\&k == k 为奇数反之偶数
 
 
@@ -3565,10 +3503,6 @@ inline long long BSGS(long long a, long long x, long long m) {
 }
 \end{lstlisting}
 
-\section{拓展BSGS}
-
-$\gcd(a, m) \neq 1$
-
 \section{错排}
 
 $D_1 = 0$
@@ -3609,15 +3543,6 @@ inline int getG(const int &m) {
 
 \part{动态规划 DP}
 \section{线性DP}
-\subsection{最长上升子序列LIS}
-{\setmainfont{Consolas}
-\begin{lstlisting}
-for(int i = 1; i <= n; ++i) {
-  f[i] = 1;
-  for(int j = 1; j < i; ++j)
-    if(a[i] > a[j]) f[i] = max(f[i],f[j]+1);
-}
-\end{lstlisting}
 \subsection{最长公共子序列LCS}
 {\setmainfont{Consolas}
 \begin{lstlisting}
@@ -3685,8 +3610,7 @@ for(int i = 1; i <= n; ++i) {
   }
 }
 int ans = 0;
-for(int i = 1; i <= W; ++i)
-  ans = max(ans, f[i]);
+for(int i = 1; i <= W; ++i) ans = max(ans, f[i]);
 \end{lstlisting}
 
 
@@ -3772,8 +3696,6 @@ int n, m;
 int a[N][N];
 long long dp[2][M];
 int head[2][P], nex[2][M], tot[2], ver[2][M];
-// long long dp[2][P];
-// int head[2][P], nex[2][P], tot[2], ver[2][P];
 
 inline void clear(const int &u) {
   for (int i = 1; i <= tot[u]; ++i) {
@@ -3936,12 +3858,10 @@ L 型地板：拐弯且仅拐弯一次。
 \begin{lstlisting}
 struct Node {
   int a, b;
-  // 重载 ==
   friend bool operator == (const Node &x, const Node &y) {
     return x.a == y.a && x.b == y.b;
   }
 };
-
 // 方法一
 namespace std {
   template <>
@@ -3952,7 +3872,6 @@ namespace std {
   };
 }
 unordered_map<Node, int> mp;
-
 // 方法二
 struct KeyHasher {
   size_t operator () (const Node &x) const {
