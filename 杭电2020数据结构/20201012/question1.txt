@@ -1,0 +1,16 @@
+1.
+(1) pa
+(2) pa->exp == 0
+(3) q = pa
+(4) NULL
+(5) *= pa->exp
+(6) --
+(7) pa
+(8) pa->next
+
+2.
+链表按不递减排序
+(1) r->prior = q->prior
+(2) p->next->prior = q
+(3) p->next = q
+(4) r = q->next
