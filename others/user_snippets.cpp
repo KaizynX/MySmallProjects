@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-03-03 11:00:03
- * @LastEditTime: 2021-03-03 11:37:21
+ * @LastEditTime: 2021-03-07 15:14:14
  */
 #include <bits/stdc++.h>
 
@@ -31,6 +31,9 @@ signed main() {
   res += "    \"body\": [\n";
   getline(cin, s); // read '\n'
   while (getline(cin, s)) {
+    for (int p = 0; (p = s.find("\"", p)) != s.npos; p += 2) {
+      s.replace(p, 1, "\\\"");
+    }
     res += "      \""+s+"\",\n";
   }
   res += "    ],\n";
