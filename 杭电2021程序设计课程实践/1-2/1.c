@@ -1,52 +1,36 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-03-21 13:34:13
- * @LastEditTime: 2021-03-21 13:35:50
+ * @LastEditTime: 2021-03-27 23:07:39
  */
 #include <stdio.h>
-#include "SequenceList.c"
-
-void ListInsert(SqList *L, LElemType_Sq e) {
-  int i = 1;
-  for (LElemType_Sq val; i <= ListLength_Sq(*L); ++i) {
-    GetElem_Sq(*L, i, &val);
-    if (val >= e) break;
-  }
-  ListInsert_Sq(L, i, e);
-}
-
-void ReverseSqList(SqList *L) {
-  for (int i = 0, j = ListLength_Sq(*L)-1; i != j; ++i, --j) {
-    LElemType_Sq tmp = L->elem[i];
-    L->elem[i] = L->elem[j];
-    L->elem[j] = tmp;
-  }
-}
-
-void ListPrint(SqList L) {
-  int len = ListLength_Sq(L);
-  for (int i = 1; i <= len; ++i) {
-    LElemType_Sq a;
-    GetElem_Sq(L, i, &a);
-    printf("%d%c", a, " \n"[i==len]);
-  }
-}
+#include "DualCycleLinkedList.c"
 
 int main() {
-  SqList La, Lb;
-  InitList_Sq(&La);
-  InitList_Sq(&Lb);
-
-  for (int a; scanf("%d", &a) == 1; ) {
-    if (a > 0) ListInsert(&La, a);
-    if (a < 0) ListInsert(&Lb, a);
+  int m, n, k;
+  scanf("%d%d%d", &m, &n, &k);
+  DuLinkList La, Lb;
+  InitList_DuL(&La);
+  InitList_DuL(&Lb);
+  for (int i = 1; i <= m; ++i) {
+    ListInsert_DuL(La, i, i);
   }
-
-  printf("La:");
-  ListPrint(La);
-  printf("Lb:");
-  ListPrint(Lb);
-  DestroyList_Sq(&La);
-  DestroyList_Sq(&Lb);
+  for (int i = 1, p = 1; i <= m; ++i) {
+    LElemType_DC e;
+    p += n-1;
+    while (p > m-i+1) p -= m-i+1;
+    ListDelete_DuL(La, p, &e);
+    ListInsert_DuL(Lb, i, e);
+    // printf("%d%c", e, " \n"[i==m]);
+  }
+  for (int i = 1, p = 1; i <= m; ++i) {
+    LElemType_DC e;
+    p += k-1;
+    while (p > m-i+1) p -= m-i+1;
+    ListDelete_DuL(Lb, p, &e);
+    printf("%4d", e);
+  }
+  DestroyList_DuL(&La);
+  DestroyList_DuL(&Lb);
   return 0;
 }
