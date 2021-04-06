@@ -1,12 +1,11 @@
 /*
  * @Author: Kaizyn
  * @Date: 2020-09-23 18:43:22
- * @LastEditTime: 2021-04-04 11:19:01
+ * @LastEditTime: 2021-04-04 11:58:33
  */
 #include <bits/stdc++.h>
 
 using namespace std;
-
 
 struct BigInteger {
   static const int SIZE = 1e4; // 位数SIZE*4
@@ -214,6 +213,7 @@ int main() {
   cin >> a >> b;
   cout << a+b << '\n';
   cout << a-b << '\n';
+  cout << a*b << '\n';
   return 0;
 }
 /*
