@@ -1,0 +1,159 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Apr  6 19:35:15 2021
+# Process ID: 9644
+# Current directory: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2140 C:\Users\Kaizyn\Documents\MySmallProjects\hdu2021COPractice\01_Test\01_Test.xpr
+# Log file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/vivado.log
+# Journal file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/01_Test.xpr
+INFO: [Project 1-313] Project file moved from 'D:/工作/书稿/在线实验/组成原理实验/李迎民代码/01_Test' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+update_compile_order -fileset sources_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/01_Test.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Display_Test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/01_Test.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Display_Test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Display.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Display
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Display_Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Display_Test
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/01_Test.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/01_Test.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto dcdd71639a1c4e4e8d9ecac67d18d5eb --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Display_Test_behav xil_defaultlib.Display_Test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Display
+Compiling module xil_defaultlib.Display_Test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Display_Test_behav
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/01_Test.sim/sim_1/behav/xsim/xsim.dir/Display_Test_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Apr  6 19:40:04 2021...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 693.363 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/01_Test.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Display_Test_behav -key {Behavioral:sim_1:Functional:Display_Test} -tclbatch {Display_Test.tcl} -log {simulate.log} -maxdeltaid 100000"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Display_Test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Display_Test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 693.363 ; gain = 0.000
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tfgg484-2L
+Top: Board
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 784.852 ; gain = 91.488
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Board' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Display' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Display.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Display' (1#1) [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Display.v:3]
+WARNING: [Synth 8-350] instance 'Display_Instance' of module 'Display' requires 6 connections, but only 4 given [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'Board' (2#1) [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.v:3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 812.266 ; gain = 118.902
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 812.266 ; gain = 118.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 812.266 ; gain = 118.902
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tfgg484-2L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 32 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 32 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc]
+WARNING: [Vivado 12-507] No nets matched 'clk_IBUF'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[1]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[2]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[3]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:108]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:108]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[4]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:109]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:109]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[5]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:110]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[6]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/01_Test/Board.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1138.312 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 1177.395 ; gain = 484.031
+10 Infos, 8 Warnings, 7 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 1177.414 ; gain = 484.051
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr  6 19:58:00 2021...
