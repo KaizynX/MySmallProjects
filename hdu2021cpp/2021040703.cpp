@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-04-07 11:49:11
- * @LastEditTime: 2021-04-07 12:17:38
+ * @LastEditTime: 2021-04-21 13:37:45
  */
 #include <iostream>
 #include <algorithm>
@@ -87,26 +87,28 @@ CStack::CStack (const CStack &rhs) {
 CStack& CStack::operator = (const CStack &rhs) {
   Node *tmp = rhs.m_sp;
   Node **cur = &m_sp;
-  // Node cur = new Node;
   while (tmp) {
-    // cur->next = new Node;
-    // cur = cur->next;
-    // cur->data = tmp->data;
     *cur = new Node;
     (*cur)->data = tmp->data;
     cur = &(*cur)->next;
     tmp = tmp->next;
   }
-  // m_sp = cur->next;
   return *this;
 }
 //栈的移动构造代码
 CStack::CStack (CStack &&rhs) {
   *this = rhs;
+  // m_sp = rhs.m_sp;
+  // rhs.m_sp = nullptr;
 }
 //栈的移动赋值代码
 CStack& CStack::operator = (CStack &&rhs) {
-  m_sp = rhs.m_sp;
+  delete m_sp;
+  m_sp = nullptr;
+  if (rhs.m_sp) {
+    m_sp = rhs.m_sp;
+    rhs.m_sp = nullptr;
+  }
   return *this;
 }
 
