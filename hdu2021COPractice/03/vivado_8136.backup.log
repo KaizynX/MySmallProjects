@@ -1,0 +1,471 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Apr 26 08:36:38 2021
+# Process ID: 8136
+# Current directory: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12752 C:\Users\Kaizyn\Documents\MySmallProjects\hdu2021COPractice\03\03.xpr
+# Log file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/vivado.log
+# Journal file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 682.578 ; gain = 118.723
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 3
+CRITICAL WARNING: [HDL 9-806] Syntax error near "+". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:40]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "+". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:65]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:67]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:70]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:73]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:76]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:79]
+[Mon Apr 26 08:40:21 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 3
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:67]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:70]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:73]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:76]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:79]
+[Mon Apr 26 08:41:23 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:70]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:73]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:76]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:79]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "Display". [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:82]
+[Mon Apr 26 08:42:15 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:08:05 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:08:58 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:09:33 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:11:27 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:14:43 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:17:56 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:19:26 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'Test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Multi_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Test
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto b5434958f7e94966bed17bca6253e0c1 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Test_behav xil_defaultlib.Test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Multi_Reg_default
+Compiling module xil_defaultlib.Test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Test_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Test_behav -key {Behavioral:sim_1:Functional:Test} -tclbatch {Test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 726.609 ; gain = 29.969
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tfgg484-2L
+Top: Board
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 802.184 ; gain = 71.656
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Board' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:2]
+	Parameter ADDR bound to: 4 - type: integer 
+	Parameter NUMB bound to: 16 - type: integer 
+	Parameter SIZE bound to: 32 - type: integer 
+WARNING: [Synth 8-85] always block has no event control specified [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:36]
+INFO: [Synth 8-6157] synthesizing module 'Display' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Display.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Display' (1#1) [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Display.v:3]
+WARNING: [Synth 8-350] instance 'Display_instance' of module 'Display' requires 7 connections, but only 5 given [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:98]
+INFO: [Synth 8-6157] synthesizing module 'Multi_Reg' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:4]
+	Parameter ADDR bound to: 4 - type: integer 
+	Parameter NUMB bound to: 16 - type: integer 
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:68]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:110]
+WARNING: [Synth 8-6014] Unused sequential element R_und_reg[13] was removed.  [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:60]
+WARNING: [Synth 8-5788] Register R_irq_reg[14] in module Multi_Reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:57]
+WARNING: [Synth 8-5788] Register R_abt_reg[14] in module Multi_Reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:58]
+WARNING: [Synth 8-5788] Register R_svc_reg[14] in module Multi_Reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:59]
+WARNING: [Synth 8-5788] Register R_mon_reg[14] in module Multi_Reg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'Multi_Reg' (2#1) [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'Board' (3#1) [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.v:2]
+WARNING: [Synth 8-3917] design Board has port enable driven by constant 1
+WARNING: [Synth 8-3331] design Board has unconnected port led[29]
+WARNING: [Synth 8-3331] design Board has unconnected port led[28]
+WARNING: [Synth 8-3331] design Board has unconnected port led[27]
+WARNING: [Synth 8-3331] design Board has unconnected port led[26]
+WARNING: [Synth 8-3331] design Board has unconnected port led[25]
+WARNING: [Synth 8-3331] design Board has unconnected port led[24]
+WARNING: [Synth 8-3331] design Board has unconnected port led[23]
+WARNING: [Synth 8-3331] design Board has unconnected port led[22]
+WARNING: [Synth 8-3331] design Board has unconnected port led[21]
+WARNING: [Synth 8-3331] design Board has unconnected port led[20]
+WARNING: [Synth 8-3331] design Board has unconnected port led[19]
+WARNING: [Synth 8-3331] design Board has unconnected port led[18]
+WARNING: [Synth 8-3331] design Board has unconnected port led[17]
+WARNING: [Synth 8-3331] design Board has unconnected port led[16]
+WARNING: [Synth 8-3331] design Board has unconnected port led[15]
+WARNING: [Synth 8-3331] design Board has unconnected port led[14]
+WARNING: [Synth 8-3331] design Board has unconnected port led[13]
+WARNING: [Synth 8-3331] design Board has unconnected port led[12]
+WARNING: [Synth 8-3331] design Board has unconnected port led[11]
+WARNING: [Synth 8-3331] design Board has unconnected port led[10]
+WARNING: [Synth 8-3331] design Board has unconnected port led[9]
+WARNING: [Synth 8-3331] design Board has unconnected port led[8]
+WARNING: [Synth 8-3331] design Board has unconnected port led[7]
+WARNING: [Synth 8-3331] design Board has unconnected port led[6]
+WARNING: [Synth 8-3331] design Board has unconnected port led[5]
+WARNING: [Synth 8-3331] design Board has unconnected port swb[6]
+WARNING: [Synth 8-3331] design Board has unconnected port swb[5]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 853.734 ; gain = 123.207
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 853.734 ; gain = 123.207
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 853.734 ; gain = 123.207
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tfgg484-2L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-141] Inserted 1 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc]
+WARNING: [Vivado 12-507] No nets matched 'clk_IBUF'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[1]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[2]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[3]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:108]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:108]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[4]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:109]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:109]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[5]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:110]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'swb_IBUF[6]'. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Board.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1190.691 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:15 . Memory (MB): peak = 1223.543 ; gain = 493.016
+13 Infos, 42 Warnings, 7 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:15 . Memory (MB): peak = 1223.543 ; gain = 493.016
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Mon Apr 26 09:35:19 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.runs/synth_1/runme.log
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'Test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Multi_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Test
+ERROR: [VRFC 10-1412] syntax error near end [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:62]
+ERROR: [VRFC 10-2790] Verilog 2000 keyword end used in incorrect context [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:62]
+ERROR: [VRFC 10-2865] module 'Test' ignored due to previous errors [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:3]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'Test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Multi_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Test
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto b5434958f7e94966bed17bca6253e0c1 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Test_behav xil_defaultlib.Test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Multi_Reg_default
+Compiling module xil_defaultlib.Test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Test_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Test_behav -key {Behavioral:sim_1:Functional:Test} -tclbatch {Test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1223.828 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'Test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Multi_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Test
+ERROR: [VRFC 10-1412] syntax error near ' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:75]
+ERROR: [VRFC 10-1412] syntax error near ' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:86]
+ERROR: [VRFC 10-1412] syntax error near ' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:96]
+WARNING: [VRFC 10-2096] empty statement in sequential block [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:33]
+ERROR: [VRFC 10-2865] module 'Test' ignored due to previous errors [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v:3]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'Test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Multi_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Test
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto b5434958f7e94966bed17bca6253e0c1 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Test_behav xil_defaultlib.Test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Multi_Reg_default
+Compiling module xil_defaultlib.Test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Test_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Test_behav -key {Behavioral:sim_1:Functional:Test} -tclbatch {Test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1223.828 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'Test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Multi_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Multi_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/Test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Test
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto b5434958f7e94966bed17bca6253e0c1 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Test_behav xil_defaultlib.Test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Multi_Reg_default
+Compiling module xil_defaultlib.Test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Test_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03/03.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Test_behav -key {Behavioral:sim_1:Functional:Test} -tclbatch {Test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source Test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1252.840 ; gain = 1.473
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 26 10:02:25 2021...

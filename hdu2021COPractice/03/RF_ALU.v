@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //寄存器堆+ALU组合模块
 module RF_ALU(
-        Clk,Clr,Write_Reg,Write_Select,//控制信号
+        Clk,Rst,Write_Reg,Write_Select,//控制信号
         R_Addr_A,R_Addr_B,R_Addr_C,W_Addr,//读写地址
         Input_Data,R_Data_A,R_Data_B,R_Data_C,//数据IO
         OP,SCO,CF,VF,N,Z,C,V,F//ALU运算
@@ -10,7 +10,7 @@ module RF_ALU(
     parameter SIZE = 32;//数据位宽
     
     //寄存器堆
-    input Clk, Clr;//写入时钟信号, 清零信号
+    input Clk, Rst;//写入时钟信号, 清零信号
     input Write_Reg;//写控制信号
     input [ADDR:1]R_Addr_A;//A读端口寄存器地址
     input [ADDR:1]R_Addr_B;//B读端口寄存器地址
@@ -45,7 +45,7 @@ module RF_ALU(
     RegFile RF_Test(
         //输入
         .Clk(Clk),//时钟信号
-        .Clr(Clr),//清零信号
+        .Rst(Rst),//清零信号
         .Write_Reg(Write_Reg),//写入控制
         .R_Addr_A(R_Addr_A),//A端口读地址
         .R_Addr_B(R_Addr_B),//B端口读地址
