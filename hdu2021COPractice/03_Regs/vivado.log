@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Apr 26 11:59:55 2021
+# Process ID: 15452
+# Current directory: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03_Regs
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15752 C:\Users\Kaizyn\Documents\MySmallProjects\hdu2021COPractice\03_Regs\03_REGS.xpr
+# Log file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03_Regs/vivado.log
+# Journal file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03_Regs\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03_Regs/03_REGS.xpr
+INFO: [Project 1-313] Project file moved from 'D:/Xilinx/data/03_REGS' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [Project 1-230] Project '03_REGS.xpr' upgraded for this version of Vivado.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 26 12:00:35 2021] Launched synth_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03_Regs/03_REGS.runs/synth_1/runme.log
+[Mon Apr 26 12:00:35 2021] Launched impl_1...
+Run output will be captured here: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/03_Regs/03_REGS.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 26 14:06:00 2021...
