@@ -1,12 +1,7 @@
 /*
  * @Author: Kaizyn
- * @Date: 2021-04-14 11:28:38
- * @LastEditTime: 2021-04-28 10:33:12
- */
-/*
- * @Author: Kaizyn
- * @Date: 2021-04-14 10:58:08
- * @LastEditTime: 2021-04-14 11:24:46
+ * @Date: 2021-04-28 10:20:32
+ * @LastEditTime: 2021-04-28 10:37:26
  */
 #include <bits/stdc++.h>
 
@@ -14,7 +9,9 @@
 
 using namespace std;
 
-const double PI = 3.1416;
+#define double float
+
+const double PI = 3.14159;
 
 class Shape {
  public:
@@ -37,6 +34,18 @@ class Circle : public Shape { //（圆形）
   double r;
 };
 
+class Square : public Shape { //（正方形）
+ public:
+  virtual void read() {
+    cin >> a;
+  }
+  virtual double Area() {
+    return a*a;
+  }
+ private:
+  double a;
+};
+
 class Rectangle : public Shape { //（ 长方形）
  public:
   virtual void read() {
@@ -49,17 +58,28 @@ class Rectangle : public Shape { //（ 长方形）
   double a, b;
 };
 
+class Trapezoid : public Shape { // （梯形）
+ public:
+  virtual void read() {
+    cin >> a >> b >> h;
+  }
+  virtual double Area() {
+    return (a+b)/2*h;
+  }
+ private:
+  double a, b, h;
+};
+
 class Triangle : public Shape { //（三角形）
  public:
   virtual void read() {
-    cin >> a >> b >> c;
+    cin >> a >> h;
   }
   virtual double Area() {
-    double p = (a+b+c)/2;
-    return sqrt(p*(p-a)*(p-b)*(p-c));
+    return a*h/2;
   }
  private:
-  double a, b, c;
+  double a, h;
 };
 
 double TotalArea(vector<Shape*> &vec) {
@@ -78,21 +98,11 @@ void clear(vector<Shape*> &vec) {
 }
 
 signed main() {
-  string str;
-  vector<Shape*> vec;
-  while (cin >> str) {
-    Shape *cur;
-    if (str == "circle") {
-      cur = new Circle;
-    } else if (str == "rectangle") {
-      cur = new Rectangle;
-    } else if (str == "triangle") {
-      cur = new Triangle;
-    }
-    cur->read();
-    vec.emplace_back(cur);
-  }
-  printf("%.4f\n", TotalArea(vec));
+// 输入在一行中，给出9个大于0的数，用空格分隔，
+// 分别代表圆的半径，正方形的边长，矩形的宽和高，梯形的上底、下底和高，三角形的底和高。
+  vector<Shape*> vec{new Circle, new Square, new Rectangle, new Trapezoid, new Triangle};
+  for (Shape* s : vec) s->read();
+  printf("%.3f\n", TotalArea(vec));
   clear(vec);
   return 0;
 }
