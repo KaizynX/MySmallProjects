@@ -1,0 +1,115 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab1/simulation/qsim
+vdec
+Z1 !s110 1620743476
+!i10b 1
+!s100 bPn@zARl1Xl59lUZoizZf1
+IhO<i>8G=NMoY9_YzcdRJ=3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1620743475
+Z3 8lab1.vo
+Z4 Flab1.vo
+Z5 L0 31
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1620743476.000000
+Z8 !s107 lab1.vo|
+Z9 !s90 -work|work|lab1.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+vdec_vlg_vec_tst
+R1
+!i10b 1
+!s100 MoQ=mOJ9RNW7=:ghNF6P53
+IBR3>bAoK`@4kPDECz>zn:0
+R2
+R0
+w1620743473
+Z12 8Waveform.vwf.vt
+Z13 FWaveform.vwf.vt
+Z14 L0 29
+R6
+r1
+!s85 0
+31
+R7
+!s107 Waveform.vwf.vt|
+Z15 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R10
+R11
+vhard_block
+Z16 !s110 1620744520
+!i10b 1
+!s100 3HXFnS86J3f8ESBT2R:<T0
+IhjKTz=T4L>=hf2`i<E_KL2
+R2
+R0
+Z17 w1620744519
+R3
+R4
+L0 195
+R6
+r1
+!s85 0
+31
+Z18 !s108 1620744520.000000
+R8
+R9
+!i113 1
+R10
+R11
+vlogic_mx
+R16
+!i10b 1
+!s100 8n6BgDE2c;OB?9^FGR8Vm0
+I26YPN5ZDOZe<HETU^A=Nz3
+R2
+R0
+R17
+R3
+R4
+R5
+R6
+r1
+!s85 0
+31
+R18
+R8
+R9
+!i113 1
+R10
+R11
+vlogic_mx_vlg_vec_tst
+!s110 1620744521
+!i10b 1
+!s100 4823^;X_TbU:<1lR7Cm>53
+IAUYRnn8iUfYo?9hk:Q7Oj3
+R2
+R0
+w1620744518
+R12
+R13
+R14
+R6
+r1
+!s85 0
+31
+R18
+!s107 Waveform.vwf.vt|
+R15
+!i113 1
+R10
+R11

@@ -1,0 +1,12 @@
+|logic_mx
+ya <= inst.DB_MAX_OUTPUT_PORT_TYPE
+b => inst.IN0
+b => inst1.IN0
+b => inst2.IN1
+a => inst.IN1
+a => inst1.IN1
+a => inst2.IN0
+yb <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+yc <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+

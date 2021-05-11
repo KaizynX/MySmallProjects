@@ -16,4 +16,12 @@ module Board(sw, swb, led, clk, which, seg, enable);
     assign toggle = |swb; // 按下任意按钮切换数码管使能
     always @(posedge toggle) enable <= ~enable;
 
+/*
+    RAM_B test (
+        .clk(clk),
+        .addra(),
+        .douta()
+    )
+    */
+
 endmodule // Board

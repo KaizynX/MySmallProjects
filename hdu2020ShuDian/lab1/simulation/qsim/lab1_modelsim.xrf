@@ -1,0 +1,17 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab1/logic_mx.bdf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab1/Waveform.vwf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab1/output_files/dec.bdf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab1/output_files/Waveform.vwf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab1/output_files/mux41x.bdf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab1/db/lab1.cbx.xml
+design_name = logic_mx
+instance = comp, \ya~output , ya~output, logic_mx, 1
+instance = comp, \yb~output , yb~output, logic_mx, 1
+instance = comp, \yc~output , yc~output, logic_mx, 1
+instance = comp, \a~input , a~input, logic_mx, 1
+instance = comp, \b~input , b~input, logic_mx, 1
+design_name = hard_block
+instance = comp, \~ALTERA_ASDO_DATA1~~ibuf , ~ALTERA_ASDO_DATA1~~ibuf, hard_block, 1
+instance = comp, \~ALTERA_FLASH_nCE_nCSO~~ibuf , ~ALTERA_FLASH_nCE_nCSO~~ibuf, hard_block, 1
+instance = comp, \~ALTERA_DATA0~~ibuf , ~ALTERA_DATA0~~ibuf, hard_block, 1
