@@ -1,10 +1,12 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-05-06 19:33:47
- * @LastEditTime: 2021-05-06 23:21:35
+ * @LastEditTime: 2021-05-07 13:03:08
  */
 #include <bits/stdc++.h>
+
 using namespace std;
+
 // const int N = 1e2+7;
 const int M = 13;
 
@@ -16,7 +18,8 @@ class Martix {
     a = vector<vector<U>>(n, vector<U>(m, 0));
   }
   bool empty() const { return n == 0 || m == 0; }
-  vector<U>& operator [] (const int &i) { return a[i]; }
+  auto size() const { return {n, m}; }
+  vector<U>& operator [](const int &i) { return a[i]; }
   void I(const int &_n) {
     n = m = _n;
     a = vector<vector<U>>(n, vector<U>(n, 0));
@@ -64,12 +67,12 @@ class Martix {
       // res[k][k] = mul_inverse(res[k][k]); // get inv of number
       res[k][k] = 1.0/res[k][k];
       for (int j = 0; j < n; ++j) if (j != k)
-        res[k][j] = res[k][j]*res[k][k];
+        res[k][j] *= res[k][k];
       for (int i = 0; i < n; ++i) if (i != k)
         for (int j = 0; j < n; ++j) if (j != k)
           res[i][j] -= res[i][k]*res[k][j];
       for (int i = 0; i < n; ++i) if (i != k)
-        res[i][k] = -res[i][k]*res[k][k];
+        res[i][k] *= -res[k][k];
     }
     for (int k = n-1; k >= 0; --k) {
       swap(res[k], res[js[k]]);
@@ -81,7 +84,7 @@ class Martix {
   friend ostream& operator <<(ostream &os, const Martix &mx) {
     for (int i = 0; i < mx.n; ++i)
       for (int j = 0; j < mx.m; ++j)
-        os << mx[i][j] << " \n"[j==mx.m-1];
+        os << mx.a[i][j] << " \n"[j==mx.m-1];
     return os;
   }
  private:
@@ -94,8 +97,8 @@ int dataNum;               //样本数目
 vector<vector<double>> attri(M);
 vector<double> price, min_in(M), max_in(M), r(M);
 double min_out, max_out;
-Martix<double> W; // w = (X'X)^(-1)X'y
-Martix<double> X, Y, FY;
+Martix<double> W; // (5, 1)
+Martix<double> X, Y, FY; // X(N, 5) Y(N, 1) FY(N, 1)
 vector<int> choose(M);
 vector<string> Attribute_name(M+1);
 
@@ -156,7 +159,7 @@ void LineReg() {
   Y = Martix<double>(dataNum, 1);
   for (int i = 0; i < dataNum; ++i) {
     for (int j = 0; j < 4; ++j) {
-      X[i][j] = attri[i][choose[j]];
+      X[i][j] = attri[choose[j]][i];
     }
     X[i][4] = 1;
     Y[i][0] = price[i];
@@ -166,7 +169,7 @@ void LineReg() {
 
 double MSE() {
   double mse = 0;
-  FY = X.T()*W;
+  FY = X*W;
   for (int i = 0; i < dataNum; ++i) {
     mse += (FY[i][0]-Y[i][0])*(FY[i][0]-Y[i][0]);
   }
@@ -174,19 +177,20 @@ double MSE() {
 }
 
 //输出
-void Outputs() {
+bool Outputs() {
   Martix<double> x(5, 1);
   for (int i = 0, j; i < 4; ++i) {
     j = choose[i];
     cout << "请输入房屋的" << Attribute_name[j] << "属性值:";
-    cin >> x[i][0];
+    if (!(cin >> x[i][0])) return false;
     // 归一化
     x[i][0] = (x[i][0]-min_in[j])/(max_in[j]-min_in[j]);
   }
   x[4][0] = 1;
-  double y = (W*x)[0][0];
+  double y = (x.T()*W)[0][0];
   y = y*(max_out-min_out)+min_out;
   cout << "预计房价为：" << y << "元\n";
+  return true;
 }
 
 int main() {
@@ -195,20 +199,23 @@ int main() {
   for (int i = 0; i < M; ++i) Normalization(attri[i], min_in[i], max_in[i]);
   Normalization(price, min_out, max_out);
   // 计算相关系数
-  for (int i = 0; i < M; ++i) r[i] = Correlation_coefficient(attri[i], price);
+  for (int i = 0; i < M; ++i) {
+    r[i] = Correlation_coefficient(attri[i], price);
+    cout << Attribute_name[i] << "属性的相关系数为:" << r[i] << '\n';
+  }
   // 挑选四个最相关的维度
   iota(choose.begin(), choose.end(), 0);
   sort(choose.begin(), choose.end(), [&](int x, int y) {
-    return r[x] > r[y];
+    return abs(r[x]) > abs(r[y]);
   });
+  cout << "挑选的四个维度为:";
+  for (int i = 0; i < 4; ++i) cout << Attribute_name[choose[i]] << ",\n"[i==3];
   // 多元线性回归
   LineReg();
   // 模型评估
   cout << "MSE=" << MSE() << '\n';
-  Outputs();
+  // 房价预测
+  while (Outputs()) {}
   system("pause");
   return 0;
 }
-/*
-C:\Users\Kaizyn\Documents\MySmallProjects\杭电2021程序设计课程实践\4\housing.txt
-*/
