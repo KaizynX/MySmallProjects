@@ -1,0 +1,44 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed May 12 23:46:53 2021
+# Process ID: 12416
+# Current directory: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/08_CPU1.runs/synth_1
+# Command line: vivado.exe -log CPU1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CPU1.tcl
+# Log file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/08_CPU1.runs/synth_1/CPU1.vds
+# Journal file: C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/08_CPU1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source CPU1.tcl -notrace
+Command: synth_design -top CPU1 -part xc7a100tfgg484-2L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11200 
+WARNING: [Synth 8-1849] concatenation with unsized literal; will interpret as 32 bits [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:139]
+WARNING: [Synth 8-1849] concatenation with unsized literal; will interpret as 32 bits [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:142]
+WARNING: [Synth 8-1849] concatenation with unsized literal; will interpret as 32 bits [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:144]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 353.082 ; gain = 92.117
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'CPU1' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:3]
+INFO: [Synth 8-6157] synthesizing module 'barrelshifter32' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/barrelshifter32.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'barrelshifter32' (1#1) [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/barrelshifter32.v:3]
+WARNING: [Synth 8-689] width (32) of port connection 'shift_num' does not match port width (8) of module 'barrelshifter32' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:48]
+WARNING: [Synth 8-689] width (4) of port connection 'shift_op' does not match port width (3) of module 'barrelshifter32' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:49]
+WARNING: [Synth 8-689] width (1) of port connection 'shift_out' does not match port width (32) of module 'barrelshifter32' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:50]
+INFO: [Synth 8-6157] synthesizing module 'ALU32' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/ALU32.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/ALU32.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'ALU32' (2#1) [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/ALU32.v:3]
+ERROR: [Synth 8-685] variable 'F' should not be used in output port connection [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:60]
+ERROR: [Synth 8-6156] failed synthesizing module 'CPU1' [C:/Users/Kaizyn/Documents/MySmallProjects/hdu2021COPractice/08_CPU1/CPU1.v:3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 386.648 ; gain = 125.684
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+8 Infos, 6 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Wed May 12 23:47:01 2021...
