@@ -5,61 +5,61 @@
 #define bool int
 #define false 0
 #define true 1
-#define K 3                        	//´ØµÄÊıÄ¿
-#define dimNum 4                   	//Î¬Êı
-#define MAX_ROUNDS 100                         //×î´óÔÊĞíµÄµü´ú´ÎÊı
+#define K 3                        	//ç°‡çš„æ•°ç›®
+#define dimNum 4                   	//ç»´æ•°
+#define MAX_ROUNDS 100                         //æœ€å¤§å…è®¸çš„è¿­ä»£æ¬¡æ•°
 
-//´æ´¢ğ°Î²»¨Êı¾İµÄ½á¹¹Ìå
+//å­˜å‚¨é¸¢å°¾èŠ±æ•°æ®çš„ç»“æ„ä½“
 struct Iris {
-	double sepalLength;             	//»¨İà³¤¶È
-	double sepalWidth;              	//»¨İà¿í¶È
-	double petalLength;             	//»¨°ê³¤¶È
-	double petalWidth;              	//»¨°ê¿í¶È
-	int clusterID;                  	//ÓÃÓÚ´æ·Å¸ÃµãËùÊôµÄ´ØÈº±àºÅ
+	double sepalLength;             	//èŠ±è¼é•¿åº¦
+	double sepalWidth;              	//èŠ±è¼å®½åº¦
+	double petalLength;             	//èŠ±ç“£é•¿åº¦
+	double petalWidth;              	//èŠ±ç“£å®½åº¦
+	int clusterID;                  	//ç”¨äºå­˜æ”¾è¯¥ç‚¹æ‰€å±çš„ç°‡ç¾¤ç¼–å·
 };
 
-int isContinue;                                 //ÅĞ¶ÏÊÇ·ñ¼ÌĞø¾ÛÀà
-struct Iris iris[150];                         //¼ÇÂ¼ğ°Î²»¨µÄÊı¾İ
-struct Iris clusterCenter[K];     	//´æ´¢ÖÊĞÄ
-struct Iris centerCalc[K];      	//¼ÆËãĞÂÖÊĞÄ
-int dataNum;                                     //Êı¾İ¼¯ÖĞµÄÊı¾İ¼ÇÂ¼×ÜÊı
-int clusterCenterInitIndex[K];    	//¼ÇÂ¼Ã¿¸öÖÊĞÄ×î³õÊ¹ÓÃµÄÊı¾İµãµÄ±àºÅ
-double distanceFromCenter[K];    	//¼ÇÂ¼µãµ½ÖÊĞÄµÄ¾àÀë
-int dataSizePerCluster[K];        	//Ã¿¸ö´ØÈºµãµÄ¸öÊı
+int isContinue;                                 //åˆ¤æ–­æ˜¯å¦ç»§ç»­èšç±»
+struct Iris iris[150];                         //è®°å½•é¸¢å°¾èŠ±çš„æ•°æ®
+struct Iris clusterCenter[K];     	//å­˜å‚¨è´¨å¿ƒ
+struct Iris centerCalc[K];      	//è®¡ç®—æ–°è´¨å¿ƒ
+int dataNum;                                     //æ•°æ®é›†ä¸­çš„æ•°æ®è®°å½•æ€»æ•°
+int clusterCenterInitIndex[K];    	//è®°å½•æ¯ä¸ªè´¨å¿ƒæœ€åˆä½¿ç”¨çš„æ•°æ®ç‚¹çš„ç¼–å·
+double distanceFromCenter[K];    	//è®°å½•ç‚¹åˆ°è´¨å¿ƒçš„è·ç¦»
+int dataSizePerCluster[K];        	//æ¯ä¸ªç°‡ç¾¤ç‚¹çš„ä¸ªæ•°
 
-//Êı¾İ¶ÁÈë
+//æ•°æ®è¯»å…¥
 bool Inputs() {
-	char fname[256];//ÎÄ¼şÃû
-	char name[20]; //´æ´¢ğ°Î²»¨µÄÃû×Ö
-	printf("ÇëÊäÈë´æ·ÅÊı¾İµÄÎÄ¼şÃû£º");
+	char fname[256];//æ–‡ä»¶å
+	char name[20]; //å­˜å‚¨é¸¢å°¾èŠ±çš„åå­—
+	printf("è¯·è¾“å…¥å­˜æ”¾æ•°æ®çš„æ–‡ä»¶åï¼š");
 	scanf("%s", fname);
-	printf("\nÑù±¾ÊıÄ¿dataNum£º\n");
+	printf("\næ ·æœ¬æ•°ç›®dataNumï¼š\n");
 	scanf("%d", &dataNum);
 	FILE *fp = fopen(fname, "rb");
 	if (fp == NULL) {
-		printf("²»ÄÜ´ò¿ªÊäÈëµÄÎÄ¼ş\n");
+		printf("ä¸èƒ½æ‰“å¼€è¾“å…¥çš„æ–‡ä»¶\n");
 		return false;
 	}
 	for (int i = 0; i < dataNum; i++) {
 		fscanf(fp, "%lf,%lf,%lf,%lf,%s", &iris[i].sepalLength, &iris[i].sepalWidth, &iris[i].petalLength, &iris[i].petalWidth, name);
-		iris[i].clusterID = -1; //cluster id ³õÖµÎª-1
+		iris[i].clusterID = -1; //cluster id åˆå€¼ä¸º-1
 	}
 	fclose(fp);
 	return true;
 }
 
-//³õÊ¼»¯´ØÈº
+//åˆå§‹åŒ–ç°‡ç¾¤
 void InitialCluster() {
-	int random; //´æ·ÅËæ»úÊıµÄ±äÁ¿
-	//½«K¸öÖÊĞÄµÄ±àºÅ³õÊ¼»¯Îª-1
+	int random; //å­˜æ”¾éšæœºæ•°çš„å˜é‡
+	//å°†Kä¸ªè´¨å¿ƒçš„ç¼–å·åˆå§‹åŒ–ä¸º-1
 		for (int i = 0; i < K; i++) {
 			clusterCenterInitIndex[i] = -1;
 	}
-	//Ëæ»ú²úÉúK¸öÖÊĞÄ±àºÅ£¨²»ÄÜÖØ¸´£©
+	//éšæœºäº§ç”ŸKä¸ªè´¨å¿ƒç¼–å·ï¼ˆä¸èƒ½é‡å¤ï¼‰
 	for (int i = 0; i < K; i++) {
-		random = rand() % (dataNum - 1);  //Ëæ»ú²úÉú0µ½dataNum -1Ö®¼äµÄËæ»úÕûÊı
+		random = rand() % (dataNum - 1);  //éšæœºäº§ç”Ÿ0åˆ°dataNum -1ä¹‹é—´çš„éšæœºæ•´æ•°
 		int j = 0;
-		//ÓëÇ°i¸öÖĞĞÄ±àºÅ½øĞĞ±È¶Ô£¬ÅĞ¶ÏÊÇ·ñÓĞÖØ¸´
+		//ä¸å‰iä¸ªä¸­å¿ƒç¼–å·è¿›è¡Œæ¯”å¯¹ï¼Œåˆ¤æ–­æ˜¯å¦æœ‰é‡å¤
 		while (j < i) {
 			if (random == clusterCenterInitIndex[j]) {
 				random = rand() % (dataNum - 1);
@@ -69,21 +69,21 @@ void InitialCluster() {
 				j++;
 			}
 		}
-		clusterCenterInitIndex[i] = random;   //ÉèÖÃµÚi¸öÖÊĞÄµÄ±àºÅ
+		clusterCenterInitIndex[i] = random;   //è®¾ç½®ç¬¬iä¸ªè´¨å¿ƒçš„ç¼–å·
 	}
-	//È·¶¨K¸öÖÊĞÄ±àºÅºó£¬½«Ñù±¾Êı×éirisÖĞ¶ÔÓ¦±àºÅµÄÊı¾İ¸³Öµ¸øÖÊĞÄ½á¹¹ÌåÊı×éclusterCenter
+	//ç¡®å®šKä¸ªè´¨å¿ƒç¼–å·åï¼Œå°†æ ·æœ¬æ•°ç»„irisä¸­å¯¹åº”ç¼–å·çš„æ•°æ®èµ‹å€¼ç»™è´¨å¿ƒç»“æ„ä½“æ•°ç»„clusterCenter
 	for (int i = 0; i < K; i++) {
 		clusterCenter[i].sepalLength = iris[clusterCenterInitIndex[i]].sepalLength;
 		clusterCenter[i].sepalWidth = iris[clusterCenterInitIndex[i]].sepalWidth;
 		clusterCenter[i].petalLength = iris[clusterCenterInitIndex[i]].petalLength;
 		clusterCenter[i].petalWidth = iris[clusterCenterInitIndex[i]].petalWidth;
-		clusterCenter[i].clusterID = i;    //½«¸ÃÀàµÄ±àºÅÉèÖÃÎªi
-		//½«irisÖĞ¸ÃÖÊĞÄµÄÀà±àºÅÉèÖÃÎªi
+		clusterCenter[i].clusterID = i;    //å°†è¯¥ç±»çš„ç¼–å·è®¾ç½®ä¸ºi
+		//å°†irisä¸­è¯¥è´¨å¿ƒçš„ç±»ç¼–å·è®¾ç½®ä¸ºi
 		iris[clusterCenterInitIndex[i]].clusterID = i;
 	}
 }
 
-//¼ÆËãÒ»¸öµãµ½Ò»¸öÖÊĞÄµÄ¾àÀë
+//è®¡ç®—ä¸€ä¸ªç‚¹åˆ°ä¸€ä¸ªè´¨å¿ƒçš„è·ç¦»
 void CalDistance2OneCenters(int pointID, int centerID) {
 	double x1 = pow((iris[pointID].sepalLength - clusterCenter[centerID].sepalLength), 2.0);
 	double x2 = pow((iris[pointID].sepalWidth - clusterCenter[centerID].sepalWidth), 2.0);
@@ -92,17 +92,17 @@ void CalDistance2OneCenters(int pointID, int centerID) {
 	distanceFromCenter[centerID] = sqrt(x1 + x2 + x3 + x4);
 }
 
-//¼ÆËãÒ»¸öµãµ½ËùÓĞÖÊĞÄµÄ¾àÀë
+//è®¡ç®—ä¸€ä¸ªç‚¹åˆ°æ‰€æœ‰è´¨å¿ƒçš„è·ç¦»
 void CalDistance2AllCenters(int pointID) {
 	for (int i = 0; i < K; i++) {
-		CalDistance2OneCenters(pointID, i);   //¼ÆËãÒ»¸öµãµ½Ò»¸öÖÊĞÄµÄ¾àÀë
+		CalDistance2OneCenters(pointID, i);   //è®¡ç®—ä¸€ä¸ªç‚¹åˆ°ä¸€ä¸ªè´¨å¿ƒçš„è·ç¦»
 	}
 }
 
-//½«Ò»¸öµã»®·Öµ½¾àÀë×î½üµÄ´ØÈº
+//å°†ä¸€ä¸ªç‚¹åˆ’åˆ†åˆ°è·ç¦»æœ€è¿‘çš„ç°‡ç¾¤
 void Partition4OnePoint(int pointID) {
-	int minIndex = 0;//¼ÇÂ¼¾àÀë×î½üµÄÖÊĞÄ±àºÅ
-	//Çó½â×î¶Ì¾àÀë£¬²¢¸üĞÂ¾àÀë×î½üµÄÖÊĞÄ±àºÅ
+	int minIndex = 0;//è®°å½•è·ç¦»æœ€è¿‘çš„è´¨å¿ƒç¼–å·
+	//æ±‚è§£æœ€çŸ­è·ç¦»ï¼Œå¹¶æ›´æ–°è·ç¦»æœ€è¿‘çš„è´¨å¿ƒç¼–å·
 	double minValue = distanceFromCenter[0];
 	for (int i = 0; i < K; i++) {
 		if (distanceFromCenter[i] < minValue) {
@@ -110,40 +110,40 @@ void Partition4OnePoint(int pointID) {
 			 minIndex = i;
 		}
 	}
-	//½«µãµÄÀà±êºÅÉèÖÃÎª×î½üÖÊĞÄËùÔÚµÄÀà±êºÅ
+	//å°†ç‚¹çš„ç±»æ ‡å·è®¾ç½®ä¸ºæœ€è¿‘è´¨å¿ƒæ‰€åœ¨çš„ç±»æ ‡å·
 	iris[pointID].clusterID = clusterCenter[minIndex].clusterID;
 }
 
-//Ã¿Ò»ÂÖ¾ÛÀà£¬ĞèÒª½«ËùÓĞµã¶¼»®·Öµ½¾àÀë×î½üµÄ´ØÈºÖĞ
+//æ¯ä¸€è½®èšç±»ï¼Œéœ€è¦å°†æ‰€æœ‰ç‚¹éƒ½åˆ’åˆ†åˆ°è·ç¦»æœ€è¿‘çš„ç°‡ç¾¤ä¸­
 void Partition4AllPointOneCluster() {
 	for (int i = 0; i < dataNum; i++) {
 		if (iris[i].clusterID != -1) {
-			continue; //Õâ¸öµã¾ÍÊÇÖÊĞÄ£¬²»ĞèÒª»®·Ö´ØÈº
+			continue; //è¿™ä¸ªç‚¹å°±æ˜¯è´¨å¿ƒï¼Œä¸éœ€è¦åˆ’åˆ†ç°‡ç¾¤
 		}
 		else {
-			CalDistance2AllCenters(i);    //¼ÆËãµÚi¸öµãµ½ËùÓĞÖÊĞÄµÄ¾àÀë
-			Partition4OnePoint(i);         //½«µÚi¸öµã»®·Öµ½¾àÀë×î½üµÄ´ØÈº
+			CalDistance2AllCenters(i);    //è®¡ç®—ç¬¬iä¸ªç‚¹åˆ°æ‰€æœ‰è´¨å¿ƒçš„è·ç¦»
+			Partition4OnePoint(i);         //å°†ç¬¬iä¸ªç‚¹åˆ’åˆ†åˆ°è·ç¦»æœ€è¿‘çš„ç°‡ç¾¤
 		}
 	}
 }
 
-//±È½ÏĞÂ¾ÉÖÊĞÄÖµµÄ²î±ğ¡£Èç¹ûÊÇÏàµÈµÄ£¬ÔòÍ£Ö¹µü´ú¾ÛÀà
+//æ¯”è¾ƒæ–°æ—§è´¨å¿ƒå€¼çš„å·®åˆ«ã€‚å¦‚æœæ˜¯ç›¸ç­‰çš„ï¼Œåˆ™åœæ­¢è¿­ä»£èšç±»
 void CompareNewOldClusterCenter() {
-	isContinue = 0;       //³õÊ¼»¯±ê¼Ç±äÁ¿isContinueµÄÖµÎª0; 0±íÊ¾Í£Ö¹¾ÛÀà£¬1±íÊ¾¼ÌĞø¾ÛÀà
+	isContinue = 0;       //åˆå§‹åŒ–æ ‡è®°å˜é‡isContinueçš„å€¼ä¸º0; 0è¡¨ç¤ºåœæ­¢èšç±»ï¼Œ1è¡¨ç¤ºç»§ç»­èšç±»
 	for (int i = 0; i < K; i++) {
 		if (centerCalc[i].sepalLength != clusterCenter[i].sepalLength || centerCalc[i].sepalWidth != clusterCenter[i].sepalWidth || centerCalc[i].petalLength != clusterCenter[i].petalLength || centerCalc[i].petalWidth != clusterCenter[i].petalWidth) {
-			isContinue = 1;//Èç¹ûÓĞÒ»¸öÖÊĞÄÖµ²»Í¬£¬¾Í½«isContinue µÄÖµÉèÖÃÎª1£¬±íÊ¾ĞèÒª¼ÌĞø¾ÛÀà
-			break;          //Ìø³öÑ­»·
+			isContinue = 1;//å¦‚æœæœ‰ä¸€ä¸ªè´¨å¿ƒå€¼ä¸åŒï¼Œå°±å°†isContinue çš„å€¼è®¾ç½®ä¸º1ï¼Œè¡¨ç¤ºéœ€è¦ç»§ç»­èšç±»
+			break;          //è·³å‡ºå¾ªç¯
 		}
 	}
 }
 
-//ÖØĞÂ¼ÆËãĞÂµÄÖÊĞÄ
+//é‡æ–°è®¡ç®—æ–°çš„è´¨å¿ƒ
 void CalClusterCenter() {
-	//³õÊ¼»¯ËùĞèµÄÊı×é£¬ÈÃÊı×éÖĞ¸÷ÔªËØÖµÎª0
+	//åˆå§‹åŒ–æ‰€éœ€çš„æ•°ç»„ï¼Œè®©æ•°ç»„ä¸­å„å…ƒç´ å€¼ä¸º0
 	memset(centerCalc, 0, sizeof(centerCalc));
 	memset(dataSizePerCluster, 0, sizeof(dataSizePerCluster));
-	//·Ö±ğ¶ÔÃ¿¸ö´ØÈºÄÚµÄÃ¿¸öµãµÄËÄ¸öÌØÕ÷ÇóºÍ£¬²¢¼ÆËãÃ¿¸ö´ØÈºÄÚµãµÄ¸öÊı
+	//åˆ†åˆ«å¯¹æ¯ä¸ªç°‡ç¾¤å†…çš„æ¯ä¸ªç‚¹çš„å››ä¸ªç‰¹å¾æ±‚å’Œï¼Œå¹¶è®¡ç®—æ¯ä¸ªç°‡ç¾¤å†…ç‚¹çš„ä¸ªæ•°
 	for (int i = 0; i < dataNum; i++) {
 		centerCalc[iris[i].clusterID].sepalLength += iris[i].sepalLength;
 		centerCalc[iris[i].clusterID].sepalWidth += iris[i].sepalWidth;
@@ -151,25 +151,25 @@ void CalClusterCenter() {
 		centerCalc[iris[i].clusterID].petalWidth += iris[i].petalWidth;
 		dataSizePerCluster[iris[i].clusterID]++;
 	}
-	//¼ÆËãÃ¿¸ö´ØÈºÄÚµãµÄËÄ¸öÌØÕ÷ÖµµÄ¾ùÖµ×÷ÎªĞÂµÄÖÊĞÄ
+	//è®¡ç®—æ¯ä¸ªç°‡ç¾¤å†…ç‚¹çš„å››ä¸ªç‰¹å¾å€¼çš„å‡å€¼ä½œä¸ºæ–°çš„è´¨å¿ƒ
 	for (int i = 0; i < K; i++) {
 		if (dataSizePerCluster[i] != 0) {
 			centerCalc[i].sepalLength = centerCalc[i].sepalLength / (double)dataSizePerCluster[i];
 			centerCalc[i].sepalWidth = centerCalc[i].sepalWidth / (double)dataSizePerCluster[i];
 			centerCalc[i].petalLength = centerCalc[i].petalLength / (double)dataSizePerCluster[i];
 			centerCalc[i].petalWidth = centerCalc[i].petalWidth / (double)dataSizePerCluster[i];
-			printf("cluster %d point cnt:%d\n", i, dataSizePerCluster[i]);//Êä³öÃ¿¸ö´ØÈºµÄ×ÜÊı
-			printf("cluster %d center£ºsepalLength:%.2lf, sepalwidth:%.2lf, petalLength:%.2lf, petalWidth:%.2lf\n", i, centerCalc[i].sepalLength, centerCalc[i].sepalWidth, centerCalc[i].petalLength, centerCalc[i].petalWidth);
+			printf("cluster %d point cnt:%d\n", i, dataSizePerCluster[i]);//è¾“å‡ºæ¯ä¸ªç°‡ç¾¤çš„æ€»æ•°
+			printf("cluster %d centerï¼šsepalLength:%.2lf, sepalwidth:%.2lf, petalLength:%.2lf, petalWidth:%.2lf\n", i, centerCalc[i].sepalLength, centerCalc[i].sepalWidth, centerCalc[i].petalLength, centerCalc[i].petalWidth);
 		}
 		else {
 			printf(" cluster %d count is zero\n", i);
 		}
 	}
 
-	//±È½ÏĞÂ¾ÉÖÊĞÄÖµµÄ²î±ğ¡£Èç¹ûÊÇÏàµÈ£¬ÔòÍ£Ö¹µü´ú¾ÛÀà
+	//æ¯”è¾ƒæ–°æ—§è´¨å¿ƒå€¼çš„å·®åˆ«ã€‚å¦‚æœæ˜¯ç›¸ç­‰ï¼Œåˆ™åœæ­¢è¿­ä»£èšç±»
 	CompareNewOldClusterCenter();
 
-	//½«ĞÂµÄÖÊĞÄµÄÖµ·ÅÈëÖÊĞÄ½á¹¹ÌåÖĞ
+	//å°†æ–°çš„è´¨å¿ƒçš„å€¼æ”¾å…¥è´¨å¿ƒç»“æ„ä½“ä¸­
 	for (int i = 0; i < K; i++) {
 		clusterCenter[i].sepalLength = centerCalc[i].sepalLength;
 		clusterCenter[i].sepalWidth = centerCalc[i].sepalWidth;
@@ -178,29 +178,29 @@ void CalClusterCenter() {
 		clusterCenter[i].clusterID = i;
 	}
 
-	//ÖØĞÂ¼ÆËãĞÂµÄÖÊĞÄºó£¬ÒªÖØĞÂÎªÃ¿Ò»¸öµã½øĞĞ¾ÛÀà£¬ËùÒÔÊı¾İ¼¯ÖĞËùÓĞµãµÄclusterID¶¼ÒªÖØÖÃÎª-1
+	//é‡æ–°è®¡ç®—æ–°çš„è´¨å¿ƒåï¼Œè¦é‡æ–°ä¸ºæ¯ä¸€ä¸ªç‚¹è¿›è¡Œèšç±»ï¼Œæ‰€ä»¥æ•°æ®é›†ä¸­æ‰€æœ‰ç‚¹çš„clusterIDéƒ½è¦é‡ç½®ä¸º-1
 	for (int i = 0; i < dataNum; i++) {
 		iris[i].clusterID = -1;
 	}
 }
 
-//KMeansËã·¨ºËĞÄ´úÂë
+//KMeansç®—æ³•æ ¸å¿ƒä»£ç 
 void KMeans() {
 	int rounds;
 	for (rounds = 0; rounds < MAX_ROUNDS; rounds++) {
-		printf("\nRounds£º%d            \n", rounds + 1);//ÏÔÊ¾¾ÛÀà´ÎÊı
-		Partition4AllPointOneCluster();     //½«Ã¿¸öµã»®·Öµ½¾àÀë×î½üµÄ´ØÈº
-		CalClusterCenter();                 //ÖØĞÂ¼ÆËãĞÂµÄÖÊĞÄ
-		if (isContinue == 0) {              //ÅĞ¶ÏÊÇ·ñ¼ÌĞø¾ÛÀà
-			printf("\n¾­¹ı %d ´Î¾ÛÀà, ¾ÛÀàÍê³É£¡\n", rounds + 1);
-			break;   //½áÊø¾ÛÀà
+		printf("\nRoundsï¼š%d            \n", rounds + 1);//æ˜¾ç¤ºèšç±»æ¬¡æ•°
+		Partition4AllPointOneCluster();     //å°†æ¯ä¸ªç‚¹åˆ’åˆ†åˆ°è·ç¦»æœ€è¿‘çš„ç°‡ç¾¤
+		CalClusterCenter();                 //é‡æ–°è®¡ç®—æ–°çš„è´¨å¿ƒ
+		if (isContinue == 0) {              //åˆ¤æ–­æ˜¯å¦ç»§ç»­èšç±»
+			printf("\nç»è¿‡ %d æ¬¡èšç±», èšç±»å®Œæˆï¼\n", rounds + 1);
+			break;   //ç»“æŸèšç±»
 		}
 	}
 }
 
 
 int main() {
-	if (Inputs() == false) {     //ÅĞ¶ÏÊı¾İÑù±¾¶ÁÈëÊÇ·ñ³É¹¦
+	if (Inputs() == false) {     //åˆ¤æ–­æ•°æ®æ ·æœ¬è¯»å…¥æ˜¯å¦æˆåŠŸ
 		return 0;
 	}
 	InitialCluster();

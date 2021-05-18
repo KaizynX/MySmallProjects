@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue May 18 20:35:13 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : lab3
+Top-level Entity Name : testff
+Family : Cyclone 10 LP
+Total logic elements : 8
+    Total combinational functions : 8
+    Dedicated logic registers : 3
+Total registers : 3
+Total pins : 10
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

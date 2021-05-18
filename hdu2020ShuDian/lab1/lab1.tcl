@@ -14,7 +14,7 @@
 
 # Quartus Prime: Generate Tcl File for Project
 # File: lab1.tcl
-# Generated on: Tue May 11 20:14:08 2021
+# Generated on: Tue May 18 19:02:27 2021
 
 # Load Quartus Prime Tcl Project package
 package require ::quartus::project
@@ -42,7 +42,7 @@ if {[is_project_open]} {
 if {$make_assignments} {
 	set_global_assignment -name FAMILY "Cyclone 10 LP"
 	set_global_assignment -name DEVICE 10CL006YU256C8G
-	set_global_assignment -name TOP_LEVEL_ENTITY dec
+	set_global_assignment -name TOP_LEVEL_ENTITY mux41x
 	set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 	set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:16:33  MAY 11, 2021"
 	set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Standard Edition"
@@ -62,33 +62,23 @@ if {$make_assignments} {
 	set_global_assignment -name BDF_FILE logic_mx.bdf
 	set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 	set_global_assignment -name BDF_FILE output_files/dec.bdf
+	set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
+	set_global_assignment -name BDF_FILE output_files/mux41x.bdf
+	set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
 	set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 	set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 	set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-	set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
-	set_location_assignment PIN_E16 -to a
-	set_location_assignment PIN_M16 -to b
-	set_location_assignment PIN_T10 -to ya
-	set_location_assignment PIN_R9 -to yb
-	set_location_assignment PIN_K8 -to yc
+	set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
 	set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-	#- -----红色LED-----—#
-	set_location_assignment PIN_A10 -to Y7
-	set_location_assignment PIN_A11 -to Y6
-	set_location_assignment PIN_A12 -to Y5
-	set_location_assignment PIN_Al3 -to Y4
-	set_location_assignment PIN_A14 -to Y3
-	set_location_assignment PIN_A15 -to Y2
-	set_location_assignment PIN_C15 -to Y1
-	set_location_assignment PIN_D15 -to Y0
-	#------拨码按键------普
-	set_location_assignment PIN_E16 -to s0
-	set_location_assignment PIN_M16 -to s1
-	set_location_assignment PIN_M15 -to s2
-	set_location_assignment PIN_M2 -to SENSE
-	#------按键------#
-	set_location_assignment PIN_Ml -to INHB
 
+	set_location_assignment PIN_M1 -to D0
+	set_location_assignment PIN_F3 -to D1
+	set_location_assignment PIN_E1 -to D2
+	set_location_assignment PIN_P3 -to D3
+	set_location_assignment PIN_T10 -to Q
+	set_location_assignment PIN_E16 -to S0
+	set_location_assignment PIN_M16 -to S1
+	
 	# Commit assignments
 	export_assignments
 

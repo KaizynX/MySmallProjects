@@ -1,0 +1,7 @@
+Early Power Estimator File Generator Status : Successful - Tue May 18 18:05:58 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : lab2
+Top-level Entity Name : hadder
+Family : Cyclone 10 LP
+Device : 10CL006YU256C8G
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

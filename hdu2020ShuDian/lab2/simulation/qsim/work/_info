@@ -1,0 +1,157 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab2/simulation/qsim
+vfadder
+Z1 !s110 1621336614
+!i10b 1
+!s100 BV5hSBV>@f5ET@1aQ9aC61
+IKcoKSZZ^FiTE;^?PAEER83
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1621336611
+Z3 8lab2.vo
+Z4 Flab2.vo
+Z5 L0 31
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1621336614.000000
+Z8 !s107 lab2.vo|
+Z9 !s90 -work|work|lab2.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+vfadder_dec
+Z12 !s110 1621338602
+!i10b 1
+!s100 CW=f5A6Mnb?==9_SN_M8@0
+Iz1J:`k3=a315bP70?J;ja0
+R2
+R0
+Z13 w1621338600
+R3
+R4
+R5
+R6
+r1
+!s85 0
+31
+Z14 !s108 1621338602.000000
+R8
+R9
+!i113 1
+R10
+R11
+vfadder_dec_vlg_vec_tst
+R12
+!i10b 1
+!s100 LT^Rz3J7SO9g4J7gn=@@73
+INk2<bW6ZHI>[0m_R64<iV1
+R2
+R0
+w1621338596
+8Waveform2.vwf.vt
+FWaveform2.vwf.vt
+Z15 L0 29
+R6
+r1
+!s85 0
+31
+R14
+!s107 Waveform2.vwf.vt|
+!s90 -work|work|Waveform2.vwf.vt|
+!i113 1
+R10
+R11
+vfadder_vlg_vec_tst
+R1
+!i10b 1
+!s100 gZL[i`=60nfLJd5N]1hlY0
+IfEYTgCBMaf9cYNT6j=AX?1
+R2
+R0
+w1621336605
+8Waveform1.vwf.vt
+FWaveform1.vwf.vt
+R15
+R6
+r1
+!s85 0
+31
+R7
+!s107 Waveform1.vwf.vt|
+!s90 -work|work|Waveform1.vwf.vt|
+!i113 1
+R10
+R11
+vhadder
+Z16 !s110 1621334171
+!i10b 1
+!s100 9GMSzE752`4VTEVP?3^@E2
+IE7ZSeEPHMn10MzGl6=00c2
+R2
+R0
+w1621334169
+R3
+R4
+R5
+R6
+r1
+!s85 0
+31
+Z17 !s108 1621334171.000000
+R8
+R9
+!i113 1
+R10
+R11
+vhadder_vlg_vec_tst
+R16
+!i10b 1
+!s100 ?R[7[C1FF@X;OlOUJfU5c2
+IneXPJlL0[Jl^SKlVFG7<f3
+R2
+R0
+w1621334165
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+R15
+R6
+r1
+!s85 0
+31
+R17
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R10
+R11
+vhard_block
+R12
+!i10b 1
+!s100 WhXL`_[F1V8mkd5@G_?Fh1
+I<AbQhgo`WE9Jk3ghG;c?G3
+R2
+R0
+R13
+R3
+R4
+L0 172
+R6
+r1
+!s85 0
+31
+R14
+R8
+R9
+!i113 1
+R10
+R11

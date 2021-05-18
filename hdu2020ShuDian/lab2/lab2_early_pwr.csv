@@ -1,0 +1,32 @@
+EARLY_POWER_ESTIMATOR_FILE_FORMAT_VERSION,6
+QUARTUS_II_VERSION,18.1.0 Build 625 09/12/2018 SJ Standard Edition
+PROJECT,"lab2"
+REVISION,"lab2"
+PROJECT_FILE,"C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/lab2/lab2.qpf"
+TIME,"Tue May 18 18:05:58 2021"
+TIME_SECONDS,"1621332358"
+FAMILY,"Cyclone 10 LP"
+DEVICE,"10CL006"
+PACKAGE,"UFBGA"
+PART,"10CL006YU256C8G"
+POWER_USE_DEVICE_CHARACTERISTICS,"TYPICAL"
+POWER_AUTO_COMPUTE_TJ,"ON"
+POWER_TJ_VALUE,"25"
+POWER_USE_CUSTOM_COOLING_SOLUTION,"OFF"
+MIN_JUNCTION_TEMPERATURE,"0"
+MAX_JUNCTION_TEMPERATURE,"85"
+POWER_PRESET_COOLING_SOLUTION,"23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+POWER_BOARD_THERMAL_MODEL,"NONE (CONSERVATIVE)"
+POWER_USE_TA_VALUE,"25.00"
+POWER_BOARD_TEMPERATURE,"-1.00"
+POWER_OJC_VALUE,"10.10"
+POWER_OCS_VALUE,"0.10"
+POWER_OSA_VALUE,"6.40"
+POWER_OJB_VALUE,"-1.00"
+VCCIO,,1,2.50,2,2.50,3,2.50,4,2.50,5,2.50,6,2.50,7,2.50,8,2.50,
+RAIL_VOLTAGES,,VCCINT,1.200,VCCA,2.500,VCCD,1.200,
+
+
+BLOCK,Combinational cell,count,2,avg_toggle_rate,"0.000000",avg_toggle_rate_ratio,"0.000000",avg_fanout,"1.000000",fmax,"0"
+BLOCK,I/O pad,count,2,avg_toggle_rate,"0.000000",avg_toggle_rate_ratio,"0.000000",avg_fanout,"0.000000",fmax,"0",io_mode,"OUTPUT_PIN",output_load,"0",io_standard,"2_5",drive_strength,"DEFAULT",is_ddr,"0",input_termination,"OFF",output_termination,"SERIES_50_OHMS_WITHOUT_CALIBRATION",output_termination_sp,"0",output_ena_static_prob,"1",vod,"-1",slew_rate,"2"
+BLOCK,I/O pad,count,2,avg_toggle_rate,"0.000000",avg_toggle_rate_ratio,"0.000000",avg_fanout,"1.000000",fmax,"0",io_mode,"INPUT_PIN",output_load,"0",io_standard,"2_5",drive_strength,"DEFAULT",is_ddr,"0",input_termination,"OFF",output_termination,"OFF",output_termination_sp,"0",output_ena_static_prob,"0",vod,"-1",slew_rate,"-1"
