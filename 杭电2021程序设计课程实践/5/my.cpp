@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-05-13 15:53:46
- * @LastEditTime: 2021-05-24 16:44:24
+ * @LastEditTime: 2021-05-24 21:58:06
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,22 +15,26 @@ struct Iris {
 	double sepalWidth;              	//花萼宽度
 	double petalLength;             	//花瓣长度
 	double petalWidth;              	//花瓣宽度
+	string name;
 	int clusterID;                  	//用于存放该点所属的簇群编号
 };
 
 int isContinue;                                 //判断是否继续聚类
 Iris iris[150];                         //记录鸢尾花的数据
+Iris train_data[100], test_data[50];
 Iris clusterCenter[K];     	//存储质心
 Iris centerCalc[K];      	//计算新质心
 int dataNum;                                     //数据集中的数据记录总数
+int train_num, test_num;
 int clusterCenterInitIndex[K];    	//记录每个质心最初使用的数据点的编号
 double distanceFromCenter[K];    	//记录点到质心的距离
 int dataSizePerCluster[K];        	//每个簇群点的个数
+map<string, int> name_cnt[K];
 
 //数据读入
 bool Inputs() {
   string fname;//文件名
-	string name; //存储鸢尾花的名字
+	// string name; //存储鸢尾花的名字
 	cout << "请输入存放数据的文件名：";
 	cin >> fname;
 	cout << "\n样本数目dataNum：\n";
@@ -38,7 +42,12 @@ bool Inputs() {
 	ifstream fp(fname);
 	if (!fp.is_open()) return cout << ("不能打开输入的文件\n"), false;
 	for (int i = 0; i < dataNum; i++) {
-		fp >> iris[i].sepalLength >> iris[i].sepalWidth >> iris[i].petalLength >> iris[i].petalWidth >> name;
+    char ch;
+		fp >> iris[i].sepalLength >> ch
+        >> iris[i].sepalWidth >> ch
+        >> iris[i].petalLength >> ch
+        >> iris[i].petalWidth >> ch
+        >> iris[i].name;
 		iris[i].clusterID = -1; //cluster id 初值为-1
 	}
 	fp.close();
@@ -54,12 +63,12 @@ void InitialCluster() {
 	}
 	//随机产生K个质心编号（不能重复）
 	for (int i = 0; i < K; i++) {
-		random = rand() % (dataNum - 1);  //随机产生0到dataNum -1之间的随机整数
+		random = rand() % train_num;  //随机产生0到dataNum -1之间的随机整数
 		int j = 0;
 		//与前i个中心编号进行比对，判断是否有重复
 		while (j < i) {
 			if (random == clusterCenterInitIndex[j]) {
-				random = rand() % (dataNum - 1);
+				random = rand() % train_num;
 				j = 0;
 			}
 			else {
@@ -70,56 +79,57 @@ void InitialCluster() {
 	}
 	//确定K个质心编号后，将样本数组iris中对应编号的数据赋值给质心结构体数组clusterCenter
 	for (int i = 0; i < K; i++) {
-		clusterCenter[i].sepalLength = iris[clusterCenterInitIndex[i]].sepalLength;
-		clusterCenter[i].sepalWidth = iris[clusterCenterInitIndex[i]].sepalWidth;
-		clusterCenter[i].petalLength = iris[clusterCenterInitIndex[i]].petalLength;
-		clusterCenter[i].petalWidth = iris[clusterCenterInitIndex[i]].petalWidth;
+		clusterCenter[i].sepalLength = train_data[clusterCenterInitIndex[i]].sepalLength;
+		clusterCenter[i].sepalWidth = train_data[clusterCenterInitIndex[i]].sepalWidth;
+		clusterCenter[i].petalLength = train_data[clusterCenterInitIndex[i]].petalLength;
+		clusterCenter[i].petalWidth = train_data[clusterCenterInitIndex[i]].petalWidth;
 		clusterCenter[i].clusterID = i;    //将该类的编号设置为i
 		//将iris中该质心的类编号设置为i
-		iris[clusterCenterInitIndex[i]].clusterID = i;
+		train_data[clusterCenterInitIndex[i]].clusterID = i;
 	}
 }
 
 //计算一个点到一个质心的距离
-void CalDistance2OneCenters(int pointID, int centerID) {
-	double x1 = pow((iris[pointID].sepalLength - clusterCenter[centerID].sepalLength), 2.0);
-	double x2 = pow((iris[pointID].sepalWidth - clusterCenter[centerID].sepalWidth), 2.0);
-	double x3 = pow((iris[pointID].petalLength - clusterCenter[centerID].petalLength), 2.0);
-	double x4 = pow((iris[pointID].petalWidth - clusterCenter[centerID].petalWidth), 2.0);
+// void CalDistance2OneCenters(int pointID, int centerID) {
+void CalDistance2OneCenters(Iris &_iris, int centerID) {
+	double x1 = pow((_iris.sepalLength - clusterCenter[centerID].sepalLength), 2.0);
+	double x2 = pow((_iris.sepalWidth - clusterCenter[centerID].sepalWidth), 2.0);
+	double x3 = pow((_iris.petalLength - clusterCenter[centerID].petalLength), 2.0);
+	double x4 = pow((_iris.petalWidth - clusterCenter[centerID].petalWidth), 2.0);
 	distanceFromCenter[centerID] = sqrt(x1 + x2 + x3 + x4);
 }
 
 //计算一个点到所有质心的距离
-void CalDistance2AllCenters(int pointID) {
+void CalDistance2AllCenters(Iris &_iris) {
 	for (int i = 0; i < K; i++) {
-		CalDistance2OneCenters(pointID, i);   //计算一个点到一个质心的距离
+		CalDistance2OneCenters(_iris, i);   //计算一个点到一个质心的距离
 	}
 }
 
 //将一个点划分到距离最近的簇群
-void Partition4OnePoint(int pointID) {
+void Partition4OnePoint(Iris &_iris) {
 	int minIndex = 0;//记录距离最近的质心编号
 	//求解最短距离，并更新距离最近的质心编号
 	double minValue = distanceFromCenter[0];
 	for (int i = 0; i < K; i++) {
 		if (distanceFromCenter[i] < minValue) {
 			minValue = distanceFromCenter[i];
-			 minIndex = i;
+			minIndex = i;
 		}
 	}
 	//将点的类标号设置为最近质心所在的类标号
-	iris[pointID].clusterID = clusterCenter[minIndex].clusterID;
+	_iris.clusterID = clusterCenter[minIndex].clusterID;
 }
 
 //每一轮聚类，需要将所有点都划分到距离最近的簇群中
 void Partition4AllPointOneCluster() {
-	for (int i = 0; i < dataNum; i++) {
-		if (iris[i].clusterID != -1) {
+	for (int i = 0; i < train_num; i++) {
+		if (train_data[i].clusterID != -1) {
 			continue; //这个点就是质心，不需要划分簇群
 		}
 		else {
-			CalDistance2AllCenters(i);    //计算第i个点到所有质心的距离
-			Partition4OnePoint(i);         //将第i个点划分到距离最近的簇群
+			CalDistance2AllCenters(train_data[i]);    //计算第i个点到所有质心的距离
+			Partition4OnePoint(train_data[i]);         //将第i个点划分到距离最近的簇群
 		}
 	}
 }
@@ -140,17 +150,21 @@ void CalClusterCenter() {
 	//初始化所需的数组，让数组中各元素值为0
 	memset(centerCalc, 0, sizeof(centerCalc));
 	memset(dataSizePerCluster, 0, sizeof(dataSizePerCluster));
+	for (int i = 0; i < K; ++i) name_cnt[i].clear();
 	//分别对每个簇群内的每个点的四个特征求和，并计算每个簇群内点的个数
-	for (int i = 0; i < dataNum; i++) {
-		centerCalc[iris[i].clusterID].sepalLength += iris[i].sepalLength;
-		centerCalc[iris[i].clusterID].sepalWidth += iris[i].sepalWidth;
-		centerCalc[iris[i].clusterID].petalLength += iris[i].petalLength;
-		centerCalc[iris[i].clusterID].petalWidth += iris[i].petalWidth;
-		dataSizePerCluster[iris[i].clusterID]++;
+	for (int i = 0; i < train_num; i++) {
+		name_cnt[train_data[i].clusterID][train_data[i].name]++;
+		centerCalc[train_data[i].clusterID].sepalLength += train_data[i].sepalLength;
+		centerCalc[train_data[i].clusterID].sepalWidth += train_data[i].sepalWidth;
+		centerCalc[train_data[i].clusterID].petalLength += train_data[i].petalLength;
+		centerCalc[train_data[i].clusterID].petalWidth += train_data[i].petalWidth;
+		dataSizePerCluster[train_data[i].clusterID]++;
 	}
 	//计算每个簇群内点的四个特征值的均值作为新的质心
 	for (int i = 0; i < K; i++) {
 		if (dataSizePerCluster[i] != 0) {
+			centerCalc[i].name = name_cnt[i].begin()->first;
+			for (auto &p : name_cnt[i]) if (p.second > name_cnt[i][centerCalc[i].name]) centerCalc[i].name = p.first;
 			centerCalc[i].sepalLength = centerCalc[i].sepalLength / (double)dataSizePerCluster[i];
 			centerCalc[i].sepalWidth = centerCalc[i].sepalWidth / (double)dataSizePerCluster[i];
 			centerCalc[i].petalLength = centerCalc[i].petalLength / (double)dataSizePerCluster[i];
@@ -176,8 +190,8 @@ void CalClusterCenter() {
 	}
 
 	//重新计算新的质心后，要重新为每一个点进行聚类，所以数据集中所有点的clusterID都要重置为-1
-	for (int i = 0; i < dataNum; i++) {
-		iris[i].clusterID = -1;
+	for (int i = 0; i < train_num; i++) {
+		train_data[i].clusterID = -1;
 	}
 }
 
@@ -197,18 +211,52 @@ void KMeans() {
 
 // 数据预处理，例如数据集打乱、种类维度的数据变换。
 void RandomData() {
-	;
+	srand(time(0));
+	random_shuffle(iris, iris+dataNum);
 }
 
+// 数据集切分
+void DivideData() {
+	train_num = 100;
+	test_num = 50;
+	memcpy(train_data, iris, sizeof(Iris)*train_num);
+	memcpy(test_data, iris+train_num, sizeof(Iris)*test_num);
+}
+
+// 测试集分类计算
+void Test() {
+	for (int i = 0; i < test_num; ++i) {
+		CalDistance2AllCenters(test_data[i]);
+		Partition4OnePoint(test_data[i]);
+	}
+}
+
+// 预测准确度评估
+double Accuracy() {
+	double acc = 0;
+	for (int i = 0; i < test_num; ++i) {
+		acc += test_data[i].name == centerCalc[test_data[i].clusterID].name;
+	}
+	return acc/test_num;
+}
 
 int main() {
+	// 数据读入
 	if (Inputs() == false) {     //判断数据样本读入是否成功
 		return 0;
 	}
   // 数据预处理，例如数据集打乱、种类维度的数据变换。
 	RandomData();
+	// 数据集切分
+	DivideData();
+	// KNN
 	InitialCluster();
 	KMeans();
+	// 测试集分类计算
+	Test();
+	// 预测准确度评估
+	double acc = Accuracy();
+	cout << "准确率:" << acc << '\n';
 	system("pause");
 	return 0;
 }
