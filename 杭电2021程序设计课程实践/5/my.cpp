@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-05-13 15:53:46
- * @LastEditTime: 2021-05-13 16:17:47
+ * @LastEditTime: 2021-05-24 16:44:24
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -195,12 +195,18 @@ void KMeans() {
 	}
 }
 
+// 数据预处理，例如数据集打乱、种类维度的数据变换。
+void RandomData() {
+	;
+}
+
 
 int main() {
 	if (Inputs() == false) {     //判断数据样本读入是否成功
 		return 0;
 	}
   // 数据预处理，例如数据集打乱、种类维度的数据变换。
+	RandomData();
 	InitialCluster();
 	KMeans();
 	system("pause");
