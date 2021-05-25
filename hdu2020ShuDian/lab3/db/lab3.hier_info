@@ -1,20 +1,17 @@
-|testff
-qd <= inst.DB_MAX_OUTPUT_PORT_TYPE
-clrn => inst.ACLR
-clrn => inst2.ACLR
-clk => inst.CLK
-clk => inst1.LATCH_ENABLE
-clk => inst2.CLK
-clk => inst3.CLK
-d => inst.DATAIN
-d => inst1.DATAIN
-d => inst2.IN1
-setn => inst.PRESET
-setn => inst2.PRESET
-ql <= inst1.DB_MAX_OUTPUT_PORT_TYPE
-qik <= inst2.DB_MAX_OUTPUT_PORT_TYPE
-k => inst2.IN0
-qt <= inst3.DB_MAX_OUTPUT_PORT_TYPE
-en => inst3.ENA
+|scell
+Q <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+LOAD => 21mux:inst.S
+D => 21mux:inst.B
+SI => 21mux:inst.A
+CLK => inst1.CLK
+ENA => inst1.ENA
+
+
+|scell|21mux:inst
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
 
 

@@ -1,11 +1,11 @@
 onerror {exit -code 1}
 vlib work
 vlog -work work lab3.vo
-vlog -work work Waveform.vwf.vt
-vsim -novopt -c -t 1ps -L cyclone10lp_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.testff_vlg_vec_tst
+vlog -work work Waveform3.vwf.vt
+vsim -novopt -c -t 1ps -L cyclone10lp_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.test595_vlg_vec_tst
 vcd file -direction lab3.msim.vcd
-vcd add -internal testff_vlg_vec_tst/*
-vcd add -internal testff_vlg_vec_tst/i1/*
+vcd add -internal test595_vlg_vec_tst/*
+vcd add -internal test595_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -15,4 +15,3 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-

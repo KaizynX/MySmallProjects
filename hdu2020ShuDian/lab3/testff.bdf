@@ -149,9 +149,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 600 592 776 608)
+	(rect 624 752 800 768)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "qik" (rect 90 0 104 12)(font "Arial" ))
+	(text "qt" (rect 90 0 99 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -165,9 +165,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 624 752 800 768)
+	(rect 600 592 776 608)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "qt" (rect 90 0 99 17)(font "Intel Clear" ))
+	(text "qjk" (rect 90 0 104 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
