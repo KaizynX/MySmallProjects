@@ -1,0 +1,177 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "06/01/2021 20:20:38"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          lab4_3
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module lab4_3_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [15:0] data;
+reg direction;
+reg [3:0] distance;
+// wires                                               
+wire [15:0] result;
+
+// assign statements (if any)                          
+lab4_3 i1 (
+// port map - connection between master ports and signals/registers   
+	.data(data),
+	.direction(direction),
+	.distance(distance),
+	.result(result)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+// data[ 15 ]
+initial
+begin
+	data[15] = 1'b0;
+	data[15] = #250000 1'b1;
+	data[15] = #250000 1'b0;
+end 
+// data[ 14 ]
+initial
+begin
+	data[14] = 1'b0;
+end 
+// data[ 13 ]
+initial
+begin
+	data[13] = 1'b0;
+end 
+// data[ 12 ]
+initial
+begin
+	data[12] = 1'b1;
+	data[12] = #250000 1'b0;
+end 
+// data[ 11 ]
+initial
+begin
+	data[11] = 1'b0;
+	data[11] = #250000 1'b1;
+	data[11] = #250000 1'b0;
+end 
+// data[ 10 ]
+initial
+begin
+	data[10] = 1'b1;
+	data[10] = #250000 1'b0;
+end 
+// data[ 9 ]
+initial
+begin
+	data[9] = 1'b0;
+	data[9] = #250000 1'b1;
+	data[9] = #250000 1'b0;
+end 
+// data[ 8 ]
+initial
+begin
+	data[8] = 1'b1;
+	data[8] = #250000 1'b0;
+end 
+// data[ 7 ]
+initial
+begin
+	data[7] = 1'b0;
+	data[7] = #250000 1'b1;
+	data[7] = #250000 1'b0;
+end 
+// data[ 6 ]
+initial
+begin
+	data[6] = 1'b0;
+end 
+// data[ 5 ]
+initial
+begin
+	data[5] = 1'b0;
+	data[5] = #250000 1'b1;
+	data[5] = #250000 1'b0;
+end 
+// data[ 4 ]
+initial
+begin
+	data[4] = 1'b1;
+	data[4] = #500000 1'b0;
+end 
+// data[ 3 ]
+initial
+begin
+	data[3] = 1'b1;
+	data[3] = #250000 1'b0;
+end 
+// data[ 2 ]
+initial
+begin
+	data[2] = 1'b0;
+end 
+// data[ 1 ]
+initial
+begin
+	data[1] = 1'b1;
+	data[1] = #500000 1'b0;
+end 
+// data[ 0 ]
+initial
+begin
+	data[0] = 1'b0;
+end 
+
+// direction
+initial
+begin
+	direction = 1'b0;
+	direction = #250000 1'b1;
+	direction = #250000 1'b0;
+end 
+// distance[ 3 ]
+initial
+begin
+	distance[3] = 1'b0;
+end 
+// distance[ 2 ]
+initial
+begin
+	distance[2] = 1'b0;
+end 
+// distance[ 1 ]
+initial
+begin
+	distance[1] = 1'b1;
+	distance[1] = #500000 1'b0;
+end 
+// distance[ 0 ]
+initial
+begin
+	distance[0] = 1'b1;
+	distance[0] = #250000 1'b0;
+end 
+endmodule
+

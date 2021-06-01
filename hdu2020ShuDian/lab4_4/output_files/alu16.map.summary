@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jun 01 19:59:11 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : alu16
+Top-level Entity Name : alu16
+Family : Cyclone 10 LP
+Total logic elements : 258
+    Total combinational functions : 258
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 51
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

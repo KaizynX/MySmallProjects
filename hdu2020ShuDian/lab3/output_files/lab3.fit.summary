@@ -1,15 +1,15 @@
-Fitter Status : Successful - Tue May 25 20:49:46 2021
+Fitter Status : Successful - Tue Jun 01 18:57:34 2021
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : lab3
-Top-level Entity Name : scell
+Top-level Entity Name : test595
 Family : Cyclone 10 LP
 Device : 10CL006YU256C8G
 Timing Models : Final
-Total logic elements : 1 / 6,272 ( < 1 % )
-    Total combinational functions : 1 / 6,272 ( < 1 % )
-    Dedicated logic registers : 1 / 6,272 ( < 1 % )
-Total registers : 1
-Total pins : 6 / 177 ( 3 % )
+Total logic elements : 4 / 6,272 ( < 1 % )
+    Total combinational functions : 4 / 6,272 ( < 1 % )
+    Dedicated logic registers : 4 / 6,272 ( < 1 % )
+Total registers : 4
+Total pins : 12 / 177 ( 7 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )

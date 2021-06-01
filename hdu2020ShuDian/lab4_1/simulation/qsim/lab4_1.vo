@@ -1,0 +1,3008 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition"
+
+// DATE "06/01/2021 18:46:20"
+
+// 
+// Device: Altera 10CL006YU256C8G Package UFBGA256
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module lab4_1 (
+	result,
+	data0x,
+	data1x,
+	data2x,
+	data3x,
+	data4x,
+	data5x,
+	data6x,
+	data7x,
+	sel);
+output 	[15:0] result;
+input 	[15:0] data0x;
+input 	[15:0] data1x;
+input 	[15:0] data2x;
+input 	[15:0] data3x;
+input 	[15:0] data4x;
+input 	[15:0] data5x;
+input 	[15:0] data6x;
+input 	[15:0] data7x;
+input 	[2:0] sel;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \result[15]~output_o ;
+wire \result[14]~output_o ;
+wire \result[13]~output_o ;
+wire \result[12]~output_o ;
+wire \result[11]~output_o ;
+wire \result[10]~output_o ;
+wire \result[9]~output_o ;
+wire \result[8]~output_o ;
+wire \result[7]~output_o ;
+wire \result[6]~output_o ;
+wire \result[5]~output_o ;
+wire \result[4]~output_o ;
+wire \result[3]~output_o ;
+wire \result[2]~output_o ;
+wire \result[1]~output_o ;
+wire \result[0]~output_o ;
+wire \data6x[15]~input_o ;
+wire \sel[1]~input_o ;
+wire \data5x[15]~input_o ;
+wire \sel[0]~input_o ;
+wire \data4x[15]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~0_combout ;
+wire \data7x[15]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~1_combout ;
+wire \data1x[15]~input_o ;
+wire \data2x[15]~input_o ;
+wire \data0x[15]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~2_combout ;
+wire \data3x[15]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~3_combout ;
+wire \sel[2]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~4_combout ;
+wire \data6x[14]~input_o ;
+wire \data5x[14]~input_o ;
+wire \data4x[14]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~5_combout ;
+wire \data7x[14]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~6_combout ;
+wire \data1x[14]~input_o ;
+wire \data2x[14]~input_o ;
+wire \data0x[14]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~7_combout ;
+wire \data3x[14]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~8_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~9_combout ;
+wire \data6x[13]~input_o ;
+wire \data5x[13]~input_o ;
+wire \data4x[13]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~10_combout ;
+wire \data7x[13]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~11_combout ;
+wire \data1x[13]~input_o ;
+wire \data2x[13]~input_o ;
+wire \data0x[13]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~12_combout ;
+wire \data3x[13]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~13_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~14_combout ;
+wire \data6x[12]~input_o ;
+wire \data5x[12]~input_o ;
+wire \data4x[12]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~15_combout ;
+wire \data7x[12]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~16_combout ;
+wire \data1x[12]~input_o ;
+wire \data2x[12]~input_o ;
+wire \data0x[12]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~17_combout ;
+wire \data3x[12]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~18_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~19_combout ;
+wire \data6x[11]~input_o ;
+wire \data5x[11]~input_o ;
+wire \data4x[11]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~20_combout ;
+wire \data7x[11]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~21_combout ;
+wire \data1x[11]~input_o ;
+wire \data2x[11]~input_o ;
+wire \data0x[11]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~22_combout ;
+wire \data3x[11]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~23_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~24_combout ;
+wire \data6x[10]~input_o ;
+wire \data5x[10]~input_o ;
+wire \data4x[10]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~25_combout ;
+wire \data7x[10]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~26_combout ;
+wire \data1x[10]~input_o ;
+wire \data2x[10]~input_o ;
+wire \data0x[10]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~27_combout ;
+wire \data3x[10]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~28_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~29_combout ;
+wire \data6x[9]~input_o ;
+wire \data5x[9]~input_o ;
+wire \data4x[9]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~30_combout ;
+wire \data7x[9]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~31_combout ;
+wire \data1x[9]~input_o ;
+wire \data2x[9]~input_o ;
+wire \data0x[9]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~32_combout ;
+wire \data3x[9]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~33_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~34_combout ;
+wire \data6x[8]~input_o ;
+wire \data5x[8]~input_o ;
+wire \data4x[8]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~35_combout ;
+wire \data7x[8]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~36_combout ;
+wire \data1x[8]~input_o ;
+wire \data2x[8]~input_o ;
+wire \data0x[8]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~37_combout ;
+wire \data3x[8]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~38_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~39_combout ;
+wire \data6x[7]~input_o ;
+wire \data5x[7]~input_o ;
+wire \data4x[7]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~40_combout ;
+wire \data7x[7]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~41_combout ;
+wire \data1x[7]~input_o ;
+wire \data2x[7]~input_o ;
+wire \data0x[7]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~42_combout ;
+wire \data3x[7]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~43_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~44_combout ;
+wire \data6x[6]~input_o ;
+wire \data5x[6]~input_o ;
+wire \data4x[6]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~45_combout ;
+wire \data7x[6]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~46_combout ;
+wire \data1x[6]~input_o ;
+wire \data2x[6]~input_o ;
+wire \data0x[6]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~47_combout ;
+wire \data3x[6]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~48_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~49_combout ;
+wire \data6x[5]~input_o ;
+wire \data5x[5]~input_o ;
+wire \data4x[5]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~50_combout ;
+wire \data7x[5]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~51_combout ;
+wire \data1x[5]~input_o ;
+wire \data2x[5]~input_o ;
+wire \data0x[5]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~52_combout ;
+wire \data3x[5]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~53_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~54_combout ;
+wire \data6x[4]~input_o ;
+wire \data5x[4]~input_o ;
+wire \data4x[4]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~55_combout ;
+wire \data7x[4]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~56_combout ;
+wire \data1x[4]~input_o ;
+wire \data2x[4]~input_o ;
+wire \data0x[4]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~57_combout ;
+wire \data3x[4]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~58_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~59_combout ;
+wire \data6x[3]~input_o ;
+wire \data5x[3]~input_o ;
+wire \data4x[3]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~60_combout ;
+wire \data7x[3]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~61_combout ;
+wire \data1x[3]~input_o ;
+wire \data2x[3]~input_o ;
+wire \data0x[3]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~62_combout ;
+wire \data3x[3]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~63_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~64_combout ;
+wire \data6x[2]~input_o ;
+wire \data5x[2]~input_o ;
+wire \data4x[2]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~65_combout ;
+wire \data7x[2]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~66_combout ;
+wire \data1x[2]~input_o ;
+wire \data2x[2]~input_o ;
+wire \data0x[2]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~67_combout ;
+wire \data3x[2]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~68_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~69_combout ;
+wire \data6x[1]~input_o ;
+wire \data5x[1]~input_o ;
+wire \data4x[1]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~70_combout ;
+wire \data7x[1]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~71_combout ;
+wire \data1x[1]~input_o ;
+wire \data2x[1]~input_o ;
+wire \data0x[1]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~72_combout ;
+wire \data3x[1]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~73_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~74_combout ;
+wire \data6x[0]~input_o ;
+wire \data5x[0]~input_o ;
+wire \data4x[0]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~75_combout ;
+wire \data7x[0]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~76_combout ;
+wire \data1x[0]~input_o ;
+wire \data2x[0]~input_o ;
+wire \data0x[0]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~77_combout ;
+wire \data3x[0]~input_o ;
+wire \inst|LPM_MUX_component|auto_generated|_~78_combout ;
+wire \inst|LPM_MUX_component|auto_generated|_~79_combout ;
+
+
+cyclone10lp_io_obuf \result[15]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~4_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[15]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[15]~output .bus_hold = "false";
+defparam \result[15]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[14]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~9_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[14]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[14]~output .bus_hold = "false";
+defparam \result[14]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[13]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~14_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[13]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[13]~output .bus_hold = "false";
+defparam \result[13]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[12]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~19_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[12]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[12]~output .bus_hold = "false";
+defparam \result[12]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[11]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~24_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[11]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[11]~output .bus_hold = "false";
+defparam \result[11]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[10]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~29_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[10]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[10]~output .bus_hold = "false";
+defparam \result[10]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[9]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~34_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[9]~output .bus_hold = "false";
+defparam \result[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[8]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~39_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[8]~output .bus_hold = "false";
+defparam \result[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[7]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~44_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[7]~output .bus_hold = "false";
+defparam \result[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[6]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~49_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[6]~output .bus_hold = "false";
+defparam \result[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[5]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~54_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[5]~output .bus_hold = "false";
+defparam \result[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[4]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~59_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[4]~output .bus_hold = "false";
+defparam \result[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[3]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~64_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[3]~output .bus_hold = "false";
+defparam \result[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[2]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~69_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[2]~output .bus_hold = "false";
+defparam \result[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[1]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~74_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[1]~output .bus_hold = "false";
+defparam \result[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \result[0]~output (
+	.i(\inst|LPM_MUX_component|auto_generated|_~79_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\result[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \result[0]~output .bus_hold = "false";
+defparam \result[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[15]~input (
+	.i(data6x[15]),
+	.ibar(gnd),
+	.o(\data6x[15]~input_o ));
+// synopsys translate_off
+defparam \data6x[15]~input .bus_hold = "false";
+defparam \data6x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \sel[1]~input (
+	.i(sel[1]),
+	.ibar(gnd),
+	.o(\sel[1]~input_o ));
+// synopsys translate_off
+defparam \sel[1]~input .bus_hold = "false";
+defparam \sel[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[15]~input (
+	.i(data5x[15]),
+	.ibar(gnd),
+	.o(\data5x[15]~input_o ));
+// synopsys translate_off
+defparam \data5x[15]~input .bus_hold = "false";
+defparam \data5x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \sel[0]~input (
+	.i(sel[0]),
+	.ibar(gnd),
+	.o(\sel[0]~input_o ));
+// synopsys translate_off
+defparam \sel[0]~input .bus_hold = "false";
+defparam \sel[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[15]~input (
+	.i(data4x[15]),
+	.ibar(gnd),
+	.o(\data4x[15]~input_o ));
+// synopsys translate_off
+defparam \data4x[15]~input .bus_hold = "false";
+defparam \data4x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~0 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~0_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[15]~input_o )) # (!\sel[0]~input_o  & ((\data4x[15]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[15]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[15]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~0 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[15]~input (
+	.i(data7x[15]),
+	.ibar(gnd),
+	.o(\data7x[15]~input_o ));
+// synopsys translate_off
+defparam \data7x[15]~input .bus_hold = "false";
+defparam \data7x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~1 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~1_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~0_combout  & ((\data7x[15]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~0_combout  & (\data6x[15]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~0_combout ))))
+
+	.dataa(\data6x[15]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~0_combout ),
+	.datad(\data7x[15]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~1 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[15]~input (
+	.i(data1x[15]),
+	.ibar(gnd),
+	.o(\data1x[15]~input_o ));
+// synopsys translate_off
+defparam \data1x[15]~input .bus_hold = "false";
+defparam \data1x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[15]~input (
+	.i(data2x[15]),
+	.ibar(gnd),
+	.o(\data2x[15]~input_o ));
+// synopsys translate_off
+defparam \data2x[15]~input .bus_hold = "false";
+defparam \data2x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[15]~input (
+	.i(data0x[15]),
+	.ibar(gnd),
+	.o(\data0x[15]~input_o ));
+// synopsys translate_off
+defparam \data0x[15]~input .bus_hold = "false";
+defparam \data0x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~2 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~2_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[15]~input_o )) # (!\sel[1]~input_o  & ((\data0x[15]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[15]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[15]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~2 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[15]~input (
+	.i(data3x[15]),
+	.ibar(gnd),
+	.o(\data3x[15]~input_o ));
+// synopsys translate_off
+defparam \data3x[15]~input .bus_hold = "false";
+defparam \data3x[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~3 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~3_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~2_combout  & ((\data3x[15]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~2_combout  & (\data1x[15]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~2_combout ))))
+
+	.dataa(\data1x[15]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~2_combout ),
+	.datad(\data3x[15]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~3 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \sel[2]~input (
+	.i(sel[2]),
+	.ibar(gnd),
+	.o(\sel[2]~input_o ));
+// synopsys translate_off
+defparam \sel[2]~input .bus_hold = "false";
+defparam \sel[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~4 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~4_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~1_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~3_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~1_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~3_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~4 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[14]~input (
+	.i(data6x[14]),
+	.ibar(gnd),
+	.o(\data6x[14]~input_o ));
+// synopsys translate_off
+defparam \data6x[14]~input .bus_hold = "false";
+defparam \data6x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[14]~input (
+	.i(data5x[14]),
+	.ibar(gnd),
+	.o(\data5x[14]~input_o ));
+// synopsys translate_off
+defparam \data5x[14]~input .bus_hold = "false";
+defparam \data5x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[14]~input (
+	.i(data4x[14]),
+	.ibar(gnd),
+	.o(\data4x[14]~input_o ));
+// synopsys translate_off
+defparam \data4x[14]~input .bus_hold = "false";
+defparam \data4x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~5 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~5_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[14]~input_o )) # (!\sel[0]~input_o  & ((\data4x[14]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[14]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[14]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~5 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[14]~input (
+	.i(data7x[14]),
+	.ibar(gnd),
+	.o(\data7x[14]~input_o ));
+// synopsys translate_off
+defparam \data7x[14]~input .bus_hold = "false";
+defparam \data7x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~6 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~6_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~5_combout  & ((\data7x[14]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~5_combout  & (\data6x[14]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~5_combout ))))
+
+	.dataa(\data6x[14]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~5_combout ),
+	.datad(\data7x[14]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~6 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[14]~input (
+	.i(data1x[14]),
+	.ibar(gnd),
+	.o(\data1x[14]~input_o ));
+// synopsys translate_off
+defparam \data1x[14]~input .bus_hold = "false";
+defparam \data1x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[14]~input (
+	.i(data2x[14]),
+	.ibar(gnd),
+	.o(\data2x[14]~input_o ));
+// synopsys translate_off
+defparam \data2x[14]~input .bus_hold = "false";
+defparam \data2x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[14]~input (
+	.i(data0x[14]),
+	.ibar(gnd),
+	.o(\data0x[14]~input_o ));
+// synopsys translate_off
+defparam \data0x[14]~input .bus_hold = "false";
+defparam \data0x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~7 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~7_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[14]~input_o )) # (!\sel[1]~input_o  & ((\data0x[14]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[14]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[14]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~7 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[14]~input (
+	.i(data3x[14]),
+	.ibar(gnd),
+	.o(\data3x[14]~input_o ));
+// synopsys translate_off
+defparam \data3x[14]~input .bus_hold = "false";
+defparam \data3x[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~8 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~8_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~7_combout  & ((\data3x[14]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~7_combout  & (\data1x[14]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~7_combout ))))
+
+	.dataa(\data1x[14]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~7_combout ),
+	.datad(\data3x[14]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~8 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~9 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~9_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~6_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~8_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~6_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~8_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~9 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[13]~input (
+	.i(data6x[13]),
+	.ibar(gnd),
+	.o(\data6x[13]~input_o ));
+// synopsys translate_off
+defparam \data6x[13]~input .bus_hold = "false";
+defparam \data6x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[13]~input (
+	.i(data5x[13]),
+	.ibar(gnd),
+	.o(\data5x[13]~input_o ));
+// synopsys translate_off
+defparam \data5x[13]~input .bus_hold = "false";
+defparam \data5x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[13]~input (
+	.i(data4x[13]),
+	.ibar(gnd),
+	.o(\data4x[13]~input_o ));
+// synopsys translate_off
+defparam \data4x[13]~input .bus_hold = "false";
+defparam \data4x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~10 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~10_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[13]~input_o )) # (!\sel[0]~input_o  & ((\data4x[13]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[13]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[13]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~10_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~10 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~10 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[13]~input (
+	.i(data7x[13]),
+	.ibar(gnd),
+	.o(\data7x[13]~input_o ));
+// synopsys translate_off
+defparam \data7x[13]~input .bus_hold = "false";
+defparam \data7x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~11 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~11_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~10_combout  & ((\data7x[13]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~10_combout  & (\data6x[13]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~10_combout ))))
+
+	.dataa(\data6x[13]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~10_combout ),
+	.datad(\data7x[13]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~11_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~11 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~11 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[13]~input (
+	.i(data1x[13]),
+	.ibar(gnd),
+	.o(\data1x[13]~input_o ));
+// synopsys translate_off
+defparam \data1x[13]~input .bus_hold = "false";
+defparam \data1x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[13]~input (
+	.i(data2x[13]),
+	.ibar(gnd),
+	.o(\data2x[13]~input_o ));
+// synopsys translate_off
+defparam \data2x[13]~input .bus_hold = "false";
+defparam \data2x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[13]~input (
+	.i(data0x[13]),
+	.ibar(gnd),
+	.o(\data0x[13]~input_o ));
+// synopsys translate_off
+defparam \data0x[13]~input .bus_hold = "false";
+defparam \data0x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~12 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~12_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[13]~input_o )) # (!\sel[1]~input_o  & ((\data0x[13]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[13]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[13]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~12_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~12 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~12 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[13]~input (
+	.i(data3x[13]),
+	.ibar(gnd),
+	.o(\data3x[13]~input_o ));
+// synopsys translate_off
+defparam \data3x[13]~input .bus_hold = "false";
+defparam \data3x[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~13 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~13_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~12_combout  & ((\data3x[13]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~12_combout  & (\data1x[13]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~12_combout ))))
+
+	.dataa(\data1x[13]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~12_combout ),
+	.datad(\data3x[13]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~13_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~13 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~13 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~14 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~14_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~11_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~13_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~11_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~13_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~14 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~14 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[12]~input (
+	.i(data6x[12]),
+	.ibar(gnd),
+	.o(\data6x[12]~input_o ));
+// synopsys translate_off
+defparam \data6x[12]~input .bus_hold = "false";
+defparam \data6x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[12]~input (
+	.i(data5x[12]),
+	.ibar(gnd),
+	.o(\data5x[12]~input_o ));
+// synopsys translate_off
+defparam \data5x[12]~input .bus_hold = "false";
+defparam \data5x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[12]~input (
+	.i(data4x[12]),
+	.ibar(gnd),
+	.o(\data4x[12]~input_o ));
+// synopsys translate_off
+defparam \data4x[12]~input .bus_hold = "false";
+defparam \data4x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~15 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~15_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[12]~input_o )) # (!\sel[0]~input_o  & ((\data4x[12]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[12]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[12]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~15_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~15 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~15 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[12]~input (
+	.i(data7x[12]),
+	.ibar(gnd),
+	.o(\data7x[12]~input_o ));
+// synopsys translate_off
+defparam \data7x[12]~input .bus_hold = "false";
+defparam \data7x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~16 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~16_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~15_combout  & ((\data7x[12]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~15_combout  & (\data6x[12]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~15_combout ))))
+
+	.dataa(\data6x[12]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~15_combout ),
+	.datad(\data7x[12]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~16_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~16 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~16 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[12]~input (
+	.i(data1x[12]),
+	.ibar(gnd),
+	.o(\data1x[12]~input_o ));
+// synopsys translate_off
+defparam \data1x[12]~input .bus_hold = "false";
+defparam \data1x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[12]~input (
+	.i(data2x[12]),
+	.ibar(gnd),
+	.o(\data2x[12]~input_o ));
+// synopsys translate_off
+defparam \data2x[12]~input .bus_hold = "false";
+defparam \data2x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[12]~input (
+	.i(data0x[12]),
+	.ibar(gnd),
+	.o(\data0x[12]~input_o ));
+// synopsys translate_off
+defparam \data0x[12]~input .bus_hold = "false";
+defparam \data0x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~17 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~17_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[12]~input_o )) # (!\sel[1]~input_o  & ((\data0x[12]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[12]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[12]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~17_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~17 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~17 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[12]~input (
+	.i(data3x[12]),
+	.ibar(gnd),
+	.o(\data3x[12]~input_o ));
+// synopsys translate_off
+defparam \data3x[12]~input .bus_hold = "false";
+defparam \data3x[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~18 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~18_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~17_combout  & ((\data3x[12]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~17_combout  & (\data1x[12]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~17_combout ))))
+
+	.dataa(\data1x[12]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~17_combout ),
+	.datad(\data3x[12]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~18_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~18 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~18 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~19 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~19_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~16_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~18_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~16_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~18_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~19_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~19 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~19 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[11]~input (
+	.i(data6x[11]),
+	.ibar(gnd),
+	.o(\data6x[11]~input_o ));
+// synopsys translate_off
+defparam \data6x[11]~input .bus_hold = "false";
+defparam \data6x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[11]~input (
+	.i(data5x[11]),
+	.ibar(gnd),
+	.o(\data5x[11]~input_o ));
+// synopsys translate_off
+defparam \data5x[11]~input .bus_hold = "false";
+defparam \data5x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[11]~input (
+	.i(data4x[11]),
+	.ibar(gnd),
+	.o(\data4x[11]~input_o ));
+// synopsys translate_off
+defparam \data4x[11]~input .bus_hold = "false";
+defparam \data4x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~20 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~20_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[11]~input_o )) # (!\sel[0]~input_o  & ((\data4x[11]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[11]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[11]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~20_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~20 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~20 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[11]~input (
+	.i(data7x[11]),
+	.ibar(gnd),
+	.o(\data7x[11]~input_o ));
+// synopsys translate_off
+defparam \data7x[11]~input .bus_hold = "false";
+defparam \data7x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~21 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~21_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~20_combout  & ((\data7x[11]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~20_combout  & (\data6x[11]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~20_combout ))))
+
+	.dataa(\data6x[11]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~20_combout ),
+	.datad(\data7x[11]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~21_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~21 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~21 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[11]~input (
+	.i(data1x[11]),
+	.ibar(gnd),
+	.o(\data1x[11]~input_o ));
+// synopsys translate_off
+defparam \data1x[11]~input .bus_hold = "false";
+defparam \data1x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[11]~input (
+	.i(data2x[11]),
+	.ibar(gnd),
+	.o(\data2x[11]~input_o ));
+// synopsys translate_off
+defparam \data2x[11]~input .bus_hold = "false";
+defparam \data2x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[11]~input (
+	.i(data0x[11]),
+	.ibar(gnd),
+	.o(\data0x[11]~input_o ));
+// synopsys translate_off
+defparam \data0x[11]~input .bus_hold = "false";
+defparam \data0x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~22 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~22_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[11]~input_o )) # (!\sel[1]~input_o  & ((\data0x[11]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[11]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[11]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~22_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~22 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~22 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[11]~input (
+	.i(data3x[11]),
+	.ibar(gnd),
+	.o(\data3x[11]~input_o ));
+// synopsys translate_off
+defparam \data3x[11]~input .bus_hold = "false";
+defparam \data3x[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~23 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~23_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~22_combout  & ((\data3x[11]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~22_combout  & (\data1x[11]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~22_combout ))))
+
+	.dataa(\data1x[11]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~22_combout ),
+	.datad(\data3x[11]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~23_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~23 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~23 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~24 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~24_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~21_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~23_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~21_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~23_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~24_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~24 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~24 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[10]~input (
+	.i(data6x[10]),
+	.ibar(gnd),
+	.o(\data6x[10]~input_o ));
+// synopsys translate_off
+defparam \data6x[10]~input .bus_hold = "false";
+defparam \data6x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[10]~input (
+	.i(data5x[10]),
+	.ibar(gnd),
+	.o(\data5x[10]~input_o ));
+// synopsys translate_off
+defparam \data5x[10]~input .bus_hold = "false";
+defparam \data5x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[10]~input (
+	.i(data4x[10]),
+	.ibar(gnd),
+	.o(\data4x[10]~input_o ));
+// synopsys translate_off
+defparam \data4x[10]~input .bus_hold = "false";
+defparam \data4x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~25 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~25_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[10]~input_o )) # (!\sel[0]~input_o  & ((\data4x[10]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[10]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[10]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~25_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~25 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~25 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[10]~input (
+	.i(data7x[10]),
+	.ibar(gnd),
+	.o(\data7x[10]~input_o ));
+// synopsys translate_off
+defparam \data7x[10]~input .bus_hold = "false";
+defparam \data7x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~26 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~26_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~25_combout  & ((\data7x[10]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~25_combout  & (\data6x[10]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~25_combout ))))
+
+	.dataa(\data6x[10]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~25_combout ),
+	.datad(\data7x[10]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~26_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~26 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~26 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[10]~input (
+	.i(data1x[10]),
+	.ibar(gnd),
+	.o(\data1x[10]~input_o ));
+// synopsys translate_off
+defparam \data1x[10]~input .bus_hold = "false";
+defparam \data1x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[10]~input (
+	.i(data2x[10]),
+	.ibar(gnd),
+	.o(\data2x[10]~input_o ));
+// synopsys translate_off
+defparam \data2x[10]~input .bus_hold = "false";
+defparam \data2x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[10]~input (
+	.i(data0x[10]),
+	.ibar(gnd),
+	.o(\data0x[10]~input_o ));
+// synopsys translate_off
+defparam \data0x[10]~input .bus_hold = "false";
+defparam \data0x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~27 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~27_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[10]~input_o )) # (!\sel[1]~input_o  & ((\data0x[10]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[10]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[10]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~27_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~27 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~27 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[10]~input (
+	.i(data3x[10]),
+	.ibar(gnd),
+	.o(\data3x[10]~input_o ));
+// synopsys translate_off
+defparam \data3x[10]~input .bus_hold = "false";
+defparam \data3x[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~28 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~28_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~27_combout  & ((\data3x[10]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~27_combout  & (\data1x[10]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~27_combout ))))
+
+	.dataa(\data1x[10]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~27_combout ),
+	.datad(\data3x[10]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~28_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~28 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~28 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~29 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~29_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~26_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~28_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~26_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~28_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~29_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~29 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~29 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[9]~input (
+	.i(data6x[9]),
+	.ibar(gnd),
+	.o(\data6x[9]~input_o ));
+// synopsys translate_off
+defparam \data6x[9]~input .bus_hold = "false";
+defparam \data6x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[9]~input (
+	.i(data5x[9]),
+	.ibar(gnd),
+	.o(\data5x[9]~input_o ));
+// synopsys translate_off
+defparam \data5x[9]~input .bus_hold = "false";
+defparam \data5x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[9]~input (
+	.i(data4x[9]),
+	.ibar(gnd),
+	.o(\data4x[9]~input_o ));
+// synopsys translate_off
+defparam \data4x[9]~input .bus_hold = "false";
+defparam \data4x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~30 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~30_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[9]~input_o )) # (!\sel[0]~input_o  & ((\data4x[9]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[9]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[9]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~30_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~30 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~30 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[9]~input (
+	.i(data7x[9]),
+	.ibar(gnd),
+	.o(\data7x[9]~input_o ));
+// synopsys translate_off
+defparam \data7x[9]~input .bus_hold = "false";
+defparam \data7x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~31 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~31_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~30_combout  & ((\data7x[9]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~30_combout  & (\data6x[9]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~30_combout ))))
+
+	.dataa(\data6x[9]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~30_combout ),
+	.datad(\data7x[9]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~31_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~31 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~31 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[9]~input (
+	.i(data1x[9]),
+	.ibar(gnd),
+	.o(\data1x[9]~input_o ));
+// synopsys translate_off
+defparam \data1x[9]~input .bus_hold = "false";
+defparam \data1x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[9]~input (
+	.i(data2x[9]),
+	.ibar(gnd),
+	.o(\data2x[9]~input_o ));
+// synopsys translate_off
+defparam \data2x[9]~input .bus_hold = "false";
+defparam \data2x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[9]~input (
+	.i(data0x[9]),
+	.ibar(gnd),
+	.o(\data0x[9]~input_o ));
+// synopsys translate_off
+defparam \data0x[9]~input .bus_hold = "false";
+defparam \data0x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~32 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~32_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[9]~input_o )) # (!\sel[1]~input_o  & ((\data0x[9]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[9]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[9]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~32_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~32 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~32 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[9]~input (
+	.i(data3x[9]),
+	.ibar(gnd),
+	.o(\data3x[9]~input_o ));
+// synopsys translate_off
+defparam \data3x[9]~input .bus_hold = "false";
+defparam \data3x[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~33 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~33_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~32_combout  & ((\data3x[9]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~32_combout  & (\data1x[9]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~32_combout ))))
+
+	.dataa(\data1x[9]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~32_combout ),
+	.datad(\data3x[9]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~33_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~33 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~33 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~34 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~34_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~31_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~33_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~31_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~33_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~34_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~34 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~34 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[8]~input (
+	.i(data6x[8]),
+	.ibar(gnd),
+	.o(\data6x[8]~input_o ));
+// synopsys translate_off
+defparam \data6x[8]~input .bus_hold = "false";
+defparam \data6x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[8]~input (
+	.i(data5x[8]),
+	.ibar(gnd),
+	.o(\data5x[8]~input_o ));
+// synopsys translate_off
+defparam \data5x[8]~input .bus_hold = "false";
+defparam \data5x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[8]~input (
+	.i(data4x[8]),
+	.ibar(gnd),
+	.o(\data4x[8]~input_o ));
+// synopsys translate_off
+defparam \data4x[8]~input .bus_hold = "false";
+defparam \data4x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~35 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~35_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[8]~input_o )) # (!\sel[0]~input_o  & ((\data4x[8]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[8]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[8]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~35_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~35 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~35 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[8]~input (
+	.i(data7x[8]),
+	.ibar(gnd),
+	.o(\data7x[8]~input_o ));
+// synopsys translate_off
+defparam \data7x[8]~input .bus_hold = "false";
+defparam \data7x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~36 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~36_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~35_combout  & ((\data7x[8]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~35_combout  & (\data6x[8]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~35_combout ))))
+
+	.dataa(\data6x[8]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~35_combout ),
+	.datad(\data7x[8]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~36_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~36 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~36 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[8]~input (
+	.i(data1x[8]),
+	.ibar(gnd),
+	.o(\data1x[8]~input_o ));
+// synopsys translate_off
+defparam \data1x[8]~input .bus_hold = "false";
+defparam \data1x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[8]~input (
+	.i(data2x[8]),
+	.ibar(gnd),
+	.o(\data2x[8]~input_o ));
+// synopsys translate_off
+defparam \data2x[8]~input .bus_hold = "false";
+defparam \data2x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[8]~input (
+	.i(data0x[8]),
+	.ibar(gnd),
+	.o(\data0x[8]~input_o ));
+// synopsys translate_off
+defparam \data0x[8]~input .bus_hold = "false";
+defparam \data0x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~37 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~37_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[8]~input_o )) # (!\sel[1]~input_o  & ((\data0x[8]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[8]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[8]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~37_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~37 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~37 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[8]~input (
+	.i(data3x[8]),
+	.ibar(gnd),
+	.o(\data3x[8]~input_o ));
+// synopsys translate_off
+defparam \data3x[8]~input .bus_hold = "false";
+defparam \data3x[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~38 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~38_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~37_combout  & ((\data3x[8]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~37_combout  & (\data1x[8]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~37_combout ))))
+
+	.dataa(\data1x[8]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~37_combout ),
+	.datad(\data3x[8]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~38_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~38 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~38 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~39 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~39_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~36_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~38_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~36_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~38_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~39_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~39 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~39 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[7]~input (
+	.i(data6x[7]),
+	.ibar(gnd),
+	.o(\data6x[7]~input_o ));
+// synopsys translate_off
+defparam \data6x[7]~input .bus_hold = "false";
+defparam \data6x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[7]~input (
+	.i(data5x[7]),
+	.ibar(gnd),
+	.o(\data5x[7]~input_o ));
+// synopsys translate_off
+defparam \data5x[7]~input .bus_hold = "false";
+defparam \data5x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[7]~input (
+	.i(data4x[7]),
+	.ibar(gnd),
+	.o(\data4x[7]~input_o ));
+// synopsys translate_off
+defparam \data4x[7]~input .bus_hold = "false";
+defparam \data4x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~40 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~40_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[7]~input_o )) # (!\sel[0]~input_o  & ((\data4x[7]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[7]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[7]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~40_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~40 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~40 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[7]~input (
+	.i(data7x[7]),
+	.ibar(gnd),
+	.o(\data7x[7]~input_o ));
+// synopsys translate_off
+defparam \data7x[7]~input .bus_hold = "false";
+defparam \data7x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~41 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~41_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~40_combout  & ((\data7x[7]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~40_combout  & (\data6x[7]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~40_combout ))))
+
+	.dataa(\data6x[7]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~40_combout ),
+	.datad(\data7x[7]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~41_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~41 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~41 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[7]~input (
+	.i(data1x[7]),
+	.ibar(gnd),
+	.o(\data1x[7]~input_o ));
+// synopsys translate_off
+defparam \data1x[7]~input .bus_hold = "false";
+defparam \data1x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[7]~input (
+	.i(data2x[7]),
+	.ibar(gnd),
+	.o(\data2x[7]~input_o ));
+// synopsys translate_off
+defparam \data2x[7]~input .bus_hold = "false";
+defparam \data2x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[7]~input (
+	.i(data0x[7]),
+	.ibar(gnd),
+	.o(\data0x[7]~input_o ));
+// synopsys translate_off
+defparam \data0x[7]~input .bus_hold = "false";
+defparam \data0x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~42 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~42_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[7]~input_o )) # (!\sel[1]~input_o  & ((\data0x[7]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[7]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[7]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~42_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~42 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~42 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[7]~input (
+	.i(data3x[7]),
+	.ibar(gnd),
+	.o(\data3x[7]~input_o ));
+// synopsys translate_off
+defparam \data3x[7]~input .bus_hold = "false";
+defparam \data3x[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~43 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~43_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~42_combout  & ((\data3x[7]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~42_combout  & (\data1x[7]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~42_combout ))))
+
+	.dataa(\data1x[7]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~42_combout ),
+	.datad(\data3x[7]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~43_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~43 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~43 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~44 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~44_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~41_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~43_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~41_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~43_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~44_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~44 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~44 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[6]~input (
+	.i(data6x[6]),
+	.ibar(gnd),
+	.o(\data6x[6]~input_o ));
+// synopsys translate_off
+defparam \data6x[6]~input .bus_hold = "false";
+defparam \data6x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[6]~input (
+	.i(data5x[6]),
+	.ibar(gnd),
+	.o(\data5x[6]~input_o ));
+// synopsys translate_off
+defparam \data5x[6]~input .bus_hold = "false";
+defparam \data5x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[6]~input (
+	.i(data4x[6]),
+	.ibar(gnd),
+	.o(\data4x[6]~input_o ));
+// synopsys translate_off
+defparam \data4x[6]~input .bus_hold = "false";
+defparam \data4x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~45 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~45_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[6]~input_o )) # (!\sel[0]~input_o  & ((\data4x[6]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[6]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[6]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~45_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~45 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~45 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[6]~input (
+	.i(data7x[6]),
+	.ibar(gnd),
+	.o(\data7x[6]~input_o ));
+// synopsys translate_off
+defparam \data7x[6]~input .bus_hold = "false";
+defparam \data7x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~46 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~46_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~45_combout  & ((\data7x[6]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~45_combout  & (\data6x[6]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~45_combout ))))
+
+	.dataa(\data6x[6]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~45_combout ),
+	.datad(\data7x[6]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~46_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~46 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~46 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[6]~input (
+	.i(data1x[6]),
+	.ibar(gnd),
+	.o(\data1x[6]~input_o ));
+// synopsys translate_off
+defparam \data1x[6]~input .bus_hold = "false";
+defparam \data1x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[6]~input (
+	.i(data2x[6]),
+	.ibar(gnd),
+	.o(\data2x[6]~input_o ));
+// synopsys translate_off
+defparam \data2x[6]~input .bus_hold = "false";
+defparam \data2x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[6]~input (
+	.i(data0x[6]),
+	.ibar(gnd),
+	.o(\data0x[6]~input_o ));
+// synopsys translate_off
+defparam \data0x[6]~input .bus_hold = "false";
+defparam \data0x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~47 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~47_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[6]~input_o )) # (!\sel[1]~input_o  & ((\data0x[6]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[6]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[6]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~47_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~47 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~47 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[6]~input (
+	.i(data3x[6]),
+	.ibar(gnd),
+	.o(\data3x[6]~input_o ));
+// synopsys translate_off
+defparam \data3x[6]~input .bus_hold = "false";
+defparam \data3x[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~48 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~48_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~47_combout  & ((\data3x[6]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~47_combout  & (\data1x[6]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~47_combout ))))
+
+	.dataa(\data1x[6]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~47_combout ),
+	.datad(\data3x[6]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~48_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~48 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~48 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~49 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~49_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~46_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~48_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~46_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~48_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~49_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~49 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~49 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[5]~input (
+	.i(data6x[5]),
+	.ibar(gnd),
+	.o(\data6x[5]~input_o ));
+// synopsys translate_off
+defparam \data6x[5]~input .bus_hold = "false";
+defparam \data6x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[5]~input (
+	.i(data5x[5]),
+	.ibar(gnd),
+	.o(\data5x[5]~input_o ));
+// synopsys translate_off
+defparam \data5x[5]~input .bus_hold = "false";
+defparam \data5x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[5]~input (
+	.i(data4x[5]),
+	.ibar(gnd),
+	.o(\data4x[5]~input_o ));
+// synopsys translate_off
+defparam \data4x[5]~input .bus_hold = "false";
+defparam \data4x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~50 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~50_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[5]~input_o )) # (!\sel[0]~input_o  & ((\data4x[5]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[5]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[5]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~50_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~50 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~50 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[5]~input (
+	.i(data7x[5]),
+	.ibar(gnd),
+	.o(\data7x[5]~input_o ));
+// synopsys translate_off
+defparam \data7x[5]~input .bus_hold = "false";
+defparam \data7x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~51 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~51_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~50_combout  & ((\data7x[5]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~50_combout  & (\data6x[5]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~50_combout ))))
+
+	.dataa(\data6x[5]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~50_combout ),
+	.datad(\data7x[5]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~51_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~51 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~51 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[5]~input (
+	.i(data1x[5]),
+	.ibar(gnd),
+	.o(\data1x[5]~input_o ));
+// synopsys translate_off
+defparam \data1x[5]~input .bus_hold = "false";
+defparam \data1x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[5]~input (
+	.i(data2x[5]),
+	.ibar(gnd),
+	.o(\data2x[5]~input_o ));
+// synopsys translate_off
+defparam \data2x[5]~input .bus_hold = "false";
+defparam \data2x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[5]~input (
+	.i(data0x[5]),
+	.ibar(gnd),
+	.o(\data0x[5]~input_o ));
+// synopsys translate_off
+defparam \data0x[5]~input .bus_hold = "false";
+defparam \data0x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~52 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~52_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[5]~input_o )) # (!\sel[1]~input_o  & ((\data0x[5]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[5]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[5]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~52_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~52 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~52 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[5]~input (
+	.i(data3x[5]),
+	.ibar(gnd),
+	.o(\data3x[5]~input_o ));
+// synopsys translate_off
+defparam \data3x[5]~input .bus_hold = "false";
+defparam \data3x[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~53 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~53_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~52_combout  & ((\data3x[5]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~52_combout  & (\data1x[5]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~52_combout ))))
+
+	.dataa(\data1x[5]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~52_combout ),
+	.datad(\data3x[5]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~53_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~53 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~53 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~54 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~54_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~51_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~53_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~51_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~53_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~54_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~54 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~54 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[4]~input (
+	.i(data6x[4]),
+	.ibar(gnd),
+	.o(\data6x[4]~input_o ));
+// synopsys translate_off
+defparam \data6x[4]~input .bus_hold = "false";
+defparam \data6x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[4]~input (
+	.i(data5x[4]),
+	.ibar(gnd),
+	.o(\data5x[4]~input_o ));
+// synopsys translate_off
+defparam \data5x[4]~input .bus_hold = "false";
+defparam \data5x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[4]~input (
+	.i(data4x[4]),
+	.ibar(gnd),
+	.o(\data4x[4]~input_o ));
+// synopsys translate_off
+defparam \data4x[4]~input .bus_hold = "false";
+defparam \data4x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~55 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~55_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[4]~input_o )) # (!\sel[0]~input_o  & ((\data4x[4]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[4]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[4]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~55_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~55 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~55 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[4]~input (
+	.i(data7x[4]),
+	.ibar(gnd),
+	.o(\data7x[4]~input_o ));
+// synopsys translate_off
+defparam \data7x[4]~input .bus_hold = "false";
+defparam \data7x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~56 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~56_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~55_combout  & ((\data7x[4]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~55_combout  & (\data6x[4]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~55_combout ))))
+
+	.dataa(\data6x[4]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~55_combout ),
+	.datad(\data7x[4]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~56_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~56 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~56 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[4]~input (
+	.i(data1x[4]),
+	.ibar(gnd),
+	.o(\data1x[4]~input_o ));
+// synopsys translate_off
+defparam \data1x[4]~input .bus_hold = "false";
+defparam \data1x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[4]~input (
+	.i(data2x[4]),
+	.ibar(gnd),
+	.o(\data2x[4]~input_o ));
+// synopsys translate_off
+defparam \data2x[4]~input .bus_hold = "false";
+defparam \data2x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[4]~input (
+	.i(data0x[4]),
+	.ibar(gnd),
+	.o(\data0x[4]~input_o ));
+// synopsys translate_off
+defparam \data0x[4]~input .bus_hold = "false";
+defparam \data0x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~57 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~57_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[4]~input_o )) # (!\sel[1]~input_o  & ((\data0x[4]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[4]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[4]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~57_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~57 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~57 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[4]~input (
+	.i(data3x[4]),
+	.ibar(gnd),
+	.o(\data3x[4]~input_o ));
+// synopsys translate_off
+defparam \data3x[4]~input .bus_hold = "false";
+defparam \data3x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~58 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~58_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~57_combout  & ((\data3x[4]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~57_combout  & (\data1x[4]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~57_combout ))))
+
+	.dataa(\data1x[4]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~57_combout ),
+	.datad(\data3x[4]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~58_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~58 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~58 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~59 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~59_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~56_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~58_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~56_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~58_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~59_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~59 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~59 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[3]~input (
+	.i(data6x[3]),
+	.ibar(gnd),
+	.o(\data6x[3]~input_o ));
+// synopsys translate_off
+defparam \data6x[3]~input .bus_hold = "false";
+defparam \data6x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[3]~input (
+	.i(data5x[3]),
+	.ibar(gnd),
+	.o(\data5x[3]~input_o ));
+// synopsys translate_off
+defparam \data5x[3]~input .bus_hold = "false";
+defparam \data5x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[3]~input (
+	.i(data4x[3]),
+	.ibar(gnd),
+	.o(\data4x[3]~input_o ));
+// synopsys translate_off
+defparam \data4x[3]~input .bus_hold = "false";
+defparam \data4x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~60 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~60_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[3]~input_o )) # (!\sel[0]~input_o  & ((\data4x[3]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[3]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[3]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~60_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~60 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~60 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[3]~input (
+	.i(data7x[3]),
+	.ibar(gnd),
+	.o(\data7x[3]~input_o ));
+// synopsys translate_off
+defparam \data7x[3]~input .bus_hold = "false";
+defparam \data7x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~61 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~61_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~60_combout  & ((\data7x[3]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~60_combout  & (\data6x[3]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~60_combout ))))
+
+	.dataa(\data6x[3]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~60_combout ),
+	.datad(\data7x[3]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~61_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~61 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~61 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[3]~input (
+	.i(data1x[3]),
+	.ibar(gnd),
+	.o(\data1x[3]~input_o ));
+// synopsys translate_off
+defparam \data1x[3]~input .bus_hold = "false";
+defparam \data1x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[3]~input (
+	.i(data2x[3]),
+	.ibar(gnd),
+	.o(\data2x[3]~input_o ));
+// synopsys translate_off
+defparam \data2x[3]~input .bus_hold = "false";
+defparam \data2x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[3]~input (
+	.i(data0x[3]),
+	.ibar(gnd),
+	.o(\data0x[3]~input_o ));
+// synopsys translate_off
+defparam \data0x[3]~input .bus_hold = "false";
+defparam \data0x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~62 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~62_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[3]~input_o )) # (!\sel[1]~input_o  & ((\data0x[3]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[3]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[3]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~62_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~62 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~62 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[3]~input (
+	.i(data3x[3]),
+	.ibar(gnd),
+	.o(\data3x[3]~input_o ));
+// synopsys translate_off
+defparam \data3x[3]~input .bus_hold = "false";
+defparam \data3x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~63 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~63_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~62_combout  & ((\data3x[3]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~62_combout  & (\data1x[3]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~62_combout ))))
+
+	.dataa(\data1x[3]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~62_combout ),
+	.datad(\data3x[3]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~63_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~63 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~63 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~64 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~64_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~61_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~63_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~61_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~63_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~64_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~64 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~64 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[2]~input (
+	.i(data6x[2]),
+	.ibar(gnd),
+	.o(\data6x[2]~input_o ));
+// synopsys translate_off
+defparam \data6x[2]~input .bus_hold = "false";
+defparam \data6x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[2]~input (
+	.i(data5x[2]),
+	.ibar(gnd),
+	.o(\data5x[2]~input_o ));
+// synopsys translate_off
+defparam \data5x[2]~input .bus_hold = "false";
+defparam \data5x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[2]~input (
+	.i(data4x[2]),
+	.ibar(gnd),
+	.o(\data4x[2]~input_o ));
+// synopsys translate_off
+defparam \data4x[2]~input .bus_hold = "false";
+defparam \data4x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~65 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~65_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[2]~input_o )) # (!\sel[0]~input_o  & ((\data4x[2]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[2]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~65_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~65 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~65 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[2]~input (
+	.i(data7x[2]),
+	.ibar(gnd),
+	.o(\data7x[2]~input_o ));
+// synopsys translate_off
+defparam \data7x[2]~input .bus_hold = "false";
+defparam \data7x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~66 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~66_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~65_combout  & ((\data7x[2]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~65_combout  & (\data6x[2]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~65_combout ))))
+
+	.dataa(\data6x[2]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~65_combout ),
+	.datad(\data7x[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~66_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~66 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~66 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[2]~input (
+	.i(data1x[2]),
+	.ibar(gnd),
+	.o(\data1x[2]~input_o ));
+// synopsys translate_off
+defparam \data1x[2]~input .bus_hold = "false";
+defparam \data1x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[2]~input (
+	.i(data2x[2]),
+	.ibar(gnd),
+	.o(\data2x[2]~input_o ));
+// synopsys translate_off
+defparam \data2x[2]~input .bus_hold = "false";
+defparam \data2x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[2]~input (
+	.i(data0x[2]),
+	.ibar(gnd),
+	.o(\data0x[2]~input_o ));
+// synopsys translate_off
+defparam \data0x[2]~input .bus_hold = "false";
+defparam \data0x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~67 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~67_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[2]~input_o )) # (!\sel[1]~input_o  & ((\data0x[2]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[2]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~67_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~67 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~67 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[2]~input (
+	.i(data3x[2]),
+	.ibar(gnd),
+	.o(\data3x[2]~input_o ));
+// synopsys translate_off
+defparam \data3x[2]~input .bus_hold = "false";
+defparam \data3x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~68 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~68_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~67_combout  & ((\data3x[2]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~67_combout  & (\data1x[2]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~67_combout ))))
+
+	.dataa(\data1x[2]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~67_combout ),
+	.datad(\data3x[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~68_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~68 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~68 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~69 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~69_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~66_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~68_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~66_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~68_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~69_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~69 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~69 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[1]~input (
+	.i(data6x[1]),
+	.ibar(gnd),
+	.o(\data6x[1]~input_o ));
+// synopsys translate_off
+defparam \data6x[1]~input .bus_hold = "false";
+defparam \data6x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[1]~input (
+	.i(data5x[1]),
+	.ibar(gnd),
+	.o(\data5x[1]~input_o ));
+// synopsys translate_off
+defparam \data5x[1]~input .bus_hold = "false";
+defparam \data5x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[1]~input (
+	.i(data4x[1]),
+	.ibar(gnd),
+	.o(\data4x[1]~input_o ));
+// synopsys translate_off
+defparam \data4x[1]~input .bus_hold = "false";
+defparam \data4x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~70 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~70_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[1]~input_o )) # (!\sel[0]~input_o  & ((\data4x[1]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[1]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[1]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~70_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~70 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~70 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[1]~input (
+	.i(data7x[1]),
+	.ibar(gnd),
+	.o(\data7x[1]~input_o ));
+// synopsys translate_off
+defparam \data7x[1]~input .bus_hold = "false";
+defparam \data7x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~71 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~71_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~70_combout  & ((\data7x[1]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~70_combout  & (\data6x[1]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~70_combout ))))
+
+	.dataa(\data6x[1]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~70_combout ),
+	.datad(\data7x[1]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~71_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~71 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~71 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[1]~input (
+	.i(data1x[1]),
+	.ibar(gnd),
+	.o(\data1x[1]~input_o ));
+// synopsys translate_off
+defparam \data1x[1]~input .bus_hold = "false";
+defparam \data1x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[1]~input (
+	.i(data2x[1]),
+	.ibar(gnd),
+	.o(\data2x[1]~input_o ));
+// synopsys translate_off
+defparam \data2x[1]~input .bus_hold = "false";
+defparam \data2x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[1]~input (
+	.i(data0x[1]),
+	.ibar(gnd),
+	.o(\data0x[1]~input_o ));
+// synopsys translate_off
+defparam \data0x[1]~input .bus_hold = "false";
+defparam \data0x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~72 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~72_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[1]~input_o )) # (!\sel[1]~input_o  & ((\data0x[1]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[1]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[1]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~72_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~72 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~72 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[1]~input (
+	.i(data3x[1]),
+	.ibar(gnd),
+	.o(\data3x[1]~input_o ));
+// synopsys translate_off
+defparam \data3x[1]~input .bus_hold = "false";
+defparam \data3x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~73 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~73_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~72_combout  & ((\data3x[1]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~72_combout  & (\data1x[1]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~72_combout ))))
+
+	.dataa(\data1x[1]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~72_combout ),
+	.datad(\data3x[1]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~73_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~73 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~73 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~74 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~74_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~71_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~73_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~71_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~73_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~74_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~74 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~74 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data6x[0]~input (
+	.i(data6x[0]),
+	.ibar(gnd),
+	.o(\data6x[0]~input_o ));
+// synopsys translate_off
+defparam \data6x[0]~input .bus_hold = "false";
+defparam \data6x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data5x[0]~input (
+	.i(data5x[0]),
+	.ibar(gnd),
+	.o(\data5x[0]~input_o ));
+// synopsys translate_off
+defparam \data5x[0]~input .bus_hold = "false";
+defparam \data5x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data4x[0]~input (
+	.i(data4x[0]),
+	.ibar(gnd),
+	.o(\data4x[0]~input_o ));
+// synopsys translate_off
+defparam \data4x[0]~input .bus_hold = "false";
+defparam \data4x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~75 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~75_combout  = (\sel[1]~input_o  & (((\sel[0]~input_o )))) # (!\sel[1]~input_o  & ((\sel[0]~input_o  & (\data5x[0]~input_o )) # (!\sel[0]~input_o  & ((\data4x[0]~input_o )))))
+
+	.dataa(\sel[1]~input_o ),
+	.datab(\data5x[0]~input_o ),
+	.datac(\sel[0]~input_o ),
+	.datad(\data4x[0]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~75_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~75 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~75 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data7x[0]~input (
+	.i(data7x[0]),
+	.ibar(gnd),
+	.o(\data7x[0]~input_o ));
+// synopsys translate_off
+defparam \data7x[0]~input .bus_hold = "false";
+defparam \data7x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~76 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~76_combout  = (\sel[1]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~75_combout  & ((\data7x[0]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~75_combout  & (\data6x[0]~input_o )))) # 
+// (!\sel[1]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~75_combout ))))
+
+	.dataa(\data6x[0]~input_o ),
+	.datab(\sel[1]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~75_combout ),
+	.datad(\data7x[0]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~76_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~76 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~76 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data1x[0]~input (
+	.i(data1x[0]),
+	.ibar(gnd),
+	.o(\data1x[0]~input_o ));
+// synopsys translate_off
+defparam \data1x[0]~input .bus_hold = "false";
+defparam \data1x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data2x[0]~input (
+	.i(data2x[0]),
+	.ibar(gnd),
+	.o(\data2x[0]~input_o ));
+// synopsys translate_off
+defparam \data2x[0]~input .bus_hold = "false";
+defparam \data2x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data0x[0]~input (
+	.i(data0x[0]),
+	.ibar(gnd),
+	.o(\data0x[0]~input_o ));
+// synopsys translate_off
+defparam \data0x[0]~input .bus_hold = "false";
+defparam \data0x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~77 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~77_combout  = (\sel[0]~input_o  & (((\sel[1]~input_o )))) # (!\sel[0]~input_o  & ((\sel[1]~input_o  & (\data2x[0]~input_o )) # (!\sel[1]~input_o  & ((\data0x[0]~input_o )))))
+
+	.dataa(\sel[0]~input_o ),
+	.datab(\data2x[0]~input_o ),
+	.datac(\sel[1]~input_o ),
+	.datad(\data0x[0]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~77_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~77 .lut_mask = 16'hE5E0;
+defparam \inst|LPM_MUX_component|auto_generated|_~77 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \data3x[0]~input (
+	.i(data3x[0]),
+	.ibar(gnd),
+	.o(\data3x[0]~input_o ));
+// synopsys translate_off
+defparam \data3x[0]~input .bus_hold = "false";
+defparam \data3x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~78 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~78_combout  = (\sel[0]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~77_combout  & ((\data3x[0]~input_o ))) # (!\inst|LPM_MUX_component|auto_generated|_~77_combout  & (\data1x[0]~input_o )))) # 
+// (!\sel[0]~input_o  & (((\inst|LPM_MUX_component|auto_generated|_~77_combout ))))
+
+	.dataa(\data1x[0]~input_o ),
+	.datab(\sel[0]~input_o ),
+	.datac(\inst|LPM_MUX_component|auto_generated|_~77_combout ),
+	.datad(\data3x[0]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~78_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~78 .lut_mask = 16'hF838;
+defparam \inst|LPM_MUX_component|auto_generated|_~78 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst|LPM_MUX_component|auto_generated|_~79 (
+// Equation(s):
+// \inst|LPM_MUX_component|auto_generated|_~79_combout  = (\sel[2]~input_o  & (\inst|LPM_MUX_component|auto_generated|_~76_combout )) # (!\sel[2]~input_o  & ((\inst|LPM_MUX_component|auto_generated|_~78_combout )))
+
+	.dataa(\inst|LPM_MUX_component|auto_generated|_~76_combout ),
+	.datab(\inst|LPM_MUX_component|auto_generated|_~78_combout ),
+	.datac(gnd),
+	.datad(\sel[2]~input_o ),
+	.cin(gnd),
+	.combout(\inst|LPM_MUX_component|auto_generated|_~79_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst|LPM_MUX_component|auto_generated|_~79 .lut_mask = 16'hAACC;
+defparam \inst|LPM_MUX_component|auto_generated|_~79 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign result[15] = \result[15]~output_o ;
+
+assign result[14] = \result[14]~output_o ;
+
+assign result[13] = \result[13]~output_o ;
+
+assign result[12] = \result[12]~output_o ;
+
+assign result[11] = \result[11]~output_o ;
+
+assign result[10] = \result[10]~output_o ;
+
+assign result[9] = \result[9]~output_o ;
+
+assign result[8] = \result[8]~output_o ;
+
+assign result[7] = \result[7]~output_o ;
+
+assign result[6] = \result[6]~output_o ;
+
+assign result[5] = \result[5]~output_o ;
+
+assign result[4] = \result[4]~output_o ;
+
+assign result[3] = \result[3]~output_o ;
+
+assign result[2] = \result[2]~output_o ;
+
+assign result[1] = \result[1]~output_o ;
+
+assign result[0] = \result[0]~output_o ;
+
+endmodule

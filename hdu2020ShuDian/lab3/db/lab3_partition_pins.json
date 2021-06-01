@@ -4,7 +4,19 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Q",
+					"name" : "Q0",
+					"strict" : false
+				},
+				{
+					"name" : "Q1",
+					"strict" : false
+				},
+				{
+					"name" : "Q2",
+					"strict" : false
+				},
+				{
+					"name" : "Q3",
 					"strict" : false
 				},
 				{
@@ -12,7 +24,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "D",
+					"name" : "D0",
 					"strict" : false
 				},
 				{
@@ -25,6 +37,18 @@
 				},
 				{
 					"name" : "ENA",
+					"strict" : false
+				},
+				{
+					"name" : "D1",
+					"strict" : false
+				},
+				{
+					"name" : "D2",
+					"strict" : false
+				},
+				{
+					"name" : "D3",
 					"strict" : false
 				}
 			]

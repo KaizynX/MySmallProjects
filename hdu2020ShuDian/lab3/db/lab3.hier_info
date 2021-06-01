@@ -1,4 +1,28 @@
-|scell
+|test595
+Q0 <= scell:inst.Q
+SI => scell:inst.SI
+D0 => scell:inst.D
+LOAD => scell:inst.LOAD
+LOAD => scell:inst1.LOAD
+LOAD => scell:inst2.LOAD
+LOAD => scell:inst3.LOAD
+CLK => scell:inst.CLK
+CLK => scell:inst1.CLK
+CLK => scell:inst2.CLK
+CLK => scell:inst3.CLK
+ENA => scell:inst.ENA
+ENA => scell:inst1.ENA
+ENA => scell:inst2.ENA
+ENA => scell:inst3.ENA
+Q1 <= scell:inst1.Q
+D1 => scell:inst1.D
+Q2 <= scell:inst2.Q
+D2 => scell:inst2.D
+Q3 <= scell:inst3.Q
+D3 => scell:inst3.D
+
+
+|test595|scell:inst
 Q <= inst1.DB_MAX_OUTPUT_PORT_TYPE
 LOAD => 21mux:inst.S
 D => 21mux:inst.B
@@ -7,7 +31,58 @@ CLK => inst1.CLK
 ENA => inst1.ENA
 
 
-|scell|21mux:inst
+|test595|scell:inst|21mux:inst
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|test595|scell:inst1
+Q <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+LOAD => 21mux:inst.S
+D => 21mux:inst.B
+SI => 21mux:inst.A
+CLK => inst1.CLK
+ENA => inst1.ENA
+
+
+|test595|scell:inst1|21mux:inst
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|test595|scell:inst2
+Q <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+LOAD => 21mux:inst.S
+D => 21mux:inst.B
+SI => 21mux:inst.A
+CLK => inst1.CLK
+ENA => inst1.ENA
+
+
+|test595|scell:inst2|21mux:inst
+Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
+A => 6.IN0
+S => 6.IN1
+S => 7.IN1
+B => 8.IN0
+
+
+|test595|scell:inst3
+Q <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+LOAD => 21mux:inst.S
+D => 21mux:inst.B
+SI => 21mux:inst.A
+CLK => inst1.CLK
+ENA => inst1.ENA
+
+
+|test595|scell:inst3|21mux:inst
 Y <= 5.DB_MAX_OUTPUT_PORT_TYPE
 A => 6.IN0
 S => 6.IN1

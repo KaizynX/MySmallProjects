@@ -1,5 +1,5 @@
 Flow report for lab1
-Tue May 18 19:06:02 2021
+Tue Jun 01 20:30:39 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,22 +40,22 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue May 18 19:06:02 2021           ;
+; Flow Status                        ; Flow Failed - Tue Jun 01 20:30:39 2021          ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; lab1                                            ;
-; Top-level Entity Name              ; mux41x                                          ;
+; Top-level Entity Name              ; dec                                             ;
 ; Family                             ; Cyclone 10 LP                                   ;
 ; Device                             ; 10CL006YU256C8G                                 ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 2 / 6,272 ( < 1 % )                             ;
-;     Total combinational functions  ; 2 / 6,272 ( < 1 % )                             ;
-;     Dedicated logic registers      ; 0 / 6,272 ( 0 % )                               ;
-; Total registers                    ; 0                                               ;
-; Total pins                         ; 7 / 177 ( 4 % )                                 ;
-; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0 / 276,480 ( 0 % )                             ;
-; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                                  ;
-; Total PLLs                         ; 0 / 2 ( 0 % )                                   ;
+; Total logic elements               ; N/A until Partition Merge                       ;
+;     Total combinational functions  ; N/A until Partition Merge                       ;
+;     Dedicated logic registers      ; N/A until Partition Merge                       ;
+; Total registers                    ; N/A until Partition Merge                       ;
+; Total pins                         ; N/A until Partition Merge                       ;
+; Total virtual pins                 ; N/A until Partition Merge                       ;
+; Total memory bits                  ; N/A until Partition Merge                       ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
+; Total PLLs                         ; N/A until Partition Merge                       ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/18/2021 19:05:05 ;
+; Start date & time ; 06/01/2021 20:30:13 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab1                ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 202347987698440.162133590110428        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 202347987698440.162255061310996        ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                     ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
@@ -83,13 +83,13 @@ refer to the applicable agreement for further details.
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; mux41x      ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; mux41x      ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; mux41x      ; Top            ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; dec         ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; dec         ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; dec         ; Top            ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; mux41x                                 ; lab1          ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; dec                                    ; lab1          ; --          ; --             ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -98,12 +98,8 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:33     ; 1.0                     ; 4767 MB             ; 00:00:56                           ;
-; Fitter               ; 00:00:10     ; 1.0                     ; 5246 MB             ; 00:00:10                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4700 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:07     ; 1.0                     ; 4753 MB             ; 00:00:06                           ;
-; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4658 MB             ; 00:00:04                           ;
-; Total                ; 00:00:57     ; --                      ; --                  ; 00:01:18                           ;
+; Analysis & Synthesis ; 00:00:27     ; 1.0                     ; 4738 MB             ; 00:00:46                           ;
+; Total                ; 00:00:27     ; --                      ; --                  ; 00:00:46                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -113,10 +109,6 @@ refer to the applicable agreement for further details.
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; EveV             ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; EveV             ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; EveV             ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; EveV             ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; EveV             ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -124,10 +116,6 @@ refer to the applicable agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off lab1 -c lab1
-quartus_fit --read_settings_files=off --write_settings_files=off lab1 -c lab1
-quartus_asm --read_settings_files=off --write_settings_files=off lab1 -c lab1
-quartus_sta lab1 -c lab1
-quartus_eda --read_settings_files=off --write_settings_files=off lab1 -c lab1
 
 
 

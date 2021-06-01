@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Tue May 25 20:49:34 2021
+Analysis & Synthesis Status : Successful - Tue Jun 01 18:57:26 2021
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : lab3
-Top-level Entity Name : scell
+Top-level Entity Name : test595
 Family : Cyclone 10 LP
-Total logic elements : 1
-    Total combinational functions : 1
-    Dedicated logic registers : 1
-Total registers : 1
-Total pins : 6
+Total logic elements : 4
+    Total combinational functions : 4
+    Dedicated logic registers : 4
+Total registers : 4
+Total pins : 12
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
