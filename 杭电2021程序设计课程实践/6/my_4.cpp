@@ -1,15 +1,15 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-06-06 20:50:59
- * @LastEditTime: 2021-06-07 12:20:12
+ * @LastEditTime: 2021-06-07 12:27:01
  */
 #include <bits/stdc++.h>
 // #define DEBUG
 using namespace std;
 const int K = 3;                          //簇的数目
 const int dimNum = 4;                     //维数
-const int Neuron = 4;                    //隐含层神经元个数
-const int TrainC = 20000;                 //训练次数
+const int Neuron = 5;                    //隐含层神经元个数
+const int TrainC = 10000;                 //训练次数
 
 class NeuralNetwork {
  public:
@@ -19,10 +19,6 @@ class NeuralNetwork {
     w[1] = vector<vector<double>>(l2+1, vector<double>(l3));
     z[1] = s[1] = vector<double>(l2+1);
     z[2] = s[2] = o = vector<double>(l3);
-    this->l1=l1;
-    this->l2=l2;
-    this->l3=l3;
-    //cout << l1 << ' ' << l2 << ' ' << l3 << endl;
   }
   //使用随机值初始化神经网络的各权值
   void init() {
@@ -63,46 +59,21 @@ class NeuralNetwork {
     softmax(s[2], o);
   }
   // 反向传播
-  void back_propagation(int &y) {
-//    for (unsigned i = 0; i < w[0].size(); ++i) {
-//      for (unsigned j = 0; j < w[0][i].size(); ++j) {
-//        // w[0][i][j] -= alta[0]*-(1-o[y])*w[1][j][y]*z[0][i];
-//        w[0][i][j] -= alta[0]*-(1-o[y])*s[2][y]*(1-s[2][y])*w[1][j][y]*s[1][j]*(1-s[1][j])*s[0][i];
-//      }
-//    }
-//    for (unsigned i = 0; i < w[1].size(); ++i) {
-//      // w[1][i][y] -= alta[1]*-(1-o[y])*z[1][i];
-//      w[1][i][y] -= alta[1]*-(1-o[y])*s[2][y]*(1-s[2][y])*s[1][i];
-//    }
-
-    for(int i = 0;i < l3;i++){
-        if(i==y) da2[i]=-(1-o[y]);
-        else da2[i]=-1.0/o[y]*(-1.0*o[i]*o[y]);
-        dz2[i]=da2[i]*s[2][i]*(1-s[2][i]);
-        for(int j = 0;j < l2;j++){
-            dw[1][j][i]=dz2[i]*s[1][j];
+  void back_propagation(unsigned y) {
+    for (unsigned i = 0; i < w[0].size(); ++i) {
+     for (unsigned j = 0; j < w[0][i].size(); ++j) {
+        for (unsigned k = 0; k < o.size(); ++k) {
+          if (k == y) w[0][i][j] -= alta[0]*(o[y]-1)*s[2][y]*(1-s[2][y])*w[1][j][y]*s[1][j]*(1-s[1][j])*s[0][i];
+          else w[0][i][j] -= alta[0]*o[k]*s[2][k]*(1-s[2][k])*w[1][j][k]*s[1][j]*(1-s[1][j])*s[0][i];
         }
-    }
-    for(int i = 0;i < l2;i++){
-        da1[i]=0;
-        for(int j = 0;j < l3;j++){
-            da1[i]+=w[1][i][j]*da2[j];
-        }
-        dz1[i]=da1[i]*s[1][i]*(1-s[1][i]);
-        for(int j = 0;j < l1;j++){
-            dw[0][j][i]=dz1[i]*s[0][j];
-        }
-    }
-    for(int i = 0;i < l1;i++){
-        for(int j = 0;j < l2;j++){
-            w[0][i][j]-=alta[0]*dw[0][i][j];
-        }
-    }
-    for(int i = 0;i < l2;i++){
-        for(int j = 0;j < l3;j++){
-            w[1][i][j]-=alta[1]*dw[1][i][j];
-        }
-    }
+     }
+   }
+   for (unsigned i = 0; i < w[1].size(); ++i) {
+      for (unsigned j = 0; j < w[1][0].size(); ++j) {
+        if (j == y) w[1][i][y] -= alta[1]*(o[y]-1)*s[2][y]*(1-s[2][y])*s[1][i];
+        else w[1][i][j] -= alta[1]*o[j]*s[2][j]*(1-s[2][j])*s[1][i];
+      }
+   }
   }
   // 训练
   void train(vector<vector<double>> &X, vector<int> &y) {
@@ -112,22 +83,16 @@ class NeuralNetwork {
       loss = 0;
       count++;
       for (unsigned i = 0; i < y.size(); ++i) {
-#ifdef DEBUG
-        // cout << i << ':';
-#endif
         forward_propagation(X[i]);
         loss += calc_loss(y[i]);
         back_propagation(y[i]);
       }
       loss /= y.size();
       //每隔1000次训练，显示一次训练误差，以便观察
-      if (count%1000 == 0) {
-#ifdef DEBUG
-        print();
-#endif
+      if (count%500 == 0) {
         cout << "训练次数:" << count << "\t交叉熵损失:" << loss << endl;
       }
-    } while (loss >= 0.5 && count < TrainC);
+    } while (loss >= 0.6 && count < TrainC);
     cout << "训练结束嘿呀! 训练次数:" << count << "\t交叉熵损失:" << loss << endl;
   }
   // 预测
@@ -135,26 +100,10 @@ class NeuralNetwork {
     forward_propagation(x);
     return max_element(o.begin(), o.end())-o.begin();
   }
-#ifdef DEBUG
-  void print() {
-    for (auto &i : w) {
-      for (auto &j : i) {
-        for (auto &k : j) {
-          cout << k << ' ';
-        }
-        cout << endl;
-      }
-      cout << endl;
-    }
-  }
-#endif
  private:
   vector<vector<double>> w[2];
   vector<double> z[3], s[3], o;
-  // double alta[2] = {2e-3, 1e-3}; // 学习率
   double alta[2] = {2e-1, 1e-1}; // 学习率
-  double da1[10],da2[10],dz1[10],dz2[10],dw[2][5][5];
-  int l1,l2,l3;
 };
 
 int dataNum;                                     //数据集中的数据记录总数

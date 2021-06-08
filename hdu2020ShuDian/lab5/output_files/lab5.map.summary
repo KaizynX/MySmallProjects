@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jun 08 20:29:35 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : lab5
+Top-level Entity Name : pc16
+Family : Cyclone 10 LP
+Total logic elements : 65
+    Total combinational functions : 65
+    Dedicated logic registers : 16
+Total registers : 16
+Total pins : 45
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
