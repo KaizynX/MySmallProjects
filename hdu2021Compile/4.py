@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-06-14 23:00:52
-LastEditTime: 2021-06-15 09:41:34
+LastEditTime: 2021-06-15 11:10:35
 '''
 # coding = utf-8
 
@@ -32,31 +32,28 @@ if __name__ == '__main__' :
   s += '$'
   stk = ["E"]
   while len(stk) :
+    # print("stk:", stk)
+    # print("s:", s)
     action = parsing_table[non_terminals.index(stk[-1])][my_index(s)]
-    print("stk:", stk)
-    print("s:", s)
-    print("action:", action)
+    # print("action:", action)
     if len(action) == 0 :
       print("错误：没有匹配动作")
       break
     else :
-      if len(action) :
+      if len(action[0]) :
         print(stk[-1], "->", ''.join(action))
-        # del stk[-1]
         stk.pop()
         stk += list(reversed(action))
       else :
         print(stk[-1], "->ε")
         stk.pop()
-        # del stk[-1]
-    if stk[-1] in terminals :
+    if len(stk) and stk[-1] in terminals :
       if (stk[-1] == 'i') :
         i = re.match("[a-zA-Z_]\w*", s)
         if i :
           print("匹配i")
           s = s[i.span()[1]:]
           stk.pop()
-          # del stk[-1]
           pass
         else :
           print("错误：终结符不匹配")
@@ -64,9 +61,8 @@ if __name__ == '__main__' :
       else :
         if (s[0] == stk[-1]) :
           print("匹配", s[0])
-          del s[0]
+          s = s[1:]
           stk.pop()
-          # del stk[-1]
         else :
           print("错误：终结符不匹配")
           break
