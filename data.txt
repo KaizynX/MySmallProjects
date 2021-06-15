@@ -1,0 +1,11 @@
+/*
+This is test code.
+*/
+int main() {
+	int a=1,b=2;
+	a=a+b;
+	for(int i =01; i<0xf;++i){
+		continue;
+	}
+	return 0;
+}
