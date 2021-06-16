@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-06-15 11:10:23
-LastEditTime: 2021-06-15 23:41:50
+LastEditTime: 2021-06-16 17:07:49
 '''
 # coding = utf-8
 
@@ -13,13 +13,13 @@ delimiter = ",;(){}[]"
 
 def Ident(s) :
   i = re.match("[a-zA-Z_]\w*", s)
-  # return i and i.span()[1] == len(s)
-  return i
+  return i and i.span()[1] == len(s)
+  # return i
 
 def IntConst(s) :
-  i = re.match("([1-9]\d*)|(0[0-7]*)|(0[xX][0-9a-fA-F]*)", s)
-  # return i and i.span()[1] == len(s)
-  return i
+  i = re.match("([1-9]\d*)|(0[0-7]+)|(0[xX][0-9a-fA-F]+)|0", s)
+  return i and i.span()[1] == len(s)
+  # return i
 
 if __name__ == '__main__' :
   # file_name = input('输入文件名：')
@@ -69,7 +69,7 @@ if __name__ == '__main__' :
       elif IntConst(word) :
         print("<数值常量,", word, ">")
       else :
-        print("Error:未知符号 at line", line+1, ":", word)
+        print("Error:未知符号 at line", line+1, "char", i, ":", word)
 
       if j < len(str) :
         if re.match('\s+', str[j]) :
@@ -82,7 +82,7 @@ if __name__ == '__main__' :
         elif str[j] in delimiter :
           print("<分隔符,", str[j], ">")
         else :
-          print("Error:未知符号 at line", line+1, ":", str[j])
+          print("Error:未知符号 at line", line+1, "char", j, ":", str[j])
         j += 1
 
       i = j

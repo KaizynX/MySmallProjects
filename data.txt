@@ -1,11 +1,18 @@
-/*
-This is test code.
-*/
-int main() {
-	int a=1,b=2;
-	a=a+b;
-	for(int i =01; i<0xf;++i){
-		continue;
+int a;
+int main()
+{
+	a = 10;
+                b = 0x11ff;
+                c = 027;
+                // d = 20;
+               /* e = 30; 
+              */
+
+	if ( a><0 ) 
+               {
+		return 1a;
 	}
-	return 0;
+	else{
+		return 0;
+	}
 }
