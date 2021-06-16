@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-06-15 11:10:23
-LastEditTime: 2021-06-16 17:07:49
+LastEditTime: 2021-06-16 20:46:39
 '''
 # coding = utf-8
 
@@ -14,51 +14,47 @@ delimiter = ",;(){}[]"
 def Ident(s) :
   i = re.match("[a-zA-Z_]\w*", s)
   return i and i.span()[1] == len(s)
-  # return i
 
 def IntConst(s) :
   i = re.match("([1-9]\d*)|(0[0-7]+)|(0[xX][0-9a-fA-F]+)|0", s)
   return i and i.span()[1] == len(s)
-  # return i
 
 if __name__ == '__main__' :
-  # file_name = input('输入文件名：')
-  file_name = "data.txt"
+  file_name = input('输入文件名：')
+  # file_name = "data.txt"
   file = open(file_name, mode='r')
   s = file.readlines()
-  # 行注释
-  for i in range(len(s)) :
-    p = s[i].find('//')
-    if p != -1 : s[i] = s[i][:p]+'\n'
-  # print('行注释后',s)
-  # 块注释
+  
   s = ''.join(s)
-  # print('块注释前', s)
-  while s.find('/*') != -1 :
-    head = s.find('/*')
-    tail = s.find('*/', head+2)
-    if tail == -1 :
-      print("Error:块注释不匹配 at line ", s[:head].count('\n'))
-      break
+  while ~s.find('/*') or ~s.find('//') :
+    i1 = s.find('/*')
+    i2 = s.find('//')
+    # 块注释
+    if i2 == -1 or i1 < i2 :
+      j1 = s.find('*/', i1+2)
+      if j1 == -1 :
+        print("Error:块注释不匹配 at line ", s[:i1].count('\n'))
+        break
+      else :
+        # 替换成空格防止行号改变
+        result, number = re.subn('[^\n]', ' ', s[i1:j1+2])
+        s = s[:i1]+result+s[j1+2:]
+    # 行注释
     else :
-      # 替换成空格防止行号改变
-      result, number = re.subn('[^\n]', ' ', s[head:tail+2])
-      s = s[:head]+result+s[tail+2:]
-  s = ''.join(s).split('\n')
-  # print('块注释后','\n'.join(s))
-  # print(s)
+      j2 = s.find('\n', i2)
+      s = s[:i2]+s[j2:]
+
   # 词法分析
+  s = s.split('\n')
   for line in range(len(s)) :
     str = s[line]
     i = 0
     while i < len(str) :
-      # print("begin:", i)
       if re.search("[\W_]", str[i:]) :
         j = i+re.search("[\W_]", str[i:]).span()[0]
       else :
         j = len(str)
       word = str[i:j]
-      # print(i, word, '$')
 
       if len(word) == 0 or re.match('\s+', word) :
         pass
