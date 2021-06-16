@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-06-14 23:00:52
-LastEditTime: 2021-06-15 11:10:35
+LastEditTime: 2021-06-15 12:49:36
 '''
 # coding = utf-8
 
@@ -45,7 +45,7 @@ if __name__ == '__main__' :
         stk.pop()
         stk += list(reversed(action))
       else :
-        print(stk[-1], "->ε")
+        print(stk[-1], "->", "ε")
         stk.pop()
     if len(stk) and stk[-1] in terminals :
       if (stk[-1] == 'i') :
