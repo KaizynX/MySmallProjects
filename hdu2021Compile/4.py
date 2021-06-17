@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-06-14 23:00:52
-LastEditTime: 2021-06-15 12:49:36
+LastEditTime: 2021-06-17 12:59:16
 '''
 # coding = utf-8
 
@@ -29,13 +29,10 @@ def my_index(s) :
 
 if __name__ == '__main__' :
   s = input()
-  s += '$'
+  # s += '$'
   stk = ["E"]
   while len(stk) :
-    # print("stk:", stk)
-    # print("s:", s)
     action = parsing_table[non_terminals.index(stk[-1])][my_index(s)]
-    # print("action:", action)
     if len(action) == 0 :
       print("错误：没有匹配动作")
       break
