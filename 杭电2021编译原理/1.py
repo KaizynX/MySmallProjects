@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-06-15 11:10:23
-LastEditTime: 2021-06-17 18:24:32
+LastEditTime: 2021-06-17 22:48:47
 '''
 # coding = utf-8
 
@@ -20,8 +20,8 @@ def IntConst(s) :
   return i and i.span()[1] == len(s)
 
 if __name__ == '__main__' :
-  # file_name = input('输入文件名：')
-  file_name = "test.sy"
+  file_name = input('输入文件名：')
+  # file_name = "test.sy"
   file = open(file_name, mode='r')
   s = file.readlines()
   
