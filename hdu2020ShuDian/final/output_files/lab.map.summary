@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Jun 17 17:53:10 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : lab
+Top-level Entity Name : my_faddr
+Family : Cyclone 10 LP
+Total logic elements : 2
+    Total combinational functions : 2
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 5
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

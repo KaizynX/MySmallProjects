@@ -1,0 +1,150 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition"
+
+// DATE "06/17/2021 17:53:58"
+
+// 
+// Device: Altera 10CL006YU256C8G Package UFBGA256
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module my_faddr (
+	so,
+	a,
+	b,
+	ci,
+	co);
+output 	so;
+input 	a;
+input 	b;
+input 	ci;
+output 	co;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \so~output_o ;
+wire \co~output_o ;
+wire \a~input_o ;
+wire \b~input_o ;
+wire \ci~input_o ;
+wire \inst3~0_combout ;
+wire \inst2~0_combout ;
+
+
+cyclone10lp_io_obuf \so~output (
+	.i(\inst3~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\so~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \so~output .bus_hold = "false";
+defparam \so~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_obuf \co~output (
+	.i(\inst2~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\co~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \co~output .bus_hold = "false";
+defparam \co~output .open_drain_output = "false";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \a~input (
+	.i(a),
+	.ibar(gnd),
+	.o(\a~input_o ));
+// synopsys translate_off
+defparam \a~input .bus_hold = "false";
+defparam \a~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \b~input (
+	.i(b),
+	.ibar(gnd),
+	.o(\b~input_o ));
+// synopsys translate_off
+defparam \b~input .bus_hold = "false";
+defparam \b~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_io_ibuf \ci~input (
+	.i(ci),
+	.ibar(gnd),
+	.o(\ci~input_o ));
+// synopsys translate_off
+defparam \ci~input .bus_hold = "false";
+defparam \ci~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst3~0 (
+// Equation(s):
+// \inst3~0_combout  = \a~input_o  $ (\b~input_o  $ (\ci~input_o ))
+
+	.dataa(\a~input_o ),
+	.datab(\b~input_o ),
+	.datac(\ci~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\inst3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst3~0 .lut_mask = 16'h9696;
+defparam \inst3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cyclone10lp_lcell_comb \inst2~0 (
+// Equation(s):
+// \inst2~0_combout  = (\a~input_o  & ((\b~input_o ) # (\ci~input_o ))) # (!\a~input_o  & (\b~input_o  & \ci~input_o ))
+
+	.dataa(\a~input_o ),
+	.datab(\b~input_o ),
+	.datac(\ci~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\inst2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst2~0 .lut_mask = 16'hE8E8;
+defparam \inst2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign so = \so~output_o ;
+
+assign co = \co~output_o ;
+
+endmodule

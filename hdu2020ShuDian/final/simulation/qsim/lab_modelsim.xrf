@@ -1,0 +1,14 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/final/hadder.bdf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/final/fadder.bdf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/final/Waveform.vwf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/final/my_faddr.bdf
+source_file = 1, C:/Users/Kaizyn/Documents/MySmallProjects/hdu2020ShuDian/final/db/lab.cbx.xml
+design_name = my_faddr
+instance = comp, \so~output , so~output, my_faddr, 1
+instance = comp, \co~output , co~output, my_faddr, 1
+instance = comp, \a~input , a~input, my_faddr, 1
+instance = comp, \b~input , b~input, my_faddr, 1
+instance = comp, \ci~input , ci~input, my_faddr, 1
+instance = comp, \inst3~0 , inst3~0, my_faddr, 1
+instance = comp, \inst2~0 , inst2~0, my_faddr, 1

@@ -1,0 +1,11 @@
+|my_faddr
+so <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+a => inst.IN0
+a => inst1.IN0
+b => inst.IN1
+b => inst1.IN1
+ci => inst3.IN1
+ci => inst4.IN1
+co <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
