@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-05-25 10:12:54
-LastEditTime: 2021-06-14 23:01:37
+LastEditTime: 2021-06-17 16:11:22
 '''
 # coding = utf-8
 
@@ -113,13 +113,11 @@ def M(p):
   return -1
 
 if __name__ == "__main__":
-  while True :
-    s = input()
-    if len(s) == 0 : break
-    message.clear()
-    p = E(0)
-    while len(message) :
-      print(message[-1])
-      message.pop()
-    if len(s) != p : print("failed")
-    else : print("success")
+  s = input()
+  message.clear()
+  p = E(0)
+  while len(message) :
+    print(message[-1])
+    message.pop()
+  if len(s) != p : print("failed")
+  else : print("success")

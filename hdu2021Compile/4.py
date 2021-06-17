@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-06-14 23:00:52
-LastEditTime: 2021-06-17 12:59:16
+LastEditTime: 2021-06-17 16:17:05
 '''
 # coding = utf-8
 
@@ -29,7 +29,7 @@ def my_index(s) :
 
 if __name__ == '__main__' :
   s = input()
-  # s += '$'
+  s += '$'
   stk = ["E"]
   while len(stk) :
     action = parsing_table[non_terminals.index(stk[-1])][my_index(s)]
