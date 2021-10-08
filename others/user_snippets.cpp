@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-03-03 11:00:03
- * @LastEditTime: 2021-03-07 15:14:14
+ * @LastEditTime: 2021-08-23 15:53:31
  */
 #include <bits/stdc++.h>
 
@@ -40,5 +40,6 @@ signed main() {
   res += "    \"description\": \"template\"\n";
   res += "  },\n";
   cout << "*****************\n" << res;
+  system("pause");
   return 0;
 }
