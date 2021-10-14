@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-10-13 11:16:47
- * @LastEditTime: 2021-10-13 12:14:39
+ * @LastEditTime: 2021-10-14 13:14:15
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,7 +17,9 @@ struct _pcb {
     return is >> p.pid >> p.name >> p.strategy >> p.priority;
   }
   friend ostream& operator << (ostream &os, const _pcb &p) {
-    return os << p.pid << ' ' << p.name << ' ' <<  p.strategy << ' ' << p.priority << '\n';
+    // return os << p.pid << ' ' << p.name << ' ' <<  p.strategy << ' ' << p.priority << '\n';
+    return os << p.pid << '\n' << p.priority << '\n';
+    // return os << p.pid << '\n' << p.strategy << '\n';
   }
 };
 
@@ -42,12 +44,13 @@ struct Manager {
     }
     return pcbs.end();
   }
-  void modify(long pid, int what) {
+  auto modify(long pid, int what) {
     auto p = find(pid);
     if (p != pcbs.end()) {
       p->priority = what;
+      // p->strategy = what;
     }
-    cout << pid << " " << what << '\n'; // 实属傻逼操作
+    return p;
   }
   void _delete(long pid) {
     auto p = find(pid);
@@ -85,17 +88,16 @@ int main() {
         manager.append(p);
       } else if (opt == "modify") {
         ss >> pid >> what;
-        manager.modify(pid, what);
+        cout << *manager.modify(pid, what);
       } else if (opt == "delete") {
         ss >> pid;
         manager._delete(pid);
       } else if (opt == "insert") {
         ss >> pid >> p;
         manager.insert(pid, p);
-      } else if (opt == "find") { // fuck
+      } else if (opt == "find") {
         ss >> pid;
-        auto p = manager.find(pid);
-        cout << *p;
+        cout << *manager.find(pid);
       }
       if (opt != "modify" && opt != "find") manager.print();
     }
