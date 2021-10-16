@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/**",
+                // "C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/**",
                 "C:/MinGW/include/**",
                 "C:/MinGW/bin/**"
             ],
@@ -19,7 +19,7 @@
             "browse": {
                 "path": [
                     "${workspaceFolder}/**",
-                    "C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/**",
+                    // "C:/MinGW/lib/gcc/x86_64-w64-mingw32/9.2.0/**",
                     "C:/MinGW/include/**"
                 ]
             },

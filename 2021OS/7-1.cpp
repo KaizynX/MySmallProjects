@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-10-13 11:16:47
- * @LastEditTime: 2021-10-14 13:14:15
+ * @LastEditTime: 2021-10-14 20:01:30
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -13,56 +13,47 @@ struct _pcb {
   int priority; // 优先级
   // int *stack; // 栈指针
   // _pcb *next;
+  bool operator < (const _pcb &p) const {
+    return priority == p.priority ? pid < p.pid : priority < p.priority;
+  }
+  bool operator == (const long &id) const {
+    return pid == id;
+  }
   friend istream& operator >> (istream &is, _pcb &p) {
     return is >> p.pid >> p.name >> p.strategy >> p.priority;
   }
   friend ostream& operator << (ostream &os, const _pcb &p) {
-    // return os << p.pid << ' ' << p.name << ' ' <<  p.strategy << ' ' << p.priority << '\n';
     return os << p.pid << '\n' << p.priority << '\n';
-    // return os << p.pid << '\n' << p.strategy << '\n';
   }
 };
 
 struct Manager {
-  vector<_pcb> pcbs;
+  list<_pcb> pcbs; // vector<_pcb> pcbs;
   void append(_pcb &p) {
-    pcbs.emplace_back(p);
+    pcbs.push_back(p);
   }
   void sort() {
-    ::sort(pcbs.begin(), pcbs.end(), [](_pcb &x, _pcb &y) {
-      return x.priority == y.priority ? x.pid < y.pid : x.priority < y.priority;
-    });
+    pcbs.sort();
+    // ::sort(pcbs.begin(), pcbs.end());
   }
   void print() {
-    for (_pcb &p : pcbs) {
-      cout << p.pid << '\n';
-    }
+    for (_pcb &p : pcbs) cout << p.pid << '\n';
   }
   auto find(long pid) {
-    for (auto it = pcbs.begin(); it != pcbs.end(); ++it) {
-      if (it->pid == pid) return it;
-    }
-    return pcbs.end();
+    return ::find(pcbs.begin(), pcbs.end(), pid);
   }
-  auto modify(long pid, int what) {
+  auto modify(long pid, int priority) {
     auto p = find(pid);
-    if (p != pcbs.end()) {
-      p->priority = what;
-      // p->strategy = what;
-    }
+    if (p != pcbs.end()) p->priority = priority;
     return p;
   }
   void _delete(long pid) {
     auto p = find(pid);
-    if (p != pcbs.end()) {
-      pcbs.erase(p);
-    }
+    if (p != pcbs.end()) pcbs.erase(p);
   }
   void insert(long pid, _pcb &p) {
     auto it = find(pid);
-    if (it != pcbs.end()) {
-      pcbs.insert(it+1, p);
-    }
+    if (it != pcbs.end()) pcbs.insert(++it, p);
   }
 };
 
