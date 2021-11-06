@@ -61,7 +61,7 @@ static int show_thread_init(void) {
                 --pflag;
                 continue;
             }
-            lastflag = cur+pflag == num_sibling;
+            lastflag = cur+pflag >= num_sibling;
             printk(KERN_CONT"%*s%s", parent_len, "", tree_symbol[lastflag]);
             show_thread(psibling, parent_len, lastflag);
         }
