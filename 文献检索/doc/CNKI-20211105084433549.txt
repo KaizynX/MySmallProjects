@@ -1,0 +1,32 @@
+%0 Journal Article
+%A 刘国特
+%A 周锦辉
+%A 宋新明
+%A 邓军
+%A 伍伟权
+%A 黎俊生
+%+ 佛山科学技术学院;中国南方电网有限责任公司;
+%T 基于超分辨注意力机制改进的GIS内部细微缺陷X-DR图像检测方法
+%J 高电压技术
+%K 气体绝缘开关;X-DR图像;超分辨率;注意力机制;亚像素卷积神经网络;SE-ESPCN;缺陷检测
+%X 为了解决气体绝缘开关设备内部细微缺陷X-DR成像重影雾化、纹理不清晰、易造成误诊断等问题，提出一种基于超分辨率注意力机制改进的GIS内部细微缺陷X-DR图像检测算法。该方法以高效亚像素卷积神经网络为框架，引入双层计算机注意力机制SE模块，构成新颖的SE-ESPCN超分辨率网络。通过对GIS设备X-DR图像通道重要程度进行评判，赋予图像卷积层不同权重，增强了图像故障细节的成像效果。实验结果表明：SE模块与亚像素卷积神经网络的融合，不仅保障了GIS设备故障区域成像的实时性，且算法输出的高分辨率X-DR图像缺陷细节清晰可见，便于观察，提高了工作人员对缺陷检测的效率与准确性，为实际工程中GIS设备X-DR成像系统改良提供了一定的参考。
+%P 1-8
+%@ 1003-6520
+%L 42-1239/TM
+%W CNKI
+
+%0 Journal Article
+%A Jack Edmonds
+%A Ellis L. Johnson
+%+ University of Waterloo;;IBM Watson Research Center
+%T Matching, Euler tours and the Chinese postman
+%J Mathematical Programming
+%D 1973
+%N 1
+%V 5
+%X Abstract(#br)The solution of the Chinese postman problem using matching theory is given. The convex hull of integer solutions is described as a linear programming polyhedron. This polyhedron is used to show that a good algorithm gives an optimum solution. The algorithm is a specialization of the more general b -matching blossom algorithm. Algorithms for finding Euler tours and related problems are also discussed.
+%@ 0025-5610
+%W CNKI
+
+
+
