@@ -1,11 +1,11 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-12-08 14:42:29
- * @LastEditTime: 2021-12-15 11:25:24
+ * @LastEditTime: 2021-12-15 17:19:27
  */
 #include <bits/stdc++.h>
 
-#define DEBUG
+// #define DEBUG
 
 using namespace std;
 namespace hjt {
@@ -23,105 +23,125 @@ std::ostream &operator<<(std::ostream &o,const std::pair<A,B> &x){
 } using namespace hjt;
 
 typedef long long ll;
-const double eps = 1e-2; // 精度
+const double eps = 1e-2; // 精度,若修改注意int范围
 
 struct Node {
   int x, y;
-  Node (int _x, int _y) : x(_x), y(_y) {}
+  Node() {}
+  Node(int _x, int _y) : x(_x), y(_y) {}
   bool operator < (const Node &rhs) const {
     return make_pair(x, y) < make_pair(rhs.x, rhs.y);
   }
-  friend ostream& operator << (ostream &os, const Node &nd) {
-    return os << make_pair(nd.x, nd.y);
-  }
-};
-
-struct Message {
-  double x, y;
-  int mv;
-  Message (double _x, double _y, int _mv) : x(_x), y(_y), mv(_mv) {}
-  friend istream& operator >> (istream &is, Message &mesg) {
-    double x, y;
-    is >> x >> y >> mesg.mv;
-    mesg.x = x / eps + .5;
-    mesg.y = y / eps + .5;
+  friend istream& operator >> (istream &is, Node &nd) {
+    static double x, y;
+    is >> x >> y;
+    nd = Node(x / eps + .5, y / eps + .5);
     return is;
   }
-  friend ostream& operator << (ostream &os, const Message &mesg) {
-    return os << mesg.x * eps << ' ' << mesg.y * eps << ' ' << mesg.mv << '\n';
+  friend ostream& operator << (ostream &os, const Node &nd) {
+    return os << nd.x * eps << ' ' << nd.y * eps;
   }
 };
 
-/********************
- * 每个点由坐标(x, y)表示
- * 每条边由两个点编号(x, y)表示
- ********************/
-vector<Node> points, edges;
-map<Node, int> point_id_map;
-int edge_tag;
+struct Outputer;
+
+struct Edge {
+  int u, v;
+  vector<Node> paths;
+  Edge() {}
+  Edge(int _u, int _v) : u(_u), v(_v) {}
+  void reverse() {
+    swap(u, v);
+    std::reverse(paths.begin(), paths.end());
+  }
+  // friend void print(Edge &edge, int start_point) ;
+  friend struct Outputer;
+};
+
+vector<Node> points;
+vector<Edge> edges;
 vector<vector<int>> edge_ids;
 
 // 把点映射成整数
 int get_id(Node &point) {
+  static map<Node, int> point_id_map;
   if (point_id_map.count(point)) return point_id_map[point];
   points.emplace_back(point); return point_id_map[point] = points.size() - 1;
 }
 
 // 计算两点间距离
-double calc_dis(Node &a, Node &b) {
+int calc_dis(Node &a, Node &b) {
   return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
 }
 
 // 加入一条边
-void add_edge(int u, int v) {
+void add_edge(const Edge &edge) {
+  int u = edge.u, v = edge.v;
   #ifdef DEBUG
   cout << "add_edge:" << u << ' ' << v << '\n';
   #endif
   if (max(u, v) >= (int)edge_ids.size()) edge_ids.resize(max(u, v) + 1);
   edge_ids[u].emplace_back(edges.size());
   edge_ids[v].emplace_back(edges.size());
-  edges.emplace_back(Node(u, v));
+  edges.emplace_back(edge);
 }
 
-void input_data() {
+void input() {
   string filename = "test.txt";
   // cout << "输入文件名:\n"; cin >> filename;
   ifstream file(filename, ios::in);
-  double x, y;
-  int z = 0, op, id, last;
-  while (file >> x >> y >> op) {
-    Node point(x / eps + .5, y / eps + .5);
-    if (point.x == 0 && point.y == 0 && op == 0) break;
-    if (points.size()) last = get_id(points.back());
-    id = get_id(point);
-    if (z) add_edge(last, id);
-    if (op < 0) z = 1;
-    if (op > 0) z = 0;
+  int move_tag;
+  Node point;
+  Edge edge;
+  while (file >> point  >> move_tag) {
+    if (point.x == 0 && point.y == 0 && move_tag == 0) break;
+    assert(move_tag == 0); // 若出错说明数据格式不是预期的
+    edge.paths.clear();
+    edge.u = get_id(point); // 端点1
+    while (file >> point >> move_tag && move_tag <= 0) {
+      edge.paths.emplace_back(point);
+    }
+    edge.paths.emplace_back(point);
+    edge.v = get_id(point); // 端点2
+    assert(edge.paths.size() >= 2u); // 一条线段必然由两个以上点构成
+    add_edge(edge);
   }
-  edge_tag = edges.size();
   file.close();
   #ifdef DEBUG
   orzeach(points);
   #endif
 }
 
-// 求度数为奇数的点编号集
-vector<int> get_single_points() {
-  int point_num = point_id_map.size();
-  vector<int> deg(point_num, 0), single_point_ids;
-  for (Node &edge : edges) {
-    ++deg[edge.x];
-    ++deg[edge.y];
+struct Outputer {
+  string filename = "out.txt";
+  ofstream file;
+  Outputer() {
+    file.open(filename, ios::out);
   }
-  for (int i = 0; i < point_num; ++i) {
-    if (deg[i] % 2 == 1) {
-      single_point_ids.emplace_back(i);
+  ~Outputer() {
+    file << "0 0 0\n";
+    file.close();
+  }
+  void operator ()(const Node &point, int move_tag = 0) {
+    file << point << ' ' << move_tag << '\n';
+  }
+  void operator ()(Edge &edge, int start_point) {
+    if (edge.paths.empty()) {
+      file << points[edge.u ^ edge.v ^ start_point] << " 0\n";
+    } else {
+      if (start_point != edge.u) edge.reverse();
+      assert(start_point == edge.u); // 若出错说明这个起点和这条边不吻合
+      for (unsigned i = 0; i < edge.paths.size(); ++i) {
+        file << edge.paths[i];
+        if (i == 0) file << " -33\n";
+        else if (i+1 == edge.paths.size()) file << " 33\n";
+        else file << " 0\n";
+      }
     }
   }
-  return single_point_ids;
-}
+} output;
 
-// 一般图最小权完美匹配 随机算法
+// 一般图最小权完美匹配 随机算法 拷贝于网络
 namespace Work {
   const int INF=2e2/eps;
   vector<vector<int>> w;
@@ -145,10 +165,10 @@ namespace Work {
     return false;
   }
 
-  double solve(vector<int> &point_ids) {
+  double solve() {
     mt19937 rnd(chrono::high_resolution_clock::now().time_since_epoch().count());
-    k = point_ids.size();
-    assert(k % 2 == 0);
+    k = points.size();
+    assert(k % 2 == 0); // 无向图显然满足条件
     w.resize(k);
     match = path = p = d = v = vector<int>(k, 0);
     for (int i = 0; i < k; ++i) {
@@ -156,8 +176,11 @@ namespace Work {
       match[i] = i ^ 1;
       w[i].resize(k);
       for (int j = 0; j < k; ++j) {
-        w[i][j] = INF - calc_dis(points[point_ids[i]], points[point_ids[j]]);
+        w[i][j] = INF - calc_dis(points[i], points[j]);
       }
+    }
+    for (auto edge : edges) {
+      w[edge.u][edge.v] = w[edge.v][edge.u] = 0;
     }
     int cnt = 0;
     while (true) {
@@ -188,7 +211,10 @@ namespace Work {
       if (match[i] == i) return -1;
       if (match[i] < i) continue;
       tot_dist += INF - w[i][match[i]];
-      add_edge(point_ids[i], point_ids[match[i]]);
+      add_edge(Edge(i, match[i]));
+      #ifdef DEBUG
+      cout << i << " mathch with " << match[i] << '\n';
+      #endif
     }
     return tot_dist;
   }
@@ -199,17 +225,6 @@ namespace Hierholzer{
 int point_num;
 vector<int> edge_vis;
 vector<vector<int>::iterator> edge_beg;
-vector<Message> mesgs;
-
-void add_mesg(int v, int id) {
-  if (id < edge_tag) {
-    mesgs.emplace_back(Message(points[v].x, points[v].y, 0));
-  } else {
-    if (mesgs.size()) mesgs.back().mv = 33;
-    mesgs.emplace_back(Message(points[v].x, points[v].y, 0));
-    mesgs.emplace_back(Message(points[v].x, points[v].y, -33));
-  }
-}
 
 void dfs(int u) {
   for (auto &it = edge_beg[u]; it != edge_ids[u].end(); ) {
@@ -217,56 +232,61 @@ void dfs(int u) {
       ++it;
     } else {
       edge_vis[*it] = 1;
-      int v = edges[*it].x ^ edges[*it].y ^ u;
-      add_mesg(v, *it);
+      int v = edges[*it].u ^ edges[*it].v ^ u;
+      output(edges[*it], u);
       ++it;
       dfs(v);
     }
   }
 }
 
-vector<Message> solve() {
-  mesgs.clear();
-  point_num = point_id_map.size();
+void solve() {
+  point_num = points.size();
   edge_vis = vector<int>(edges.size(), 0);
   edge_beg.resize(point_num);
   for (int i = 0; i < point_num; ++i) {
     edge_beg[i] = edge_ids[i].begin();
   }
+  int count = 0;
   for (int i = 0; i < point_num; ++i) {
     if (edge_beg[i] == edge_ids[i].end()) continue;
-    mesgs.emplace_back(Message(points[i].x, points[i].y, 0));
-    mesgs.emplace_back(Message(points[i].x, points[i].y, -33));
+    output(points[i]);
     dfs(i);
+    ++count;
   }
-  return mesgs;
+  assert(count == 1); // 如果出错说明没有形成连通图
 }
 
 } // namespace Hierholzer
 
-void output_data(vector<Message> &mesgs) {
-  string filename = "out.txt";
-  // cout << "输出文件名:\n"; cin >> filename;
-  ofstream file(filename, ios::out);
-  for (Message &mes : mesgs) file << mes;
-  file << "0 0 0\n";
-  file.close();
-}
+struct Timer {
+  clock_t t;
+  void start() {
+    cerr << "Start timer\n";
+    t = clock();
+  }
+  void stop() {
+    cerr << "Elapsed Time: " << (clock() - t) / CLOCKS_PER_SEC  << " s\n";
+  }
+} timer;
 
 // TODO: 删掉最长的空程形成半欧拉图
 signed main() {
-  input_data();
-  vector<int> single_point_ids = get_single_points();
-  cout << single_point_ids.size() << '\n';
-  long long tot_dist = Work::solve(single_point_ids);
-  assert(~tot_dist);
-  // cout << "空程距离:" << tot_dist*eps << '\n';
-  cout << "empty_distance:" << tot_dist*eps << '\n';
-  vector<Message> mesgs = Hierholzer::solve();
-  #ifdef DEBUG
-  cout << mesgs.size() << '\n';
-  #endif
-  output_data(mesgs);
+  timer.start();
+  input();
+  cerr << "the size of edges is : " << edges.size() << '\n';
+  timer.stop();
+
+  timer.start();
+  long long tot_dist = Work::solve();
+  assert(~tot_dist); // 如果出错说明匹配失败
+  cerr << "total_idle_distance:" << tot_dist*eps << '\n';
+  timer.stop();
+
+  timer.start();
+  Hierholzer::solve();
+  timer.stop();
+
   system("pause");
   return 0;
 }

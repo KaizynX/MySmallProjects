@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-12-08 13:13:30
- * @LastEditTime: 2021-12-08 14:40:22
+ * @LastEditTime: 2021-12-15 10:06:32
  */
 #include <bits/stdc++.h>
 
@@ -183,7 +183,8 @@ signed main() {
   // cout << single_point_ids.size() << '\n';
   long long tot_dist = Work::solve(single_point_ids);
   assert(~tot_dist);
-  cout << "空程距离:" << tot_dist*eps << '\n';
+  // cout << "空程距离:" << tot_dist*eps << '\n';
+  cout << "empty_distance:" << tot_dist*eps << '\n';
   system("pause");
   return 0;
 }
