@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-12-15 21:59:25
- * @LastEditTime: 2021-12-15 23:52:02
+ * @LastEditTime: 2021-12-22 14:49:43
  */
 #include <bits/stdc++.h>
 
@@ -80,23 +80,20 @@ void Input() {
     edges.emplace_back(edge);
   }
   file.close();
-  #ifdef DEBUG
-  orzeach(points);
-  #endif
 }
 
-// 计算两条边端点间距离
+// 计算两条边端点间距离 0(from begin to end) 1(from rbegin to rend)
 void CalcDist() {
   int num = edges.size();
   for (int ui : {0, 1})
   for (int vi : {0, 1}) {
-    auto dis = dist[ui][vi];
+    auto &dis = dist[ui][vi];
     dis.resize(num, vector<int>(num));
     for (int i = 0; i < num; ++i)
-    for (int j = i + 1; j < num; ++j) {
-      dis[i][j] = dis[j][i] = calc_dis(
-          ui ? *edges[i].rbegin() : *edges[i].begin(),
-          vi ? *edges[i].rbegin() : *edges[i].begin()
+    for (int j = 0; j < num; ++j) {
+      dis[i][j] = calc_dis(
+          ui ? *edges[i].begin() : *edges[i].rbegin(),
+          vi ? *edges[j].rbegin() : *edges[j].begin()
       );
     }
   }
@@ -104,12 +101,33 @@ void CalcDist() {
 
 void Output(vector<int> seq) {
   static string filename = "out.txt";
+  static vector<int> dp[2], path[2];
+  for (int i : {0, 1}) {
+    dp[i].resize(seq.size());
+    path[i].resize(seq.size());
+  }
+  dp[0][0] = dp[1][0] = 0;
+  for (unsigned i = 1; i < seq.size(); ++i) {
+    dp[0][i] = dp[1][i] = INF;
+    for (int ui : {0, 1})
+    for (int vi : {0, 1}) {
+      int val = dp[ui][i - 1] + dist[ui][vi][seq[i - 1]][seq[i]];
+      if (val < dp[vi][i]) {
+        dp[vi][i] = val;
+        path[vi][i] = ui;
+      }
+    }
+  }
+
   ofstream file(filename, ios::out);
-  for (int i : seq) {
-    file << edges[i][0] << " 0\n";
-    for (unsigned j = 0; j < edges[i].size(); ++j) {
-      file << edges[i][j];
-      if (j + 1 == edges[i].size()) file << " 33\n";
+  int state = dp[0].back() < dp[1].back() ? 0 : 1;
+  for (int i = seq.size() - 1; i >= 0; state = path[state][i], --i) {
+    auto edge = edges[seq[i]];
+    if (!state) reverse(edge.begin(), edge.end());
+    file << edge[0] << " 0\n"; // 不知道有什么用但输入格式如此
+    for (unsigned j = 0; j < edge.size(); ++j) {
+      file << edge[j];
+      if (j + 1 == edge.size()) file << " 33\n";
       else if (j == 0) file << " -33\n";
       else file << " 0\n";
     }
@@ -120,20 +138,20 @@ void Output(vector<int> seq) {
 
 // TODO: 并无有效使用适应函数, 交换函数
 namespace GA {
-constexpr double Pcross = 0.5; // 交叉概率
-constexpr double Pmutation = 0.1; // 变异概率
+constexpr double Pcross = 0.75; // 交叉概率
+constexpr double Pmutation = 0.15; // 变异概率
 constexpr double Cross_part = 0.4; // 交叉比例
-constexpr int Max_epoc = 200; // 最大迭代次数
-constexpr int Pop_size = 20; // 种群大小
+constexpr int Max_epoc = 20000; // 最大迭代次数
+constexpr int Pop_size = 100; // 种群大小
 using Colony = vector<int>;
 
 mt19937 rnd(chrono::high_resolution_clock::now().time_since_epoch().count());
 std::default_random_engine random(rnd());
-std::uniform_int_distribution<int> rnd_Pop(0, Pop_size - 1);
+std::uniform_int_distribution<int> rnd_Pop(0, Pop_size - 1), rnd_Num;
 vector<Colony> populations;
-vector<double> fitness, energy;
+vector<int> energy;
 int num, cross_size;
-double ans_energy;
+int ans_energy = INF;
 Colony ans;
 #ifdef MULTI_THREAD
 std::thread write_thread;
@@ -146,9 +164,10 @@ void Cross();                         // 交叉算子
 void Mutation();                      // 变异算子
 double CalcEnergy(const Colony&);     // 计算路程长度
 
-void Solve() {
+int Solve() {
   num = edges.size();
   cross_size = num * Cross_part;
+  rnd_Num = std::uniform_int_distribution<int>(0, num - 1);
   InitPop();
   for (int i = 0; i < Max_epoc; ++i) {
     Select();//选择(复制)
@@ -168,15 +187,20 @@ void Solve() {
       Output(ans); // 关掉以节省时间
 #endif
     }
+    #ifdef DEBUG
+    cerr << i << "th iteration, energy = " << ans_energy << '\n';
+    for (auto &population : populations) orzeach(population);
+    #endif
   }
+  return ans_energy;
 }
 
 void InitPop() {
   populations.resize(Pop_size);
-  fitness.resize(Pop_size);
+  // fitness.resize(Pop_size);
   energy.resize(Pop_size);
   for (Colony &population : populations) {
-    populations.resize(num);
+    population.resize(num);
     iota(population.begin(), population.end(), 0);
     shuffle(population.begin(), population.end(), rnd);
   }
@@ -184,6 +208,10 @@ void InitPop() {
 }
 
 void CalcFitness() {
+  for (int i = 0; i < Pop_size; ++i) {
+    energy[i] = CalcEnergy(populations[i]);
+  }
+  /*
   double sum_fitness = 0, sum_energy = 0;
   for (int i = 0; i < Pop_size; ++i) {
     energy[i] = CalcEnergy(populations[i]);
@@ -196,31 +224,47 @@ void CalcFitness() {
   for (int i = 0; i < Pop_size; ++i) {
     fitness[i] /= sum_fitness;
   }
+  */
 }
 
 // 锦标赛选择法
 void Select() {
   static vector<Colony> tmp(Pop_size);
-  tmp.clear();
   for (int i = 0, x, y; i < Pop_size; ++i) {
     x = rnd_Pop(random);
     y = rnd_Pop(random);
     if (energy[x] > energy[y]) swap(x, y);
-    tmp.emplace_back(populations[x]);
+    tmp[i] = populations[x];
   }
   swap(tmp, populations);
 }
 
+void Unique(Colony &seq) {
+  vector<int> cnt(num, 0);
+  for (int &i : seq) ++cnt[i];
+  int j = 0;
+  for (int &i : seq) {
+    if (cnt[i] > 1) {
+      --cnt[i];
+      while (cnt[j] > 0) ++j;
+      i = j;
+      j++;
+    }
+  }
+}
+
 void Cross() {
-  Colony tmp[2];
+  static Colony tmp[2];
   for (int i = 1; i < Pop_size; ++i) {
     double p = rnd() % (int)1e9 / 1e9;
     if (p > Pcross) continue;
-    int s = rnd() % (Pop_size - cross_size);
+    int s = rnd() % (num - cross_size);
     tmp[0] = populations[i - 1];
     tmp[1] = populations[i];
     copy(populations[i - 1].begin() + s, populations[i - 1].begin() + s + cross_size,  tmp[1].begin() + s);
     copy(populations[i].begin() + s, populations[i].begin() + s + cross_size,  tmp[0].begin() + s);
+    Unique(tmp[0]);
+    Unique(tmp[1]);
     swap(tmp[0], populations[i - 1]);
     swap(tmp[1], populations[i]);
   }
@@ -230,46 +274,48 @@ void Mutation() {
   for (int i = 0, x, y; i < Pop_size; ++i) {
     double p = rnd() % (int)1e9 / 1e9;
     if (p > Pmutation) continue;
-    x = rnd_Pop(random);
-    y = rnd_Pop(random);
-    swap(populations[x], populations[y]);
+    x = rnd_Num(random);
+    y = rnd_Num(random);
+    swap(populations[i][x], populations[i][y]);
   }
 }
 
 double CalcEnergy(const Colony &pop) {
-  static vector<int> dp[2];
-  dp[0].resize(pop.size());
-  dp[1].resize(pop.size());
+  static int dp[2][2];
   dp[0][0] = dp[0][1] = 0;
   for (unsigned i = 1; i < pop.size(); ++i) {
-    dp[0][i] = dp[1][i] = INF;
+    int *cur = dp[i & 1], *pre = dp[~i & 1];
+    cur[0] = cur[1] = INF;
     for (int ui : {0, 1})
     for (int vi : {0, 1}) {
-      Min(dp[vi][i], dp[ui][i - 1] + dist[ui][vi][pop[i - 1]][pop[i]]);
+      Min(cur[vi], pre[ui] + dist[ui][vi][pop[i - 1]][pop[i]]);
     }
   }
-  return min(dp[0].back(), dp[1].back());
+  return min(dp[~pop.size() & 1][0], dp[~pop.size() & 1][1]);
 }
 
 } // namespace GA
 
+/*
 struct Timer {
   clock_t t;
-  void start() {
-    cerr << "Start timer\n";
+  void start(string name = "program") {
+    cerr << name << " start!\n";
     t = clock();
   }
-  void stop() {
-    cerr << "Elapsed Time: " << (clock() - t) / CLOCKS_PER_SEC  << " s\n";
+  void stop(string name = "program") {
+    cerr << name << " end. Elapsed Time: " << (clock() - t) / CLOCKS_PER_SEC  << " s\n";
   }
 } timer;
+*/
 
 signed main() {
   Input();
-  cerr << "the size of edges is : " << edges.size() << '\n';
+  cerr << "The size of edges is : " << edges.size() << '\n';
   CalcDist();
 
-  GA::Solve();
+  int ans_energy = GA::Solve();
+  cerr << "The distance of empty path is " << ans_energy * eps << '\n';
 
   system("pause");
   return 0;
