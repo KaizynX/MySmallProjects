@@ -1,7 +1,7 @@
 /*
  * @Author: Kaizyn
  * @Date: 2021-12-15 21:59:25
- * @LastEditTime: 2021-12-22 14:49:43
+ * @LastEditTime: 2021-12-22 16:03:33
  */
 #include <bits/stdc++.h>
 
@@ -52,6 +52,18 @@ struct Node {
   }
 };
 
+struct Timer {
+  clock_t t;
+  void start(string name = "program") {
+    cerr << name << " start!\n";
+    t = clock();
+  }
+  void stop(string name = "program") {
+    // cerr << name << " end. Elapsed Time: " << (clock() - t) / CLOCKS_PER_SEC  << " s\n";
+    cerr << name << " end. Elapsed Time: " << (clock() - t) << " ms\n";
+  }
+} timer;
+
 using Edge = vector<Node>;
 vector<Edge> edges;
 vector<vector<int>> dist[2][2];
@@ -63,7 +75,7 @@ void Min(T &x, const T &y) {
 
 void Input() {
   string filename = "test.txt";
-  // cout << "输入文件名:\n"; cin >> filename;
+  cout << "输入文件名:"; cin >> filename;
   ifstream file(filename, ios::in);
   int move_tag;
   Node point;
@@ -136,7 +148,6 @@ void Output(vector<int> seq) {
   file.close();
 }
 
-// TODO: 并无有效使用适应函数, 交换函数
 namespace GA {
 constexpr double Pcross = 0.75; // 交叉概率
 constexpr double Pmutation = 0.15; // 变异概率
@@ -165,6 +176,7 @@ void Mutation();                      // 变异算子
 double CalcEnergy(const Colony&);     // 计算路程长度
 
 int Solve() {
+  timer.start();
   num = edges.size();
   cross_size = num * Cross_part;
   rnd_Num = std::uniform_int_distribution<int>(0, num - 1);
@@ -179,6 +191,7 @@ int Solve() {
       ans_energy = energy[id];
       ans = populations[id];
       cerr << i << "\tth iteration, distance: " << ans_energy * eps << '\n';
+      timer.stop();
 #ifdef MULTI_THREAD
       if (write_thread.joinable()) write_thread.join();
       write_thread = thread(output, ans);
@@ -204,6 +217,7 @@ void InitPop() {
     iota(population.begin(), population.end(), 0);
     shuffle(population.begin(), population.end(), rnd);
   }
+  iota(populations[0].begin(), populations[0].end(), 0); // 原顺序
   CalcFitness();
 }
 
@@ -211,20 +225,6 @@ void CalcFitness() {
   for (int i = 0; i < Pop_size; ++i) {
     energy[i] = CalcEnergy(populations[i]);
   }
-  /*
-  double sum_fitness = 0, sum_energy = 0;
-  for (int i = 0; i < Pop_size; ++i) {
-    energy[i] = CalcEnergy(populations[i]);
-    sum_energy += energy[i];
-  }
-  for (int i = 0; i < Pop_size; ++i) {
-    sum_fitness += sum_energy / energy[i];
-    fitness[i] = sum_fitness;
-  }
-  for (int i = 0; i < Pop_size; ++i) {
-    fitness[i] /= sum_fitness;
-  }
-  */
 }
 
 // 锦标赛选择法
@@ -295,19 +295,6 @@ double CalcEnergy(const Colony &pop) {
 }
 
 } // namespace GA
-
-/*
-struct Timer {
-  clock_t t;
-  void start(string name = "program") {
-    cerr << name << " start!\n";
-    t = clock();
-  }
-  void stop(string name = "program") {
-    cerr << name << " end. Elapsed Time: " << (clock() - t) / CLOCKS_PER_SEC  << " s\n";
-  }
-} timer;
-*/
 
 signed main() {
   Input();
