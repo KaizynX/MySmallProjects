@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-12-22 15:22:21
-LastEditTime: 2021-12-22 15:38:27
+LastEditTime: 2021-12-22 18:20:33
 '''
 import turtle as t
 

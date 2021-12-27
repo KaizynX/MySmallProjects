@@ -6,15 +6,13 @@
 #include <signal.h>
 #include <fcntl.h>
 
-#define N 3
+#define N 5
 char buf[150];
 
 void clear() {
     int i;
     sem_unlink("Mutex");
     for (i = 0; i < N; ++i) {
-        sprintf(buf, "send%d", i);
-        sem_unlink(buf);
         sprintf(buf, "receive%d", i);
         sem_unlink(buf);
     }
@@ -23,15 +21,12 @@ void clear() {
 int main() {
     int fd[2],pipe_num, i;
     sem_t *Mutex;
-    sem_t *send[N];
     sem_t *receive[N];
     pid_t pid[N];
 
     clear();
     Mutex = sem_open("Mutex",O_CREAT,0666,1);
     for (i = 0; i < N; ++i) {
-        sprintf(buf, "send%d", i);
-        send[i] = sem_open(buf,O_CREAT,0666,1);
         sprintf(buf, "receive%d", i);
         receive[i] = sem_open(buf, O_CREAT,0666,0);
     }
@@ -57,7 +52,6 @@ int main() {
     int flag = 0;
     for (i = 0; i < N; ++i) if (pid[i] == 0) {
         close(fd[0]);
-        sem_wait(send[i]);
         sem_wait(Mutex);
         printf("pid:%d 进程%d放入数据：",getpid(), i+1);
         scanf("%[^\n]%*c",buf);
@@ -76,7 +70,6 @@ int main() {
         printf("pid:%d 父进程接收数据:%s\n",getpid(),buf);
         sleep(0.1);
         sem_post(Mutex);
-        for (i = 0; i < N; ++i) sem_post(send[i]);
         clear();
     }
 }
