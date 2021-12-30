@@ -811,7 +811,7 @@ int my_write(char **args) {
     for (i = 1; args[i] != NULL; ++i) {
         if (args[i][0] == '-') {
             if      (!strcmp(args[i], "-w"))    mode = 'w';
-            else if (!strcmp(args[i], "-c"))    mode = 'c';
+            else if (!strcmp(args[i], "-r"))    mode = 'r';
             else if (!strcmp(args[i], "-a"))    mode = 'a';
             else {
                 fprintf(stderr, "write: wrong argument\n");
@@ -847,8 +847,9 @@ int my_write(char **args) {
         
         if (!strcmp(file->filename, openfile_list[i].open_fcb.filename) &&
             file->first == openfile_list[i].open_fcb.first) {
-            if (mode == 'c') {
-                printf("Please input location: ");
+            if (mode == 'r') {
+                // printf("Please input location: ");
+                printf("请输入起始位置: ");
                 scanf("%d", &openfile_list[i].count);
                 getchar();                          // 读掉一个后面的换行或者其他划分符号
             }
@@ -862,7 +863,7 @@ int my_write(char **args) {
                 else str[j++] = c;
             }
 
-            if (mode == 'c') {
+            if (mode == 'r') {
                 do_write(i, str, j - 1, mode);      // 覆盖写不需要最后的换行
             }
             else {
@@ -896,7 +897,7 @@ int do_write(int fd, char *content, size_t len, int wstyle) {
         memset(txt, 0, WRITE_SIZE);
         strncpy(txt, input, len);
     }
-    else if (wstyle == 'c') {
+    else if (wstyle == 'r') {
         strncpy(txt + openfile_list[fd].count, input, len);
     }
     else if (wstyle == 'a') {
@@ -964,8 +965,8 @@ int my_read(char **args) {
 
     for (i = 1; args[i] != NULL; ++i) {
         if (args[i][0] == '-') {
-            if (!strcmp(args[i], "-s")) {
-                mode = 's';
+            if (!strcmp(args[i], "-r")) {
+                mode = 'r';
             } else if (!strcmp(args[i], "-a")) {
                 mode = 'a';
             } else {
@@ -1006,12 +1007,14 @@ int my_read(char **args) {
                 openfile_list[i].count = 0;         // 从头开始读
                 length = UINT16_MAX;                // 无限长，do_read 会帮忙限定的
             }
-            if (mode == 's') {
-                printf("Please input location: ");
+            if (mode == 'r') {
+                // printf("Please input location: ");
+                printf("请输入起始位置: ");
                 scanf("%d", &openfile_list[i].count);
-                printf("Please input length: ");
+                // printf("Please input length: ");
+                printf("请输入读取长度: ");
                 scanf("%d%*c", &length);
-                printf("-----------------------\n");
+                // printf("-----------------------\n");
             }
             do_read(i, length, str);
             fprintf(stdout, "%s\n", str);
