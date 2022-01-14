@@ -1,7 +1,7 @@
 '''
 Author: Kaizyn
 Date: 2021-12-22 15:22:21
-LastEditTime: 2021-12-22 18:20:33
+LastEditTime: 2022-01-14 15:29:55
 '''
 import turtle as t
 
@@ -21,11 +21,11 @@ def print1(file) : # 绘画过程
     x = float(mesg[0]) * 10
     y = float(mesg[1]) * 10
     m = int(mesg[2])
-    pen.goto(x, y)
+    pen.goto(x, y)#画笔移动
     if m < 0 :
-      pen.pendown()
+      pen.pendown()#落笔
     elif m > 0 :
-      pen.penup()
+      pen.penup()#起笔
 
 def print2(file) : # 空程显示为红色
   t.title("路径绘制")#建立标题
@@ -52,7 +52,7 @@ def print2(file) : # 空程显示为红色
 if __name__ == "__main__":
   filename = input("请输入文件名:")
   file = open(filename, "r")
-  # print1(file)
-  print2(file)
+  print1(file)
+  # print2(file)
 
   t.mainloop()
