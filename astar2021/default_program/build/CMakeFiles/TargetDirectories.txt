@@ -1,0 +1,3 @@
+C:/Users/Kaizyn/Documents/MySmallProjects/astar2021/default_program/build/CMakeFiles/astar.dir
+C:/Users/Kaizyn/Documents/MySmallProjects/astar2021/default_program/build/CMakeFiles/edit_cache.dir
+C:/Users/Kaizyn/Documents/MySmallProjects/astar2021/default_program/build/CMakeFiles/rebuild_cache.dir
