@@ -1,0 +1,9 @@
+pytorch>=2.0
+scikit-learn>=1.4.1
+numpy
+pandas
+matplotlib
+seaborn
+jupyter
+notebook
+xgboost
