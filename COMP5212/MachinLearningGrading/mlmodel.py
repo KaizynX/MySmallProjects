@@ -3,7 +3,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
+# from xgboost import XGBClassifier
 
 
 import pandas as pd
@@ -16,10 +16,9 @@ import pandas as pd
 
 class MachineLearningModel():
     def __init__(self):
-        # self.model = LogisticRegression()
-        self.model = XGBClassifier()
+        self.model = SVC(kernel='rbf', C=0.5, gamma='auto')
 
-    def train(self, data):
+    def train(self, data: pd.DataFrame):
         #you can do your training here
         self.model = self.model.fit(data.drop('Label', axis=1), data['Label'])
 
@@ -27,7 +26,7 @@ class MachineLearningModel():
         # you can do your preprocessing here
 
     def predict(self, data):
-        df_train = pd.read_csv('../data/train.csv')
+        df_train = pd.read_csv('./train.csv')
         # Apply any data preprocessing if you want, just to keep the test data in the same format as the training data
         self.train(df_train)
         return self.model.predict(data)
