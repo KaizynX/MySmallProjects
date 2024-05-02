@@ -52,7 +52,7 @@ if __name__ == '__main__':
 
     # 创建数据集
     train_dataset = dataset('../data/train.csv')
-    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=128, shuffle=True)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
 
     # 创建网络和优化器
     net = Net()

@@ -1,12 +1,11 @@
-from xgboost import XGBClassifier
-from imblearn.over_sampling import SMOTE, ADASYN
-from sklearn.linear_model import LogisticRegression
+'''
+Author: Kaizyn
+Date: 2024-05-02 15:53:31
+LastEditTime: 2024-05-02 15:54:10
+'''
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
 
 
 import pandas as pd
@@ -19,21 +18,16 @@ import pandas as pd
 class MachineLearningModel:
     def __init__(self):
         # 创建多个模型
-        clf1 = XGBClassifier(gamma=0, learning_rate=0.1, max_depth=10, n_estimators=200)
-        clf2 = RandomForestClassifier(max_depth=20, min_samples_leaf=2, min_samples_split=2, n_estimators=100, random_state=0)
-        clf3 = SVC(kernel="rbf", C=0.9, gamma="auto", probability=True)
+        clf3 = SVC(kernel="rbf", C=0.5, gamma="auto", probability=True)
         clf4 = KNeighborsClassifier(n_neighbors=10, p=2, weights="distance")
 
         # 创建 VotingClassifier
         self.model = VotingClassifier(
             estimators=[
-                ("xgb", clf1),
-                ("rf", clf2),
                 ("svc", clf3),
                 ("knn", clf4)
             ],
             voting="soft",
-            weights=[0.8925, 0.8819, 0.9119, 0.8972],
         )
 
         df_train = pd.read_csv("./train.csv")
