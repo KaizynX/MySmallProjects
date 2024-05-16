@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+<html lang="en-US" class="no-js no-svg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+
+<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Solutions to Stochastic Processes Ch.4 &#8211; 念山居</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" type="application/rss+xml" title="念山居 &raquo; Feed" href="http://www.charmpeach.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="念山居 &raquo; Comments Feed" href="http://www.charmpeach.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="念山居 &raquo; Solutions to Stochastic Processes Ch.4 Comments Feed" href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/feed/" />
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.charmpeach.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css' href='http://www.charmpeach.com/wp-includes/css/dist/block-library/style.min.css?ver=6.2.2' media='all' />
+<style id='wp-block-library-theme-inline-css'>
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<link rel='stylesheet' id='classic-theme-styles-css' href='http://www.charmpeach.com/wp-includes/css/classic-themes.min.css?ver=6.2.2' media='all' />
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='twentyseventeen-fonts-css' href='http://www.charmpeach.com/wp-content/themes/twentyseventeen/assets/fonts/font-libre-franklin.css?ver=20230328' media='all' />
+<link rel='stylesheet' id='twentyseventeen-style-css' href='http://www.charmpeach.com/wp-content/themes/twentyseventeen/style.css?ver=20230328' media='all' />
+<link rel='stylesheet' id='twentyseventeen-block-style-css' href='http://www.charmpeach.com/wp-content/themes/twentyseventeen/assets/css/blocks.css?ver=20220912' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyseventeen-ie8-css' href='http://www.charmpeach.com/wp-content/themes/twentyseventeen/assets/css/ie8.css?ver=20161202' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='dco-comment-attachment-css' href='http://www.charmpeach.com/wp-content/plugins/dco-comment-attachment/assets/dco-comment-attachment.css?ver=2.4.0' media='all' />
+<!--[if lt IE 9]>
+<script src='http://www.charmpeach.com/wp-content/themes/twentyseventeen/assets/js/html5.js?ver=20161020' id='html5-js'></script>
+<![endif]-->
+<script src='http://www.charmpeach.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js'></script>
+<script src='http://www.charmpeach.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="http://www.charmpeach.com/wp-json/" /><link rel="alternate" type="application/json" href="http://www.charmpeach.com/wp-json/wp/v2/posts/723" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.charmpeach.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.charmpeach.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.2" />
+<link rel="canonical" href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/" />
+<link rel='shortlink' href='http://www.charmpeach.com/?p=723' />
+<link rel="alternate" type="application/json+oembed" href="http://www.charmpeach.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.charmpeach.com%2Fstochastic-processes%2Fsolutions-to-stochastic-processes-ch-4%2F723%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.charmpeach.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.charmpeach.com%2Fstochastic-processes%2Fsolutions-to-stochastic-processes-ch-4%2F723%2F&#038;format=xml" />
+<link rel="pingback" href="http://www.charmpeach.com/xmlrpc.php">
+<link rel="icon" href="http://www.charmpeach.com/wp-content/uploads/2019/02/Visual-Studio-alt-100x100.png" sizes="32x32" />
+<link rel="icon" href="http://www.charmpeach.com/wp-content/uploads/2019/02/Visual-Studio-alt.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="http://www.charmpeach.com/wp-content/uploads/2019/02/Visual-Studio-alt.png" />
+<meta name="msapplication-TileImage" content="http://www.charmpeach.com/wp-content/uploads/2019/02/Visual-Studio-alt.png" />
+</head>
+
+<body class="post-template-default single single-post postid-723 single-format-standard wp-embed-responsive has-header-image has-sidebar colors-light">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">
+		Skip to content	</a>
+
+	<header id="masthead" class="site-header">
+
+		<div class="custom-header">
+
+		<div class="custom-header-media">
+			<div id="wp-custom-header" class="wp-custom-header"><img src="http://47.111.250.24/wp-content/uploads/2019/02/cropped-solvay_conference_1927_crop.jpg" width="2000" height="1199" alt="" srcset="http://www.charmpeach.com/wp-content/uploads/2019/02/cropped-solvay_conference_1927_crop.jpg 2000w, http://www.charmpeach.com/wp-content/uploads/2019/02/cropped-solvay_conference_1927_crop-300x180.jpg 300w, http://www.charmpeach.com/wp-content/uploads/2019/02/cropped-solvay_conference_1927_crop-1024x614.jpg 1024w, http://www.charmpeach.com/wp-content/uploads/2019/02/cropped-solvay_conference_1927_crop-768x460.jpg 768w, http://www.charmpeach.com/wp-content/uploads/2019/02/cropped-solvay_conference_1927_crop-1536x921.jpg 1536w" sizes="100vw" /></div>		</div>
+
+	<div class="site-branding">
+	<div class="wrap">
+
+		
+		<div class="site-branding-text">
+							<p class="site-title"><a href="http://www.charmpeach.com/" rel="home">念山居</a></p>
+			
+							<p class="site-description">悲观的乐观主义者，务实的理想主义者</p>
+					</div><!-- .site-branding-text -->
+
+		
+	</div><!-- .wrap -->
+</div><!-- .site-branding -->
+
+</div><!-- .custom-header -->
+
+		
+	</header><!-- #masthead -->
+
+	
+	<div class="site-content-contain">
+		<div id="content" class="site-content">
+
+<div class="wrap">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
+
+			
+<article id="post-723" class="post-723 post type-post status-publish format-standard hentry category-stochastic-processes">
+		<header class="entry-header">
+		<div class="entry-meta"><span class="posted-on"><span class="screen-reader-text">Posted on</span> <a href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/" rel="bookmark"><time class="entry-date published updated" datetime="2019-03-10T19:03:13-08:00">2019-03-10</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="http://www.charmpeach.com/author/charmpeach/">Jin</a></span></span></div><!-- .entry-meta --><h1 class="entry-title">Solutions to Stochastic Processes Ch.4</h1>	</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		
+<p class="has-background has-very-light-gray-background-color">《<a rel="noreferrer noopener" href="https://www.amazon.cn/dp/B00E59HMIA/" target="_blank">随机过程-第二版</a>》（<a rel="noreferrer noopener" href="http://home.ustc.edu.cn/~alex2014/SPpdf/Stochastic%20Processes%20SM.pdf" target="_blank">英文电子版</a>） <em>Sheldon M. Ross</em> 答案整理，此书作为随机过程经典教材没有习题讲解，所以将自己的学习过程记录下来，部分习题解答参考了网络，由于来源很多，出处很多也不明确，无法一一注明，在此一并表示感谢！希望对大家有帮助，水平有限，不保证正确率，欢迎批评指正，转载请注明出处。<br />Solutions to  <a rel="noreferrer noopener" href="https://www.amazon.com/Stochastic-Processes-Sheldon-M-Ross/dp/0471120626" target="_blank">Stochastic Processes Sheldon M. Ross Second Edition</a>(<a rel="noreferrer noopener" href="http://home.ustc.edu.cn/~alex2014/SPpdf/Stochastic%20Processes%20SM.pdf" target="_blank">pdf</a>)<br />Since there is no official solution manual for this book, I  <br />handcrafted the solutions by myself. Some solutions were referred from web, most copyright of which are implicit, can&#8217;t be listed clearly. Many thanks to those authors! Hope these solutions be helpful, but <strong>No Correctness or Accuracy Guaranteed. </strong>Comments are welcomed. Excerpts and links may be used, provided that full and clear credit is given.    </p>
+
+
+<p><strong>4.1</strong> A store that stocks a certain commodity uses the following \((s, S)\) ordering policy; if its supply at the beginning of a time period is \(x\), then it orders<br />$$ <br />\left\{<br />\begin{array}{ll}<br />0 \quad x \geq s \\<br />S-x \quad x &lt; n \\<br />\end{array}<br />\right.  $$<br />The order is immediately filled. The daily demands are independent and equal \(j\) with probability \(\alpha_j\). All demands that cannot be immediately met are lost. Let \(X_n\) denote the inventory level at the end of the nth time period. Argue that \(\{X_n, n \geq 1\}\) is a Markov chain and compute its transition probabilities.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Let \(Y_i\) denote the demand of the ith day, then<br />$$ <br />X_n = \left\{<br />\begin{array}{ll}<br />X_{n-1} &#8211; Y_n \quad X_{n-1} \geq s \\<br />S-Y_n \quad X_{n-1} &lt; s \\<br />\end{array}<br />\right.  <br />$$<br />Since \(Y_i\) is independent, \(\{X_n, n \geq 1\}\) is a Markov chain, and its transition probabilities are<br />$$P_{ij} = \left\{<br />\begin{array}{ll}<br />\alpha_{i -j} \quad i \geq s, i \geq j \\<br />\alpha_{S-j} \quad i &lt; s \\<br />0 \quad i \geq s,  i &lt; j<br />\end{array}<br />\right.  <br />$$ <br /></p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.2</strong> For a Markov chain prove that<br />$$P\{X_n = j | X_{n_1} = i_1, \dots, X_{n_k} = i_k\} = P\{X_n = j | X_{n_k} = i_k\}$$<br />whenever \(n_1 &lt; n_2 &lt; \dots &lt; n_k &lt; n\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>$$\begin{align}<br />&amp;P\{X_n = j | X_{n_1} = i_1, \dots, X_{n_k} = i_k\} \\<br />=&amp;\frac{P_{i_kj}^{n-n_k}\prod_{l=1}^{k-1}P_{i_li_{l+1}}^{n_{l+1} &#8211; n_l}}{\prod_{l=1}^{k-1}P_{i_li_{l+1}}^{n_{l+1} &#8211; n_l}} \\<br />=&amp;P_{i_kj}^{n-n_k} \\<br />=&amp;P\{X_n = j | X_{n_k} = i_k\} <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.3</strong> Prove that if the number of states is \(n\), and if state \(j\) is accessible from state \(i\), then it is accessible in \(n\) or fewer steps.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>\(j\) is accessible from \(i\) if, for some \(k \ geq 0, P_{ij}^k &gt; 0\). Now<br />$$P_{ij}^k = \sum\prod_{m=1}^k P_{i_mi_{m+1}}$$<br />where the sum is taken over all sequences \((i_0, i_1, \dots, i_k)\in\{1, \dots, n\}^{k+1}\) of states with \(i_0 = i\) and \(i_k = j\). Now, \(P_{ij}^k &gt; 0\) implies that at least one term is positive, say \(\prod_{m=1}^kP_{i_mi_{m+1}} &gt; 0\). If a state \(s\) occurs twice, say \(i_a = i_b = s\), and \((a, b) \neq (0, k)\), then the sequence of states \((i_0, \dots, i_{a-1}, i_b, \dots, i_k)\) also has positive probability, without this repetition. Thus, the sequence \(i_0, \dots, i_k\) can be reduced to another sequence, say \(j_0, \dots, j_r\), in which no state is repeated. This gives \(r \leq n-1\), so \(i \neq j\) is accessible in at most \(n &#8211; 1\) steps. If \(i = j\), we cannot remove this repetition. This gives the possibility of \(r = n\), when \(i=j\), but there are no other repetitions.</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.4</strong> Show that$$P_{ij}^n = \sum_{k=0}^n f_{ij}^kP_{jj}^{n-k}$$ </p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>$$\begin{align}<br />&amp;P_{ij}^n\\<br />=&amp;\sum_{k=0}^n P\{\text{visit state j at step n }|\text{first visit state j at step k}\}P\{\text{first visit j at step k}\} \\<br />=&amp;\sum_{k=0}^n f_{ij}^kP_{jj}^{n-k} <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.5</strong> For states \(i, j, k, k \neq j\), let<br />$$P_{ij/k}^n = P\{X_n = j, X_l \neq k, l = 1, \dots, n-1|X_0 = i\}.$$<br /><strong>(a)</strong> Explain in words what \(P_{ij/k}^n\) represents.<br /><strong>(b)</strong> Prove that, for \(i \neq j, P_{ij}^n = \sum_{k=0}^n P_{ii}^kP_{ij/i}^{n-k}\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> \(P_{ij/k}^n\) is the probability of being in \(j\) at time \(n\), starting in \(i\) at time 0, while avoiding \(k\).<br /><strong>(b)</strong> Let \(N\) denote the time at which \(X_k\) is last \(i\) before time \(n\). Then since \(0 \leq N \leq n\),<br />$$\begin{align}<br />&amp;P_{ij}^n = P\{X_n = j | X_0 = i\} \\<br />=&amp; \sum_{k=0}^n P\{X_n = j, N=k|X_0 = j\} \\<br />=&amp; \sum_{k=0}^n P\{X_n = j, X_k = i, X_l \neq i: k + 1 \leq l \leq n | X_0 = i\}  \\<br />=&amp; \sum_{k=0}^n P\{X_n = j, X_l \neq i : k + 1 \leq l \leq n|X_0 = i, X_k = i\}P\{X_k = i|X_0=i\}\\<br />=&amp; \sum_{k=0}^n P_{ii}^kP_{ij/i}^{n-k} <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.6</strong> Show that the symmetric random walk is recurrent in two dimensions and transient in three dimensions.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>The symmetric random walk can considered as independent walk, then the limiting probability of return state 0 can be compute as following<br />$$\lim_{n \to \infty}P_{00}^{2n} = (\frac{1}{\sqrt{\pi n}}^d)$$<br />where \(d\) is the dimension. Then we get,<br />$$<br />\sum_{n=1}^{\infty} P_{00}^n = \left\{<br />\begin{array}{ll}<br />\sum_{n=1}^{\infty} \frac{1}{n\pi} = \infty \quad d=2 \\<br />\sum_{n=1}^{\infty} \frac{1}{n^{3/2}} &lt; \infty \quad d=3 \\<br />\end{array}<br />\right.   <br />$$Thus, result proven by Proposition 4.2.3</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.7</strong> For the symmetric random walk starting at 0:<br /><strong>(a)</strong> What is the expected time to return to 0?<br /><strong>(b)</strong> Let \(N_n\) denote the number of returns by time \(n\). Show that<br />$$E[N_{2n}] = (2n + 1){2n \choose n}(\frac{1}{2})^{2n} &#8211; 1$$<br /><strong>(c)</strong> Use (b) and Stirling&#8217;s approximation to show that for \(n\) large \(E[N_n]\) is proportional to \(\sqrt{n}\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> From Equation 3.7.2, we know,<br />$$P\{Z_1 \neq 0, \dots, Z_{2n-1} \neq 0, Z_{2n} = 0\} = \frac{{2n \choose n}(\frac{1}{2})^{2n}}{2n-1}$$<br />Then, then expected time to return to 0 is:<br />$$\begin{align}<br />E[T] &amp;= \sum_{k=1}^{\infty}\frac{k}{2k-1}{2k \choose k}(\frac{1}{2})^{2k}\\<br />&amp;= \sum_{k=0}^{\infty} {2k \choose k}(\frac{1}{2})^{2k} \\<br />&amp;= \frac{1}{\sqrt{1 &#8211; 4/4}} = \infty <br />\end{align}$$<br /><strong>(b)</strong> Let \(I_i\) denote the indicator of whether returned 0 at ith step. Then,<br />$$E[N_{2n}] = \sum_{k=0}^n E[I_{2k}]= \sum_{k=0}^n P_{00}^{2k}$$ <br />Obviously, it holds true for \(n = 0\). Assume it holds for \(n = k\), when \(n = k+1\),<br />$$\begin{align}<br />E[N_{2k+2}] &amp;= E[N_{2k}] + P_{00}^{2k+2} \\<br />&amp;= (2k+1){2k \choose k}(\frac{1}{2})^{2k} &#8211; 1 + {2k+2 \choose k+1}(\frac{1}{2})^{2k+2}\\<br />&amp;= (2k + 3){2k+2 \choose k+1}(\frac{1}{2})^{2k+2} -1 <br />\end{align}$$<br /><strong>(c)</strong> $$\lim_{n \to \infty} \frac{E[N_n]}{\sqrt{n}} \sim \sqrt{\frac{2}{\pi}} + \sqrt{\frac{2}{\pi n}} &#8211; \frac{1}{\sqrt{n}} = \sqrt{\frac{2}{\pi}}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.8</strong> Let \(X_1, X_2, \dots\) be independent random variables such that \(P\{X_i = j\} = \alpha_j, j \geq 0\). Say that a record occurs at time \(n\) if \(X_n &gt; max(X_1, \dots, X_{n-1})\), where \(X_0 = -\infty\), and if a record does occur at time \(n\) call \(X_n\) the record value. Let \(R_i\) denote the ith record value.<br /><strong>(a)</strong> Argue that \(\{R_i, i \geq 1\}\) is a Markov chain and compute its transition probabilities.<br /><strong>(b)</strong> Let \(T_i\) denote the time between the ith and \((i + 1)\)st record. Is \(\{T_i, i \geq 1\}\) a Markov chain? What about \(\{(R_i, T_i), i \geq 1\}\)? Compute transition probabilities where appropriate.<br /><strong>(c)</strong> Let \(S_n = \sum_{i=1}^n T_i, n \geq 1\). Argue that \(\{S_n, n \geq 1\}\) is a Markov chain and find its transition probabilities.<br /></p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> $$ <br />P_{ij} = \left\{<br />\begin{array}{ll}<br />0 \quad i \geq j \\<br />\alpha_j/\sum_{k=i+1}^{\infty} \alpha_k \quad i &lt; j \\<br />\end{array}<br />\right. $$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.9</strong> For a Markov chain \(\{X_n, n \geq 0\}\), show that<br />$$P\{X_k = i_k|X_j = i_j, \text{for all } j \neq k\} = P\{X_k = i_k|X_{k-1} = i_{k-1}, X_{k+1} = i_{k+1}\}$$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>$$\begin{align}<br />&amp; P\{X_k = i_k|X_j = i_j, \text{for all } j \neq k\} \\<br />=&amp; \frac{P\{X_k = i_k, \text{for all } k\} }{ P\{X_j = i_j, \text{for all } j \neq k\}} \\<br />=&amp; \frac{\prod_{j=0}^{\infty} P_{i_ji_{j+1}}}{\prod_{j \neq k-1, k}^{\infty} P_{i_ji_{j+1}}P^2_{i_{k-1}i_{k+1}} } \\<br />=&amp; \frac{P\{X_{k} = i_{k} | X_{k-1} = i_{k-1}\}P\{X_{k+1} = i_{k+1} | X_{k} = i_{k}\} }{P\{X_{k+1} = i_{k+1} | X_{k-1} = i_{k-1}\}} \\<br />=&amp;\frac{P\{X_{k} = i_{k} | X_{k-1} = i_{k-1}\}P\{X_{k+1} = i_{k+1} | X_{k} = i_{k}, X_{k-1} = i_{k-1}\} P\{X_{k-1} = i_{k-1}\}}{P\{X_{k+1} = i_{k+1} | X_{k-1} = i_{k-1}\}P\{X_{k-1} = i_{k-1}\} } \\<br />=&amp; P\{X_k = i_k|X_{k-1} = i_{k-1}, X_{k+1} = i_{k+1}\} <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.11</strong> If \(f_{ii} &lt; 1\) and \(f_{jj} &lt; 1\), show that:<br /><strong>(a)</strong> $$\sum_{n=1}^{\infty} P_{ij}^n &lt; \infty$$<br /><strong>(b)</strong> $$f_{ij} = \frac{\sum_{n=1}^{\infty} P_{ij}^n}{1 + \sum_{n=1}^{\infty}P_{jj}^n}$$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> Since \(j\) is transient, the expected number of visits to \(j\) is finite, also when from \(i\). Proven.<br /><strong>(b)</strong> $$\begin{align}<br />&amp;E[\text{# of visits j starting from i}] \\<br />=&amp; \sum_{n=1}^{\infty} P_{ij}^n \\<br />=&amp;\sum_{n=1}^{\infty}E[\text{# of visits j starting from i}|\text{first visit j at step n}]f_{ij}^n \\<br />=&amp; \sum_{n=1}^{\infty}f_{ij}^n(1 + E[\text{# of visits j starting from j}]) \\<br />=&amp; f_{ij}(1 + \sum_{n=1}^{\infty}P_{jj}^n)<br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.12</strong> A transition probability matrix \(P\) is said to be doubly stochastic if<br />$$\sum_i P_{ij} = 1 \quad \text{for all } j.$$<br />That is, the column sums all equal 1. If a doubly stochastic chain has \(n\) states and is ergodic, calculate its limiting probabilities.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Double stochastic implies that a state can be possibly from any of the states, and can transition to any of the states. We may guess the stationary maybe evenly distributed  across all the states.<br />Since \(\pi = (1/n, \dots, 1/n)\) follows the equation \(\pi = \pi P\), also due to the uniqueness of the limiting distribution, \(\pi\) is the result.</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.15</strong> In the \(M/G/1\) system (Example 4.3(A)) suppose that \(\rho &lt; 1\) and thus the stationary probabilities exist. Compute \(\pi^{\prime}(s)\) and find, by taking the limit as \(s \to 1, \sum_0^{\infty}i\pi_i\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>$$\begin{align}<br />\pi^{\prime}(s) &amp;= (1 &#8211; A^{\prime}(1))\frac{A(s) &#8211; A^2(s) + s(s-1)A^{\prime}(s)}{[s-A(s)]^2} \\<br />\sum_0^{\infty}i\pi_i &amp;= \lim_{s \to 1} \pi^{\prime}(s) \\<br />&amp;= \lim_{s \to 1}(1 &#8211; A^{\prime}(1)) \frac{A^{\prime}(s)}{2[1 &#8211; A^{\prime}(s)]} \\<br />&amp;= \lambda E[S]/2<br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.18</strong> Jobs arrive at a processing center in accordance with a Poisson process with rate \(\lambda\). However, the center has waiting space for only \(N\) jobs and so an arriving job finding \(N\) others waiting goes away. At most 1 job per day can be processed, and processing of this job must start at the beginning of the day. Thus, if there are any jobs waiting for processing at the beginning of a day, then one of them is processed that day, and if no jobs are waiting at the beginning of a day then no jobs are processed that day. Let \(X_n\) denote the number of jobs at the center at the beginning of day \(n\).<br /><strong>(a)</strong> Find the transition probabilities of the Markov chain \(\{X_n, n \geq 0\}\).<br /><strong>(b)</strong> Is this chain ergodic? Explain.<br /><strong>(c)</strong> Write the equations for the stationary probabilities.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Let \(p(j) = \lambda^je^{-\lambda}/j!\)<br /><strong>(a)</strong> $$\begin{align}<br />P_{0j} &amp;= \left\{<br />\begin{array}{ll}<br />p(j) \quad 0 \leq j &lt; N \\<br />\sum_{k=N}^{\infty}p(k) \quad j = N \\<br />\end{array}<br />\right. \\ <br />P_{ij} &amp;= \left\{<br />\begin{array}{ll}<br />p(j-i+1) \quad i &#8211; 1 \leq j &lt; N \\<br />\sum_{k=N &#8211; i+1}^{\infty}p(k) \quad j = N \\<br />\end{array}<br />\right. \end{align}$$<br /><strong>(b)</strong> The Markov chain is irreducible, since \(P_0j &gt; 0\) and \(P_{j0}^{j} = (p(0))^k &gt; 0\). It is aperiodic, since \(P_{00} &gt; 0\). A finite state Markov chain which is irreducible and aperiodic is ergodic (since it it not possible for all states to be transient or for any states to be null recurrent).<br /><strong>(c)</strong> There is no particularly elegant way to write these equations. Since \(\pi_j = \sum_{k=0}^{j+1}\pi_kP_{kj}\), This can be rewritten as a recursion:<br />$$\pi_{j+1} = \frac{\pi_j(1 &#8211; P_{jj}) &#8211; \sum_{k=0}^{j-1}\pi_kP_{kj}}{P_{j+1, j}}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.19</strong> Let \(\pi_j, j \geq 0\), be the stationary probabilities for a specified Markov chain.<br /><br /><strong>(a)</strong> Compute the following statements: \(\pi_iP_{ij}\) is the proportion of all transition that . . . .<br />Let \(A\) denote a set of states and let \(A^c\) denote the remaining states.<br /><strong>(b)</strong> Finish the following statement: \(\sum_{j \in A^c}\sum_{i \in A} \pi_iP_{ij}\) is the proportion of all transitions that . . . .<br /><strong>(c)</strong> Let \(N_n(A, A^c)\) denote the number of the first \(n\) transitions that are from a state in \(A\) to one in \(A^c\); similarly, let \(N_n(A^c, A)\) denote the number that are from a state in \(A^c\) to one in \(A\). Argue that<br />$$|N_n(A, A^c) &#8211; N_n(A^c, A) | \leq 1$$<br /><strong>(d)</strong> Prove and interpret the following result:<br />$$ \sum_{j \in A^c}\sum_{i \in A} \pi_iP_{ij} = \sum_{j \in A^c}\sum_{i \in A} \pi_jP_{ji} $$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> from \(i\) to \(j\)<br /><strong>(b)</strong> from \(A^c\) to \(A\)<br /><strong>(c)</strong> Since the states are either in \(A\) or in \(A^c\), the number of transition can only be equal or only one more another.<br /><strong>(d)</strong> Obviously, in the long run, the proportion of all transitions that result in the state of the chain moving from \(A\) to \(A^c\) is equal to the proportion of all transitions that result in the state of the chain moving from \(A^c\) to \(A\).<br /></p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.22</strong> Compute the expected number of plays, starting in \(i\), in the gambler&#8217;s ruin problem, until the gambler reaches either 0 or \(N\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>From Example 4.4(A) we know, <br />$$E[B] = \frac{1}{2p-1}\{\frac{n[1 &#8211; (q/p)^i]}{1 &#8211; (q/p)^N} &#8211; i\}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.23</strong> In the gambler&#8217;s ruin problem show that<br />\(P\{\)she wins the next gamble|present fortune is \(i\), she eventually reaches \(N\}\)<br />$$=\left\{<br />\begin{array}{ll}<br />p[1- (p/q)^{i+1}]/[1-(q/p)^i] \quad p \neq 1/2 \\<br />(i+1)/2i \quad p = 1/2 \\<br />\end{array}<br />\right.   $$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Let event \(A\) denote she wins the next gamble|present fortune is \(i, B\) denote present fortune is \(i\), she eventually reaches \(N\). Then,<br />$$\begin{align}<br />P\{A|B\} &amp;= \frac{P\{AB\}}{P\{B\}}\\<br />&amp;=\left\{\begin{array}{ll}<br />\frac{p[1- (p/q)^{i+1}]/[1-(q/p)^N]}{[1- (p/q)^{i}]/[1-(q/p)^N]} \quad p \neq 1/2 \\<br />\frac{(i+1)/2N}{i/N} \quad p = 1/2 \\<br />\end{array}<br />\right.\\<br />&amp;=\left\{<br />\begin{array}{ll}<br />p[1- (p/q)^{i+1}]/[1-(q/p)^i] \quad p \neq 1/2 \\<br />(i+1)/2i \quad p = 1/2 \\<br />\end{array}<br />\right.  <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.24</strong> Let \(T = \{1, \dots, t\}\) denote the transient states of a Markov chain, and let \(Q\) be, as in Section 4.4, the matrix of transition probabilities from states in \(T\) to states in \(T\). Let \(m_{ij}(n)\) denote the expected amount of time spent in state \(j\) during the first \(n\) transitions given that the chain begins in state \(i\), for \(i\) and \(j\) in \(T\). Let \(M_n\) be the matrix whose element in row \(i\), column \(j\) is \(m_{ij}(n)\).<br /><strong>(a)</strong> Show that \(M_n = I + Q + Q^2 + \dots + Q^n\).<br /><strong>(b)</strong> Show that \(M_n &#8211; I + Q^{n+1} = Q[I + Q + Q^2 + \dots + Q^n]\).<br /><strong>(c)</strong> Show that \(M_n = (I &#8211; Q)^{-1}(I &#8211; Q^{n+1})\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> Obviously, the element of \(Q^{k}\) in row \(i\), column \(j\) is \(P_{ij}^k\), then we have \(m_{ij}(n) = 1 + \sum_{k=1}^n P_{ij}^k\). Proven.<br /><strong>(b)</strong> As shown in (a).<br /><strong>(c)</strong> \(M_n\) can be computed as common geometric sequence.<br /></p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.25</strong> Consider the gambler&#8217;s ruin problem with \(N = 6\) and \(p=7\). Starting in state 3, determine:<br /><strong>(a)</strong> the expected number of visits to state 5.<br /><strong>(b)</strong> the expected number of visits to state 1.<br /><strong>(c)</strong> the expected number of visits to state 5 in the first 7 transitions.<br /><strong>(d)</strong> the probability of ever visiting state 1.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Calculate \(M = (I &#8211; Q)^{-1}\), then<br /><strong>(a)</strong> \(m_{3,5} = 1.3243\) <strong>(b)</strong> \(m_{3,1} = 0.2432\) <strong>(d)</strong> \(f_{3,1} = m_{3,1}/m_{1,1} = 0.1717\)<br /><strong>(c)</strong> From Problem 4.24 (c), compute \(M_{7} = M(I &#8211; Q^8)\), then the (3, 5) element of \(M_7\) is \(0.9932\).<br /><em><a href="https://matrixcalc.org/" target="_blank" rel="noopener noreferrer">Recommend a tool for computing matrix</a></em></p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.26</strong> Consider the Markov chain with states \(0, 1, \dots, n\) and transition probabilities<br />$$P_{0,1} = 1 = P_{n, n-1}, \quad P_{i, i+1} = p = 1 &#8211; P_{i, i-1}, \quad 0 &lt; i &lt; n.$$<br />Let \(\mu_{i,n}\) denote the mean time to go from state \(i\) to state \(n\).<br /><strong>(a)</strong> Derive a set of linear equations for the \(\mu_{i, n}\).<br /><strong>(b)</strong> Let \(m_i\) denote the mean time to go from state \(i\) to state \(i+1\). Derive a set of equations for \(m_i, i=0, \dots, n-1\), and show how they can be solved recursively, first for \(i=0\), then \(i = 1\), and so on.<br /><strong>(c)</strong> What is the relation between \(\mu_{i, n}\) and the \(m_j\).<br />Starting at state 0, say that an excursion ends when the chain either returns to 0 or reaches state \(n\). Let \(X_j\) denote the number of transitions in the jth excursion (that is, the one that begins at the jth return to 0), \(j \geq 1\)<br /><strong>(d)</strong> Find \(E[X_j]\)<br />(Hint: Relate it to the mean time of a gambler&#8217;s ruin problem)<br /><strong>(e)</strong> Let \(N\) denote the first excursion that ends in state \(n\), and find \(E[N]\)<br /><strong>(f)</strong> Find \(\mu_{0,n}\).<br /><strong>(g)</strong> Find \(\mu_{i,n}\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> \(\mu_{i, n} = 1 + p\mu_{i+1,n} + (1-p)\mu_{i-1, n}\)<br /><strong>(b)</strong> $$\begin{align}<br />m_i &amp;= p + (1-p)(1 + m_{i-1} + m_{i})\\<br />m_i + \frac{1}{1 &#8211; 2p} &amp;= \frac{1-p}{p}(m_{i-1} + \frac{1}{1-2p}) \\<br />m_0 &amp;= 1, m_1 = \frac{2-p}{p}<br />\end{align}$$<br /><strong>(c)</strong> \(\mu_{i, n} = \sum_{j=i}^{n-1}m_j\)<br /><strong>(d)</strong> \(E[X_j] = 1 + \frac{1}{2p-1}\{\frac{n[1 &#8211; (q/p)^j]}{1 &#8211; (q/p)^n} &#8211; j\}\)<br /><strong>(e)</strong> \(N\) is a geometric variable with parameter \( a = (1 &#8211; q/p)/[1 &#8211; (q/p)^n]\), thus \(E[N = 1/a]\).<br /><strong>(f)</strong> We can compute \(\mu_{0, n}\) in two ways: <br />$$E[N](E[X_1] + 1) = \sum_{j=0}^{n-1}m_j = \frac{2p(p-1)}{(2p &#8211; 1)^2}[1 &#8211; (\frac{1-p}{p})^n] &#8211; \frac{n}{1-2p}$$<br /><strong>(g)</strong> $$\frac{2p(p-1)}{(2p-1)^2}[(\frac{1-p}{p})^i &#8211; (\frac{1-p}{p})^n] &#8211; \frac{n-i}{1-2p}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.27</strong> Consider a particle that moves along a set of \(m+1\) nodes, labeled \(0, 1, \dots, m\). At each move it either goes one step in the clockwise direction with probability \(p\) or one step in the counterclockwise direction with probability \(1-p\). It continues moving until all the nodes \(1, 2, \dots, m\) have been visited at least once. Starting at node 0, find the probability that node \(i\) is the last node visited, \(i = 1, \dots, m\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>As shown in Example 1.9(B),<br />$$\begin{align}<br />&amp;P\{i \text{ is the last node visited}\}\\<br />=&amp;(1-f_{m-1, m})P\{\text{visit i &#8211; 1 before i + 1}\} + f_{1,m-1}P\{\text{visit i + 1 before i &#8211; 1}\} \\<br />=&amp;(1-f_{m-1, m})f_{m-i, m-1} + f_{1, m-1}(1 &#8211; f_{m-i, m-1}) \\ <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.28</strong> In Problem 4.27, find the expected number of additional steps it takes to return to the initial position after all nodes have been visited.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>$$\begin{align}<br />P_i &amp;= (1-f_{m-1, m})f_{m-i, m-1} + f_{1, m-1}(1 &#8211; f_{m-i, m-1}) \\  <br />q &amp;= 1 &#8211; p\\<br />B_i &amp;= \frac{1}{2p-1}\{ \frac{(m+1)[1 &#8211; (q/p)^i]}{1 &#8211; (q/p)^{m+1}} &#8211; i\} \\<br />E &amp;= \sum_{i=1}^{m} B_iP_i<br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.29</strong> Each day one of \(n\) possible elements is requested, the ith one with probability \(P_i, i \geq 1, \sum_{i=1}^n P_i = 1\). These elements are at all times arranged in an ordered list that is revised as follows: the element selected is moved to the front of the list with the relative positions of all the other elements remaining unchanged. Defined the state at any time to be the list ordering at that time.<br /><strong>(a)</strong> Argue that the above is a Markov chain.<br /><strong>(b)</strong> For any state \(i_1, \dots, i_n\)(which is a permutation of \(1,2, \dots, n\)), let \(\pi(i_1, \dots, i_n)\) denote the limiting probability. Argue that<br />$$\pi(i_1, \dots, i_n) = P_{i_1}\frac{P_{i_2}}{1 &#8211; P_{i_1}}\dots\frac{P_{i_{n-1}}}{1 &#8211; P_{i_1} &#8211; \dots &#8211; P_{i_{n-2}}}$$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p></p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.31</strong> A spider hunting a fly moves between locations 1 and 2 according to a Markov chain with transition matrix \(\begin{bmatrix} 0.7 &amp; 0.3 \\ 0.3 &amp; 0.7\end{bmatrix}\) starting in location 1. The fly, unaware of the spider, starts in location 2 and moves according to a Markov chain with transition matrix \(\begin{bmatrix} 0.4 &amp; 0.6 \\ 0.6 &amp; 0.4\end{bmatrix}\). The spider catches the fly and the hunt ends whenever they meet in the same location.<br />Show that the progress of the hunt, except for knowing the location where it ends, can be described by a three-state Markov chain where one absorbing state represents hunt ended and the other two that the spider and fly are at different locations. Obtain the transition matrix for this chain.<br /><strong>(a)</strong> Find the probability that at time \(n\) the spider and fly are both at their initial locations.<br /><strong>(b)</strong> What is the average duration of the hunt?<br /></p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Let state 1 denote spider at 1,  fly at 2; state 2 denote spider at 2, fly at 1; state 3 denote they are at same location. Then the transition matrix is$$ <br />P = \begin{bmatrix} 0.28 &amp; 0.18 &amp; 0.54 \\ 0.18 &amp; 0.28 &amp; 0.54\\ 0 &amp; 0 &amp; 1\end{bmatrix} $$<br /><strong>(a)</strong> By diagonalize the transition matrix, we can compute<br />$$P^n = <br />\begin{bmatrix} 1 &amp; -1 &amp; 1 \\ 1 &amp; 1 &amp; 1\\ 1 &amp; 0 &amp; 0\end{bmatrix}  <br />\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 0.1^n &amp; 0\\ 0 &amp; 0 &amp; 0.46^n\end{bmatrix}   <br />\begin{bmatrix} 0 &amp; 0 &amp; 1 \\ -0.5 &amp; 0.5 &amp; 0\\ 0.5 &amp; 0.5 &amp; -1\end{bmatrix} $$<br />thus, \((0.1^n + 0.46^n)/2\)<br /><strong>(b)</strong> The duration is a geometric variable with mean \(50/27\)</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.32</strong> Consider a simple random walk on the integer points in which at each step a particle moves one step in the positive direction with probability \(p\), one step in the negative direction with probability \(p\), and remains in the same place with probability \(q = 1 &#8211; 2p(0 &lt; p &lt; 1/2)\). Suppose an absorbing barrier is placed at the origin&#8211;that is, \(P_{00}=1\)&#8211;and a reflecting barrier at \(N\)&#8211;that is, \(P_{N, N-1} = 1\)&#8211;and that the particle starts at \(n (0 &lt; n &lt; N)\).<br />Show that the probability of absorption is 1, and find the mean number of steps.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Let \(A_i\) denote the probability of absorption for a particle starting at \(i\). Then<br />$$A_i = pA_{i-1} + pA_{i+1} + (1-2p)A_i, \quad A_0 = 1, \quad A_{N} = A_{N-1}$$<br />Solve the equations we get, \(A_i = 1\) for all \(i\).<br />Let \(T_i\) denote the expected number of steps starting at \(i\), then<br />$$\begin{align}<br />E[T_i] &amp;= 1 + pE[T_{i-1}] + pE[T_{i+1}] + (1-2p)E[T_i],\\<br />E[T_0] &amp;= 0, \\<br />E[T_N] &amp;= 1 + E[T_{N-1}]\end{align}$$<br />Solve the equation above, we get \(E[T_n] = \frac{n(2N &#8211; n + 2p -1)}{2p}\)</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.33</strong> Given that \(\{X_n, n \geq 0\}\) is a branching process:<br /><strong>(a)</strong> Argue that either \(X_n\) converges to 0 or infinity.<br /><strong>(b)</strong> Show that<br />$$Var(X_n|X_0 = 1) = \left\{\begin{array}{ll}<br />\sigma^2\mu^{n-1} \frac{\mu^n &#8211; 1}{\mu &#8211; 1} \quad \mu \neq 1 \\<br />n\sigma^2 \quad \mu = 1 \\<br />\end{array}<br />\right.  $$<br />where \(\mu\) and \(\sigma^2\) are the mean and variance of the number of offspring an individual has.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> Since any finite set of transient states \(\{1, 2, \dots, n\}\) will be visited only finitely often, this leads to if \(P_0 &gt; 0\), then the population will either die out or its size will converge to infinity.<br /><strong>(b)</strong> $$\begin{align}<br />&amp;Var(X_n|X_0 = 1)\\<br />=&amp; E[Var(X_n|X_{n-1}, X_0=1)] + Var(E[X_n|X_{n-1}, X_0 = 1]) \\<br />=&amp; \sigma^2 E[X_{n-1}|X_0=1] + Var(\mu X_{n-1}|X_0 = 1) \\<br />=&amp; \sigma^2\mu^{n-1} + \mu^2Var(X_{n-1}|X_0=1) \\<br />=&amp; \sigma^2(\mu^{n-1} + \mu^n + \dots + \mu^{2n-2}) \\<br />=&amp; \left\{\begin{array}{ll}<br />\sigma^2\mu^{n-1} \frac{\mu^n &#8211; 1}{\mu &#8211; 1} \quad \mu \neq 1 \\<br />n\sigma^2 \quad \mu = 1 \\<br />\end{array}<br />\right. \end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.34</strong> In a branching process the number of offspring per individual has a binomial distribution with parameters \(2, p\). Starting with a single individual, calculate:<br /><strong>(a)</strong> the extinction probability;<br /><strong>(b)</strong> the probability that the population becomes extinct for the first time in the third generation.<br />Suppose that, instead of starting with a single individual, the initial population size \(Z_0\) is a random variable that is Poisson distributed with mean \(\lambda\). Show that, in this case, the extinction probability is given, for \(p &gt; 1/2\), by<br />$$exp\{\lambda(1-2p)/p^2\}$$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> $$\pi_0 = \sum_{k=0}^2 \pi^k{2 \choose k}p^k(1-p)^{2-k}\\<br />\pi_0 = \left\{\begin{array}{ll}<br />1 \quad p \leq 0.5 \\<br />(1 &#8211; 1/p)^2  \quad p &gt; 0.5 \\<br />\end{array}<br />\right. $$<br /><strong>(b)</strong> Let \(\phi_n(s) = E[s^{X_n}]\). Then \(\phi_n(s) = \phi_1(\phi_{n-1}(s))\), and it&#8217;s easy to see that \(\phi_1(s) = (sp + 1 -p)^2, P\{X_n = 0\} = \phi_n(0)\). Thus,<br />$$\begin{align}<br />&amp;\phi_3(0) &#8211; \phi_2(0) \\<br />=&amp; \phi_1(\phi_1(\phi_1(0))) &#8211; \phi_1(\phi_1(0))\\<br />=&amp; 4p^2(1-p)^4 + 6p^3(1-p)^5 + 6p^4(1-p)^6 + 4p^5(1-p)^7 + p^6(1-p)^8<br />\end{align}$$<br /><strong>(c)</strong> $$\begin{align}<br />&amp;\sum_{k=0}^{\infty} (1 &#8211; 1/p)^{2k} \frac{\lambda^ke^{-\lambda}}{k!} \\<br />=&amp; e^{\lambda(1-2p)/p^2} \sum_{k=0}^{\infty} \frac{[\lambda(1 &#8211; 1/p)^2]^k}{k!}e^{-\lambda(1 &#8211; 1/p)^2 }\\<br />=&amp;exp\{\lambda(1-2p)/p^2\} <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.35</strong> Consider a branching process in which the number of offspring per individual has a Poisson distributed with mean \(\lambda, \lambda &gt; 1\). Let \(\pi_0\) denote the probability that, starting with a single individual, the population eventually becomes extinct. Also, let \(a, a &lt; 1\), be such that$$ae^{-a} = \lambda e^{-\lambda}$$<br /><strong>(a)</strong> Show that \(a = \lambda\pi_0\).<br /><strong>(b)</strong> Show that, conditional on eventual extinction, the branching process follows the same probability law as the branching process in which the number of offspring per individual is Poisson with mean \(a\).<br /></p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> $$\begin{align}<br />\pi_0 &amp;= \sum_{k=0}^{\infty} \frac{\pi^k\lambda^k}{k!} e^{-\lambda}\\ <br />&amp;= e^{\lambda\pi_0-\lambda}\sum_{k=0}^{\infty}\frac{(\lambda\pi_0)^k}{k!}e^{-\lambda\pi_0}\\<br />&amp;= e^{\lambda\pi_0-\lambda} \\ \end{align}$$<br />Thus, <br />$$ae^{-a} = \lambda e^{-\lambda} = \lambda\pi_0e^{-\lambda\pi_0}$$<br /><strong>(b)</strong> $$\begin{align}<br />&amp;P\{X = k| \text{eventually die out}\} \\<br />=&amp;\frac{P\{X=k\}\pi_0^k}{\pi_0} \\<br />=&amp;\frac{(\pi_0\lambda)^{k-1}\lambda e^{-\lambda}}{k!}\\<br />=&amp;\frac{a^ke^{-a}}{k!}<br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.36</strong> For the Markov chain model of Section 4.6.1, namely,<br />$$P_{ij} = \frac{1}{i &#8211; 1}, \quad j = 1, \dots, i-1, \quad i &gt; 1,$$<br />suppose that the initial state is \(N \equiv {n \choose m}\), where \(n&gt;m\). Show that when \(n, m\) and \(n-m\) are large the number of steps to reach 1 from state \(N\) has approximately a Poisson distribution with mean<br />$$m[c\log\frac{c}{c-1} + \log(c-1)],$$<br />where \(c = n/m\). <em>(Hint: Use Stirling&#8217;s approximation.)</em></p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>From Proposition 4.6.2 (iii) we get \(T_N \sim \pi(\log {n \choose m})\).<br />$$\begin{align}<br />\log {n \choose m} &amp;= \log n! &#8211; \log m! &#8211; \log (n-m)! \\<br />&amp;\sim n\log n &#8211; n &#8211; m\log m + m -(n-m)\log(n-m) + (n-m) \\<br />&amp;= n\log\frac{n}{n-m} + m\log\frac{n-m}{m}\\<br />&amp;= m[c\log\frac{c}{c-1} + \log(c-1)] <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.37</strong> For any infinite sequence \(x_1, x_2, \dots\), we say that a new long run begins each time the sequence changes direction. That is, if the sequence starts 5, 2, 4, 5, 6, 9, 3, 4, then there are three long runs&#8211;namely, (5, 2), (4, 5, 6, 9), and (3, 4). Let \(X_1, X_2, \dots\) be independent uniform (0, 1) random variables and let \(I_n\) denote the initial value of the nth long run. Argue that \(\{I_n, n \geq 1\}\) is a Markov chain having a continuous state space with transition probability density given by<br />$$p(y|x) = e^{1-x} + e^x &#8211; e^{|y-x|} &#8211; 1.$$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Similarly to Section 4.6.2, When ascend changed to descend,<br />$$\begin{align}<br />&amp;P\{I_{n+1} \in (y+dy), L_n = m | I_n = x\} \\<br />=&amp;\left\{\begin{array}{ll}<br />\frac{x^{m-1}}{(m-1)!}dy[1 &#8211; (\frac{x-y}{x})^{m-1}]  \quad y &lt; x \\<br />\frac{x^{m-1}}{(m-1)!}dy  \quad y &gt; x \\<br />\end{array}\right. <br />\end{align} $$<br />When descend changed to ascend, <br />$$\begin{align}<br />&amp;P\{I_{n+1} \in (y+dy), L_n = m | I_n = x\} \\<br />=&amp;\frac{x^{m-1}}{(m-1)!}dyP\{min(X_1, \dots, X_{m-1}) &lt; y | X_i &lt; x, i = 1, \dots, m-1\} \\<br />=&amp;\left\{\begin{array}{ll}<br />\frac{x^{m-1}}{(m-1)!}dy[1 &#8211; (\frac{x-y}{x})^{m-1}]  \quad y &lt; x \\<br />\frac{x^{m-1}}{(m-1)!}dy  \quad y &gt; x \\<br />\end{array}\right. <br />\end{align}$$Thus,<br />$$\begin{align}<br />p(y|x) &amp;= \left\{\begin{array}{ll}<br />\sum_{m=2}^{\infty} \{\frac{(1-x)^{m-1}}{(m-1)!} + \frac{x^{m-1}}{(m-1)!}dy[1 &#8211; (\frac{x-y}{x})^{m-1}]\}  \quad y &lt; x \\<br />\sum_{m=2}^{\infty} \{\frac{(1-x)^{m-1}}{(m-1)!}dy[1 &#8211; (\frac{y-x}{1-x})^{m-1}] + \frac{x^{m-1}}{(m-1)!}dy\}  \quad y &gt; x \\<br />\end{array}\right.  \\<br />&amp;= e^{1-x} + e^x &#8211; e^{|y-x|} &#8211; 1 <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.38</strong> Suppose in Example 4.7(B) that if the Markov chain is in state \(i\) and the random variable distributed according to \(q_{ij}\) takes on the value \(j\), then the next state is set equal to \(j\) with probability \(a_j/(a_j + a_i)\) and equal to \(i\) otherwise. Show that the limiting probabilities for this chain are \(\pi_j = a_j/\sum_j a_j\).</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>From Example 4.7(B), we can verify the chain is time reversible with stationary probabilities \(\pi_j\) by verifying:<br />$$\pi_iP_{ij} = \frac{a_i}{\sum_k a_k}\frac{q_{ij}a_j}{a_i+a_j} = \pi_jP_{ji}$$<br />Since the above equation is immediate, we can follow the same reason to conclude that \(\pi_j = a_j/\sum_j a_j\) are the limiting probabilities.</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.39</strong> Find the transition probabilities for the Markov chain of Example 4.3(D) and show that it is time reversible.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>$$P_{ij} = \sum_{k=0}^{min(i,j)} {i \choose k}(1-p)^kp^{i-k}\frac{e^{-\lambda}\lambda^{j-k}}{(j-k)!}$$<br />Thus by the formula \(\pi_j = e^{-\lambda/p}(\lambda/p)^j/j!\), we get \(\pi_iP_{ij} = \pi_jP_{ji}\)</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.41</strong> A particle moves among \(n\) locations that are arranged in a circle (with the neighbors of location \(n\) being \(n-1\) and 1). At each step, it moves one position either in the clockwise position with probability \(p\) or in the counterclockwise position with probability \(1 &#8211; p\)<br /><strong>(a)</strong> Find the transition probabilities of the reverse chain.<br /><strong>(b)</strong> Is the chain time reversible?</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> \(P_{i, i+1} = p, P_{i, i-1} = 1-p\) for \(1 &lt; i &lt; n\), and \(P_{1,2} = P_{n,1} = p\), \(P_{1,n} = P_{n, n-1} = 1-p\).<br /><strong>(b)</strong> The chain is time reversible when \(p = 1/2\)</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.42</strong> Consider the Markov chain with states \(0, 1, \dots, n\) and with transition probabilities<br />$$P_{0,1} = P_{n, n-1} = 1, \quad P_{i, i+1} = p_i = 1 &#8211; P_{i, i-1}, \quad i = 1, \dots, n-1.$$<br />Show that this Markov chain is of the type considered in Proposition 4.7.1 and find its stationary probabilities.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>The chain can be considered as a weighted graph, with \(w_{ij} = P_{ij}\). The stationary probabilities are<br />$$\pi_i = \frac{\sum_j P_{ij}}{\sum_j\sum_iP{ij}} = \frac{1}{n}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.44</strong> Consider a time-reversible Markov chain with transition probabilities \(P_{ij}\) and limiting probabilities \(\pi_i\), and now consider the same chain truncated to the states \(0, 1, \dots, M\). That is, for the truncated chain its transition probabilities \(P_{ij}\) are$$ <br />\bar{P_{ij}} = \left\{<br />\begin{array}{ll}<br />P_{ij} + \sum_{k &gt; M}P_{ik} \quad 0 \leq i \leq M, j = i \\<br />P_{ij} \quad 0 \leq i \neq j \leq M \\<br />0 \quad \text{otherwise}.<br />\end{array}<br />\right. $$<br />Show that the truncated chain is also time reversible and has limiting probabilities given by$$\bar{\pi_i} = \frac{\pi_i}{\sum_{i=0}^M\pi_i}$$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>$$\begin{align}<br />\bar{\pi_i}\bar{P_{ij}} &amp;= \frac{\pi_i}{\sum_{i=0}^{M}\pi_i}(P_{ij} + I_{\{i=j\}}\sum_{k&gt;M}^MP_{ik}) \\<br />&amp;= \frac{\pi_j}{\sum_{i=0}^{M}\pi_i}(P_{ji} + I_{\{i=j\}}\sum_{k&gt;M}^MP_{jk}) \\ <br />&amp;= \bar{\pi_j}\bar{P_{ji}} <br />\end{align}$$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.45</strong> Show that a finite state, ergodic Markov chain such that \(P_{ij} &gt; 0\) for all \(i \neq j\) is time reversible if, and only if,<br />$$P_{ij}P_{jk}P_{ki} = P_{ik}P_{kj}P_{ji} \quad \text{for all } i, j, k$$</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Suppose \(\pi_j = cP_{ij}/P_{ji}\), where \(c\) must be chosen so that \(\sum_j \pi_j = 1\). Then \(\pi_jP_{jk}= \pi_kP_{kj}\) if and only if<br />$$\frac{cP_{ij}P_{jk}}{P_{ji}} = \frac{cP_{ik}P_{kj}}{P_{ki}} $$<br />if and only if \(P_{ij}P_{jk}P_{ki} = P_{ik}P_{kj}P_{ji} \)</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.47</strong> \(M\) ball are initially distributed among \(m\) urns. At each stage one of the balls is selected at random, taken from whichever urn it is in, and placed, at random, in one of the other \(m-1\) urns. Consider the Markov chain whose state at any time is the vector \(n_1, \dots, n_m\), where \(n_i\) denotes the number of balls in urn \(i\). Guess at the limiting probabilities for this Markov chain and then verify your guess and show at the same time that the Markov chain is time reversible.</p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>Guess the limiting distribution is the Multinomial distribution:<br />$$\pi(n_1, n_2, \dots, n_m) = \frac{M!}{n_1!\dots n_m!m^M}$$ where \(n_i \geq 0, n_1 + \dots + n_m = M\). Now for two vectors \( (n_1, n_2, \dots, n_m)\) and \( (n_1, n_2, \dots, n_i+1, \dots, n_j -1, \dots, n_m)\), if \(i \neq j, n_j &gt; 0\), then the transition probability is<br />$$\begin{align}<br />&amp;P((n_1, \dots, n_i + 1, \dots, n_j &#8211; 1, \dots, n_m ),(n_1, \dots, n_m))\\<br />=&amp;\frac{n_i + 1}{M}\frac{1}{m-1}\end{align}$$<br />Therefore, we have<br />$$\begin{align}<br />\sum_{1 \leq i \neq j \leq m} &amp;\pi(n_1, \dots, n_i + 1, \dots, n_j &#8211; 1, \dots, n_m)\\<br />&amp;P((n_1, \dots, n_i + 1, \dots, n_j &#8211; 1, \dots, n_m ),(n_1, \dots, n_m)) \\<br />=&amp;\sum_{1 \leq i \neq j \leq m} \frac{M!}{n_1!\dots (n_i+1)!\dots(n_j-1)!\dots n_m!m^M}\frac{n_i+1}{M}\frac{1}{m-1} \\<br />=&amp; \frac{M!}{n_1!\dots n_m!m^M} \sum_{1 \leq i \neq j \leq m} \frac{n_j}{M(m-1)}\\<br />=&amp; \pi(n_1, \dots, n_m)<br />\end{align}$$ </p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.48</strong> For an ergodic semi-Markov process.<br /><strong>(a)</strong> Compute the rate at which the process makes a transition from \(i\) into \(j\).<br /><strong>(b)</strong> Show that \(\sum_{i} P_{ij}/\mu_{ii} = 1/\mu_{jj}.\)<br /><strong>(c)</strong> Show that the proportion of time that the process is in state \(i\) and headed for state \(j\) is \(P_{ij}\eta_{ij}/\mu_{ii}\), where \(\eta_{ij} = \int_0^{\infty}\bar{F_{ij}}(t)dt.\)<br /><strong>(d)</strong> Show that the proportion of time that the state is \(i\) and will next be \(j\) within a time \(x\) is$$\frac{P_{ij}\eta_{ij}}{\mu_{ii}}F_{i,j}^e(x),$$ where \(F_{i,j}^e\) is the equilibrium distribution of \(F_{ij}\).<br /></p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p><strong>(a)</strong> Define a (delayed) renewal reward process: a renewal occurs when state \(i\) is entered from other states and the reward of each n-th cycle \(R_n\) equals 1 if in the n-th cycle, the state after \(i\) is \(j\) and 0 otherwise. Let \(R_{ij}(t)\) be the total number of transitions from \(i\) to \(j\) by time \(t\). We have<br />$$\sum_{n=0}^{N(t)}R_n \leq R_{ij}(t) \leq \sum_{n=0}^{N(t) + 1}R_n \leq \sum_{n=0}^{N(t)} R_n + 1.$$ Thus the rate at which the process makes a transition from \(i\) to \(j\) equals<br />$$\lim_{t \to \infty} \frac{R_{ij}(t)}{t} = \frac{E[R]}{E[X]} = \frac{P_{ij}}{\mu_{ii}}$$<br /><strong>(b)</strong> Let \(R_j(t)\) be the number of visits to state \(j\) by time \(t\). Thus<br />$$\begin{align}<br />\sum_i R_{ij}(t) &amp;= R_j(t) \\<br />\sum_i \lim_{t \to \infty} \frac{R_{ij}(t)}{t} &amp;= \lim_{t \to \infty}\frac{R_j(t)}{t} \\<br />\sum_{i} P_{ij}/\mu_{ii} &amp;= 1/\mu_{jj} <br />\end{align}$$<br /><strong>(c)</strong> Define cycle as in part (a) and the reward in a cycle to be 0 if the transition from \(i\) is not into \(j\) and \(T_{ij}\) the time taken for transition if the transition from \(i\) is into \(j\). Thus<br />$$\lim_{t \to \infty} \frac{R(t)}{t} = \frac{E[R]}{E[X]} = \frac{P_{ij}E[T_{ij}]}{\mu_ij} = \frac{P_{ij}\eta_{ij}}{\mu_{ii}}$$<br /><strong>(d)</strong> Define cycle as in last part and the reward in a cycle as 0 if the transition from \(i\) is not into \(j\) and \(min(x, T_{ij})\) if the transition from \(i\) is into \(j\). Thus<br />$$\lim_{t \to \infty} \frac{R(t)}{t} = \frac{E[R]}{E[X]} = \frac{P_{ij}E[min(x, T_{ij})]}{\mu_{ii}} = \frac{P_{ij}\eta_{ij}}{\mu_{ii}}F_{i,j}^e(x) $$</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.49</strong> For an ergodic semi-Markov process derive an expression, as \(t \to \infty\), for the limiting conditional probability that the next state visited after \(t\) is state \(j\), given \(X(t) = i\).<br /></p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p></p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+<p><strong>4.50</strong> A taxi alternates between three locations. When it reaches location 1, it is equally likely to go next to either 2 or 3. When it reaches 2, it will next go to 1 with probability 1/3 and to 3 with probability 2/3. From 3 it always goes to 1. The mean times between locations \(i\) and \(j\) are \(t_{12} = 20, t_{13} = 30, t_{23} = 30 (t_{ij} = t_{ji})\).<br /><strong>(a)</strong> What is the (limiting) probability that the taxi&#8217;s most recent stop was at location \(i, i = 1, 2, 3\) ?<br /><strong>(b)</strong> What is the (limiting) probability that the taxi is heading for location 2?<br /><strong>(c)</strong> What fraction of time is the taxi traveling from 2 to 3? <em>Note: Upon arrival at a location the taxi immediately departs.</em></p>
+
+
+<hr class="wp-block-separator"/>
+
+
+<p>The transition matrix is \(\begin{bmatrix} 0 &amp; 1/2 &amp; 1/2 \\ 1/3 &amp; 0 &amp; 2/3\\ 1 &amp; 0 &amp; 0\end{bmatrix} \)<br />And the stationary probabilities are \(\pi_1 = 6/14, \pi_2 = 3/14, \pi_3 = 5/14\).<br />Since \(\mu_i = \sum_i P_{ij}\mu_{ij}\), we have \(\mu_1 = 25, \mu_2 = 80/3, \mu_3 = 30\).<br /><strong>(a)</strong> From Proposition 4.8.3, we have \(P_1 = 15/38, P_2 = 8/38, P_3 = 16/38\).<br /><strong>(b)</strong> From Problem 4.48(c), we have \(P_{12}\eta_{12}P_1/\mu_1 = 3/19\).<br /><strong>(c)</strong> Similar to (b), \(P_{23}\eta_{23}P_2/\mu_2 = 3/19\).</p>
+
+
+<hr class="wp-block-separator is-style-wide"/>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer"><span class="cat-tags-links"><span class="cat-links"><svg class="icon icon-folder-open" aria-hidden="true" role="img"> <use href="#icon-folder-open" xlink:href="#icon-folder-open"></use> </svg><span class="screen-reader-text">Categories</span><a href="http://www.charmpeach.com/category/stochastic-processes/" rel="category tag">Stochastic Processes</a></span></span></footer> <!-- .entry-footer -->
+</article><!-- #post-723 -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			4 Replies to &ldquo;Solutions to Stochastic Processes Ch.4&rdquo;		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-2" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-2" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/801168e73abe8d2689f86b584cafa676?s=100&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/801168e73abe8d2689f86b584cafa676?s=200&#038;d=mm&#038;r=g 2x' class='avatar avatar-100 photo' height='100' width='100' loading='lazy' decoding='async'/>						<b class="fn">TAO JUNJI</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/#comment-2"><time datetime="2019-12-19T19:10:20-08:00">2019-12-19 at 19:10</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>4.9的解答，第二个分式似乎不太对，分母少了一个数:<br />
+$P^{2}_{i_{k-1},i_{k+1}}$<br />
+应该是这个数与原来分母的乘积做式子的分母。<br />
+即少了k-1时在ik-1处的前提下，k+1时在ik+1处的概率。</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/?replytocom=2#respond' data-commentid="2" data-postid="723" data-belowelement="div-comment-2" data-respondelement="respond" data-replyto="Reply to TAO JUNJI" aria-label='Reply to TAO JUNJI'><svg class="icon icon-mail-reply" aria-hidden="true" role="img"> <use href="#icon-mail-reply" xlink:href="#icon-mail-reply"></use> </svg>Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-4" class="comment odd alt depth-2 parent">
+			<article id="div-comment-4" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/97270bfbbd9b1977d9b525b265c5495e?s=100&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/97270bfbbd9b1977d9b525b265c5495e?s=200&#038;d=mm&#038;r=g 2x' class='avatar avatar-100 photo' height='100' width='100' loading='lazy' decoding='async'/>						<b class="fn">Jin</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/#comment-4"><time datetime="2019-12-20T07:05:28-08:00">2019-12-20 at 07:05</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>对的，少了第三步中间那个分母，感谢指正，我来改一下！</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/?replytocom=4#respond' data-commentid="4" data-postid="723" data-belowelement="div-comment-4" data-respondelement="respond" data-replyto="Reply to Jin" aria-label='Reply to Jin'><svg class="icon icon-mail-reply" aria-hidden="true" role="img"> <use href="#icon-mail-reply" xlink:href="#icon-mail-reply"></use> </svg>Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-5" class="comment even depth-3 parent">
+			<article id="div-comment-5" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/801168e73abe8d2689f86b584cafa676?s=100&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/801168e73abe8d2689f86b584cafa676?s=200&#038;d=mm&#038;r=g 2x' class='avatar avatar-100 photo' height='100' width='100' loading='lazy' decoding='async'/>						<b class="fn">TAO JUNJI</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/#comment-5"><time datetime="2019-12-20T23:46:38-08:00">2019-12-20 at 23:46</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>大佬常用什么社交软件，有兴趣添加下联系方式吗？<br />
+对你写的东西以及你经历的事情颇有兴趣…虽然我可能不是像你那么优秀的人……</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/?replytocom=5#respond' data-commentid="5" data-postid="723" data-belowelement="div-comment-5" data-respondelement="respond" data-replyto="Reply to TAO JUNJI" aria-label='Reply to TAO JUNJI'><svg class="icon icon-mail-reply" aria-hidden="true" role="img"> <use href="#icon-mail-reply" xlink:href="#icon-mail-reply"></use> </svg>Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-6" class="comment odd alt depth-4">
+			<article id="div-comment-6" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/97270bfbbd9b1977d9b525b265c5495e?s=100&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/97270bfbbd9b1977d9b525b265c5495e?s=200&#038;d=mm&#038;r=g 2x' class='avatar avatar-100 photo' height='100' width='100' loading='lazy' decoding='async'/>						<b class="fn">Jin</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/#comment-6"><time datetime="2019-12-21T18:53:51-08:00">2019-12-21 at 18:53</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>谢谢你的赞同，平时就用用微信，都是很私人的东西，没什么营养，可以知乎上私信我，“你有种放学别走”，应该比这个及时一点。</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/?replytocom=6#respond' data-commentid="6" data-postid="723" data-belowelement="div-comment-6" data-respondelement="respond" data-replyto="Reply to Jin" aria-label='Reply to Jin'><svg class="icon icon-mail-reply" aria-hidden="true" role="img"> <use href="#icon-mail-reply" xlink:href="#icon-mail-reply"></use> </svg>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol>
+
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/stochastic-processes/solutions-to-stochastic-processes-ch-4/723/#respond" style="display:none;">Cancel reply</a></small></h3><form action="http://www.charmpeach.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url" /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+		<p class="comment-form-attachment">
+							<label class="comment-form-attachment__label" for="attachment">
+					Attachment				</label>
+								<input class="comment-form-attachment__input" id="attachment" name="attachment" type="file" accept=".jpg,.jpeg,.jpe,.gif,.png,.bmp,.tiff,.tif,.webp,.ico,.heic,.asf,.asx,.wmv,.wmx,.wm,.avi,.divx,.flv,.mov,.qt,.mpeg,.mpg,.mpe,.mp4,.m4v,.ogv,.webm,.mkv,.3gp,.3gpp,.3g2,.3gp2,.txt,.asc,.c,.cc,.h,.srt,.csv,.tsv,.ics,.rtx,.css,.vtt,.dfxp,.mp3,.m4a,.m4b,.aac,.ra,.ram,.wav,.ogg,.oga,.flac,.mid,.midi,.wma,.wax,.mka,.rtf,.pdf,.class,.tar,.zip,.gz,.gzip,.rar,.7z,.psd,.xcf,.doc,.pot,.pps,.ppt,.wri,.xla,.xls,.xlt,.xlw,.mdb,.mpp,.docx,.docm,.dotx,.dotm,.xlsx,.xlsm,.xlsb,.xltx,.xltm,.xlam,.pptx,.pptm,.ppsx,.ppsm,.potx,.potm,.ppam,.sldx,.sldm,.onetoc,.onetoc2,.onetmp,.onepkg,.oxps,.xps,.odt,.odp,.ods,.odg,.odc,.odb,.odf,.wp,.wpd,.key,.numbers,.pages" />
+								<span class="comment-form-attachment__file-size-notice">
+					The maximum upload file size: 32 MB.				</span>
+								<span class="comment-form-attachment__file-types-notice">
+					You can upload: <abbr title="jpg, jpeg, jpe, gif, png, bmp, tiff, tif, webp, ico, heic">image</abbr>, <abbr title="mp3, m4a, m4b, aac, ram, wav, ogg, oga, flac, wma, mka">audio</abbr>, <abbr title="asf, wmv, avi, divx, flv, mov, qt, mpeg, mpg, mp4, m4v, ogv, mkv, 3gp, 3gpp, 3g2">video</abbr>, <abbr title="rtf, pdf, psd, xcf, doc, docx, docm, dotm, oxps, xps, odt, wp, wpd, pages">document</abbr>, <abbr title="xls, xlsx, xlsm, xlsb, ods, numbers">spreadsheet</abbr>, <abbr title="pps, ppt, pptx, pptm, ppsx, ppsm, sldx, sldm, odp, key">interactive</abbr>, <abbr title="txt, asc, csv, tsv">text</abbr>, <abbr title="tar, zip, gz, rar, 7z">archive</abbr>, <abbr title="css">code</abbr>, <abbr title="asx, wmx, wm, mpe, webm, 3gp2, c, cc, h, srt, ics, rtx, vtt, dfxp, ra, mid, midi, wax, class, gzip, pot, wri, xla, xlt, xlw, mdb, mpp, dotx, xltx, xltm, xlam, potx, potm, ppam, onetoc, onetoc2, onetmp, onepkg, odg, odc, odb, odf">other</abbr>.				</span>
+									<span class="comment-form-attachment__autoembed-links-notice">
+						Links to YouTube, Facebook, Twitter and other services inserted in the comment text will be automatically embedded.					</span>
+									<span class="comment-form-attachment__drop-area">
+					<span class="comment-form-attachment__drop-area-inner">
+						Drop file here					</span>
+				</span>
+						</p>
+		<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='723' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://www.charmpeach.com/jottings/%e5%86%99%e5%9c%a8%e5%a4%a7%e7%9b%98%e9%87%8d%e5%9b%9e3000%e7%82%b9/651/" rel="prev"><span class="screen-reader-text">Previous Post</span><span aria-hidden="true" class="nav-subtitle">Previous</span> <span class="nav-title"><span class="nav-title-icon-wrapper"><svg class="icon icon-arrow-left" aria-hidden="true" role="img"> <use href="#icon-arrow-left" xlink:href="#icon-arrow-left"></use> </svg></span>写在大盘重回3000点</span></a></div><div class="nav-next"><a href="http://www.charmpeach.com/stochastic-processes/solutions-to-stochastic-processes-ch-5/863/" rel="next"><span class="screen-reader-text">Next Post</span><span aria-hidden="true" class="nav-subtitle">Next</span> <span class="nav-title">Solutions to Stochastic Processes Ch.5<span class="nav-title-icon-wrapper"><svg class="icon icon-arrow-right" aria-hidden="true" role="img"> <use href="#icon-arrow-right" xlink:href="#icon-arrow-right"></use> </svg></span></span></a></div></div>
+	</nav>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+	
+<aside id="secondary" class="widget-area" aria-label="Blog Sidebar">
+	<section id="search-2" class="widget widget_search">
+
+<form role="search" method="get" class="search-form" action="http://www.charmpeach.com/">
+	<label for="search-form-1">
+		<span class="screen-reader-text">
+			Search for:		</span>
+	</label>
+	<input type="search" id="search-form-1" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+	<button type="submit" class="search-submit"><svg class="icon icon-search" aria-hidden="true" role="img"> <use href="#icon-search" xlink:href="#icon-search"></use> </svg><span class="screen-reader-text">
+		Search	</span></button>
+</form>
+</section>
+		<section id="recent-posts-2" class="widget widget_recent_entries">
+		<h2 class="widget-title">Recent Posts</h2><nav aria-label="Recent Posts">
+		<ul>
+											<li>
+					<a href="http://www.charmpeach.com/investment/%e7%9b%b8%e4%bf%a1%e6%9c%aa%e6%9d%a5/1312/">相信未来</a>
+									</li>
+											<li>
+					<a href="http://www.charmpeach.com/jottings/%e8%87%aa%e7%94%b1%e6%84%8f%e5%bf%97%e6%98%af%e5%90%a6%e5%8f%aa%e6%98%af%e4%b8%80%e7%a7%8d%e9%94%99%e8%a7%89%ef%bc%9f/1307/">自由意志是否只是一种错觉？</a>
+									</li>
+											<li>
+					<a href="http://www.charmpeach.com/reading-notes/%e4%ba%ba%e7%9a%84%e4%b8%80%e7%94%9f%e5%ba%94%e5%bd%93%e6%80%8e%e6%a0%b7%e5%ba%a6%e8%bf%87%ef%bc%9f/1295/">人的一生应当怎样度过？</a>
+									</li>
+											<li>
+					<a href="http://www.charmpeach.com/jottings/%e5%8d%9a%e5%ae%a2%e8%bf%81%e7%a7%bb%e4%ba%86/1258/">博客迁移了</a>
+									</li>
+											<li>
+					<a href="http://www.charmpeach.com/jottings/2020-01-08%e5%a4%9c/1253/">2020.01.08夜</a>
+									</li>
+					</ul>
+
+		</nav></section><section id="categories-4" class="widget widget_categories"><h2 class="widget-title">Categories</h2><nav aria-label="Categories">
+			<ul>
+					<li class="cat-item cat-item-2"><a href="http://www.charmpeach.com/category/investment/">Investment</a> (5)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.charmpeach.com/category/machine-learning/">Machine Learning</a> (2)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.charmpeach.com/category/stochastic-processes/">Stochastic Processes</a> (11)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.charmpeach.com/category/uncategorized/">Uncategorized</a> (2)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.charmpeach.com/category/reading-notes/">读书笔记</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.charmpeach.com/category/jottings/">随笔</a> (13)
+</li>
+			</ul>
+
+			</nav></section></aside><!-- #secondary -->
+</div><!-- .wrap -->
+
+
+		</div><!-- #content -->
+
+		<footer id="colophon" class="site-footer">
+			<div class="wrap">
+				
+<div class="site-info">
+		<a href="https://wordpress.org/" class="imprint">
+		Proudly powered by WordPress	</a>
+</div><!-- .site-info -->
+			</div><!-- .wrap -->
+		</footer><!-- #colophon -->
+	</div><!-- .site-content-contain -->
+</div><!-- #page -->
+<script id='twentyseventeen-skip-link-focus-fix-js-extra'>
+var twentyseventeenScreenReaderText = {"quote":"<svg class=\"icon icon-quote-right\" aria-hidden=\"true\" role=\"img\"> <use href=\"#icon-quote-right\" xlink:href=\"#icon-quote-right\"><\/use> <\/svg>"};
+</script>
+<script src='http://www.charmpeach.com/wp-content/themes/twentyseventeen/assets/js/skip-link-focus-fix.js?ver=20161114' id='twentyseventeen-skip-link-focus-fix-js'></script>
+<script src='http://www.charmpeach.com/wp-content/themes/twentyseventeen/assets/js/global.js?ver=20211130' id='twentyseventeen-global-js'></script>
+<script src='http://www.charmpeach.com/wp-content/themes/twentyseventeen/assets/js/jquery.scrollTo.js?ver=2.1.3' id='jquery-scrollto-js'></script>
+<script src='http://www.charmpeach.com/wp-includes/js/comment-reply.min.js?ver=6.2.2' id='comment-reply-js'></script>
+<script id='dco-comment-attachment-js-extra'>
+var dco_ca = {"commenting_form_not_found":"The commenting form not found."};
+</script>
+<script src='http://www.charmpeach.com/wp-content/plugins/dco-comment-attachment/assets/dco-comment-attachment.js?ver=2.4.0' id='dco-comment-attachment-js'></script>
+<script id='wpfront-scroll-top-js-extra'>
+var wpfront_scroll_top_data = {"source":"http:\/\/www.charmpeach.com\/wp-admin\/admin-ajax.php?action=wpfront-scroll-top-load&a=0&v=2.1.1.08151&l=0"};
+</script>
+<script src='http://www.charmpeach.com/wp-content/plugins/wpfront-scroll-top/js/wpfront-scroll-top.min.js?ver=2.1.1.08151' id='wpfront-scroll-top-js'></script>
+<script src='https://lib.baomitu.com/mathjax/3.0.5/es5/tex-mml-chtml.js?config=default&#038;ver=1.3.12' id='mathjax-js'></script>
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-behance" viewBox="0 0 37 32">
+<path class="path1" d="M33 6.054h-9.125v2.214h9.125v-2.214zM28.5 13.661q-1.607 0-2.607 0.938t-1.107 2.545h7.286q-0.321-3.482-3.571-3.482zM28.786 24.107q1.125 0 2.179-0.571t1.357-1.554h3.946q-1.786 5.482-7.625 5.482-3.821 0-6.080-2.357t-2.259-6.196q0-3.714 2.33-6.17t6.009-2.455q2.464 0 4.295 1.214t2.732 3.196 0.902 4.429q0 0.304-0.036 0.839h-11.75q0 1.982 1.027 3.063t2.973 1.080zM4.946 23.214h5.286q3.661 0 3.661-2.982 0-3.214-3.554-3.214h-5.393v6.196zM4.946 13.625h5.018q1.393 0 2.205-0.652t0.813-2.027q0-2.571-3.393-2.571h-4.643v5.25zM0 4.536h10.607q1.554 0 2.768 0.25t2.259 0.848 1.607 1.723 0.563 2.75q0 3.232-3.071 4.696 2.036 0.571 3.071 2.054t1.036 3.643q0 1.339-0.438 2.438t-1.179 1.848-1.759 1.268-2.161 0.75-2.393 0.232h-10.911v-22.5z"></path>
+</symbol>
+<symbol id="icon-deviantart" viewBox="0 0 18 32">
+<path class="path1" d="M18.286 5.411l-5.411 10.393 0.429 0.554h4.982v7.411h-9.054l-0.786 0.536-2.536 4.875-0.536 0.536h-5.375v-5.411l5.411-10.411-0.429-0.536h-4.982v-7.411h9.054l0.786-0.536 2.536-4.875 0.536-0.536h5.375v5.411z"></path>
+</symbol>
+<symbol id="icon-medium" viewBox="0 0 32 32">
+<path class="path1" d="M10.661 7.518v20.946q0 0.446-0.223 0.759t-0.652 0.313q-0.304 0-0.589-0.143l-8.304-4.161q-0.375-0.179-0.634-0.598t-0.259-0.83v-20.357q0-0.357 0.179-0.607t0.518-0.25q0.25 0 0.786 0.268l9.125 4.571q0.054 0.054 0.054 0.089zM11.804 9.321l9.536 15.464-9.536-4.75v-10.714zM32 9.643v18.821q0 0.446-0.25 0.723t-0.679 0.277-0.839-0.232l-7.875-3.929zM31.946 7.5q0 0.054-4.58 7.491t-5.366 8.705l-6.964-11.321 5.786-9.411q0.304-0.5 0.929-0.5 0.25 0 0.464 0.107l9.661 4.821q0.071 0.036 0.071 0.107z"></path>
+</symbol>
+<symbol id="icon-slideshare" viewBox="0 0 32 32">
+<path class="path1" d="M15.589 13.214q0 1.482-1.134 2.545t-2.723 1.063-2.723-1.063-1.134-2.545q0-1.5 1.134-2.554t2.723-1.054 2.723 1.054 1.134 2.554zM24.554 13.214q0 1.482-1.125 2.545t-2.732 1.063q-1.589 0-2.723-1.063t-1.134-2.545q0-1.5 1.134-2.554t2.723-1.054q1.607 0 2.732 1.054t1.125 2.554zM28.571 16.429v-11.911q0-1.554-0.571-2.205t-1.982-0.652h-19.857q-1.482 0-2.009 0.607t-0.527 2.25v12.018q0.768 0.411 1.58 0.714t1.446 0.5 1.446 0.33 1.268 0.196 1.25 0.071 1.045 0.009 1.009-0.036 0.795-0.036q1.214-0.018 1.696 0.482 0.107 0.107 0.179 0.161 0.464 0.446 1.089 0.911 0.125-1.625 2.107-1.554 0.089 0 0.652 0.027t0.768 0.036 0.813 0.018 0.946-0.018 0.973-0.080 1.089-0.152 1.107-0.241 1.196-0.348 1.205-0.482 1.286-0.616zM31.482 16.339q-2.161 2.661-6.643 4.5 1.5 5.089-0.411 8.304-1.179 2.018-3.268 2.643-1.857 0.571-3.25-0.268-1.536-0.911-1.464-2.929l-0.018-5.821v-0.018q-0.143-0.036-0.438-0.107t-0.42-0.089l-0.018 6.036q0.071 2.036-1.482 2.929-1.411 0.839-3.268 0.268-2.089-0.643-3.25-2.679-1.875-3.214-0.393-8.268-4.482-1.839-6.643-4.5-0.446-0.661-0.071-1.125t1.071 0.018q0.054 0.036 0.196 0.125t0.196 0.143v-12.393q0-1.286 0.839-2.196t2.036-0.911h22.446q1.196 0 2.036 0.911t0.839 2.196v12.393l0.375-0.268q0.696-0.482 1.071-0.018t-0.071 1.125z"></path>
+</symbol>
+<symbol id="icon-snapchat-ghost" viewBox="0 0 30 32">
+<path class="path1" d="M15.143 2.286q2.393-0.018 4.295 1.223t2.92 3.438q0.482 1.036 0.482 3.196 0 0.839-0.161 3.411 0.25 0.125 0.5 0.125 0.321 0 0.911-0.241t0.911-0.241q0.518 0 1 0.321t0.482 0.821q0 0.571-0.563 0.964t-1.232 0.563-1.232 0.518-0.563 0.848q0 0.268 0.214 0.768 0.661 1.464 1.83 2.679t2.58 1.804q0.5 0.214 1.429 0.411 0.5 0.107 0.5 0.625 0 1.25-3.911 1.839-0.125 0.196-0.196 0.696t-0.25 0.83-0.589 0.33q-0.357 0-1.107-0.116t-1.143-0.116q-0.661 0-1.107 0.089-0.571 0.089-1.125 0.402t-1.036 0.679-1.036 0.723-1.357 0.598-1.768 0.241q-0.929 0-1.723-0.241t-1.339-0.598-1.027-0.723-1.036-0.679-1.107-0.402q-0.464-0.089-1.125-0.089-0.429 0-1.17 0.134t-1.045 0.134q-0.446 0-0.625-0.33t-0.25-0.848-0.196-0.714q-3.911-0.589-3.911-1.839 0-0.518 0.5-0.625 0.929-0.196 1.429-0.411 1.393-0.571 2.58-1.804t1.83-2.679q0.214-0.5 0.214-0.768 0-0.5-0.563-0.848t-1.241-0.527-1.241-0.563-0.563-0.938q0-0.482 0.464-0.813t0.982-0.33q0.268 0 0.857 0.232t0.946 0.232q0.321 0 0.571-0.125-0.161-2.536-0.161-3.393 0-2.179 0.482-3.214 1.143-2.446 3.071-3.536t4.714-1.125z"></path>
+</symbol>
+<symbol id="icon-yelp" viewBox="0 0 27 32">
+<path class="path1" d="M13.804 23.554v2.268q-0.018 5.214-0.107 5.446-0.214 0.571-0.911 0.714-0.964 0.161-3.241-0.679t-2.902-1.589q-0.232-0.268-0.304-0.643-0.018-0.214 0.071-0.464 0.071-0.179 0.607-0.839t3.232-3.857q0.018 0 1.071-1.25 0.268-0.339 0.705-0.438t0.884 0.063q0.429 0.179 0.67 0.518t0.223 0.75zM11.143 19.071q-0.054 0.982-0.929 1.25l-2.143 0.696q-4.911 1.571-5.214 1.571-0.625-0.036-0.964-0.643-0.214-0.446-0.304-1.339-0.143-1.357 0.018-2.973t0.536-2.223 1-0.571q0.232 0 3.607 1.375 1.25 0.518 2.054 0.839l1.5 0.607q0.411 0.161 0.634 0.545t0.205 0.866zM25.893 24.375q-0.125 0.964-1.634 2.875t-2.42 2.268q-0.661 0.25-1.125-0.125-0.25-0.179-3.286-5.125l-0.839-1.375q-0.25-0.375-0.205-0.821t0.348-0.821q0.625-0.768 1.482-0.464 0.018 0.018 2.125 0.714 3.625 1.179 4.321 1.42t0.839 0.366q0.5 0.393 0.393 1.089zM13.893 13.089q0.089 1.821-0.964 2.179-1.036 0.304-2.036-1.268l-6.75-10.679q-0.143-0.625 0.339-1.107 0.732-0.768 3.705-1.598t4.009-0.563q0.714 0.179 0.875 0.804 0.054 0.321 0.393 5.455t0.429 6.777zM25.714 15.018q0.054 0.696-0.464 1.054-0.268 0.179-5.875 1.536-1.196 0.268-1.625 0.411l0.018-0.036q-0.411 0.107-0.821-0.071t-0.661-0.571q-0.536-0.839 0-1.554 0.018-0.018 1.339-1.821 2.232-3.054 2.679-3.643t0.607-0.696q0.5-0.339 1.161-0.036 0.857 0.411 2.196 2.384t1.446 2.991v0.054z"></path>
+</symbol>
+<symbol id="icon-vine" viewBox="0 0 27 32">
+<path class="path1" d="M26.732 14.768v3.536q-1.804 0.411-3.536 0.411-1.161 2.429-2.955 4.839t-3.241 3.848-2.286 1.902q-1.429 0.804-2.893-0.054-0.5-0.304-1.080-0.777t-1.518-1.491-1.83-2.295-1.92-3.286-1.884-4.357-1.634-5.616-1.259-6.964h5.054q0.464 3.893 1.25 7.116t1.866 5.661 2.17 4.205 2.5 3.482q3.018-3.018 5.125-7.25-2.536-1.286-3.982-3.929t-1.446-5.946q0-3.429 1.857-5.616t5.071-2.188q3.179 0 4.875 1.884t1.696 5.313q0 2.839-1.036 5.107-0.125 0.018-0.348 0.054t-0.821 0.036-1.125-0.107-1.107-0.455-0.902-0.92q0.554-1.839 0.554-3.286 0-1.554-0.518-2.357t-1.411-0.804q-0.946 0-1.518 0.884t-0.571 2.509q0 3.321 1.875 5.241t4.768 1.92q1.107 0 2.161-0.25z"></path>
+</symbol>
+<symbol id="icon-vk" viewBox="0 0 35 32">
+<path class="path1" d="M34.232 9.286q0.411 1.143-2.679 5.25-0.429 0.571-1.161 1.518-1.393 1.786-1.607 2.339-0.304 0.732 0.25 1.446 0.304 0.375 1.446 1.464h0.018l0.071 0.071q2.518 2.339 3.411 3.946 0.054 0.089 0.116 0.223t0.125 0.473-0.009 0.607-0.446 0.491-1.054 0.223l-4.571 0.071q-0.429 0.089-1-0.089t-0.929-0.393l-0.357-0.214q-0.536-0.375-1.25-1.143t-1.223-1.384-1.089-1.036-1.009-0.277q-0.054 0.018-0.143 0.063t-0.304 0.259-0.384 0.527-0.304 0.929-0.116 1.384q0 0.268-0.063 0.491t-0.134 0.33l-0.071 0.089q-0.321 0.339-0.946 0.393h-2.054q-1.268 0.071-2.607-0.295t-2.348-0.946-1.839-1.179-1.259-1.027l-0.446-0.429q-0.179-0.179-0.491-0.536t-1.277-1.625-1.893-2.696-2.188-3.768-2.33-4.857q-0.107-0.286-0.107-0.482t0.054-0.286l0.071-0.107q0.268-0.339 1.018-0.339l4.893-0.036q0.214 0.036 0.411 0.116t0.286 0.152l0.089 0.054q0.286 0.196 0.429 0.571 0.357 0.893 0.821 1.848t0.732 1.455l0.286 0.518q0.518 1.071 1 1.857t0.866 1.223 0.741 0.688 0.607 0.25 0.482-0.089q0.036-0.018 0.089-0.089t0.214-0.393 0.241-0.839 0.17-1.446 0-2.232q-0.036-0.714-0.161-1.304t-0.25-0.821l-0.107-0.214q-0.446-0.607-1.518-0.768-0.232-0.036 0.089-0.429 0.304-0.339 0.679-0.536 0.946-0.464 4.268-0.429 1.464 0.018 2.411 0.232 0.357 0.089 0.598 0.241t0.366 0.429 0.188 0.571 0.063 0.813-0.018 0.982-0.045 1.259-0.027 1.473q0 0.196-0.018 0.75t-0.009 0.857 0.063 0.723 0.205 0.696 0.402 0.438q0.143 0.036 0.304 0.071t0.464-0.196 0.679-0.616 0.929-1.196 1.214-1.92q1.071-1.857 1.911-4.018 0.071-0.179 0.179-0.313t0.196-0.188l0.071-0.054 0.089-0.045t0.232-0.054 0.357-0.009l5.143-0.036q0.696-0.089 1.143 0.045t0.554 0.295z"></path>
+</symbol>
+<symbol id="icon-search" viewBox="0 0 30 32">
+<path class="path1" d="M20.571 14.857q0-3.304-2.348-5.652t-5.652-2.348-5.652 2.348-2.348 5.652 2.348 5.652 5.652 2.348 5.652-2.348 2.348-5.652zM29.714 29.714q0 0.929-0.679 1.607t-1.607 0.679q-0.964 0-1.607-0.679l-6.125-6.107q-3.196 2.214-7.125 2.214-2.554 0-4.884-0.991t-4.018-2.679-2.679-4.018-0.991-4.884 0.991-4.884 2.679-4.018 4.018-2.679 4.884-0.991 4.884 0.991 4.018 2.679 2.679 4.018 0.991 4.884q0 3.929-2.214 7.125l6.125 6.125q0.661 0.661 0.661 1.607z"></path>
+</symbol>
+<symbol id="icon-envelope-o" viewBox="0 0 32 32">
+<path class="path1" d="M29.714 26.857v-13.714q-0.571 0.643-1.232 1.179-4.786 3.679-7.607 6.036-0.911 0.768-1.482 1.196t-1.545 0.866-1.83 0.438h-0.036q-0.857 0-1.83-0.438t-1.545-0.866-1.482-1.196q-2.821-2.357-7.607-6.036-0.661-0.536-1.232-1.179v13.714q0 0.232 0.17 0.402t0.402 0.17h26.286q0.232 0 0.402-0.17t0.17-0.402zM29.714 8.089v-0.438t-0.009-0.232-0.054-0.223-0.098-0.161-0.161-0.134-0.25-0.045h-26.286q-0.232 0-0.402 0.17t-0.17 0.402q0 3 2.625 5.071 3.446 2.714 7.161 5.661 0.107 0.089 0.625 0.527t0.821 0.67 0.795 0.563 0.902 0.491 0.768 0.161h0.036q0.357 0 0.768-0.161t0.902-0.491 0.795-0.563 0.821-0.67 0.625-0.527q3.714-2.946 7.161-5.661 0.964-0.768 1.795-2.063t0.83-2.348zM32 7.429v19.429q0 1.179-0.839 2.018t-2.018 0.839h-26.286q-1.179 0-2.018-0.839t-0.839-2.018v-19.429q0-1.179 0.839-2.018t2.018-0.839h26.286q1.179 0 2.018 0.839t0.839 2.018z"></path>
+</symbol>
+<symbol id="icon-close" viewBox="0 0 25 32">
+<path class="path1" d="M23.179 23.607q0 0.714-0.5 1.214l-2.429 2.429q-0.5 0.5-1.214 0.5t-1.214-0.5l-5.25-5.25-5.25 5.25q-0.5 0.5-1.214 0.5t-1.214-0.5l-2.429-2.429q-0.5-0.5-0.5-1.214t0.5-1.214l5.25-5.25-5.25-5.25q-0.5-0.5-0.5-1.214t0.5-1.214l2.429-2.429q0.5-0.5 1.214-0.5t1.214 0.5l5.25 5.25 5.25-5.25q0.5-0.5 1.214-0.5t1.214 0.5l2.429 2.429q0.5 0.5 0.5 1.214t-0.5 1.214l-5.25 5.25 5.25 5.25q0.5 0.5 0.5 1.214z"></path>
+</symbol>
+<symbol id="icon-angle-down" viewBox="0 0 21 32">
+<path class="path1" d="M19.196 13.143q0 0.232-0.179 0.411l-8.321 8.321q-0.179 0.179-0.411 0.179t-0.411-0.179l-8.321-8.321q-0.179-0.179-0.179-0.411t0.179-0.411l0.893-0.893q0.179-0.179 0.411-0.179t0.411 0.179l7.018 7.018 7.018-7.018q0.179-0.179 0.411-0.179t0.411 0.179l0.893 0.893q0.179 0.179 0.179 0.411z"></path>
+</symbol>
+<symbol id="icon-folder-open" viewBox="0 0 34 32">
+<path class="path1" d="M33.554 17q0 0.554-0.554 1.179l-6 7.071q-0.768 0.911-2.152 1.545t-2.563 0.634h-19.429q-0.607 0-1.080-0.232t-0.473-0.768q0-0.554 0.554-1.179l6-7.071q0.768-0.911 2.152-1.545t2.563-0.634h19.429q0.607 0 1.080 0.232t0.473 0.768zM27.429 10.857v2.857h-14.857q-1.679 0-3.518 0.848t-2.929 2.134l-6.107 7.179q0-0.071-0.009-0.223t-0.009-0.223v-17.143q0-1.643 1.179-2.821t2.821-1.179h5.714q1.643 0 2.821 1.179t1.179 2.821v0.571h9.714q1.643 0 2.821 1.179t1.179 2.821z"></path>
+</symbol>
+<symbol id="icon-twitter" viewBox="0 0 30 32">
+<path class="path1" d="M28.929 7.286q-1.196 1.75-2.893 2.982 0.018 0.25 0.018 0.75 0 2.321-0.679 4.634t-2.063 4.437-3.295 3.759-4.607 2.607-5.768 0.973q-4.839 0-8.857-2.589 0.625 0.071 1.393 0.071 4.018 0 7.161-2.464-1.875-0.036-3.357-1.152t-2.036-2.848q0.589 0.089 1.089 0.089 0.768 0 1.518-0.196-2-0.411-3.313-1.991t-1.313-3.67v-0.071q1.214 0.679 2.607 0.732-1.179-0.786-1.875-2.054t-0.696-2.75q0-1.571 0.786-2.911 2.161 2.661 5.259 4.259t6.634 1.777q-0.143-0.679-0.143-1.321 0-2.393 1.688-4.080t4.080-1.688q2.5 0 4.214 1.821 1.946-0.375 3.661-1.393-0.661 2.054-2.536 3.179 1.661-0.179 3.321-0.893z"></path>
+</symbol>
+<symbol id="icon-facebook" viewBox="0 0 19 32">
+<path class="path1" d="M17.125 0.214v4.714h-2.804q-1.536 0-2.071 0.643t-0.536 1.929v3.375h5.232l-0.696 5.286h-4.536v13.554h-5.464v-13.554h-4.554v-5.286h4.554v-3.893q0-3.321 1.857-5.152t4.946-1.83q2.625 0 4.071 0.214z"></path>
+</symbol>
+<symbol id="icon-github" viewBox="0 0 27 32">
+<path class="path1" d="M13.714 2.286q3.732 0 6.884 1.839t4.991 4.991 1.839 6.884q0 4.482-2.616 8.063t-6.759 4.955q-0.482 0.089-0.714-0.125t-0.232-0.536q0-0.054 0.009-1.366t0.009-2.402q0-1.732-0.929-2.536 1.018-0.107 1.83-0.321t1.679-0.696 1.446-1.188 0.946-1.875 0.366-2.688q0-2.125-1.411-3.679 0.661-1.625-0.143-3.643-0.5-0.161-1.446 0.196t-1.643 0.786l-0.679 0.429q-1.661-0.464-3.429-0.464t-3.429 0.464q-0.286-0.196-0.759-0.482t-1.491-0.688-1.518-0.241q-0.804 2.018-0.143 3.643-1.411 1.554-1.411 3.679 0 1.518 0.366 2.679t0.938 1.875 1.438 1.196 1.679 0.696 1.83 0.321q-0.696 0.643-0.875 1.839-0.375 0.179-0.804 0.268t-1.018 0.089-1.17-0.384-0.991-1.116q-0.339-0.571-0.866-0.929t-0.884-0.429l-0.357-0.054q-0.375 0-0.518 0.080t-0.089 0.205 0.161 0.25 0.232 0.214l0.125 0.089q0.393 0.179 0.777 0.679t0.563 0.911l0.179 0.411q0.232 0.679 0.786 1.098t1.196 0.536 1.241 0.125 0.991-0.063l0.411-0.071q0 0.679 0.009 1.58t0.009 0.973q0 0.321-0.232 0.536t-0.714 0.125q-4.143-1.375-6.759-4.955t-2.616-8.063q0-3.732 1.839-6.884t4.991-4.991 6.884-1.839zM5.196 21.982q0.054-0.125-0.125-0.214-0.179-0.054-0.232 0.036-0.054 0.125 0.125 0.214 0.161 0.107 0.232-0.036zM5.75 22.589q0.125-0.089-0.036-0.286-0.179-0.161-0.286-0.054-0.125 0.089 0.036 0.286 0.179 0.179 0.286 0.054zM6.286 23.393q0.161-0.125 0-0.339-0.143-0.232-0.304-0.107-0.161 0.089 0 0.321t0.304 0.125zM7.036 24.143q0.143-0.143-0.071-0.339-0.214-0.214-0.357-0.054-0.161 0.143 0.071 0.339 0.214 0.214 0.357 0.054zM8.054 24.589q0.054-0.196-0.232-0.286-0.268-0.071-0.339 0.125t0.232 0.268q0.268 0.107 0.339-0.107zM9.179 24.679q0-0.232-0.304-0.196-0.286 0-0.286 0.196 0 0.232 0.304 0.196 0.286 0 0.286-0.196zM10.214 24.5q-0.036-0.196-0.321-0.161-0.286 0.054-0.25 0.268t0.321 0.143 0.25-0.25z"></path>
+</symbol>
+<symbol id="icon-bars" viewBox="0 0 27 32">
+<path class="path1" d="M27.429 24v2.286q0 0.464-0.339 0.804t-0.804 0.339h-25.143q-0.464 0-0.804-0.339t-0.339-0.804v-2.286q0-0.464 0.339-0.804t0.804-0.339h25.143q0.464 0 0.804 0.339t0.339 0.804zM27.429 14.857v2.286q0 0.464-0.339 0.804t-0.804 0.339h-25.143q-0.464 0-0.804-0.339t-0.339-0.804v-2.286q0-0.464 0.339-0.804t0.804-0.339h25.143q0.464 0 0.804 0.339t0.339 0.804zM27.429 5.714v2.286q0 0.464-0.339 0.804t-0.804 0.339h-25.143q-0.464 0-0.804-0.339t-0.339-0.804v-2.286q0-0.464 0.339-0.804t0.804-0.339h25.143q0.464 0 0.804 0.339t0.339 0.804z"></path>
+</symbol>
+<symbol id="icon-google-plus" viewBox="0 0 41 32">
+<path class="path1" d="M25.661 16.304q0 3.714-1.554 6.616t-4.429 4.536-6.589 1.634q-2.661 0-5.089-1.036t-4.179-2.786-2.786-4.179-1.036-5.089 1.036-5.089 2.786-4.179 4.179-2.786 5.089-1.036q5.107 0 8.768 3.429l-3.554 3.411q-2.089-2.018-5.214-2.018-2.196 0-4.063 1.107t-2.955 3.009-1.089 4.152 1.089 4.152 2.955 3.009 4.063 1.107q1.482 0 2.723-0.411t2.045-1.027 1.402-1.402 0.875-1.482 0.384-1.321h-7.429v-4.5h12.357q0.214 1.125 0.214 2.179zM41.143 14.125v3.75h-3.732v3.732h-3.75v-3.732h-3.732v-3.75h3.732v-3.732h3.75v3.732h3.732z"></path>
+</symbol>
+<symbol id="icon-linkedin" viewBox="0 0 27 32">
+<path class="path1" d="M6.232 11.161v17.696h-5.893v-17.696h5.893zM6.607 5.696q0.018 1.304-0.902 2.179t-2.42 0.875h-0.036q-1.464 0-2.357-0.875t-0.893-2.179q0-1.321 0.92-2.188t2.402-0.866 2.375 0.866 0.911 2.188zM27.429 18.714v10.143h-5.875v-9.464q0-1.875-0.723-2.938t-2.259-1.063q-1.125 0-1.884 0.616t-1.134 1.527q-0.196 0.536-0.196 1.446v9.875h-5.875q0.036-7.125 0.036-11.554t-0.018-5.286l-0.018-0.857h5.875v2.571h-0.036q0.357-0.571 0.732-1t1.009-0.929 1.554-0.777 2.045-0.277q3.054 0 4.911 2.027t1.857 5.938z"></path>
+</symbol>
+<symbol id="icon-quote-right" viewBox="0 0 30 32">
+<path class="path1" d="M13.714 5.714v12.571q0 1.857-0.723 3.545t-1.955 2.92-2.92 1.955-3.545 0.723h-1.143q-0.464 0-0.804-0.339t-0.339-0.804v-2.286q0-0.464 0.339-0.804t0.804-0.339h1.143q1.893 0 3.232-1.339t1.339-3.232v-0.571q0-0.714-0.5-1.214t-1.214-0.5h-4q-1.429 0-2.429-1t-1-2.429v-6.857q0-1.429 1-2.429t2.429-1h6.857q1.429 0 2.429 1t1 2.429zM29.714 5.714v12.571q0 1.857-0.723 3.545t-1.955 2.92-2.92 1.955-3.545 0.723h-1.143q-0.464 0-0.804-0.339t-0.339-0.804v-2.286q0-0.464 0.339-0.804t0.804-0.339h1.143q1.893 0 3.232-1.339t1.339-3.232v-0.571q0-0.714-0.5-1.214t-1.214-0.5h-4q-1.429 0-2.429-1t-1-2.429v-6.857q0-1.429 1-2.429t2.429-1h6.857q1.429 0 2.429 1t1 2.429z"></path>
+</symbol>
+<symbol id="icon-mail-reply" viewBox="0 0 32 32">
+<path class="path1" d="M32 20q0 2.964-2.268 8.054-0.054 0.125-0.188 0.429t-0.241 0.536-0.232 0.393q-0.214 0.304-0.5 0.304-0.268 0-0.42-0.179t-0.152-0.446q0-0.161 0.045-0.473t0.045-0.42q0.089-1.214 0.089-2.196 0-1.804-0.313-3.232t-0.866-2.473-1.429-1.804-1.884-1.241-2.375-0.759-2.75-0.384-3.134-0.107h-4v4.571q0 0.464-0.339 0.804t-0.804 0.339-0.804-0.339l-9.143-9.143q-0.339-0.339-0.339-0.804t0.339-0.804l9.143-9.143q0.339-0.339 0.804-0.339t0.804 0.339 0.339 0.804v4.571h4q12.732 0 15.625 7.196 0.946 2.393 0.946 5.946z"></path>
+</symbol>
+<symbol id="icon-youtube" viewBox="0 0 27 32">
+<path class="path1" d="M17.339 22.214v3.768q0 1.196-0.696 1.196-0.411 0-0.804-0.393v-5.375q0.393-0.393 0.804-0.393 0.696 0 0.696 1.196zM23.375 22.232v0.821h-1.607v-0.821q0-1.214 0.804-1.214t0.804 1.214zM6.125 18.339h1.911v-1.679h-5.571v1.679h1.875v10.161h1.786v-10.161zM11.268 28.5h1.589v-8.821h-1.589v6.75q-0.536 0.75-1.018 0.75-0.321 0-0.375-0.375-0.018-0.054-0.018-0.625v-6.5h-1.589v6.982q0 0.875 0.143 1.304 0.214 0.661 1.036 0.661 0.857 0 1.821-1.089v0.964zM18.929 25.857v-3.518q0-1.304-0.161-1.768-0.304-1-1.268-1-0.893 0-1.661 0.964v-3.875h-1.589v11.839h1.589v-0.857q0.804 0.982 1.661 0.982 0.964 0 1.268-0.982 0.161-0.482 0.161-1.786zM24.964 25.679v-0.232h-1.625q0 0.911-0.036 1.089-0.125 0.643-0.714 0.643-0.821 0-0.821-1.232v-1.554h3.196v-1.839q0-1.411-0.482-2.071-0.696-0.911-1.893-0.911-1.214 0-1.911 0.911-0.5 0.661-0.5 2.071v3.089q0 1.411 0.518 2.071 0.696 0.911 1.929 0.911 1.286 0 1.929-0.946 0.321-0.482 0.375-0.964 0.036-0.161 0.036-1.036zM14.107 9.375v-3.75q0-1.232-0.768-1.232t-0.768 1.232v3.75q0 1.25 0.768 1.25t0.768-1.25zM26.946 22.786q0 4.179-0.464 6.25-0.25 1.054-1.036 1.768t-1.821 0.821q-3.286 0.375-9.911 0.375t-9.911-0.375q-1.036-0.107-1.83-0.821t-1.027-1.768q-0.464-2-0.464-6.25 0-4.179 0.464-6.25 0.25-1.054 1.036-1.768t1.839-0.839q3.268-0.357 9.893-0.357t9.911 0.357q1.036 0.125 1.83 0.839t1.027 1.768q0.464 2 0.464 6.25zM9.125 0h1.821l-2.161 7.125v4.839h-1.786v-4.839q-0.25-1.321-1.089-3.786-0.661-1.839-1.161-3.339h1.893l1.268 4.696zM15.732 5.946v3.125q0 1.446-0.5 2.107-0.661 0.911-1.893 0.911-1.196 0-1.875-0.911-0.5-0.679-0.5-2.107v-3.125q0-1.429 0.5-2.089 0.679-0.911 1.875-0.911 1.232 0 1.893 0.911 0.5 0.661 0.5 2.089zM21.714 3.054v8.911h-1.625v-0.982q-0.946 1.107-1.839 1.107-0.821 0-1.054-0.661-0.143-0.429-0.143-1.339v-7.036h1.625v6.554q0 0.589 0.018 0.625 0.054 0.393 0.375 0.393 0.482 0 1.018-0.768v-6.804h1.625z"></path>
+</symbol>
+<symbol id="icon-dropbox" viewBox="0 0 32 32">
+<path class="path1" d="M7.179 12.625l8.821 5.446-6.107 5.089-8.75-5.696zM24.786 22.536v1.929l-8.75 5.232v0.018l-0.018-0.018-0.018 0.018v-0.018l-8.732-5.232v-1.929l2.625 1.714 6.107-5.071v-0.036l0.018 0.018 0.018-0.018v0.036l6.125 5.071zM9.893 2.107l6.107 5.089-8.821 5.429-6.036-4.821zM24.821 12.625l6.036 4.839-8.732 5.696-6.125-5.089zM22.125 2.107l8.732 5.696-6.036 4.821-8.821-5.429z"></path>
+</symbol>
+<symbol id="icon-instagram" viewBox="0 0 27 32">
+<path class="path1" d="M18.286 16q0-1.893-1.339-3.232t-3.232-1.339-3.232 1.339-1.339 3.232 1.339 3.232 3.232 1.339 3.232-1.339 1.339-3.232zM20.75 16q0 2.929-2.054 4.982t-4.982 2.054-4.982-2.054-2.054-4.982 2.054-4.982 4.982-2.054 4.982 2.054 2.054 4.982zM22.679 8.679q0 0.679-0.482 1.161t-1.161 0.482-1.161-0.482-0.482-1.161 0.482-1.161 1.161-0.482 1.161 0.482 0.482 1.161zM13.714 4.75q-0.125 0-1.366-0.009t-1.884 0-1.723 0.054-1.839 0.179-1.277 0.33q-0.893 0.357-1.571 1.036t-1.036 1.571q-0.196 0.518-0.33 1.277t-0.179 1.839-0.054 1.723 0 1.884 0.009 1.366-0.009 1.366 0 1.884 0.054 1.723 0.179 1.839 0.33 1.277q0.357 0.893 1.036 1.571t1.571 1.036q0.518 0.196 1.277 0.33t1.839 0.179 1.723 0.054 1.884 0 1.366-0.009 1.366 0.009 1.884 0 1.723-0.054 1.839-0.179 1.277-0.33q0.893-0.357 1.571-1.036t1.036-1.571q0.196-0.518 0.33-1.277t0.179-1.839 0.054-1.723 0-1.884-0.009-1.366 0.009-1.366 0-1.884-0.054-1.723-0.179-1.839-0.33-1.277q-0.357-0.893-1.036-1.571t-1.571-1.036q-0.518-0.196-1.277-0.33t-1.839-0.179-1.723-0.054-1.884 0-1.366 0.009zM27.429 16q0 4.089-0.089 5.661-0.179 3.714-2.214 5.75t-5.75 2.214q-1.571 0.089-5.661 0.089t-5.661-0.089q-3.714-0.179-5.75-2.214t-2.214-5.75q-0.089-1.571-0.089-5.661t0.089-5.661q0.179-3.714 2.214-5.75t5.75-2.214q1.571-0.089 5.661-0.089t5.661 0.089q3.714 0.179 5.75 2.214t2.214 5.75q0.089 1.571 0.089 5.661z"></path>
+</symbol>
+<symbol id="icon-flickr" viewBox="0 0 27 32">
+<path class="path1" d="M22.286 2.286q2.125 0 3.634 1.509t1.509 3.634v17.143q0 2.125-1.509 3.634t-3.634 1.509h-17.143q-2.125 0-3.634-1.509t-1.509-3.634v-17.143q0-2.125 1.509-3.634t3.634-1.509h17.143zM12.464 16q0-1.571-1.107-2.679t-2.679-1.107-2.679 1.107-1.107 2.679 1.107 2.679 2.679 1.107 2.679-1.107 1.107-2.679zM22.536 16q0-1.571-1.107-2.679t-2.679-1.107-2.679 1.107-1.107 2.679 1.107 2.679 2.679 1.107 2.679-1.107 1.107-2.679z"></path>
+</symbol>
+<symbol id="icon-tumblr" viewBox="0 0 19 32">
+<path class="path1" d="M16.857 23.732l1.429 4.232q-0.411 0.625-1.982 1.179t-3.161 0.571q-1.857 0.036-3.402-0.464t-2.545-1.321-1.696-1.893-0.991-2.143-0.295-2.107v-9.714h-3v-3.839q1.286-0.464 2.304-1.241t1.625-1.607 1.036-1.821 0.607-1.768 0.268-1.58q0.018-0.089 0.080-0.152t0.134-0.063h4.357v7.571h5.946v4.5h-5.964v9.25q0 0.536 0.116 1t0.402 0.938 0.884 0.741 1.455 0.25q1.393-0.036 2.393-0.518z"></path>
+</symbol>
+<symbol id="icon-dockerhub" viewBox="0 0 24 28">
+<path class="path1" d="M1.597 10.257h2.911v2.83H1.597v-2.83zm3.573 0h2.91v2.83H5.17v-2.83zm0-3.627h2.91v2.829H5.17V6.63zm3.57 3.627h2.912v2.83H8.74v-2.83zm0-3.627h2.912v2.829H8.74V6.63zm3.573 3.627h2.911v2.83h-2.911v-2.83zm0-3.627h2.911v2.829h-2.911V6.63zm3.572 3.627h2.911v2.83h-2.911v-2.83zM12.313 3h2.911v2.83h-2.911V3zm-6.65 14.173c-.449 0-.812.354-.812.788 0 .435.364.788.812.788.447 0 .811-.353.811-.788 0-.434-.363-.788-.811-.788"></path>
+<path class="path2" d="M28.172 11.721c-.978-.549-2.278-.624-3.388-.306-.136-1.146-.91-2.149-1.83-2.869l-.366-.286-.307.345c-.618.692-.8 1.845-.718 2.73.063.651.273 1.312.685 1.834-.313.183-.668.328-.985.434-.646.212-1.347.33-2.028.33H.083l-.042.429c-.137 1.432.065 2.866.674 4.173l.262.519.03.048c1.8 2.973 4.963 4.225 8.41 4.225 6.672 0 12.174-2.896 14.702-9.015 1.689.085 3.417-.4 4.243-1.968l.211-.4-.401-.223zM5.664 19.458c-.85 0-1.542-.671-1.542-1.497 0-.825.691-1.498 1.541-1.498.849 0 1.54.672 1.54 1.497s-.69 1.498-1.539 1.498z"></path>
+</symbol>
+<symbol id="icon-dribbble" viewBox="0 0 27 32">
+<path class="path1" d="M18.286 26.786q-0.75-4.304-2.5-8.893h-0.036l-0.036 0.018q-0.286 0.107-0.768 0.295t-1.804 0.875-2.446 1.464-2.339 2.045-1.839 2.643l-0.268-0.196q3.286 2.679 7.464 2.679 2.357 0 4.571-0.929zM14.982 15.946q-0.375-0.875-0.946-1.982-5.554 1.661-12.018 1.661-0.018 0.125-0.018 0.375 0 2.214 0.786 4.223t2.214 3.598q0.893-1.589 2.205-2.973t2.545-2.223 2.33-1.446 1.777-0.857l0.661-0.232q0.071-0.018 0.232-0.063t0.232-0.080zM13.071 12.161q-2.143-3.804-4.357-6.75-2.464 1.161-4.179 3.321t-2.286 4.857q5.393 0 10.821-1.429zM25.286 17.857q-3.75-1.071-7.304-0.518 1.554 4.268 2.286 8.375 1.982-1.339 3.304-3.384t1.714-4.473zM10.911 4.625q-0.018 0-0.036 0.018 0.018-0.018 0.036-0.018zM21.446 7.214q-3.304-2.929-7.732-2.929-1.357 0-2.768 0.339 2.339 3.036 4.393 6.821 1.232-0.464 2.321-1.080t1.723-1.098 1.17-1.018 0.67-0.723zM25.429 15.875q-0.054-4.143-2.661-7.321l-0.018 0.018q-0.161 0.214-0.339 0.438t-0.777 0.795-1.268 1.080-1.786 1.161-2.348 1.152q0.446 0.946 0.786 1.696 0.036 0.107 0.116 0.313t0.134 0.295q0.643-0.089 1.33-0.125t1.313-0.036 1.232 0.027 1.143 0.071 1.009 0.098 0.857 0.116 0.652 0.107 0.446 0.080zM27.429 16q0 3.732-1.839 6.884t-4.991 4.991-6.884 1.839-6.884-1.839-4.991-4.991-1.839-6.884 1.839-6.884 4.991-4.991 6.884-1.839 6.884 1.839 4.991 4.991 1.839 6.884z"></path>
+</symbol>
+<symbol id="icon-skype" viewBox="0 0 27 32">
+<path class="path1" d="M20.946 18.982q0-0.893-0.348-1.634t-0.866-1.223-1.304-0.875-1.473-0.607-1.563-0.411l-1.857-0.429q-0.536-0.125-0.786-0.188t-0.625-0.205-0.536-0.286-0.295-0.375-0.134-0.536q0-1.375 2.571-1.375 0.768 0 1.375 0.214t0.964 0.509 0.679 0.598 0.714 0.518 0.857 0.214q0.839 0 1.348-0.571t0.509-1.375q0-0.982-1-1.777t-2.536-1.205-3.25-0.411q-1.214 0-2.357 0.277t-2.134 0.839-1.589 1.554-0.598 2.295q0 1.089 0.339 1.902t1 1.348 1.429 0.866 1.839 0.58l2.607 0.643q1.607 0.393 2 0.643 0.571 0.357 0.571 1.071 0 0.696-0.714 1.152t-1.875 0.455q-0.911 0-1.634-0.286t-1.161-0.688-0.813-0.804-0.821-0.688-0.964-0.286q-0.893 0-1.348 0.536t-0.455 1.339q0 1.643 2.179 2.813t5.196 1.17q1.304 0 2.5-0.33t2.188-0.955 1.58-1.67 0.589-2.348zM27.429 22.857q0 2.839-2.009 4.848t-4.848 2.009q-2.321 0-4.179-1.429-1.375 0.286-2.679 0.286-2.554 0-4.884-0.991t-4.018-2.679-2.679-4.018-0.991-4.884q0-1.304 0.286-2.679-1.429-1.857-1.429-4.179 0-2.839 2.009-4.848t4.848-2.009q2.321 0 4.179 1.429 1.375-0.286 2.679-0.286 2.554 0 4.884 0.991t4.018 2.679 2.679 4.018 0.991 4.884q0 1.304-0.286 2.679 1.429 1.857 1.429 4.179z"></path>
+</symbol>
+<symbol id="icon-foursquare" viewBox="0 0 23 32">
+<path class="path1" d="M17.857 7.75l0.661-3.464q0.089-0.411-0.161-0.714t-0.625-0.304h-12.714q-0.411 0-0.688 0.304t-0.277 0.661v19.661q0 0.125 0.107 0.018l5.196-6.286q0.411-0.464 0.679-0.598t0.857-0.134h4.268q0.393 0 0.661-0.259t0.321-0.527q0.429-2.321 0.661-3.411 0.071-0.375-0.205-0.714t-0.652-0.339h-5.25q-0.518 0-0.857-0.339t-0.339-0.857v-0.75q0-0.518 0.339-0.848t0.857-0.33h6.179q0.321 0 0.625-0.241t0.357-0.527zM21.911 3.786q-0.268 1.304-0.955 4.759t-1.241 6.25-0.625 3.098q-0.107 0.393-0.161 0.58t-0.25 0.58-0.438 0.589-0.688 0.375-1.036 0.179h-4.839q-0.232 0-0.393 0.179-0.143 0.161-7.607 8.821-0.393 0.446-1.045 0.509t-0.866-0.098q-0.982-0.393-0.982-1.75v-25.179q0-0.982 0.679-1.83t2.143-0.848h15.857q1.696 0 2.268 0.946t0.179 2.839zM21.911 3.786l-2.821 14.107q0.071-0.304 0.625-3.098t1.241-6.25 0.955-4.759z"></path>
+</symbol>
+<symbol id="icon-wordpress" viewBox="0 0 32 32">
+<path class="path1" d="M2.268 16q0-2.911 1.196-5.589l6.554 17.946q-3.5-1.696-5.625-5.018t-2.125-7.339zM25.268 15.304q0 0.339-0.045 0.688t-0.179 0.884-0.205 0.786-0.313 1.054-0.313 1.036l-1.357 4.571-4.964-14.75q0.821-0.054 1.571-0.143 0.339-0.036 0.464-0.33t-0.045-0.554-0.509-0.241l-3.661 0.179q-1.339-0.018-3.607-0.179-0.214-0.018-0.366 0.089t-0.205 0.268-0.027 0.33 0.161 0.295 0.348 0.143l1.429 0.143 2.143 5.857-3 9-5-14.857q0.821-0.054 1.571-0.143 0.339-0.036 0.464-0.33t-0.045-0.554-0.509-0.241l-3.661 0.179q-0.125 0-0.411-0.009t-0.464-0.009q1.875-2.857 4.902-4.527t6.563-1.67q2.625 0 5.009 0.946t4.259 2.661h-0.179q-0.982 0-1.643 0.723t-0.661 1.705q0 0.214 0.036 0.429t0.071 0.384 0.143 0.411 0.161 0.375 0.214 0.402 0.223 0.375 0.259 0.429 0.25 0.411q1.125 1.911 1.125 3.786zM16.232 17.196l4.232 11.554q0.018 0.107 0.089 0.196-2.25 0.786-4.554 0.786-2 0-3.875-0.571zM28.036 9.411q1.696 3.107 1.696 6.589 0 3.732-1.857 6.884t-4.982 4.973l4.196-12.107q1.054-3.018 1.054-4.929 0-0.75-0.107-1.411zM16 0q3.25 0 6.214 1.268t5.107 3.411 3.411 5.107 1.268 6.214-1.268 6.214-3.411 5.107-5.107 3.411-6.214 1.268-6.214-1.268-5.107-3.411-3.411-5.107-1.268-6.214 1.268-6.214 3.411-5.107 5.107-3.411 6.214-1.268zM16 31.268q3.089 0 5.92-1.214t4.875-3.259 3.259-4.875 1.214-5.92-1.214-5.92-3.259-4.875-4.875-3.259-5.92-1.214-5.92 1.214-4.875 3.259-3.259 4.875-1.214 5.92 1.214 5.92 3.259 4.875 4.875 3.259 5.92 1.214z"></path>
+</symbol>
+<symbol id="icon-stumbleupon" viewBox="0 0 34 32">
+<path class="path1" d="M18.964 12.714v-2.107q0-0.75-0.536-1.286t-1.286-0.536-1.286 0.536-0.536 1.286v10.929q0 3.125-2.25 5.339t-5.411 2.214q-3.179 0-5.42-2.241t-2.241-5.42v-4.75h5.857v4.679q0 0.768 0.536 1.295t1.286 0.527 1.286-0.527 0.536-1.295v-11.071q0-3.054 2.259-5.214t5.384-2.161q3.143 0 5.393 2.179t2.25 5.25v2.429l-3.482 1.036zM28.429 16.679h5.857v4.75q0 3.179-2.241 5.42t-5.42 2.241q-3.161 0-5.411-2.223t-2.25-5.366v-4.786l2.339 1.089 3.482-1.036v4.821q0 0.75 0.536 1.277t1.286 0.527 1.286-0.527 0.536-1.277v-4.911z"></path>
+</symbol>
+<symbol id="icon-digg" viewBox="0 0 37 32">
+<path class="path1" d="M5.857 5.036h3.643v17.554h-9.5v-12.446h5.857v-5.107zM5.857 19.661v-6.589h-2.196v6.589h2.196zM10.964 10.143v12.446h3.661v-12.446h-3.661zM10.964 5.036v3.643h3.661v-3.643h-3.661zM16.089 10.143h9.518v16.821h-9.518v-2.911h5.857v-1.464h-5.857v-12.446zM21.946 19.661v-6.589h-2.196v6.589h2.196zM27.071 10.143h9.5v16.821h-9.5v-2.911h5.839v-1.464h-5.839v-12.446zM32.911 19.661v-6.589h-2.196v6.589h2.196z"></path>
+</symbol>
+<symbol id="icon-spotify" viewBox="0 0 27 32">
+<path class="path1" d="M20.125 21.607q0-0.571-0.536-0.911-3.446-2.054-7.982-2.054-2.375 0-5.125 0.607-0.75 0.161-0.75 0.929 0 0.357 0.241 0.616t0.634 0.259q0.089 0 0.661-0.143 2.357-0.482 4.339-0.482 4.036 0 7.089 1.839 0.339 0.196 0.589 0.196 0.339 0 0.589-0.241t0.25-0.616zM21.839 17.768q0-0.714-0.625-1.089-4.232-2.518-9.786-2.518-2.732 0-5.411 0.75-0.857 0.232-0.857 1.143 0 0.446 0.313 0.759t0.759 0.313q0.125 0 0.661-0.143 2.179-0.589 4.482-0.589 4.982 0 8.714 2.214 0.429 0.232 0.679 0.232 0.446 0 0.759-0.313t0.313-0.759zM23.768 13.339q0-0.839-0.714-1.25-2.25-1.304-5.232-1.973t-6.125-0.67q-3.643 0-6.5 0.839-0.411 0.125-0.688 0.455t-0.277 0.866q0 0.554 0.366 0.929t0.92 0.375q0.196 0 0.714-0.143 2.375-0.661 5.482-0.661 2.839 0 5.527 0.607t4.527 1.696q0.375 0.214 0.714 0.214 0.518 0 0.902-0.366t0.384-0.92zM27.429 16q0 3.732-1.839 6.884t-4.991 4.991-6.884 1.839-6.884-1.839-4.991-4.991-1.839-6.884 1.839-6.884 4.991-4.991 6.884-1.839 6.884 1.839 4.991 4.991 1.839 6.884z"></path>
+</symbol>
+<symbol id="icon-soundcloud" viewBox="0 0 41 32">
+<path class="path1" d="M14 24.5l0.286-4.304-0.286-9.339q-0.018-0.179-0.134-0.304t-0.295-0.125q-0.161 0-0.286 0.125t-0.125 0.304l-0.25 9.339 0.25 4.304q0.018 0.179 0.134 0.295t0.277 0.116q0.393 0 0.429-0.411zM19.286 23.982l0.196-3.768-0.214-10.464q0-0.286-0.232-0.429-0.143-0.089-0.286-0.089t-0.286 0.089q-0.232 0.143-0.232 0.429l-0.018 0.107-0.179 10.339q0 0.018 0.196 4.214v0.018q0 0.179 0.107 0.304 0.161 0.196 0.411 0.196 0.196 0 0.357-0.161 0.161-0.125 0.161-0.357zM0.625 17.911l0.357 2.286-0.357 2.25q-0.036 0.161-0.161 0.161t-0.161-0.161l-0.304-2.25 0.304-2.286q0.036-0.161 0.161-0.161t0.161 0.161zM2.161 16.5l0.464 3.696-0.464 3.625q-0.036 0.161-0.179 0.161-0.161 0-0.161-0.179l-0.411-3.607 0.411-3.696q0-0.161 0.161-0.161 0.143 0 0.179 0.161zM3.804 15.821l0.446 4.375-0.446 4.232q0 0.196-0.196 0.196-0.179 0-0.214-0.196l-0.375-4.232 0.375-4.375q0.036-0.214 0.214-0.214 0.196 0 0.196 0.214zM5.482 15.696l0.411 4.5-0.411 4.357q-0.036 0.232-0.25 0.232-0.232 0-0.232-0.232l-0.375-4.357 0.375-4.5q0-0.232 0.232-0.232 0.214 0 0.25 0.232zM7.161 16.018l0.375 4.179-0.375 4.393q-0.036 0.286-0.286 0.286-0.107 0-0.188-0.080t-0.080-0.205l-0.357-4.393 0.357-4.179q0-0.107 0.080-0.188t0.188-0.080q0.25 0 0.286 0.268zM8.839 13.411l0.375 6.786-0.375 4.393q0 0.125-0.089 0.223t-0.214 0.098q-0.286 0-0.321-0.321l-0.321-4.393 0.321-6.786q0.036-0.321 0.321-0.321 0.125 0 0.214 0.098t0.089 0.223zM10.518 11.875l0.339 8.357-0.339 4.357q0 0.143-0.098 0.241t-0.241 0.098q-0.321 0-0.357-0.339l-0.286-4.357 0.286-8.357q0.036-0.339 0.357-0.339 0.143 0 0.241 0.098t0.098 0.241zM12.268 11.161l0.321 9.036-0.321 4.321q-0.036 0.375-0.393 0.375-0.339 0-0.375-0.375l-0.286-4.321 0.286-9.036q0-0.161 0.116-0.277t0.259-0.116q0.161 0 0.268 0.116t0.125 0.277zM19.268 24.411v0 0zM15.732 11.089l0.268 9.107-0.268 4.268q0 0.179-0.134 0.313t-0.313 0.134-0.304-0.125-0.143-0.321l-0.25-4.268 0.25-9.107q0-0.196 0.134-0.321t0.313-0.125 0.313 0.125 0.134 0.321zM17.5 11.429l0.25 8.786-0.25 4.214q0 0.196-0.143 0.339t-0.339 0.143-0.339-0.143-0.161-0.339l-0.214-4.214 0.214-8.786q0.018-0.214 0.161-0.357t0.339-0.143 0.33 0.143 0.152 0.357zM21.286 20.214l-0.25 4.125q0 0.232-0.161 0.393t-0.393 0.161-0.393-0.161-0.179-0.393l-0.107-2.036-0.107-2.089 0.214-11.357v-0.054q0.036-0.268 0.214-0.429 0.161-0.125 0.357-0.125 0.143 0 0.268 0.089 0.25 0.143 0.286 0.464zM41.143 19.875q0 2.089-1.482 3.563t-3.571 1.473h-14.036q-0.232-0.036-0.393-0.196t-0.161-0.393v-16.054q0-0.411 0.5-0.589 1.518-0.607 3.232-0.607 3.482 0 6.036 2.348t2.857 5.777q0.946-0.393 1.964-0.393 2.089 0 3.571 1.482t1.482 3.589z"></path>
+</symbol>
+<symbol id="icon-codepen" viewBox="0 0 32 32">
+<path class="path1" d="M3.857 20.875l10.768 7.179v-6.411l-5.964-3.982zM2.75 18.304l3.446-2.304-3.446-2.304v4.607zM17.375 28.054l10.768-7.179-4.804-3.214-5.964 3.982v6.411zM16 19.25l4.857-3.25-4.857-3.25-4.857 3.25zM8.661 14.339l5.964-3.982v-6.411l-10.768 7.179zM25.804 16l3.446 2.304v-4.607zM23.339 14.339l4.804-3.214-10.768-7.179v6.411zM32 11.125v9.75q0 0.732-0.607 1.143l-14.625 9.75q-0.375 0.232-0.768 0.232t-0.768-0.232l-14.625-9.75q-0.607-0.411-0.607-1.143v-9.75q0-0.732 0.607-1.143l14.625-9.75q0.375-0.232 0.768-0.232t0.768 0.232l14.625 9.75q0.607 0.411 0.607 1.143z"></path>
+</symbol>
+<symbol id="icon-twitch" viewBox="0 0 32 32">
+<path class="path1" d="M16 7.75v7.75h-2.589v-7.75h2.589zM23.107 7.75v7.75h-2.589v-7.75h2.589zM23.107 21.321l4.518-4.536v-14.196h-21.321v18.732h5.821v3.875l3.875-3.875h7.107zM30.214 0v18.089l-7.75 7.75h-5.821l-3.875 3.875h-3.875v-3.875h-7.107v-20.679l1.946-5.161h26.482z"></path>
+</symbol>
+<symbol id="icon-meanpath" viewBox="0 0 27 32">
+<path class="path1" d="M23.411 15.036v2.036q0 0.429-0.241 0.679t-0.67 0.25h-3.607q-0.429 0-0.679-0.25t-0.25-0.679v-2.036q0-0.429 0.25-0.679t0.679-0.25h3.607q0.429 0 0.67 0.25t0.241 0.679zM14.661 19.143v-4.464q0-0.946-0.58-1.527t-1.527-0.58h-2.375q-1.214 0-1.714 0.929-0.5-0.929-1.714-0.929h-2.321q-0.946 0-1.527 0.58t-0.58 1.527v4.464q0 0.393 0.375 0.393h0.982q0.393 0 0.393-0.393v-4.107q0-0.429 0.241-0.679t0.688-0.25h1.679q0.429 0 0.679 0.25t0.25 0.679v4.107q0 0.393 0.375 0.393h0.964q0.393 0 0.393-0.393v-4.107q0-0.429 0.25-0.679t0.679-0.25h1.732q0.429 0 0.67 0.25t0.241 0.679v4.107q0 0.393 0.393 0.393h0.982q0.375 0 0.375-0.393zM25.179 17.429v-2.75q0-0.946-0.589-1.527t-1.536-0.58h-4.714q-0.946 0-1.536 0.58t-0.589 1.527v7.321q0 0.375 0.393 0.375h0.982q0.375 0 0.375-0.375v-3.214q0.554 0.75 1.679 0.75h3.411q0.946 0 1.536-0.58t0.589-1.527zM27.429 6.429v19.143q0 1.714-1.214 2.929t-2.929 1.214h-19.143q-1.714 0-2.929-1.214t-1.214-2.929v-19.143q0-1.714 1.214-2.929t2.929-1.214h19.143q1.714 0 2.929 1.214t1.214 2.929z"></path>
+</symbol>
+<symbol id="icon-pinterest-p" viewBox="0 0 23 32">
+<path class="path1" d="M0 10.661q0-1.929 0.67-3.634t1.848-2.973 2.714-2.196 3.304-1.393 3.607-0.464q2.821 0 5.25 1.188t3.946 3.455 1.518 5.125q0 1.714-0.339 3.357t-1.071 3.161-1.786 2.67-2.589 1.839-3.375 0.688q-1.214 0-2.411-0.571t-1.714-1.571q-0.179 0.696-0.5 2.009t-0.42 1.696-0.366 1.268-0.464 1.268-0.571 1.116-0.821 1.384-1.107 1.545l-0.25 0.089-0.161-0.179q-0.268-2.804-0.268-3.357 0-1.643 0.384-3.688t1.188-5.134 0.929-3.625q-0.571-1.161-0.571-3.018 0-1.482 0.929-2.786t2.357-1.304q1.089 0 1.696 0.723t0.607 1.83q0 1.179-0.786 3.411t-0.786 3.339q0 1.125 0.804 1.866t1.946 0.741q0.982 0 1.821-0.446t1.402-1.214 1-1.696 0.679-1.973 0.357-1.982 0.116-1.777q0-3.089-1.955-4.813t-5.098-1.723q-3.571 0-5.964 2.313t-2.393 5.866q0 0.786 0.223 1.518t0.482 1.161 0.482 0.813 0.223 0.545q0 0.5-0.268 1.304t-0.661 0.804q-0.036 0-0.304-0.054-0.911-0.268-1.616-1t-1.089-1.688-0.58-1.929-0.196-1.902z"></path>
+</symbol>
+<symbol id="icon-periscope" viewBox="0 0 24 28">
+<path class="path1" d="M12.285,1C6.696,1,2.277,5.643,2.277,11.243c0,5.851,7.77,14.578,10.007,14.578c1.959,0,9.729-8.728,9.729-14.578 C22.015,5.643,17.596,1,12.285,1z M12.317,16.551c-3.473,0-6.152-2.611-6.152-5.664c0-1.292,0.39-2.472,1.065-3.438 c0.206,1.084,1.18,1.906,2.352,1.906c1.322,0,2.393-1.043,2.393-2.333c0-0.832-0.447-1.561-1.119-1.975 c0.467-0.105,0.955-0.161,1.46-0.161c3.133,0,5.81,2.611,5.81,5.998C18.126,13.94,15.449,16.551,12.317,16.551z"></path>
+</symbol>
+<symbol id="icon-get-pocket" viewBox="0 0 31 32">
+<path class="path1" d="M27.946 2.286q1.161 0 1.964 0.813t0.804 1.973v9.268q0 3.143-1.214 6t-3.259 4.911-4.893 3.259-5.973 1.205q-3.143 0-5.991-1.205t-4.902-3.259-3.268-4.911-1.214-6v-9.268q0-1.143 0.821-1.964t1.964-0.821h25.161zM15.375 21.286q0.839 0 1.464-0.589l7.214-6.929q0.661-0.625 0.661-1.518 0-0.875-0.616-1.491t-1.491-0.616q-0.839 0-1.464 0.589l-5.768 5.536-5.768-5.536q-0.625-0.589-1.446-0.589-0.875 0-1.491 0.616t-0.616 1.491q0 0.911 0.643 1.518l7.232 6.929q0.589 0.589 1.446 0.589z"></path>
+</symbol>
+<symbol id="icon-vimeo" viewBox="0 0 32 32">
+<path class="path1" d="M30.518 9.25q-0.179 4.214-5.929 11.625-5.946 7.696-10.036 7.696-2.536 0-4.286-4.696-0.786-2.857-2.357-8.607-1.286-4.679-2.804-4.679-0.321 0-2.268 1.357l-1.375-1.75q0.429-0.375 1.929-1.723t2.321-2.063q2.786-2.464 4.304-2.607 1.696-0.161 2.732 0.991t1.446 3.634q0.786 5.125 1.179 6.661 0.982 4.446 2.143 4.446 0.911 0 2.75-2.875 1.804-2.875 1.946-4.393 0.232-2.482-1.946-2.482-1.018 0-2.161 0.464 2.143-7.018 8.196-6.821 4.482 0.143 4.214 5.821z"></path>
+</symbol>
+<symbol id="icon-reddit-alien" viewBox="0 0 32 32">
+<path class="path1" d="M32 15.107q0 1.036-0.527 1.884t-1.42 1.295q0.214 0.821 0.214 1.714 0 2.768-1.902 5.125t-5.188 3.723-7.143 1.366-7.134-1.366-5.179-3.723-1.902-5.125q0-0.839 0.196-1.679-0.911-0.446-1.464-1.313t-0.554-1.902q0-1.464 1.036-2.509t2.518-1.045q1.518 0 2.589 1.125 3.893-2.714 9.196-2.893l2.071-9.304q0.054-0.232 0.268-0.375t0.464-0.089l6.589 1.446q0.321-0.661 0.964-1.063t1.411-0.402q1.107 0 1.893 0.777t0.786 1.884-0.786 1.893-1.893 0.786-1.884-0.777-0.777-1.884l-5.964-1.321-1.857 8.429q5.357 0.161 9.268 2.857 1.036-1.089 2.554-1.089 1.482 0 2.518 1.045t1.036 2.509zM7.464 18.661q0 1.107 0.777 1.893t1.884 0.786 1.893-0.786 0.786-1.893-0.786-1.884-1.893-0.777q-1.089 0-1.875 0.786t-0.786 1.875zM21.929 25q0.196-0.196 0.196-0.464t-0.196-0.464q-0.179-0.179-0.446-0.179t-0.464 0.179q-0.732 0.75-2.161 1.107t-2.857 0.357-2.857-0.357-2.161-1.107q-0.196-0.179-0.464-0.179t-0.446 0.179q-0.196 0.179-0.196 0.455t0.196 0.473q0.768 0.768 2.116 1.214t2.188 0.527 1.625 0.080 1.625-0.080 2.188-0.527 2.116-1.214zM21.875 21.339q1.107 0 1.884-0.786t0.777-1.893q0-1.089-0.786-1.875t-1.875-0.786q-1.107 0-1.893 0.777t-0.786 1.884 0.786 1.893 1.893 0.786z"></path>
+</symbol>
+<symbol id="icon-whatsapp" viewBox="0 0 32 32">
+<path d="M15.968 2.003a14.03 13.978 0 0 0-14.03 13.978 14.03 13.978 0 0 0 2.132 7.391L1.938 29.96l6.745-2.052a14.03 13.978 0 0 0 7.285 2.052 14.03 13.978 0 0 0 14.03-13.978 14.03 13.978 0 0 0-14.03-13.978z" stroke-width=".2000562"/>
+<path d="M10.454 8.236a2.57 3.401 51.533 0 0-1.475 3.184v.015c.01 2.04 4.045 10.076 10.017 12.688l.017-.013a2.57 3.401 51.533 0 0 3.454-.706 2.57 3.401 51.533 0 0 1.064-4.129 2.57 3.401 51.533 0 0-4.262.103 2.57 3.401 51.533 0 0-.505.473c-1.346-.639-2.952-1.463-4.168-2.98-.771-.962-1.257-2.732-1.549-4.206a2.57 3.401 51.533 0 0 .605-.403 2.57 3.401 51.533 0 0 1.064-4.129 2.57 3.401 51.533 0 0-4.262.103z" stroke-width=".372"/>
+</symbol>
+<symbol id="icon-telegram" viewBox="0 0 32 32">
+<path d="M30.8,2.2L0.6,13.9c-0.8,0.3-0.7,1.3,0,1.6l7.4,2.8l2.9,9.2c0.2,0.6,0.9,0.8,1.4,0.4l4.1-3.4 c0.4-0.4,1-0.4,1.5,0l7.4,5.4c0.5,0.4,1.2,0.1,1.4-0.5L32,3.2C32.1,2.5,31.4,1.9,30.8,2.2z M25,8.3l-11.9,11 c-0.4,0.4-0.7,0.9-0.8,1.5l-0.4,3c-0.1,0.4-0.6,0.4-0.7,0.1l-1.6-5.5c-0.2-0.6,0.1-1.3,0.6-1.6l14.4-8.9C25,7.7,25.3,8.1,25,8.3z"/>
+</symbol>
+<symbol id="icon-hashtag" viewBox="0 0 32 32">
+<path class="path1" d="M17.696 18.286l1.143-4.571h-4.536l-1.143 4.571h4.536zM31.411 9.286l-1 4q-0.125 0.429-0.554 0.429h-5.839l-1.143 4.571h5.554q0.268 0 0.446 0.214 0.179 0.25 0.107 0.5l-1 4q-0.089 0.429-0.554 0.429h-5.839l-1.446 5.857q-0.125 0.429-0.554 0.429h-4q-0.286 0-0.464-0.214-0.161-0.214-0.107-0.5l1.393-5.571h-4.536l-1.446 5.857q-0.125 0.429-0.554 0.429h-4.018q-0.268 0-0.446-0.214-0.161-0.214-0.107-0.5l1.393-5.571h-5.554q-0.268 0-0.446-0.214-0.161-0.214-0.107-0.5l1-4q0.125-0.429 0.554-0.429h5.839l1.143-4.571h-5.554q-0.268 0-0.446-0.214-0.179-0.25-0.107-0.5l1-4q0.089-0.429 0.554-0.429h5.839l1.446-5.857q0.125-0.429 0.571-0.429h4q0.268 0 0.446 0.214 0.161 0.214 0.107 0.5l-1.393 5.571h4.536l1.446-5.857q0.125-0.429 0.571-0.429h4q0.268 0 0.446 0.214 0.161 0.214 0.107 0.5l-1.393 5.571h5.554q0.268 0 0.446 0.214 0.161 0.214 0.107 0.5z"></path>
+</symbol>
+<symbol id="icon-chain" viewBox="0 0 30 32">
+<path class="path1" d="M26 21.714q0-0.714-0.5-1.214l-3.714-3.714q-0.5-0.5-1.214-0.5-0.75 0-1.286 0.571 0.054 0.054 0.339 0.33t0.384 0.384 0.268 0.339 0.232 0.455 0.063 0.491q0 0.714-0.5 1.214t-1.214 0.5q-0.268 0-0.491-0.063t-0.455-0.232-0.339-0.268-0.384-0.384-0.33-0.339q-0.589 0.554-0.589 1.304 0 0.714 0.5 1.214l3.679 3.696q0.482 0.482 1.214 0.482 0.714 0 1.214-0.464l2.625-2.607q0.5-0.5 0.5-1.196zM13.446 9.125q0-0.714-0.5-1.214l-3.679-3.696q-0.5-0.5-1.214-0.5-0.696 0-1.214 0.482l-2.625 2.607q-0.5 0.5-0.5 1.196 0 0.714 0.5 1.214l3.714 3.714q0.482 0.482 1.214 0.482 0.75 0 1.286-0.554-0.054-0.054-0.339-0.33t-0.384-0.384-0.268-0.339-0.232-0.455-0.063-0.491q0-0.714 0.5-1.214t1.214-0.5q0.268 0 0.491 0.063t0.455 0.232 0.339 0.268 0.384 0.384 0.33 0.339q0.589-0.554 0.589-1.304zM29.429 21.714q0 2.143-1.518 3.625l-2.625 2.607q-1.482 1.482-3.625 1.482-2.161 0-3.643-1.518l-3.679-3.696q-1.482-1.482-1.482-3.625 0-2.196 1.571-3.732l-1.571-1.571q-1.536 1.571-3.714 1.571-2.143 0-3.643-1.5l-3.714-3.714q-1.5-1.5-1.5-3.643t1.518-3.625l2.625-2.607q1.482-1.482 3.625-1.482 2.161 0 3.643 1.518l3.679 3.696q1.482 1.482 1.482 3.625 0 2.196-1.571 3.732l1.571 1.571q1.536-1.571 3.714-1.571 2.143 0 3.643 1.5l3.714 3.714q1.5 1.5 1.5 3.643z"></path>
+</symbol>
+<symbol id="icon-thumb-tack" viewBox="0 0 21 32">
+<path class="path1" d="M8.571 15.429v-8q0-0.25-0.161-0.411t-0.411-0.161-0.411 0.161-0.161 0.411v8q0 0.25 0.161 0.411t0.411 0.161 0.411-0.161 0.161-0.411zM20.571 21.714q0 0.464-0.339 0.804t-0.804 0.339h-7.661l-0.911 8.625q-0.036 0.214-0.188 0.366t-0.366 0.152h-0.018q-0.482 0-0.571-0.482l-1.357-8.661h-7.214q-0.464 0-0.804-0.339t-0.339-0.804q0-2.196 1.402-3.955t3.17-1.759v-9.143q-0.929 0-1.607-0.679t-0.679-1.607 0.679-1.607 1.607-0.679h11.429q0.929 0 1.607 0.679t0.679 1.607-0.679 1.607-1.607 0.679v9.143q1.768 0 3.17 1.759t1.402 3.955z"></path>
+</symbol>
+<symbol id="icon-arrow-left" viewBox="0 0 43 32">
+<path class="path1" d="M42.311 14.044c-0.178-0.178-0.533-0.356-0.711-0.356h-33.778l10.311-10.489c0.178-0.178 0.356-0.533 0.356-0.711 0-0.356-0.178-0.533-0.356-0.711l-1.6-1.422c-0.356-0.178-0.533-0.356-0.889-0.356s-0.533 0.178-0.711 0.356l-14.578 14.933c-0.178 0.178-0.356 0.533-0.356 0.711s0.178 0.533 0.356 0.711l14.756 14.933c0 0.178 0.356 0.356 0.533 0.356s0.533-0.178 0.711-0.356l1.6-1.6c0.178-0.178 0.356-0.533 0.356-0.711s-0.178-0.533-0.356-0.711l-10.311-10.489h33.778c0.178 0 0.533-0.178 0.711-0.356 0.356-0.178 0.533-0.356 0.533-0.711v-2.133c0-0.356-0.178-0.711-0.356-0.889z"></path>
+</symbol>
+<symbol id="icon-arrow-right" viewBox="0 0 43 32">
+<path class="path1" d="M0.356 17.956c0.178 0.178 0.533 0.356 0.711 0.356h33.778l-10.311 10.489c-0.178 0.178-0.356 0.533-0.356 0.711 0 0.356 0.178 0.533 0.356 0.711l1.6 1.6c0.178 0.178 0.533 0.356 0.711 0.356s0.533-0.178 0.711-0.356l14.756-14.933c0.178-0.356 0.356-0.711 0.356-0.889s-0.178-0.533-0.356-0.711l-14.756-14.933c0-0.178-0.356-0.356-0.533-0.356s-0.533 0.178-0.711 0.356l-1.6 1.6c-0.178 0.178-0.356 0.533-0.356 0.711s0.178 0.533 0.356 0.711l10.311 10.489h-33.778c-0.178 0-0.533 0.178-0.711 0.356-0.356 0.178-0.533 0.356-0.533 0.711v2.311c0 0.178 0.178 0.533 0.356 0.711z"></path>
+</symbol>
+<symbol id="icon-play" viewBox="0 0 22 28">
+<path d="M21.625 14.484l-20.75 11.531c-0.484 0.266-0.875 0.031-0.875-0.516v-23c0-0.547 0.391-0.781 0.875-0.516l20.75 11.531c0.484 0.266 0.484 0.703 0 0.969z"></path>
+</symbol>
+<symbol id="icon-pause" viewBox="0 0 24 28">
+<path d="M24 3v22c0 0.547-0.453 1-1 1h-8c-0.547 0-1-0.453-1-1v-22c0-0.547 0.453-1 1-1h8c0.547 0 1 0.453 1 1zM10 3v22c0 0.547-0.453 1-1 1h-8c-0.547 0-1-0.453-1-1v-22c0-0.547 0.453-1 1-1h8c0.547 0 1 0.453 1 1z"></path>
+</symbol>
+</defs>
+</svg>
+
+</body>
+</html>
